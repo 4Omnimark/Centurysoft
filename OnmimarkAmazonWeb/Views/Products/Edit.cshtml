@@ -1,0 +1,177 @@
+﻿@model OmnimarkAmazon.Models.ProductView
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+    var a = document.location.pathname.split('/');
+    var pid = a[a.length - 1];
+
+    $(function () {
+
+        $("#Name").autocomplete({
+            source: "/AmazonInventory/ProductLookup",
+            select: function (event, ui) {
+                return false;
+            }
+        });
+
+        $("#Cost").change(function () {
+            if ($("#ActualCost")[0].value == '')
+                $("#ActualCost").val($("#Cost")[0].value);
+        });
+
+        $("#new_vendor").change(function () {
+            var selectedItem = $(this).find(":selected");
+            var id = selectedItem.attr("value");
+            var name = selectedItem.text();
+            addVendor(id, name);
+            selectedItem.remove();
+        });
+
+        @foreach (VendorListing vl in ((List<VendorListing>)ViewBag.Vendors).Where(vlx => vlx.Value == true))
+        {
+            <text>addVendor("@(vl.ID)", "@(vl.Name)");</text>
+        }
+
+    });
+
+    function addVendor(id, name) {
+        var newVendor = $($("#vendor_template").html().format({ ID: id, Name: name }));
+        newVendor.insertBefore("#new_vendor");
+        
+        $(".delete_vendor_button", newVendor).click(function () {
+            
+            $.ajax({ 
+                url: "/Products/CheckPastPurchaseOrders?ProductID=" + pid + "&VendorID=" + id,
+                success: function(data) {
+                    if (data.length > 0)
+                    {
+                        alert("Cannot remove this Vendor! There are " + data.length + " purchase orders that include this product from this vendor!");
+                    }
+                    else
+                    {
+
+                        $("#vendor_div_" + id).remove();
+
+                        var added = false;
+                        var newOption = $("<option value='" + id + "'>" + name + "</option>");
+                        $("option", $("#new_vendor")).each(function () {
+                            if ($(this).text().toLowerCase() > name.toLowerCase()) {
+                                newOption.insertBefore($(this));
+                                added = true;
+                                return false;
+                            }
+                        });
+
+                        if (!added) newOption.appendTo($("#new_vendor"));
+                    }
+                }
+            });
+
+        });
+
+
+    }
+</script>
+
+<h2>@ViewBag.Title</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div style="display:none;" id="vendor_template">
+    <div id="vendor_div_{ID}" style="float:left; margin-right:2px; margin-bottom:2px; border:1px solid #606060; border-radius:5px; background-color:#E0E0E0; padding:1px 4px 1px 4px;">
+        <img class="delete_vendor_button" data-vendorid="{ID}" data-vendorname="{Name}" src="~/Content/images/delete.png" style="cursor:pointer; vertical-align:top; margin-top:3px; height:11px;" />
+        <span>{Name}</span>
+        <input type="hidden" id="Vendor_{ID}" name="Vendor_{ID}" value="yup" />
+    </div>
+</div>
+    
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset style="float:left; margin-right:10px;">
+
+        <legend>@ViewBag.Legend</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Name, new { style = "width:500px;" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Cost)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Cost)
+            @Html.ValidationMessageFor(model => model.Cost)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ActualCost)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ActualCost)
+            @Html.ValidationMessageFor(model => model.ActualCost)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+
+        <p>
+            <input type="submit" value="@ViewBag.ButtonText" />
+        </p>
+    </fieldset>
+
+    <fieldset style="float:left; margin-right:10px;">
+        <legend>Categories</legend>
+        @foreach (ProductCategoryListing pcl in (List<ProductCategoryListing>)ViewBag.Categories)
+        {
+            <div id="divCategory_@(pcl.ID.ToString())">
+                <input @OmnimarkAmazonWeb.Controllers.ProductsController.GetCategoryCheckBoxAttributes(pcl) /> @pcl.Name
+            </div>
+        }
+    </fieldset>
+    
+    <fieldset style="float:left; margin-right:10px;">
+        <legend>Tags</legend>
+        @foreach (ProductTagListing ptl in (List<ProductTagListing>)ViewBag.Tags)
+        {
+            <div id="divTag_@(ptl.ID.ToString())">
+                <input @OmnimarkAmazonWeb.Controllers.ProductsController.GetTagCheckBoxAttributes(ptl) /> @ptl.Name
+            </div>
+        }
+    </fieldset>
+    
+    <fieldset id="vendors_box" style="float:left; margin-right:10px;">
+        <legend>Vendors</legend>
+        <div style="clear:both;"></div>
+        <select id="new_vendor" style="font-size:12px;">
+        <option value="">-- Add Vendor --</option>
+        @foreach (VendorListing vl in ((List<VendorListing>)ViewBag.Vendors).Where(vlx => vlx.Value == false))
+        {
+            <option value="@(vl.ID.ToString())">@vl.Name</option>
+        }
+        </select>
+    </fieldset>
+    
+    <div style="clear:both;"></div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

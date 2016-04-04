@@ -1,0 +1,255 @@
+﻿@model OmnimarkAmazon.Models.Vendor
+
+<script type="text/javascript">
+
+    $(function () {
+        CountryChanged();
+
+        function CountryChanged() {
+            var CountryID = $("#CountryID")[0].value;
+
+            if (CountryID == "840" || CountryID == "") {
+                $("#StateID")[0].style.display = "";
+                $("#StateOrProvince")[0].style.display = "none";
+            }
+            else {
+                $("#StateID")[0].style.display = "none";
+                $("#StateOrProvince")[0].style.display = "";
+            }
+        }
+
+        $("#CountryID").change(CountryChanged);
+
+        $("#supplierlist").change(function () {
+            $('#theForm')[0].style.display = "none";
+            $.getJSON(
+                "/Vendors/GetSupplier/" + $('#supplierlist')[0].value,
+                null,
+                function (json) {
+                    if ($('#Name')[0].value == '')
+                        $('#Name').val(json.supplier.Company);
+
+                    if ($('#Phone')[0].value == '')
+                        $('#Phone').val(json.supplier.PhoneNumber);
+
+                    if ($('#ContactNameFirst')[0].value == '')
+                        $('#ContactNameFirst').val(json.supplier.Firstname);
+
+                    if ($('#ContactNameMiddle')[0].value == '')
+                        $('#ContactNameMiddle').val(json.supplier.MidInitial);
+
+                    if ($('#ContactNameLast')[0].value == '')
+                        $('#ContactNameLast').val(json.supplier.Lastname);
+
+                    if ($('#Address1')[0].value == '')
+                        $('#Address1').val(json.supplier.Addr1);
+
+                    if ($('#Address2')[0].value == '')
+                        $('#Address2').val(json.supplier.Addr2);
+
+                    if ($('#PostalCode')[0].value == '')
+                        $('#PostalCode').val(json.supplier.ZIP);
+
+                    if ($('#City')[0].value == '')
+                        $('#City').val(json.supplier.City);
+
+                    if ($('#Email')[0].value == '')
+                        $('#Email').val(json.supplier.Email);
+
+                    if ($('#Fax')[0].value == '')
+                        $('#Fax').val(json.supplier.FaxNumber);
+
+                    if ($('#StateOrProvince')[0].value == '')
+                        if (json.CountryID != '840')
+                            $('#StateOrProvince').val(json.supplier.State);
+
+                    if ($('#StateID')[0].value == '')
+                        if (json.CountryID == '840')
+                            $('#StateID').val(json.StateID);
+
+                    if ($('#CountryID')[0].value == '')
+                        $('#CountryID').val(json.CountryID);
+
+                    CountryChanged();
+
+                    $('#theForm')[0].style.display = "";
+                    $('#SupplierAutoLoader')[0].style.display = "none";
+
+                }
+            );
+        });
+
+    });
+
+</script>
+
+<h2 style="float:left;">@ViewBag.Title</h2>
+<div id="SupplierAutoLoader" style="float:right; display:@(ViewBag.ActionType == Startbutton.Web._BaseController.ActionType.Edit || ViewBag.ActionType == Startbutton.Web._BaseController.ActionType.Create ? "" : "none") ">
+Populate from suppliers.csv: @Html.DropDownList("supplierlist", (SelectList)ViewBag.SuppliersSelectList, "-- Select --")
+</div>
+
+<div style="clear:both;"></div>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "theForm", @name = "theForm" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="VendorRecord">
+        <legend>Vendor</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div style="float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <div style="float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Phone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+        </div>
+
+        <div style="float:left; margin-left:20px;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fax)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Fax)
+                @Html.ValidationMessageFor(model => model.Fax)
+            </div>
+        </div>
+
+        <div style="float:left; margin-left:20px;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <div style="float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContactNameFirst)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ContactNameFirst)
+                @Html.ValidationMessageFor(model => model.ContactNameFirst)
+            </div>
+        </div>
+
+        <div style="float:left; margin-left:20px;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContactNameMiddle)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ContactNameMiddle)
+                @Html.ValidationMessageFor(model => model.ContactNameMiddle)
+            </div>
+        </div>
+
+        <div style="float:left; margin-left:20px;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContactNameLast)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ContactNameLast)
+                @Html.ValidationMessageFor(model => model.ContactNameLast)
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <fieldset style="margin-top:15px;">
+            <legend>Address</legend>
+
+            <div style="float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CountryID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("CountryID", (SelectList)ViewBag.CountrySelectList, "-- Select --")
+                    @Html.ValidationMessageFor(model => model.CountryID)
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+
+            <div style="float:left;">
+                <div class="editor-label">
+                    Address
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Address1)
+                    @Html.ValidationMessageFor(model => model.Address1)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Address2)
+                    @Html.ValidationMessageFor(model => model.Address2)
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+
+            <div style="float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.City)
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+            </div>
+
+            <div style="float:left; margin-left:20px;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.StateID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("StateID", (SelectList)ViewBag.StateSelectList, "-- Select --")
+                    @Html.ValidationMessageFor(model => model.StateID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.StateOrProvince)
+                    @Html.ValidationMessageFor(model => model.StateOrProvince)
+                </div>
+            </div>
+
+            <div style="float:left; margin-left:20px;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PostalCode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.PostalCode)
+                    @Html.ValidationMessageFor(model => model.PostalCode)
+                </div>
+            </div>
+
+        </fieldset>
+
+        <p>
+            <input type="submit" value="@ViewBag.ButtonText" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

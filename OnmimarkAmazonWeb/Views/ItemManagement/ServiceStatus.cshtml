@@ -1,0 +1,71 @@
+﻿@model OmnimarkAmazonWeb.Models.ServiceStatus
+
+@{
+    ViewBag.Title = "ServiceStatus";
+}
+
+<style>
+    .serv-status td {width: 37% !important;}
+
+</style>
+
+<h2>Service Status</h2>
+<script src="~/Scripts/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("button#btn_servicename").on('click',function () {
+            var temp = $(this).val();
+            alert(temp);
+            $.ajax({
+                url: "/ItemManagement/Serviceinfo/",
+                type: "POST",
+                data: { sc: temp },
+            })
+            window.location("/ItemManagement/ServiceStatus/");
+        })
+    });
+   
+</script>
+@using (Html.BeginForm())
+{
+@*<div>@ViewBag.status</div>*@
+<table style="height:100%;width:100%;" class="serv-status">
+    @foreach (var item in ViewBag.Service)
+    {
+        if (item.ServiceName.ToString() == "UK_Project_BabyItemlookup" || item.ServiceName.ToString() == "UK_Project_BabyItemSearch" || item.ServiceName.ToString() == "UK_Project_BeautyItemLookup" || item.ServiceName.ToString() == "UK_Project_BeautyItemsearch" || item.ServiceName.ToString() == "UK_Project_JewelryItemSearch" || item.ServiceName.ToString() == "UK_Project_JweleryItemlookup" || item.ServiceName.ToString() == "UK_Project_SportsItemlookup" || item.ServiceName.ToString() == "UK_Project_SportsItemSearch" || item.ServiceName.ToString() == "UK_Project_ToysItemLookup" || item.ServiceName.ToString() == "UK_Project_ToysItemSearch" || item.ServiceName.ToString() == "UK_Project_WatchesItemlookup" || item.ServiceName.ToString() == "UK_Project_WatchesItemSearch" || item.ServiceName.ToString() == "UK_Canada_Price_Update_Amazon" || item.ServiceName.ToString() == "OmnimarkAmazonService" || item.ServiceName.ToString() == "UK_Prohibition Process" || item.ServiceName.ToString() == "UK_Transfer_NonPrime_To_Prime" || item.ServiceName.ToString() == "UK_Project_Watches" || item.ServiceName.ToString() == "UK_Project_Jwellery" || item.ServiceName.ToString() == "UK_Project_Toys_Itemlookup" || item.ServiceName.ToString() == "UK_Project_Sports_Itemlookup" || item.ServiceName.ToString() == "UK_Project_BeautyItemlookup")
+        {
+            if (item.Status.ToString() == "Running")
+            {
+                <tr style="width:250px;">
+                    <td style="width:100px;" class="service-name" id="servicenm" name="@item.ServiceName">
+                        @item.ServiceName
+                       <input type="text" value="@item.ServiceName" name="txtresult" style="display:none" />
+                    </td>
+                    <td style="width:100px;">
+                        <span class="green-status"></span>
+                    </td>
+
+                </tr>
+            }
+            else
+            {
+                <tr style="width:250px;">
+
+                    <td style="width:100px;" class="service-name">
+                        @item.ServiceName
+                    </td>
+                    <td style="width:100px;">
+                        <span class="red-status"></span>
+                    </td>
+                    @*<td style="width:100px;">
+                        <button id="btn_servicename" value="@item.ServiceName" name="">START</button>
+                    </td>*@
+
+
+                </tr>
+            }
+        }
+    }
+
+</table>
+}

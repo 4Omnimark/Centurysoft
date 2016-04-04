@@ -1,0 +1,99 @@
+﻿
+
+<script type="text/javascript">
+
+    var interval;
+    var CountDown = 30;
+
+    $(function () {
+        UpdateStatus();
+        interval = setInterval(CheckUpdateStatus, 1000);
+    });
+
+    function CheckUpdateStatus() {
+        if (CountDown == 0) {
+            UpdateStatus();
+            CountDown = 30;
+        }
+        else
+            CountDown--;
+
+        $("#spanUpdateIn")[0].innerHTML = CountDown;
+
+
+    }
+
+    function UpdateStatus()
+    {
+        $.ajax({
+            url: "/FeedSubmissionSchedule/GetSystemStatus",
+            success: function (html) {
+                $("#divSystemStatus")[0].innerHTML = html;
+            }
+        });
+        $.ajax({
+            url: "/FeedSubmissionSchedule/GetScheduleListing",
+            success: function (html) {
+                $("#divScheduleListing")[0].innerHTML = html;
+            }
+        });
+        $.ajax({
+            url: "/FeedSubmissionSchedule/GetActiveSubmissions",
+            success: function (html) {
+                $("#divActiveSubmissions")[0].innerHTML = html;
+            }
+        });
+        $.ajax({
+            url: "/FeedSubmissionSchedule/GetLog",
+            success: function (html) {
+                $("#divLog")[0].innerHTML = html;
+            }
+        });
+    }
+
+    function ShowScheduleListing() {
+        $("#divActiveSubmissions")[0].style.display = "none";
+        $("#divScheduleListing")[0].style.display = "";
+        $("#divLog")[0].style.display = "none";
+    }
+
+    function ShowActiveSubmissions() {
+        $("#divActiveSubmissions")[0].style.display = "";
+        $("#divScheduleListing")[0].style.display = "none";
+        $("#divLog")[0].style.display = "none";
+    }
+
+    function ShowLog() {
+        $("#divActiveSubmissions")[0].style.display = "none";
+        $("#divScheduleListing")[0].style.display = "none";
+        $("#divLog")[0].style.display = "";
+    }
+
+</script>
+
+<h2 style="float:left;">Scheduled Feed Submissions</h2>
+
+<p style="float:left; margin-left:20px;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<fieldset style="float:left; margin-left:20px;">
+    <legend>System Status</legend>
+    <div id="divSystemStatus"></div>
+</fieldset>
+<div style="float:right; margin-right:20px;">
+    Update In: <span id="spanUpdateIn">30</span>
+</div>
+
+<div style="clear:both;"></div>
+
+<div style="float:right;">
+    <a href="javascript:ShowScheduleListing();">Schedule</a> |
+    <a href="javascript:ShowActiveSubmissions();">Active</a> |
+    <a href="javascript:ShowLog();">Log</a> 
+</div>
+
+<div style="clear:both;"></div>
+
+<div id="divScheduleListing"></div>
+<div id="divActiveSubmissions" style="display:none;"></div>
+<div id="divLog" style="display:none;"></div>

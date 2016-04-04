@@ -1,0 +1,91 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.UnderPricedViewRec>
+
+<script language="javascript">
+    $(function () {
+        $(".ajaxlink a").click(function () {
+            var tr = $(this).parents("tr");
+            this.parentElement.innerHTML = this.innerHTML;
+            $.ajax({
+                url: this.href,
+                success: function (data) {
+                    tr[0].style.display = "none";
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+<h2>Under-Priced ASINs</h2>
+
+<table>
+    <tr>
+        <th>
+            ASIN
+        </th>
+        <th>
+            StoreName
+        </th>
+        <th>
+            Source
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            TimeStamp
+        </th>
+        <th>
+            SKU
+        </th>
+        <th>
+            OpenDate
+        </th>
+        <th>
+            System Actual Cost
+        </th>
+        <th>
+            Calculated Minimum Price
+        </th>
+        <th>
+            Hide
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ASIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreName)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.Source)
+        </td>
+        <td align="right">
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SKU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenDate)
+        </td>
+        <td align="right">
+            @Html.DisplayFor(modelItem => item.SystemActualCost)
+        </td>
+        <td align="right">
+            @Html.DisplayFor(modelItem => item.CalculatedMinimumPrice)
+        </td>
+        <td>
+            <span class="ajaxlink"><a href="UnderPriced/HideUntilUpdate?ASIN=@item.ASIN&AcctID=@item.AmazonAccountID.ToString()">Until Next Update</a></span> |
+            <span class="ajaxlink"><a href="UnderPriced/HideFor30Days?ASIN=@item.ASIN&AcctID=@item.AmazonAccountID.ToString()">For 30 Days</a></span>
+        </td>
+    </tr>
+}
+
+</table>

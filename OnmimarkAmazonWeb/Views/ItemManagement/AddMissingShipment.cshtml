@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "AddMissingShipment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript"></script>
+<h2>AddMissingShipment</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>SKU</td>
+            <td><input name="SKU" type="text" id="SKU" style="width:150px" /></td>
+            <input type="hidden" id="shipid" style="width:150px" value="@ViewBag.shipid" />
+        </tr>
+        <tr>
+            <td>QuantityShipped</td>
+            <td><input type="text" name="QuantityShipped" id="QuantityShipped" style="width:150px" /></td>
+        </tr>
+        <tr><td><input id="btnsubmit" value="Save" type="submit" /></td></tr>
+
+    </table>
+}

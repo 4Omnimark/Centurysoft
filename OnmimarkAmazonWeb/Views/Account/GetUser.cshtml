@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "GetUser";
+}
+
+<h2>GetUser</h2>
+<ul>
+    @foreach (MembershipUser user in Model)
+    {
+        <li>@user.UserName</li>
+        <li>@user.ProviderName</li>
+    }
+
+</ul>

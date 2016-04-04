@@ -1,0 +1,149 @@
+﻿@model OmnimarkAmazonWeb.Models.ExportByAccount
+
+@{
+    ViewBag.Title = "ExportByAccount";
+}
+
+<h2>ExportByAccount</h2>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#Selling').change(function () {
+            $('#records').val("");
+            $('#cost').val("");
+            $("#totalaccount").css("display", "block");
+            $('#marketplace').empty();
+            $('#Cat').empty();
+            var value = $(this).find(':selected').attr('data-accountid');
+            // alert(value);
+
+            $.ajax({
+                url: "/ItemManagement/Account/",
+                type: "POST",
+                // dataType: 'html',
+                data: { acc: value },
+                success: function (data) {
+                    // alert(data);
+                    $("#marketplace").html("<option value=''>--Select--</option>");
+                    for (var i = 0; i < data.length; i++) {
+
+                        $("#marketplace").append("<option value='" + data[i].ShortCode + "' >" + data[i].Name + "</option>");
+                    }
+
+
+                    //var items = '<option>Select a State</option>';
+                    //$.each(data, function (i, cat) {
+                    //    items += "<option value='" + cat.Value + "'>" + cat.Text + "</option>";
+                    //});
+                    //$('#Cat').html(items);
+
+
+                },
+
+             
+            });
+        });
+        $('#marketplace').change(function () {
+            $('#records').val("");
+            $('#cost').val("");
+            $("#totalcat").css("display", "block");
+            $('#Cat').empty();
+            var value = $(this).find(':selected').val();
+            // alert(value);
+
+            $.ajax({
+                url: "/ItemManagement/Category/",
+                type: "POST",
+                // dataType: 'html',
+                data: { sc: value },
+                success: function (data) {
+                    // alert(data);
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $("#Cat").append("<option value='"+data[i]+"'>" + data[i] + "</option>");
+
+                    
+                    }
+
+
+                    //var items = '<option>Select a State</option>';
+                    //$.each(data, function (i, cat) {
+                    //    items += "<option value='" + cat.Value + "'>" + cat.Text + "</option>";
+                    //});
+                    //$('#Cat').html(items);
+
+
+                },
+
+                //$.getJSON('/ItemManagement/Category/'', function (data) {
+                //    alert(data);
+                //var items = '<option>Select category</option>';
+                //$.each(data, function (i, Category) {
+                //    items += "<option value='" + Category.Value + "'>" + Category.Text + "</option>";
+                //});
+                //$('#Category').html(items);
+            });
+        });
+
+        $('#Cat').change(function () {
+            $('#records').val("");
+            $('#cost').val("");
+        });
+    });
+</script>
+@using (Html.BeginForm())
+{
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <div style="padding-bottom:6px;">
+        <label class="sm-lable">Select Selling Venue:</label>
+        <select name="selling" id="Selling" class="sm-select">
+            <option>--Select--</option>
+            @foreach (UkListing.SellingPlace item in ViewBag.SellingVenue)
+            {
+                <option data-accountid="@item.SellingPlace1" value="@item.SellingPlace1">@item.SellingPlace1</option>
+            }
+        </select>
+    </div>
+
+
+    <div id="totalaccount" name="lblcat" style="display:none;padding-bottom:6px;">
+        <label class="sm-lable">Select Marketplace:</label><select id="marketplace" name="marketplace" class="sm-select"><option>---Select---</option></select>
+    </div>
+
+    @*<div style="padding-bottom:6px;display:none" id="totalaccount">
+            <label>Select Marketplace:</label>
+            <select name="acountname" id="Account">
+                <option>--Select--</option>
+                @foreach (UkListing.tbl_Account item in ViewBag.Account)
+                {
+                    <option data-accountid="@item.ShortCode" value="@item.ID">@item.Name</option>
+                }
+            </select>
+        </div>*@
+
+    <div id="totalcat" name="lblcat" style="display:none;padding-bottom:6px;">
+        <label class="sm-lable">Select Category:</label><select id="Cat" name="cat" class="sm-select"><option>---Select---</option></select>
+    </div>
+
+    <div style="padding-bottom:6px">
+        <label class="sm-lable">Record #:</label>
+        @Html.TextBoxFor(x => x.rownumber, new { id = "records" })
+    </div>
+    <div style="padding-bottom:6px">
+        <label class="sm-lable">Price Multiplier:</label>
+        @Html.TextBoxFor(x => x.PriceValue, new { id = "cost" })
+    </div>
+    <div style="padding-bottom:6px">
+        @Html.CheckBoxFor(x=>x.chkresult) <b>Run UK_Prohibited Check </b>
+    </div>
+    <div style="padding-bottom:6px">
+        @Html.CheckBoxFor(x => x.canadachk) <b>Run Canada_Prohibited Check </b>
+    </div>
+    <input type="submit" class="sm-submit" value="Export" id="smt">
+
+
+
+}

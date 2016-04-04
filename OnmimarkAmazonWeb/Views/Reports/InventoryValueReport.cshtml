@@ -1,0 +1,77 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.InventoryReportRecord>
+
+@{
+    Dictionary<string, object> RtnData = (Dictionary<string, object>)ViewBag.RtnData;
+}
+
+<table>
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+            Stock Value
+        </th>
+        <th>
+            Stock Total
+        </th>
+        @foreach (var loc in ViewBag.Locations)
+        {
+            decimal val = 0;
+
+            if (RtnData.ContainsKey("TotalValue" + loc.ShortCode))
+            {
+                val = (decimal)RtnData["TotalValue" + loc.ShortCode];
+            }
+            
+            <th>@loc.Name<br /><span id="TotalValue@(loc.ShortCode)">$@val.ToString("###,###,###,###.00")</span></th>
+        }
+        @foreach (var s in ViewBag.Stores)
+        {
+            decimal val = 0;
+            
+            if (RtnData.ContainsKey("TotalValueAmz" + s.CharID))
+            {
+                val = (decimal)RtnData["TotalValueAmz" + s.CharID];
+            }
+
+            <th>@s.CharID<br /><span id="TotalValueAmz@(s.CharID)">$@val.ToString("###,###,###,###.00")</span></th>
+        }
+        <th>
+            Qty Sold
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.ActualCost
+        </td>
+        <td align="right">
+            @(item.TotalValue == null ? "0" : ((decimal)item.TotalValue).ToString("###,###,###,###.00"))
+        </td>
+        <td align="center">
+            @(((decimal)item.Qtys["Total"]).ToString("###,###,###"))
+        </td>
+        @foreach (var loc in ViewBag.Locations)
+        {
+            <td align="right">@(item.Qtys[loc.ShortCode] == null ? "" : ((decimal)item.Qtys[loc.ShortCode]).ToString("#######0"))</td>
+        }
+        @foreach (var s in ViewBag.Stores)
+        {
+            <td align="right">@(item.Qtys["Amz" + s.CharID] == null ? "" : ((decimal)item.Qtys["Amz" + s.CharID]).ToString("#######0"))</td>
+        }
+        <td align="center">
+            @(((decimal)item.Qtys["TotalQuantitySold"]).ToString("###,###,###"))
+        </td>
+    </tr>
+}
+
+</table>

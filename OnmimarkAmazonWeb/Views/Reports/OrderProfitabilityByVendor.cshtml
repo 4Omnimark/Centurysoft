@@ -1,0 +1,178 @@
+﻿<link href="@Html.GetAppPath()/Content/jquery.tooltip.css" rel="stylesheet" type="text/css" />
+
+<script src="@Html.GetAppPath()/Scripts/Reports.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.tooltip.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $("#StartDate").datepicker({
+            onSelect: StartEndDateChanged
+        });
+
+        $("#EndDate").datepicker({
+            onSelect: StartEndDateChanged
+        });
+
+        $("#ProductSearch").attr("enable", "enable");
+    
+        setVendorAutoComplete();
+
+        $("#ASIN").change(function () {
+            $("#ProductSearch").val('');
+            $("#ProductID").val('');
+            $("#VendorSearch").val('');
+            $("#VendorID").val('');
+            loadThisReport();
+        });
+
+        $("#ProductID").change(function () {
+            $("#ASIN").val('');
+            loadThisReport();
+        });
+
+        loadThisReport();
+    });
+
+    function loadThisReport()
+    {
+        $("#totals-div").css("visibility", "hidden");
+
+        var vendor = $("#VendorID").val();
+        var product = $("#ProductID").val();
+        var asin = $("#ASIN").val();
+        var start_date = $("#StartDate").val();
+        var end_date = $("#EndDate").val();
+
+        var url = "OrderProfitabilityByVendorReport?x=1";
+        
+        if (vendor != null && vendor != "")
+            url += "&VendorID=" + encodeURIComponent(vendor);
+
+        if (product != null && product != "")
+            url += "&ProductID=" + encodeURIComponent(product);
+        
+        if (asin != null && asin != "")
+            url += "&ASIN=" + encodeURIComponent(asin);
+
+        if (start_date != null && start_date != "")
+            url += "&StartDate=" + encodeURIComponent(start_date);
+
+        if (end_date != null && end_date != "")
+            url += "&EndDate=" + encodeURIComponent(end_date);
+
+        loadReport(url);
+    }
+
+    function setVendorAutoComplete() {
+        $("#VendorSearch").autocomplete({
+            source: "/AmazonInventory/VendorLookup",
+            select: function (event, ui) {
+                $("#VendorSearch").val(ui.item.label);
+                $("#VendorID").val(ui.item.value);
+
+                $("#ProductID").val('');
+                $("#ASIN").val('');
+
+                loadProducts($("#VendorID").val());
+
+                return false;
+            },
+            change: function (event, ui) {
+                if (ui.item == null) {
+                    $("#VendorSearch").val('');
+                    $("#VendorID").val('');
+                    $("#ProductSearch").val('');
+                    $("#ProductID").val('');
+                    $('#ProductID').find('option').remove();
+                    $("#ProductSearch").attr("disabled", "disabled");
+                }
+
+            }
+        });
+    }
+
+    function loadProducts(vid) {
+        var pl = $('#ProductID');
+        pl.find('option').remove();
+        $("#ProductSearch").attr("disabled", "disabled");
+
+        loadThisReport();
+
+        $.ajax({
+            url: "/AmazonInventory/ProductLookup?VendorID=" + vid,
+            success: function (data) {
+                pl.append($("<option></option>").attr("value", "").text("--- ALL ---"));
+                for (var x = 0; x < data.length; x++)
+                    pl.append($("<option></option>").attr("value", data[x].value).text(data[x].label));
+                $("#ProductSearch").attr("disabled", null);
+
+            }
+        });
+    }
+
+    function reportLoaded(data) {
+        $("#ProductID").val(data.ProductID);
+        $("#VendorSearch").val(data.Vendor);
+        $("#VendorID").val(data.VendorID);
+        $("#ASIN").val(data.ASIN);
+        $("#StartDate").val(data.StartDate)
+        $("#EndDate").val(data.EndDate);
+
+        if ($("#ProductID").val() != "")
+            $("#ProductSearch").attr("disabled", null);
+
+        if (data.Totals.length > 0) {
+            $("#totals-div").css("visibility", "visible");
+            $("#total-OrderTotal").text(data.Totals[0].OrderTotal.toFixed(2));
+            $("#total-Cost").text(data.Totals[0].Cost.toFixed(2));
+            $("#total-NetNet").text(data.Totals[0].NetNet.toFixed(2));
+            $("#total-Margin").text((data.Totals[0].Margin * 100).toFixed(2) + "%");
+        }
+
+    }
+
+    function StartEndDateChangedSuccess() {
+        loadThisReport();
+    }
+
+</script>
+
+<h2 id="pageTitle" style="float:left;">@ViewBag.Title</h2>
+
+<div id="containerCriteria" style="float:left; margin-top:17px; margin-left:20px;">
+    <div id="divVendorFilter" style="float:left; margin-left:20px;">
+        Vendor:
+        <input name="VendorSearch" id="VendorSearch" style="width:150px;" value="@ViewBag.Vendor" /><br />
+        <input type="hidden" name="VendorID" id="VendorID" value="@ViewBag.VendorID" />
+    </div>
+    <div id="divProductFilter" style="float:left; margin-left:20px;">
+        Product:
+        <select name="ProductID" id="ProductID"></select>
+    </div>
+    <div id="divASINFilter" style="float:left; margin-left:20px; display:none;">
+        ASIN: <input name="ASIN" id="ASIN" style="width:150px;" value="@ViewBag.ASIN" /> <br />
+    </div>
+    <div id="containerDays" style="float:left; margin-left:20px;">
+        Start: <input name="StartDate" id="StartDate" size="7" />
+        End: <input name="EndDate" id="EndDate" size="7" />
+    </div>
+</div>
+
+<div style="clear:both;"></div>
+
+<style>
+    #totals-div span { margin-right:50px; }
+</style>
+
+<div id="totals-div" style="visibility:hidden;">
+    <b>TOTALS:</b> 
+    Sales: <span id="total-OrderTotal"></span>
+    Cost: <span id="total-Cost"></span>
+    Net: <span id="total-NetNet"></span>
+    Margin: <span id="total-Margin"></span>
+</div>
+
+<div id="divReport" style="overflow:scroll;"></div>

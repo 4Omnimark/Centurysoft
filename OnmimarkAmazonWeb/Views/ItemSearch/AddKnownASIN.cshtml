@@ -1,0 +1,11 @@
+﻿
+<h2>Add a Known ASIN</h2>
+
+<form method="post">
+<b>Marketplace:</b>@Html.DropDownList("MarketPlaceID", (SelectList)ViewBag.MarketPlaces)<br />
+<b>ASIN:</b> <input name="ASIN" id="ASIN" /><br />
+<br />
+<input type="submit" value="Add ASIN" />
+
+
+</form>

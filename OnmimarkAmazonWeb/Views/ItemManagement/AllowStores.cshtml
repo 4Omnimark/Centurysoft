@@ -1,0 +1,70 @@
+﻿@model OmnimarkAmazonWeb.Models.AllowStores
+
+@{
+    ViewBag.Title = "Allow Stores";
+}
+
+<h2>Allow Stores</h2>
+<script type="text/javascript">
+    $(function () {
+        $('#Selling').change(function () {
+           
+            var value = $(this).find(':selected').attr('data-accountid');
+            // alert(value);
+
+            $.ajax({
+                url: "/ItemManagement/Store/",
+                type: "POST",
+                // dataType: 'html',
+                data: { acc: value },
+                success: function (data) {
+                   //  alert(data);
+                    if(data==1)
+                    {
+                        $('#str_btn').hide();
+                        $('#stp_btn').show();
+
+                    }else
+                        if(data==0)
+                        {
+                            $('#stp_btn').hide();
+                            $('#str_btn').show();
+                        }
+                },
+
+
+            });
+        });
+     
+  
+    });
+</script>
+
+@if (TempData["msg"] != null)
+{
+    <div class="green">
+        <p><strong style="color:red">Success:</strong><b style=" color:green"> @TempData["msg"].ToString()</b></p>
+    </div>
+}
+
+
+@using (Html.BeginForm())
+{
+    <div >
+        @*@Html.DropDownListFor(x => x.storename, (SelectList)ViewBag.AccountStore, "--Select--", new{@class="sm-select"})*@
+        <select name="selling" id="Selling" class="sm-select">
+            <option>--Select--</option>
+            @foreach (UkListing.tbl_Account item in ViewBag.AccountStore)
+            {
+                <option data-accountid="@item.Name" value="@item.Name">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Start" id="str_btn" name="submit" class="sm-submit" style="display:none"/>
+
+
+        <input type="submit" value="Stop" id="stp_btn" name="submit" class="sm-submit" style="display:none" />
+    </div>
+
+}

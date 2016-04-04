@@ -1,0 +1,36 @@
+﻿@model IEnumerable<dynamic>
+
+<table>
+    <tr>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Special Price
+        </th>
+        <th>
+            Qty Sold
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.ASIN
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td align="right">
+            @(((decimal)item.SpecialPrice).ToString("###,##0.00"))
+        </td>
+        <td align="right">
+            @(((decimal)item.Qty).ToString("###,##0"))
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,24 @@
+﻿<h3>Country: @ViewBag.CountryName</h3>
+
+<h3>Vendor: @ViewBag.VendorName</h3>
+
+<table>
+<tr>
+    <th>Product</th>
+    <th>Need In Inventory</th>
+    <th>On Order</th>
+    <th>In Inventory</th>
+    <th>Net</th>
+</tr>
+@foreach (var Product in (dynamic)ViewBag.Model)
+{
+    <tr style="color:@((Product.NeedInInventory - Product.OnOrder) < 0 ? "red" : "black")">
+        <td><a href="?CountryID=@ViewBag.CountryID&VendorID=@ViewBag.VendorID&ProductID=@Product.ProductID">@Product.ProductName</a></td>
+        <td align="right">@(((decimal)Product.NeedInInventory).ToString("###,###,##0"))</td>
+        <td align="right">@(((decimal)Product.OnOrder).ToString("###,###,##0"))</td>
+        <td align="right">@(Product.Qty == null ? "0" : ((decimal)Product.Qty).ToString("###,###,##0"))</td>
+        <td align="right">@(((decimal)(Product.NeedInInventory - Product.OnOrder - Product.Qty)).ToString("###,###,##0"))</td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeductInventoryEBay.aspx.cs" Inherits="OmnimarkAmazonWeb.Tools.DeductInventoryEBay" %>

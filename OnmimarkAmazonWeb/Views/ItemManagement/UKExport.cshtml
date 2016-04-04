@@ -1,0 +1,25 @@
+﻿@model OmnimarkAmazonWeb.Models.UKListingModel
+
+@{
+    ViewBag.Title = "UKExport";
+}
+
+<h2>UKExport</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DropDownListFor(modelitem => modelitem.Category, (SelectList)ViewBag.uklist, "--Select--")
+    </div>
+    <div>
+        @Html.TextBoxFor(modelitem => modelitem.filename)
+    </div>
+    <div>
+        @Html.TextBoxFor(modelitem => modelitem.rownumber)
+    </div>
+    @Html.CheckBoxFor(modelitem => modelitem.chkresult);
+
+    <input type="submit" value="Export" name="submit" />
+    
+    <input type="submit" value="Update UK Prohibition Satus" name="submit" />
+}
+@Html.ActionLink("Click Here If File is not Uploaded", "ExportStatus");

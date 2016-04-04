@@ -1,0 +1,44 @@
+﻿<h3>Country: @ViewBag.CountryName</h3>
+
+<script type="text/javascript">
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp("([?|&])" + key + "=.*?(&|$)", "i");
+        separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            return uri.replace(re, '$1' + key + "=" + value + '$2');
+        }
+        else {
+            return uri + separator + key + "=" + value;
+        }
+    }
+
+    $(function () {
+
+        $("#sortByNeeded")[0].href = updateQueryStringParameter(document.location.href, "Sort", "Needed");
+        $("#sortByAlpha")[0].href = updateQueryStringParameter(document.location.href, "Sort", "Alpha");
+
+    });
+</script>
+
+<p>
+    <a id="sortByNeeded" href="?Sort=Needed">Sort by Needed</a> | <a id="sortByAlpha" href="?Sort=Alpha">Sort by Alpha</a>
+</p>
+
+<table>
+    <tr>
+        <th>Vendor</th>
+        <th>Need In Inventory</th>
+        <th>On Order</th>
+        <th>Net</th>
+    </tr>
+    @foreach (var Vendor in (dynamic)ViewBag.Model)
+    {
+        <tr style="color:@((Vendor.NeedInInventory - Vendor.OnOrder) < 0 ? "red" : "black")">
+            <td><a href="?CountryID=@ViewBag.CountryID&VendorID=@Vendor.VendorID">@Vendor.VendorName</a></td>
+            <td align="right">@(((decimal)Vendor.NeedInInventory).ToString("###,###,##0"))</td>
+            <td align="right">@(((decimal)Vendor.OnOrder).ToString("###,###,##0"))</td>
+             <td align="right">@(((decimal)(Vendor.NeedInInventory - Vendor.OnOrder)).ToString("###,###,##0"))</td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model  OmnimarkAmazonWeb.Controllers.ItemManagementController.InboundProductInventoryAdjustmentAudits
+          
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div style="float:left; padding-left:20px;">
+        <div class="editor-label">
+            FBA Shipment ID
+            @Html.ActionLink("CSV REport", "CreateCSV")
+        </div>
+        <div class="editor-field">
+            @*<input type="text" name="FBAID" id="FBAID" value="@(IsPost ? Request.Form["FBAID"] : Model.ShipmentID == null ? "" : Model.ShipmentID)" />*@
+            @Html.TextBoxFor(model=>model.ShipmentID )
+            @Html.ValidationMessageFor(model => model)
+        </div>
+
+        <input type="submit" value="Search" />
+    </div>
+}
+    @*<div>
+        <table>
+
+            <tr>
+                <th>ASIN</th>
+                <th>SKU</th>
+                <th>Title</th>
+                <th>Quantity</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@item.SKU</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.QuantityReceived</td>
+                </tr>
+
+            }
+        </table>
+    </div>*@
+
+
+
+
+
+

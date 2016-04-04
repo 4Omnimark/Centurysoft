@@ -1,0 +1,9 @@
+﻿@model List<Dictionary<string, object>>
+           
+<h2>GetASINsWithAttributes</h2>
+
+
+@foreach (Dictionary<string, object> item in Model)
+{
+    @item["ImageURL"]<br />
+}

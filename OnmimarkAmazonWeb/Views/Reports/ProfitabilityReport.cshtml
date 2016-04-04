@@ -1,0 +1,72 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.ProfitabilityReportRecord>
+
+<table>
+    <tr>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            Sales
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+            Avg Prc
+        </th>
+        <th>
+            Item Profit
+        </th>
+        <th>
+            Total Profit
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+
+    string color = "inherit";
+
+    if (item.MissingCosts)
+    {
+        color = "red";
+    }
+    
+    <tr style="color:@color">
+        <td>
+            @Html.DisplayFor(modelItem => item.ASIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td align="right">
+            <div class="qty" fs="@(((decimal)item.QtySoldFiveStar).ToString("###,###,##0"))" vp="@(((decimal)item.QtySoldVitality).ToString("###,###,##0"))" bz="@(((decimal)item.QtySoldBrandzilla).ToString("###,###,##0"))">
+                @(((decimal)item.QtySold).ToString("###,###,##0"))
+            </div>
+        </td>
+        <td align="right">
+            <div class="sales" fs="@(((decimal)item.SalesFiveStar).ToString("###,###,##0.00"))" vp="@(((decimal)item.SalesVitality).ToString("###,###,##0.00"))" bz="@(((decimal)item.SalesBrandzilla).ToString("###,###,##0.00"))">
+                @(((decimal)item.Sales).ToString("###,###,##0.00"))
+            </div>
+        </td>
+        <td align="right">
+            @(((decimal)item.ProductCost).ToString("###,###,##0.00"))
+        </td>
+        <td align="right">
+            @(((decimal)item.AveragePrice).ToString("###,###,##0.00"))
+        </td>
+        <td align="right">
+            @(item.AverageProfitPerItem == null ? "" : (((decimal)item.AverageProfitPerItem).ToString("###,###,##0.00")))
+        </td>
+        <td align="right">
+            @(item.Profit == null ? "" : (((decimal)item.Profit).ToString("###,###,##0.00")))
+        </td>
+   </tr>
+}
+
+</table>

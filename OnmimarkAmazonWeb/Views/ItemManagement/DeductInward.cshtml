@@ -1,0 +1,137 @@
+﻿@model OmnimarkAmazonWeb.Models.DeductInward
+@*@model Tuple<OmnimarkAmazonWeb.Models.DeductInward, IEnumerable<OmnimarkAmazon.Models.ProductInventoryAdjustment>>*@
+
+@{
+    ViewBag.Title = "DeductInward";
+}
+
+<h2>DeductInward</h2>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductFiltering.js" type="text/javascript"></script>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Purchase Order</legend>
+
+        <div style="float:left;">
+            <div class="editor-label">
+
+            </div>
+            <div class="editor-field">
+
+            </div>
+        </div>
+
+        <div style="float:left; padding-left:20px;">
+            <div class="editor-label">
+                Order ID:
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.OrderID)
+
+            </div>
+        </div>
+
+        <div style="float:left; padding-left:20px;">
+            <div class="editor-label">
+                Customer Name:
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CustomerName)
+            </div>
+        </div>
+        <div style="float:left; padding-left:40px">
+            <div class="editor-label">
+                Sales Venue:
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.SalesVenue)
+            </div>
+
+        </div>
+
+
+        <div style="clear:both;"></div>
+
+        <div style="float:left;">
+            <div class="editor-label">
+                Reason
+            </div>
+            <div class="editor-field">
+
+
+                @Html.DropDownList("ReasonID", (SelectList)ViewBag.Reasons, "-- Select --")
+
+            </div>
+        </div>
+
+        @if (ViewBag.IsDetailView != null)
+        {
+            <div style="float:left; margin-left:20px;">
+                <div class="editor-label">
+                    Total Cost
+                </div>
+
+            </div>
+            <div style="float:left; margin-left:20px;">
+                <div class="editor-label">
+                    Total Actual Cost
+                </div>
+
+            </div>
+        }
+
+        <div style="clear:both;"></div>
+
+        @*<div style="">
+                <div class="editor-label">
+                    Notes
+                </div>
+
+            </div>*@
+
+
+
+        <hr style="margin-top:20px; margin-bottom:20px; color:Black;" />
+
+        <table>
+            <tr>
+                <th>Qty</th>
+                <th>Name</th>
+                <th>Notes</th>
+                <th>Date</th>
+
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(model => model.Qty)</td>
+                <td>
+                    <input name="FilterProductSearch" id="FilterProductSearch" style="width:200px;" value="@Request["ProductFilter"]" /><br />
+                </td>
+                @*<td>@Html.TextBoxFor(model => model.Item1.ProductID)</td>*@
+                <td>@Html.TextBoxFor(model => model.ReasonRef1)</td>
+                <td>@Html.TextBoxFor(model => model.TimeStamp, new { @Value = @DateTime.Now.ToShortDateString() })</td>
+                @*<td><input type="text" value=""/></td>
+                    <td><input type="text" value="" /></td>
+                    <td><input type="text" value="" /></td>
+                    <td><input type="text" value="" /></td>*@
+            </tr>
+
+
+        </table>
+        <input type="submit" value="Deduct" />
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "PurchaseOrders")
+</div>

@@ -1,0 +1,29 @@
+﻿@model OmnimarkAmazon.Models.SearchTerm
+
+
+<h2>@ViewBag.Title</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>@ViewBag.Legend</legend>
+
+        <div class="editor-label">
+            <b>@Html.LabelFor(model => model.Term)</b> 
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Term)
+        </div>
+
+        <p>
+            <input type="submit" id="submit" value="@ViewBag.ButtonText" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ItemSearch/SearchTerms/Index")
+</div>

@@ -1,0 +1,382 @@
+﻿@model OmnimarkAmazon.Models.ExportSpec
+@section ExtraHeader {
+<style>
+    #sortable1, #sortable2, #sortable3 { list-style-type: none; margin-top:0px; padding: 0 0 2.5em; border:1px solid black; min-width:400px; min-height:20px; }
+    #sortable1 li, #sortable2 li, #sortable3 li { margin:0px; padding: 0px; font-size: 12px; width: 400px; cursor:move; line-height:11px; border:1px dotted #E0E0E0; }
+    .BoxHeading { margin-bottom:2px; }
+    .overlay { background-color: rgba(0, 0, 0, 0.7); color:white; z-index: 999; position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none; display:table-cell; }
+    .overlayMessage { position:absolute; font-size:48px; top:50%; left:50%; z-index:1002; overflow:hidden; width:600px; height:58px; margin-top:0px; margin-bottom:0px; padding:0px; margin-left:-300px; text-align:center; vertical-align:center; margin-top:-24px; }
+</style>
+
+<script src="@Html.GetAppPath()/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+
+<script>
+
+    var FieldsLoaded = false;
+    var ExtraFieldsLoaded = false;
+
+    function RegenExtraFields() {
+
+        SetFieldList();
+        $("#sortable3").empty();
+
+        $("#SelectClauseExtension").attr('disabled', 'disabled');
+        ExtraFieldsLoaded = false;
+
+        $.ajax({
+            url: "/Export/GetExtraFieldList",
+            type: "post",
+            data: "SelectClauseExtension=" + encodeURIComponent($("#SelectClauseExtension")[0].value) +
+                "&FieldList=" + encodeURIComponent($("#FieldList")[0].value),
+            success: function (json) {
+
+                if (json.Error == null) {
+
+                    $.each(json.Fields, function () {
+                        if ($("#" + GetFieldID(this))[0] == null) {
+                            var new_li = "<li id='" + GetFieldID(this) + "' class='ui-state-default'>" + this + "</li>";
+                            $("#sortable3").append(new_li);
+                        }
+                    });
+
+                    ExtraFieldsLoaded = true;
+                    TryMoveSelectedFields();
+                }
+                else
+                    alert(json.Error);
+
+                $("#SelectClauseExtension").removeAttr('disabled');
+
+            }
+        });
+
+    }
+
+    function TryMoveSelectedFields() {
+        if (FieldsLoaded && ExtraFieldsLoaded)
+            MoveSelectedFields();
+    }
+
+    function MoveSelectedFields() {
+        var items = $("#FieldList")[0].value.split(',');
+
+        for (var i = 0; i < items.length; i++) {
+            var id = GetFieldID(items[i]);
+            if ($("#sortable2 > #" + id)[0] == null)
+                $("#sortable2").append($("#" + id));
+        }
+
+        UpdateSelectedFieldTextFromFieldNameTranslations();
+        
+        // enable page
+        $("#overlay").hide();
+
+    }
+
+    function FieldNameTranslationsToObject()
+    {
+        var items = $("#FieldNameTranslations")[0].value.split(',');
+        var FNTList = new Object();
+
+        for (var i = 0; i < items.length; i++) {
+            var a = items[i].split('=');
+            FNTList[a[0]] = a[1];
+        }    
+
+        return FNTList;
+    }
+
+    function ObjectToFieldNameTranslations(obj)
+    {
+        var newval = "";
+
+        for(p in obj)
+            newval = (newval == "" ? "" : newval + ",") + p + "=" + obj[p];
+
+        $("#FieldNameTranslations")[0].value = newval;
+    }
+
+    function UpdateSelectedFieldTextFromFieldNameTranslations()
+    {
+        var FNTList = FieldNameTranslationsToObject();
+
+        $('#sortable2 > li').each(function () {
+            var field = GetFieldNameFromID(this.id);
+            var this_element = $("#" + this.id);
+            this_element.empty();
+
+            this.innerText = "";
+
+            if (FNTList[field] != null)
+            {
+                this_element.append("<div id='colname_" + this.id + "' style='overflow:hidden; width:200px; float:left;'><span style='z-index:100; cursor:text;' onmousedown='if (typeof event.stopPropagation != \"undefined\") { event.stopPropagation(); } else { event.cancelBubble = true; }' onclick='RenameField(\"" + this.id + "\");'>" + FNTList[field] + "</span></div>");
+                this_element.append("<div style='font-size:8px;'>(" + field + ")</div>");
+                this_element.append("<div style='clear:both;'></div>");
+            }
+            else
+            {
+                this_element.append("<div id='colname_" + this.id + "' style='width:200px; float:left;'><span style='z-index:100; cursor:text; onmousedown='if (typeof event.stopPropagation != \"undefined\") { event.stopPropagation(); } else { event.cancelBubble = true; }' onclick='RenameField(\"" + this.id + "\");'>" + field + "</span></div>");
+                this_element.append("<div style='clear:both;'></div>");
+            }
+        });
+    }
+
+    function RenameField(id)
+    {
+        var field = GetFieldNameFromID(id);
+        var this_element = $("#" + id);
+        var oldname = $("#colname_" + id)[0].innerText;
+
+        this_element.empty();
+
+        this.innerText = "";
+        this_element.append("<input id='rename_" + id + "' value='" + oldname + "' style='width:300px; font-size:12px; line-height:11px; margin:0px; padding:0px; height:11px;' />");
+
+        var rename_element = $("#rename_" + id);
+        rename_element.bind("keypress", function (e) {
+            if (e.keyCode == 13) {
+                DoRename(id);
+                return false;
+            }
+        });
+        rename_element.blur(function() {
+            DoRename(id);
+        });
+        rename_element.focus();
+
+    }
+
+    function DoRename(id)
+    {
+        var rename_element = $("#rename_" + id);
+        var field = GetFieldNameFromID(id);
+        var FNTList = FieldNameTranslationsToObject();
+
+        if (field == rename_element[0].value)
+            delete FNTList[field];
+        else
+            if (rename_element[0].value == "")
+                delete FNTList[field];
+            else                
+                FNTList[field] = rename_element[0].value;
+
+        ObjectToFieldNameTranslations(FNTList);
+        UpdateSelectedFieldTextFromFieldNameTranslations();
+    }
+
+    function SetFieldList() {
+
+        if (FieldsLoaded && ExtraFieldsLoaded) {
+
+            $("#FieldList")[0].value = "";
+
+            var list = "";
+
+            $('#sortable2 > li').each(function () {
+                list += (list == "" ? "" : ",") + GetFieldNameFromID(this.id);
+            });
+
+            $("#FieldList")[0].value = list;
+        }
+    }
+
+    function GetFieldID(f) {
+        return "field_" + f.split(" ").join("_SPACE_").split(".").join("_DOT_");
+    }
+
+    function GetFieldNameFromID(f) {
+        return f.substring(6).split("_SPACE_").join(" ").split("_DOT_").join(".");
+    }
+
+    $(function () {
+
+        //disable page
+        $("#overlay").show();
+
+        $("#sortable1, #sortable2, #sortable3").sortable({
+            connectWith: ".connectedSortable",
+            update: function(event, ui) {
+                UpdateSelectedFieldTextFromFieldNameTranslations();
+                SetFieldList();
+            }
+        }).disableSelection();
+
+        $("#btnSave").click(function () {
+            SetFieldList();
+        });
+
+        $("#SelectClauseExtension").keyup(function () {
+            $("#btnRegenExtraFields")[0].disabled = "";
+        });
+
+        $("#SelectClauseExtension").change(function () {
+            RegenExtraFields();
+            $("#btnRegenExtraFields")[0].disabled = "disabled";
+        });
+
+        $("#btnRegenExtraFields").click(function() {
+            $("#btnRegenExtraFields")[0].disabled = "disabled";
+        });
+
+        $.ajax({
+            url: "/Export/GetFieldList",
+            success: function (json) {
+                $.each(json, function () {
+                    var new_li = "<li id='" + GetFieldID(this) + "' class='ui-state-default'>" + this + "</li>";
+                    $("#sortable1").append(new_li);
+                });
+
+                FieldsLoaded = true;
+                TryMoveSelectedFields();
+            }
+        });
+
+        RegenExtraFields();
+
+        $("#FieldNameTranslations").keyup(function() { UpdateSelectedFieldTextFromFieldNameTranslations(); });
+
+    });
+
+</script>
+}
+
+<div id="overlay" class="overlay"><span class="overlayMessage">Initializing... Please wait!</span></div>
+
+<h2 style="float:left;">@ViewBag.Title</h2>
+
+@{ using (Html.BeginForm())
+   {
+
+        <div style="float:left; margin-top:12px; margin-left:20px;" method="post" id="TheForm">
+            <input type="hidden" id="FieldList" name="FieldList" value="@(Model.FieldList == null ? "" : Model.FieldList.Replace("\"", "\\\""))" />
+            <input type="submit" id="btnSave" value="@ViewBag.ButtonText" />
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <div style="min-height:2000px;">
+
+            <div style="float:left;">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Name, new { style = "width:400px;" })<br />
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FieldList)
+                </div>
+                <div class="editor-field">
+                    <ul id="sortable2" class="connectedSortable" style="border-color:#CCC;"></ul>
+                    @Html.ValidationMessageFor(model => model.FieldList)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FieldNameTranslations)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.FieldNameTranslations, new { style = "width:400px; height:150px;" })<br />
+                    @Html.ValidationMessageFor(model => model.FieldNameTranslations)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.WhereClause)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.WhereClause, new { style = "width:400px; height:150px;" })<br />
+                    @Html.ValidationMessageFor(model => model.WhereClause)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.OrderByClause)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.OrderByClause, new { style = "width:400px;" })<br />
+                    @Html.ValidationMessageFor(model => model.OrderByClause)
+                </div>
+
+            </div>
+
+            <div style="float:left; margin-left:20px;">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.RecordCount)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.RecordCount)<br />
+                    @Html.ValidationMessageFor(model => model.RecordCount)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ExcludeExportsToSalesVenueID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("ExcludeExportsToSalesVenueID", (SelectList)ViewBag.SalesVenues, "-- N/A --")
+                    @Html.ValidationMessageFor(model => model.ExcludeExportsToSalesVenueID)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SelectClauseExtension)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.SelectClauseExtension, new { style = "width:400px; height:200px;" })<br />
+                    @Html.ValidationMessageFor(model => model.SelectClauseExtension)
+                </div>
+
+                <input id="btnRegenExtraFields" type="button" value="Refresh" style="float:right;" disabled="disabled" />
+
+                <div class="editor-label">
+                    Select-Generated Fields
+                </div>
+                <div class="editor-field">
+                    <ul id="sortable3" class="connectedSortable" style="border-color:#CCC;"></ul>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FileHeaderText)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.FileHeaderText, new { style = "width:400px; height:200px;" })<br />
+                    @Html.ValidationMessageFor(model => model.FileHeaderText)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FieldDelimiter)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FieldDelimiter, new { style = "width:30px;" })<br />
+                    @Html.ValidationMessageFor(model => model.FieldDelimiter)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.EncloseInQuotes)
+                </div>
+                <div class="editor-field">
+                    @Html.CheckBoxFor(model => model.EncloseInQuotes)<br />
+                    @Html.ValidationMessageFor(model => model.EncloseInQuotes)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FileExtension)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FileExtension)<br />
+                    @Html.ValidationMessageFor(model => model.FileExtension)
+                </div>
+
+                
+            </div>
+
+            <div style="float:left; margin-left:20px;">
+                <h3 class="BoxHeading">Available Fields</h3>
+                <ul id="sortable1" class="connectedSortable"></ul>
+            </div>
+
+        </div>
+
+   }
+}

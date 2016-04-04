@@ -1,0 +1,12 @@
+﻿@model OmnimarkAmazon.Models.eBayItem
+
+<h2>@ViewBag.Title</h2>
+
+
+
+<fieldset>
+    <legend>Associated Products</legend>
+
+    @Html.Partial("AssociatedProducts", (IEnumerable<OmnimarkAmazon.Models.eBayItemsProduct>)ViewBag.AssociatedProducts)
+
+</fieldset>

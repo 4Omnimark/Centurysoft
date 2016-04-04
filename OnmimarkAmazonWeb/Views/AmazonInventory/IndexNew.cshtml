@@ -1,0 +1,57 @@
+﻿<link href="@Html.GetAppPath()/Content/jquery.tooltip.css" rel="stylesheet" type="text/css" />
+
+<script src="@Html.GetAppPath()/Scripts/jquery.stickyTableHeaders.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.dimensions.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.tooltip.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jshashtable-2.1.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.numberformatter-1.2.3.min.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductDateSelection.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/AmazonInventory.js" type="text/javascript"></script>
+<div id="blockSettings">
+    <h2 id="pageTitle" style="float:left; vertical-align:top;">@ViewBag.RecTypeNamePlural</h2>
+    <div style="float:left; margin-left:20px; border:1px solid black; padding:5px; text-align:center;">
+        <span style="font-weight:bold;">Total Shown Inventory Value:</span><br />
+        <span id="totalInventoryValue">N/A</span>
+    </div>
+    <div style="float:left; padding-left:20px;">Show Sales/Stock For:<br /> @Html.DropDownList("ShowStockFor", (SelectList)ViewBag.Accounts, "-- All --")</div>
+    <div style="float:left; padding-top:5px; padding-left:20px;">
+        <input type="checkbox" name="OnlyNoProducts" id="OnlyNoProducts" /> Show Only ASINs With No Products<br />
+        <input type="checkbox" name="OnlyLowInventory" id="OnlyLowInventory" /> Show Only low Inventory
+        <input type="checkbox" name="OnlyUSA" id="OnlyUSA" /> Show Only USA
+    </div>
+    <div style="float:left; padding-left:20px;">
+        Filter By:
+        <select id="FilterBy">
+            <option value="">-- None --</option>
+            <option value="ASIN">ASIN</option>
+            <option value="Product">Product</option>
+            <option value="SKU">SKU</option>
+            <option value="Vendor">Vendor</option>
+        </select>
+        <div id="divProductFilter" style="display:none;">
+            Product:
+            <input name="ProductSearch" id="ProductSearch" style="width:150px;" /><br />
+            <input type="hidden" name="ProductID" id="ProductID" />
+        </div>
+        <div id="divVendorFilter" style="display:none;">
+            Vendor:
+            <input name="VendorSearch" id="VendorSearch" style="width:150px;" /><br />
+            <input type="hidden" name="VendorID" id="VendorID" /> 
+        </div>
+        <div id="divASINFilter" style="display:none;">
+            ASIN: <input name="ASIN" id="ASIN" style="width:150px;" /><br />
+        </div>
+        <div id="divSKUFilter" style="display:none;">
+            SKU: <input name="SKU" id="SKU" style="width:150px;" /><br />
+        </div>
+    </div>
+    <div style="float:left; padding-left:20px;">
+        Sales Start: <input name="SalesStart" id="SalesStart" style="width:80px;" /><br />
+        Sales End: <input name="SalesEnd" id="SalesEnd" style="width:80px;" />
+    </div>
+</div>
+<div style="clear:both;"></div>
+<div id="divTable" style="overflow:scroll;">
+    <input type="button" value="Load" id="btnInitialLoad" />
+</div>

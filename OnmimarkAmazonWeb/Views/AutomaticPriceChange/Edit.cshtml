@@ -1,0 +1,163 @@
+﻿@model OmnimarkAmazon.Models.AutomaticPriceChangeWeb
+
+<h2>@ViewBag.Title</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/date.js")" type="text/javascript"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#TempPriceStartDateTime").datepicker();
+        $("#TempPriceEndDateTime").datepicker();
+
+        $("#TempPriceStartTime").blur(function (e) {
+            var val = $(this).val();
+            if (!isNaN(val))
+            // add minutes to numeric value otherwise it will be interpreted as a date
+                val = val + ':00';
+            var dt = Date.parse(val);
+            try {
+                $(this).val(dt.toString('h:mm tt'))
+            }
+            catch (e) {
+                $(this).val("");
+            }
+        });
+
+        $("#TempPriceEndTime").blur(function (e) {
+            var val = $(this).val();
+            if (!isNaN(val))
+            // add minutes to numeric value otherwise it will be interpreted as a date
+                val = val + ':00';
+            var dt = Date.parse(val);
+            try {
+                $(this).val(dt.toString('h:mm tt'))
+            }
+            catch (e) {
+                $(this).val("");
+            }
+        });
+
+        $("#TimeSpanSpanType").change(function () {
+            if ($(this).val() == 7) {
+                $("#divDaysOfWeek")[0].style.display = "";
+                $("#TimeSpanCount").val("1");
+            }
+            else
+                $("#divDaysOfWeek")[0].style.display = "none";
+
+        });
+
+        $("#TimeSpanSpanType").change();
+    });
+</script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>@ViewBag.Legend</legend>
+
+        @if (ViewBag.UnknownSKU != null)
+        {
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AmazonAccountID)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("AmazonAccountID", (SelectList)ViewBag.AmazonAccounts, "-- Select --")
+                @Html.ValidationMessageFor(model => model.AmazonAccountID)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ASIN)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ASIN)
+                @Html.ValidationMessageFor(model => model.ASIN)
+            </div>
+        }
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SKU)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SKU)
+            @Html.ValidationMessageFor(model => model.SKU)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TempPrice)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TempPrice)
+            @Html.ValidationMessageFor(model => model.TempPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RegularPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RegularPrice)
+            @Html.ValidationMessageFor(model => model.RegularPrice)
+        </div>
+
+        <div class="editor-label">
+            Temp Price Start
+        </div>
+        <div class="editor-field">
+            Date:
+            @Html.TextBoxFor(model => model.TempPriceStartDateTime, new { style = "width:100px;", @Value = Model.TempPriceStartDateTime == null ? "" : ((DateTime)Model.TempPriceStartDateTime).ToString("M/d/yyyy") })
+            @Html.ValidationMessageFor(model => model.TempPriceStartDateTime)
+            Time:
+            @Html.TextBoxFor(model => model.TempPriceStartTime, new { style = "width:100px;" })
+            @Html.ValidationMessageFor(model => model.TempPriceStartTime)
+        </div>
+
+        <div class="editor-label">
+            Temp Price End
+        </div>
+        <div class="editor-field">
+            Date:
+            @Html.TextBoxFor(model => model.TempPriceEndDateTime, new { style = "width:100px;", @Value = Model.TempPriceEndDateTime == null ? "" : ((DateTime)Model.TempPriceEndDateTime).ToString("M/d/yyyy") })
+            @Html.ValidationMessageFor(model => model.TempPriceEndDateTime)
+            Time:
+            @Html.TextBoxFor(model => model.TempPriceEndTime, new { style = "width:100px;" })
+            @Html.ValidationMessageFor(model => model.TempPriceEndTime)
+        </div>
+
+        <div class="editor-label">
+            Run Every:
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TimeSpanCount, new { style = "width:30px;" })
+            @Html.ValidationMessageFor(model => model.TimeSpanCount)
+            @Html.DropDownList("TimeSpanSpanType", (SelectList)ViewBag.SpanTypes, "-- Select --")
+            @Html.ValidationMessageFor(model => model.TimeSpanSpanType)
+            <span id="divDaysOfWeek" style="display:none;">
+                <input type="checkbox" name="cbSunday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[0] ? "checked " : "")/>Sunday
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="cbMonday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[1] ? "checked " : "")/>Monday
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="cbTuesday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[2] ? "checked " : "")/>Tuesday
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="cbWednesday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[3] ? "checked " : "")/>Wednesday
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="cbThursday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[4] ? "checked " : "")/>Thursday
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="cbFriday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[5] ? "checked " : "")/>Friday
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="cbSaturday" value="1" @(ViewBag.DaysOfWeek == null ? "" : ViewBag.DaysOfWeek[6] ? "checked " : "")/>Saturday
+            </span>
+        </div>
+
+        <p>
+            <input type="submit" value="@ViewBag.ButtonText" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

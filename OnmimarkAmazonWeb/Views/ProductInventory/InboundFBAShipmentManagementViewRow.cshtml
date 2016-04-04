@@ -1,0 +1,76 @@
+﻿@model OmnimarkAmazon.Models.InboundFBAShipmentManagementView
+
+@{ var item = Model; }
+
+<tr class="fba-shipment-row" id="fba-shipment-row-@(item.ID)" data-status="@item.Status" style="@(item.Status > 5 ? "background-color:#FFCCCC;" : "")">
+    <td align="center">
+        <b style="font-weight:bolder;">@Html.DisplayFor(modelItem => item.ID)</b><br />
+        <span style="font-size:10px;">@Html.DisplayFor(modelItem => item.Name)</span>
+    </td>
+    <td>
+        @item.AmazonAccountName
+    </td>
+    <td align="center">
+        @if (item.CreatedOn != null)
+        {
+            @(((DateTime)item.CreatedOn).ToString("MM/dd/yyyy"))<br />
+            @(((DateTime)item.CreatedOn).ToString("hh:mm tt"))
+        }
+    </td>
+    <td align="center">
+        @(((OmnimarkAmazon.Library.FBAInboundShipmentStatus)item.Status).ToString())
+    </td>
+    <td align="center">
+        @Html.DisplayFor(modelItem => item.ItemCount)
+    </td>
+    <td align="center">
+        @(((DateTime)item.UpdateTimeStamp).ToString("MM/dd/yyyy"))<br />
+        @(((DateTime)item.UpdateTimeStamp).ToString("hh:mm tt"))
+    </td>
+    <td align="center" nowrap="nowrap">
+        @if (item.ScheduledForInventoryAdjustmentProcessing == null)
+        {
+            <a href="#" class="schedule-now" data-ifsid="@item.ID">Schedule Now</a>
+            <div id="schedule-now-message-@(item.ID)"></div>
+        }
+        else
+        {
+            @(((DateTime)item.ScheduledForInventoryAdjustmentProcessing).ToString("MM/dd/yyyy hh:mm tt"))<br />
+            if (item.RemovedFromInventoryAdjustmentProcessing == null)
+            {
+                <a href="#" class="process-now" data-ifsid="@item.ID">Process Now</a>
+                <div id="process-now-message-@(item.ID)"></div>
+            }
+        }
+    </td>
+    <td align="center" nowrap="nowrap">
+        @if (item.RemovedFromInventoryAdjustmentProcessing == null)
+        {
+            <a href="#" class="remove-now" data-ifsid="@item.ID">Remove Now</a>
+            <div id="remove-now-message-@(item.ID)"></div>
+        }
+        else
+        {
+            @(((DateTime)item.RemovedFromInventoryAdjustmentProcessing).ToString("MM/dd/yyyy hh:mm tt"))
+        }
+    </td>
+    <td align="center">
+        @if (item.FirstInventoryAdjustment != null)
+        {
+            @(((DateTime)item.FirstInventoryAdjustment).ToString("MM/dd/yyyy"))<br />
+            @(((DateTime)item.FirstInventoryAdjustment).ToString("hh:mm tt"))
+        }
+    </td>
+    <td align="center">
+        @if (item.LastInventoryAdjustment != null)
+        {
+            @(((DateTime)item.LastInventoryAdjustment).ToString("MM/dd/yyyy"))<br />
+            @(((DateTime)item.LastInventoryAdjustment).ToString("hh:mm tt"))
+        }
+    </td>
+    <td align="center">
+        @Html.DisplayFor(modelItem => item.InventoryAdjustmentCount)
+    </td>
+</tr>
+
+

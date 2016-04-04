@@ -1,0 +1,11 @@
+﻿<h3>Country: @ViewBag.CountryName</h3>
+<h3>Vendor: @ViewBag.VendorName</h3>
+<h3>Product: <a href="/AmazonInventory?ProductID=@ViewBag.ProductID">@ViewBag.ProductName</a>
+@if (ViewBag.OnOrder > 0) {
+ <text>- On Order: @(((decimal)ViewBag.OnOrder).ToString("###,###,##0"))</text> }
+ </h3>
+
+@foreach (var Account in (dynamic)ViewBag.Model)
+{
+    <span><a href="?CountryID=@ViewBag.CountryID&VendorID=@ViewBag.VendorID&ProductID=@ViewBag.ProductID&AccountID=@Account.AmazonAccountID">@Account.AccountName</a> - Need: @(((decimal)Account.NeedInInventory).ToString("###,###,##0"))</span><br />
+}

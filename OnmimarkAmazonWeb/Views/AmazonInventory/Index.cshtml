@@ -1,0 +1,600 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.KnownASINWithInventoryAndSales>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<link href="@Html.GetAppPath()/Content/jquery.tooltip.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.stickyTableHeaders.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductDateSelection.js"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.dimensions.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.tooltip.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    function ProductSelected(ui) {
+        $("#OnlyNoProducts")[0].checked = false;
+        ClearFiltersExcept("Product");
+        $("form")[0].submit();
+    }
+
+    function OnlyShortInventoryChanged() {
+        $("form")[0].submit();
+    }
+
+    function OnlyUSAChanged() {
+        $("form")[0].submit();
+    }
+
+    function UpdateInventory(store, asin) {
+        $("#stockdiv_" + asin + "_" + store)[0].style.display = "none";
+
+        $.getJSON(
+            "/AmazonInventory/UpdateInventory/" + asin + "?store=" + store,
+            null,
+            function (json) {
+
+                $("#stockdiv_" + asin + "_" + store)[0].style.display = "";
+                $("#refreshbtn_" + asin + "_" + store)[0].style.display = "none";
+
+                if (json.Error != null) {
+                    $("#stock_" + asin + "_" + store)[0].style.color = "red";
+                    $("#stock_" + asin + "_" + store)[0].innerText = json.Error;
+                }
+                else {
+                    $("#stock_" + asin + "_" + store)[0].style.color = "black";
+                    $("#stock_" + asin + "_" + store)[0].innerText = json.Stock;
+                }
+            }
+        );
+
+        }
+
+        function saveNewItemTitle(obj)
+        {
+            var ASIN = obj.attr("asin");
+
+            if (obj.val() == "") {
+                $("#item_title_" + ASIN).show();
+                obj.remove();
+                return;
+            }
+
+            $.ajax({
+                url: "/AmazonInventory/UpdateTitle/" + ASIN + "?title=" + encodeURIComponent(obj.val()),
+                success: function () {
+                    $("#item_title_" + ASIN)[0].innerText = obj.val();
+                    $("#item_title_" + ASIN).show();
+                    obj.remove();
+                }
+            });
+            
+
+        }
+
+        $(function () {
+
+            $(".item_title").click(function () {
+                var ASIN = this.id.substring(11);
+                var jqthis = $(this);
+
+                var val;
+
+                if (this.innerText.trim() == "-- NO TITLE --")
+                    val = "";
+                else
+                    val = htmlEncode(this.innerText.trim());
+
+                var newInput = $("<input id='item_title_" + ASIN + "_input' asin='" + ASIN + "' value='" + val + "' class='item_title_input' />");
+
+                $("#item_title_" + ASIN + "_edit").append(newInput);
+                jqthis.hide();
+                newInput.focus();
+
+                newInput.blur(function () {
+                    saveNewItemTitle(newInput);
+                });
+
+                newInput.keypress(function (e) {
+                    if (e.which == 13) {
+                        saveNewItemTitle(newInput);
+                    }
+                });
+            });
+
+            $("#tblData").stickyTableHeaders();
+
+            if ("@ViewBag.Message" != "")
+                alert("@ViewBag.Message");
+
+            showFilterDiv("Product");
+
+            if ($("#VendorID").val() != '')
+                showFilterDiv("Vendor");
+
+            if ($("#ASIN").val() != '')
+                showFilterDiv("ASIN");
+
+            if ($("#SKU").val() != '')
+                showFilterDiv("SKU");
+
+            $("#FilterBy").change(function () {
+                showFilterDiv(this.value);
+
+                if (this.value == "") {
+                    ClearFiltersExcept("");
+                    $("form")[0].submit();
+                }
+
+            });
+
+            function showFilterDiv(name) {
+                $(".VisibleFilter").each(function () {
+                    this.style.display = "none";
+                    $(this).removeClass("VisibleFilter");
+                });
+                if (name != '') {
+                    var divFilter = $("#div" + name + "Filter");
+                    divFilter.addClass("VisibleFilter");
+                    divFilter[0].style.display = "";
+                }
+                $("#FilterBy").val(name);
+            }
+
+            $(".onorder").tooltip({
+                relative: true,
+                bodyHandler: function () {
+                    var onorder = $(this).attr("onorder");
+
+                    var lines = onorder.split("*LINEBREAK*");
+                    var tiphtml = "<h3>Products On Order</h3>";
+
+                    for (var i = 0; i < lines.length; i++) {
+                        var cols = lines[i].split("*COLUMNBREAK*");
+                        tiphtml += cols[1] + ": " + parseInt(cols[2]).toFixed(0).toString() + "<br />";
+                    }
+
+                    var tip = $("<div />").html(tiphtml);
+
+                    return tip;
+                },
+                showURL: false
+            });
+
+            $(".inventory_cost").tooltip({
+                bodyHandler: function () {
+
+                    var jqthis = $(this);
+
+                    var stockQty = parseFloat(jqthis.attr("data-stockqty"));
+                    var stockQtyInbound = parseFloat(jqthis.attr("data-stockqty_inbound"));
+                    var productCost = parseFloat(jqthis.attr("data-product_cost"));
+
+                    var html = "";
+
+                    html += "In-Stock Inventory Value: " + ((stockQty - stockQtyInbound) * productCost).toFixed(2) + "<br />";
+                    html += "Inbound Inventory Value: " + (stockQtyInbound * productCost).toFixed(2) + "<br />";
+
+                    var tip = $("<div />").html(html);
+
+                    return tip;
+                },
+                showURL: false
+            });
+
+            $(".stockqty").tooltip({
+                relative: true,
+                bodyHandler: function () {
+                    var tip = $("<div style='width:500px; min-height:50px;' />").html("loading...");
+
+                    var stocktimestamp = $(this).attr("stocktimestamp");
+                    var ASIN = $(this).attr("ASIN");
+
+                    $.getJSON(
+                    "/AmazonInventory/StockDetails/" + $(this).attr("ASIN") + "?store=" + $(this).attr("store"),
+                    null,
+                    function (json) {
+
+                        var tiptxt = "<b>" + ASIN + "</b> - <b>" + json.StoreName + "</b> - Updated on: " + stocktimestamp + "<br /><br /><table><tr><th>SKU</th><th>InStockQty</th><th>TotalQty</th></tr>";
+
+                        $.each(json.Stock, function () {
+                            tiptxt = tiptxt + "<tr><td nowrap>" + this.SKU + "</td><td align='right' nowrap>" + this.InStockQty + "</td><td align='right' nowrap>" + this.TotalQty + "</td></tr>";
+                        });
+
+                        tiptxt += "</table>";
+
+                        tip.html(tiptxt);
+                    }
+                );
+
+                    return tip;
+                },
+                showURL: false
+            });
+
+            $("#total_inventory_value").tooltip({
+                bodyHandler: function () {
+
+                    var html = "";
+
+                    html += "In-Stock Value: $@(((decimal)ViewBag.TotalInventoryValue - (decimal)ViewBag.TotalInventoryInboundValue).ToString("###,###,###,##0.00"))<br />";
+                    html += "Inbound Value: $@(((decimal)ViewBag.TotalInventoryInboundValue).ToString("###,###,###,##0.00"))<br />";
+
+                    var tip = $("<div />").html(html);
+
+                    return tip;
+                },
+                showURL: false
+            });
+
+            $(".qtysold").tooltip({
+                bodyHandler: function () {
+
+                    var html = "<b>" + $(this).attr("ASIN") + "</b><br /><br />" +
+                    "<table>" +
+                    "   <tr><th>Store</th><th>Qty Sold</th></tr>" +
+                    "   <tr><td>Brandzilla</td><td>" + $(this).attr("Brandzilla") + "</td></tr>" +
+                    "   <tr><td>FiveStar</td><td>" + $(this).attr("FiveStar") + "</td></tr>" +
+                    "   <tr><td>Admarkia</td><td>" + $(this).attr("Admarkia") + "</td></tr>" +
+                    "   <tr><td>SuperQuickShip</td><td>" + $(this).attr("SuperQuick") + "</td></tr>";
+
+                    if (!$("#OnlyUSA")[0].checked)
+                        html += "   <tr><td>Nutramart</td><td>" + $(this).attr("Nutramart") + "</td></tr>";
+
+                    html += "</table>"
+
+                    var tip = $("<div style='width:500px; min-height:50px;' />").html(html);
+
+                    return tip;
+                },
+                showURL: false
+            });
+
+            $("#VendorSearch").autocomplete({
+                source: "/AmazonInventory/VendorLookup",
+                select: function (event, ui) {
+                    $("#VendorSearch").val(ui.item.label);
+                    $("#VendorID").val(ui.item.value);
+                    ClearFiltersExcept("Vendor");
+                    $("form")[0].submit();
+                    return false;
+                },
+                change: function (event, ui) {
+                    if (ui.item == null) {
+                        $("#VendorSearch").val('');
+                        $("#VendorID").val('');
+                        $("form")[0].submit();
+                    }
+                }
+            });
+
+            $("#ASIN").change(function () {
+                ClearFiltersExcept("ASIN")
+                $("form")[0].submit();
+            });
+
+            $("#SKU").change(function () {
+                ClearFiltersExcept("SKU")
+                $("form")[0].submit();
+            });
+
+        });
+
+
+    function ClearFiltersExcept(name) {
+        if (name != "SKU")
+            $("#SKU").val('');
+
+        if (name != "ASIN")
+            $("#ASIN").val('');
+
+        if (name != "Product")
+            $("#ProductID").val('');
+
+        if (name != "Vendor")
+            $("#VendorID").val('');
+    }
+
+    function FilterByVendor(id, name) {
+        $("#VendorSearch").val(name);
+        $("#VendorID").val(id);
+        $("form")[0].submit();
+    }
+
+</script>
+<style>
+    .item_title_input { margin:0px; width:100%; }
+</style>
+
+<form method="post" id="form">
+<h2 style="float:left; vertical-align:top;">@ViewBag.RecTypeNamePlural</h2>
+<div style="float:left; margin-left:20px; border:1px solid black; padding:5px; text-align:center;">
+    <span style="font-weight:bold;">Total Shown Inventory Value:</span><br />
+    <span id="total_inventory_value" style="color:@(ViewBag.AnyCostMissing ? "red" : "");">
+        $@(((decimal)ViewBag.TotalInventoryValue).ToString("###,###,###,##0.00"))
+    </span>
+</div>
+<div style="float:left; padding-left:20px;">Show Sales/Stock For:<br /> @Html.DropDownList("ShowStockFor", (SelectList)ViewBag.Accounts, "-- All --", new { onchange = "form.submit();" })</div>
+<div style="float:left; padding-top:5px; padding-left:20px;">
+    <input type="checkbox" name="OnlyNoProducts" id="OnlyNoProducts" @if (ViewBag.OnlyNoProducts == true)
+                                                                     { <text>checked</text> } onchange="OnlyNoProductsChanged();" /> Show Only ASINs With No Products<br />
+    <input type="checkbox" name="OnlyShortInventory" id="OnlyShortInventory" @if (ViewBag.OnlyShortInventory == true)
+                                                                             { <text>checked</text> } onchange="OnlyShortInventoryChanged();" /> Show Only low Inventory
+    <input type="checkbox" name="OnlyUSA" id="OnlyUSA" @if (ViewBag.OnlyUSA == true)
+                                                       { <text>checked</text> } onchange="OnlyUSAChanged();" /> Show Only USA
+</div>
+<div style="float:left; padding-left:20px;">
+    Filter By:
+    <select id="FilterBy">
+        <option value="">-- None --</option>
+        <option value="ASIN">ASIN</option>
+        <option value="Product">Product</option>
+        <option value="SKU">SKU</option>
+        <option value="Vendor">Vendor</option>
+    </select>
+    <div id="divProductFilter" style="display:none;">
+        Product:
+        <input name="ProductSearch" id="ProductSearch" style="width:150px;" value="@ViewBag.ProductName" /><br />
+        <input type="hidden" name="ProductID" id="ProductID" value="@ViewBag.ProductID" />
+    </div>
+    <div id="divVendorFilter" style="display:none;">
+        Vendor:
+        <input name="VendorSearch" id="VendorSearch" style="width:150px;" value="@ViewBag.VendorName" /><br />
+        <input type="hidden" name="VendorID" id="VendorID" value="@ViewBag.VendorID" /> 
+    </div>
+    <div id="divASINFilter" style="display:none;">
+        ASIN: <input name="ASIN" id="ASIN" style="width:150px;" value="@ViewBag.ASIN" /> <br />
+    </div>
+    <div id="divSKUFilter" style="display:none;">
+        SKU: <input name="SKU" id="SKU" style="width:150px;" value="@ViewBag.SKU" /> <br />
+    </div>
+</div>
+<div style="float:left; padding-left:20px;">
+    Sales Start: <input name="SalesStart" id="SalesStart" style="width:80px;" value="@(((DateTime)ViewBag.SalesStart).ToString("M/d/yyyy"))" /><br />
+    Sales End: <input name="SalesEnd" id="SalesEnd" style="width:80px;" value="@(((DateTime)ViewBag.SalesEnd).ToString("M/d/yyyy"))" />
+</div>
+@if (ViewBag.MainWarehouseInventory != null)
+{ 
+    <div style="float:left; padding-left:20px; margin-top:18px;">Warehouse Inventory: @(((decimal)ViewBag.MainWarehouseInventory).ToString("###,###,###,##0"))</div>
+}
+
+
+<div style="clear:both;"></div>
+<table id="tblData">
+    <thead>
+    <tr>
+        <th rowspan="2">
+            ASIN
+        </th>
+        <th rowspan="2">
+            Amazon Product Name
+        </th>
+        <th rowspan="2">
+            Actual Cost
+        </th>
+        <th rowspan="2">
+            Inventory Cost
+        </th>
+        <th rowspan="2">
+            Page Views
+        </th>
+        <th rowspan="2">
+            Buy Box
+        </th>
+        <th rowspan="2">
+            Sales Last <input name="SalesDays" id="SalesDays" style="width:30px; text-align:center;" value="@ViewBag.SalesDays" onchange="DateChanged('', this);" />&nbsp;Days
+        </th>
+        <th colspan="6" @if (ViewBag.ShowStockFor != null)
+                        { <text>rowspan="2"</text> }>Stock</th>
+    </tr>
+    <tr>
+        @if (ViewBag.ShowStockFor == null)
+        {
+            <th>
+                Total
+            </th>
+            <th>
+                Brandzilla
+            </th>
+            <th>
+                FiveStar
+            </th>
+            <th>
+                PlatinumHealth
+            </th>
+           <th>
+                SuperQuick
+            </th>
+            if (ViewBag.OnlyUSA != true)
+            {
+                <th>
+                    Nutramart
+                </th>
+            }
+        }
+    </tr>
+    </thead>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @if (item.IseBayListing)
+            {
+                <span>@Html.ActionLink(item.ASIN, "Products", "eBay", new { id = item.ASIN }, new object())</span>
+            }
+            else
+            {
+                <span>@Html.ActionLink(item.ASIN, "Products", new { id = item.ASIN })</span>
+            }
+            
+            <span style="font-size:10px; padding:0px; margin:0px;" class="vendors" id="vendordiv_@(item.ASIN)">
+            @{
+            if (item.Vendors != null)
+            {
+                string[] lines = item.Vendors.Split(new string[] { "*LINEBREAK*" }, StringSplitOptions.None);
+
+                foreach (string line in lines)
+                {
+                    string[] cols = line.Split(new string[] { "*COLUMNBREAK*" }, StringSplitOptions.None);
+                    
+                        <span>
+                            <a href="javascript:FilterByVendor('@cols[0]', '@cols[1]');">@Html.Raw(cols[1].Replace(" ", "&nbsp;"))</a>
+                        </span>
+                }
+            }
+            }
+            </span>
+
+        </td>
+        <td><span id="item_title_@item.ASIN" class="item_title" style="cursor:text">
+            @if (item.Title == null)
+            {
+                <span>-- NO TITLE --</span>
+            }
+            else
+            {
+                if (item.ProductCount == 0)
+                { <b style="color:Red;">@Html.DisplayFor(modelItem => item.Title)</b> }
+                else
+                { <text>@Html.DisplayFor(modelItem => item.Title)</text> }
+            }
+            </span>
+            <span id="item_title_@(item.ASIN)_edit"></span>
+        </td>
+        <td nowrap align="right" style="color:@(item.MissingCosts || item.ProductCount == 0 ? "red" : "black");">
+            @item.ProductCost.ToString("###,###,##0.00")
+        </td>
+        <td nowrap align="right" style="color:@(item.MissingCosts || item.ProductCount == 0 ? "red" : "black");">
+            <span class="inventory_cost" data-stockqty="@item.StockQty" data-stockqty_inbound="@item.StockQtyInbound" data-product_cost="@item.ProductCost">
+            @((item.ProductCost * (item.StockQty == null ? 0 : (decimal)item.StockQty)).ToString("###,###,##0.00"))
+            </span>
+        </td>
+        <td align="right">
+            @item.PageViews
+        </td>
+        <td align="right">
+            @item.BuyBoxPercentage
+        </td>
+        @if (ViewBag.ShowStockFor != null)
+        {
+            <td nowrap colspan="5" align="center" style="min-width:200px;">
+                @if (item.QtySold != null)
+                { <text> @(((decimal)item.QtySold).ToString("###,##0")) </text> }
+            </td>
+            <td nowrap colspan="5" align="center" style="min-width:200px;">
+                @if (item.OnOrder != null)
+                { <img src="/Content/images/onorder.png" class="onorder" onorder="@item.OnOrder" style="float:left; padding-right:5px;" /> }
+                @if (item.StockQty != null)
+                { <span style="text-align:center;" title="as of @(((DateTime)item.StockTimeStamp).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQty).ToString("###,##0")) </span> }
+            </td>
+        }
+        else
+        {
+            <td align="center" nowrap>
+                @if (item.QtySold != null)
+                {
+                    if (ViewBag.OnlyUSA == true)
+                    {
+                        <span class="qtysold"
+                              asin="@item.ASIN"
+                              brandzilla="@(item.QtySoldBrandzilla == null ? "" : (((decimal)item.QtySoldBrandzilla).ToString("###,##0")))"
+                              admarkia="@(item.QtySoldAdmarkia == null ? "" : (((decimal)item.QtySoldAdmarkia).ToString("###,##0")))"
+                              fivestar="@(item.QtySoldFiveStar == null ? "" : (((decimal)item.QtySoldFiveStar).ToString("###,##0")))"
+                              superquick="@(item.QtySoldSuperQuick == null ? "" : (((decimal)item.QtySoldSuperQuick).ToString("###,##0")))"
+                              nutramart="">@(((decimal)item.QtySoldUSA).ToString("###,##0"))</span>
+                    }
+                    else
+                    {
+                        <span class="qtysold"
+                              asin="@item.ASIN"
+                              brandzilla="@(item.QtySoldBrandzilla == null ? "" : (((decimal)item.QtySoldBrandzilla).ToString("###,##0")))"
+                              vitality="@(item.QtySoldVitality == null ? "" : (((decimal)item.QtySoldVitality).ToString("###,##0")))"
+                              Admarkia="@(item.QtySoldAdmarkia == null ? "" : (((decimal)item.QtySoldAdmarkia).ToString("###,##0")))"
+                              fivestar="@(item.QtySoldFiveStar == null ? "" : (((decimal)item.QtySoldFiveStar).ToString("###,##0")))"
+                              superquick="@(item.QtySoldSuperQuick == null ? "" : (((decimal)item.QtySoldSuperQuick).ToString("###,##0")))"
+                              nutramart="@(item.QtySoldNutramart == null ? "" : (((decimal)item.QtySoldNutramart).ToString("###,##0")))">@(((decimal)item.QtySold).ToString("###,##0"))</span>
+                    }
+                }
+            </td>
+            <td align="right" nowrap>
+                @if (item.OnOrder != null)
+                { <img src="/Content/images/onorder.png" class="onorder" onorder="@item.OnOrder" style="float:left; padding-right:5px;" /> }
+                @if (item.StockQty != null)
+                { <span id="total_stockqty_@(item.ASIN)" class="total_stockqty">@(((decimal)item.StockQty).ToString("###,##0")) </span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_bz">
+                @if (item.StockQtyBrandzilla != null)
+                { 
+                    <span id="stock_@(item.ASIN)_bz" style="text-align:center; color:@((ViewBag.BrandzillaUpdateTimeStamp == null) ? "red" : (ViewBag.BrandzillaUpdateTimeStamp > item.StockTimeStampBrandzilla ? "red" : "black"))" class="stockqty" store="bz" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampBrandzilla).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyBrandzilla).ToString("###,##0")) </span>
+                    if (ViewBag.BrandzillaUpdateTimeStamp == null || ViewBag.BrandzillaUpdateTimeStamp > item.StockTimeStampBrandzilla)
+                    {
+                        <a href="javascript:UpdateInventory('bz', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_bz" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.BrandzillaMissingFBAListing != null && (bool)item.BrandzillaMissingFBAListing && (item.StockQtyBrandzilla == 0 || item.StockQtyBrandzilla == null))
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_fs">
+                @if (item.StockQtyFiveStar != null)
+                { 
+                    <span id="stock_@(item.ASIN)_fs" style="text-align:center; color:@((ViewBag.FiveStarUpdateTimeStamp == null) ? "red" : (ViewBag.FiveStarUpdateTimeStamp > item.StockTimeStampFiveStar ? "red" : "black"))" class="stockqty" store="fs" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampFiveStar).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyFiveStar).ToString("###,##0")) </span>
+                    if (ViewBag.FiveStarUpdateTimeStamp == null || ViewBag.FiveStarUpdateTimeStamp > item.StockTimeStampFiveStar)
+                    {
+                        <a href="javascript:UpdateInventory('fs', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_fs" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.FiveStarMissingFBAListing != null && (bool)item.FiveStarMissingFBAListing && (item.StockQtyFiveStar == 0 || item.StockQtyFiveStar == null))
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_am">
+                @if (item.StockQtyAdmarkia != null)
+                { 
+                    <span id="stock_@(item.ASIN)_am" style="text-align:center; color:@((ViewBag.AdmarkiaUpdateTimeStamp == null) ? "red" : (ViewBag.AdmarkiaUpdateTimeStamp > item.StockTimeStampAdmarkia ? "red" : "black"))" class="stockqty" store="am" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampAdmarkia).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyAdmarkia).ToString("###,##0")) </span>
+                    if (ViewBag.AdmarkiaUpdateTimeStamp == null || ViewBag.AdmarkiaUpdateTimeStamp > item.StockTimeStampAdmarkia)
+                    {
+                        <a href="javascript:UpdateInventory('am', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_am" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.AdmarkiaMissingFBAListing != null && (bool)item.AdmarkiaMissingFBAListing && (item.StockQtyAdmarkia == 0 || item.StockQtyAdmarkia == null))
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_sq">
+                @if (item.StockQtySuperQuick != null)
+                { 
+                    <span id="stock_@(item.ASIN)_sq" style="text-align:center; color:@((ViewBag.SuperQuickUpdateTimeStamp == null) ? "red" : (ViewBag.SuperQuickUpdateTimeStamp > item.StockTimeStampSuperQuick ? "red" : "black"))" class="stockqty" store="sq" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampSuperQuick).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtySuperQuick).ToString("###,##0")) </span>
+                    if (ViewBag.SuperQuickUpdateTimeStamp == null || ViewBag.SuperQuickUpdateTimeStamp > item.StockTimeStampSuperQuick)
+                    {
+                        <a href="javascript:UpdateInventory('sq', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_sq" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.SuperQuickMissingFBAListing != null && (bool)item.SuperQuickMissingFBAListing && (item.StockQtySuperQuick == 0 || item.StockQtySuperQuick == null))
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+                if (ViewBag.OnlyUSA != true)
+                {
+                <td align="center" nowrap>
+                    <span id="stockdiv_@(item.ASIN)_nm">
+                    @if (item.StockQtyNutramart != null)
+                    { 
+                        <span id="stock_@(item.ASIN)_vp" style="text-align:center; color:@((ViewBag.NutramartUpdateTimeStamp == null) ? "red" : (ViewBag.NutramartUpdateTimeStamp > item.StockTimeStampNutramart ? "red" : "black"))" class="stockqty" store="nm" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampNutramart).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyNutramart).ToString("###,##0")) </span>
+                        if (ViewBag.NutramartUpdateTimeStamp == null || ViewBag.NutramartUpdateTimeStamp > item.StockTimeStampNutramart)
+                        {
+                            <a href="javascript:UpdateInventory('nm', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_vp" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                        }
+                    }
+                    </span>
+                </td>
+                }
+        }
+    </tr>
+}
+
+</table>
+</form>

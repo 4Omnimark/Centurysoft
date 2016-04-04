@@ -1,0 +1,226 @@
+﻿@model OmnimarkAmazon.Models.PurchaseOrder
+
+<style>
+    .editor-label { font-weight:bold; }
+</style>
+
+<h2>@ViewBag.Title</h2>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+@Html.Partial("VendorSelection")
+
+<script type="text/javascript">
+
+    $(function () {
+
+        @{
+        
+            int x = 0;
+
+            foreach (var pol in ViewBag.PurchaseOrderLines)
+            {
+                <text>
+                $("#ProductSearch@(x)").autocomplete({
+                    source: "/AmazonInventory/ProductLookupWithCost",
+                    select: function (event, ui) {
+                        $("#ProductSearch@(x)").val(ui.item.label);
+
+                        var a = ui.item.value.split(",");
+
+                        $("#ProductID@(x)").val(a[0]);
+                        $("#LineItemCost@(x)").val(a[1]);
+                        $("#LineItemActualCost@(x)").val(a[2]);
+
+                        return false;
+                    },
+                    change: function (event, ui) {
+                        if (ui.item == null) {
+                            $("#ProductSearch@(x)").val('');
+                            $("#ProductID@(x)").val('');
+                            $("#LineItemQty@(x)").val('');
+                            $("#LineItemCost@(x)").val('');
+                            $("#LineItemActualCost@(x)").val('');
+                        }
+                    }
+                });
+                </text>
+
+                x++;
+            }
+        }
+
+        $(".Cost").change(function () {
+            var id = this.id.substring(12);
+            if ($("#LineItemActualCost" + id)[0].value == '')
+                $("#LineItemActualCost" + id).val(this.value);
+
+        });
+
+    });
+
+    function VendorSelected()
+    {
+    }
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Purchase Order</legend>
+
+        <div style="float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Date)
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("Date", ((DateTime)Model.Date).ToString("M/d/yyyy"))
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+
+        <div style="float:left; padding-left:20px;">
+            <div class="editor-label">
+                Vendor
+            </div>
+            <div class="editor-field">
+                <input type="text" name="VendorSearch" id="VendorSearch" value="@(IsPost ? Request.Form["VendorSearch"] : Model.Vendor == null ? "" : Model.Vendor.Name)" />
+                @Html.TextBoxFor(model => model.VendorID, new { type = "hidden" })
+                @Html.ValidationMessageFor(model => model.VendorID)
+            </div>
+        </div>
+
+        <div style="float:left; padding-left:20px;">
+            <div class="editor-label">
+                Status
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Status", (SelectList)ViewBag.Statuses)
+                @Html.ValidationMessageFor(model => model.Status)
+            </div>
+        </div>
+        <div style="float:left; padding-left:40px">
+            <div class="editor-label">
+                Comfirmation Status
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("CStatus", (SelectList)ViewBag.CStatus)
+                @Html.ValidationMessageFor(model => model.CStatus)
+            </div>
+
+        </div>
+        @if (ViewBag.HideButton == null)
+        {
+        <p style="float:left; padding-left:60px; margin-top:32px;">
+            <input type="submit" value="@ViewBag.ButtonText" />
+        </p>
+        }
+        
+        <div style="clear:both;"></div>
+
+        <div style="float:left;">
+            <div class="editor-label">
+                Payment Type
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("PaymentTypeID", (SelectList)ViewBag.PaymentTypes, "-- Select --")
+                @Html.ValidationMessageFor(model => model.PaymentTypeID)
+            </div>
+        </div>
+
+        @if (ViewBag.IsDetailView != null)
+        {
+        <div style="float:left; margin-left:20px;">
+            <div class="editor-label">
+                Total Cost
+            </div>
+            <div class="inputbox" style="text-align:right; width:100px; color:@(Model.MissingCosts ? "red" : "");">
+                @(((decimal)Model.TotalCost).ToString("###,###,###,##0.00"))
+            </div>
+        </div>
+                <div style="float:left; margin-left:20px;">
+            <div class="editor-label">
+                Total Actual Cost
+            </div>
+            <div class="inputbox" style="text-align:right; width:100px; color:@(Model.MissingCosts ? "red" : "");">
+                @(((decimal)Model.TotalActualCost).ToString("###,###,###,##0.00"))
+            </div>
+        </div>
+        }
+        
+        <div style="clear:both;"></div>
+
+        <div style="">
+            <div class="editor-label">
+                Notes
+            </div>
+            <div class="editor-field">
+                @Html.TextArea("Notes", new { style = "width:800px; height:150px;" })
+                @Html.ValidationMessageFor(model => model.Notes)
+            </div>
+        </div>
+
+
+
+        <hr style="margin-top:20px; margin-bottom:20px; color:Black;" />
+
+        <table>
+        <tr>
+            <th>Qty</th>
+            <th>Product</th>
+            <th>Cost</th>
+            <th>Actual Cost</th>
+            <th>Receipt Number</th>
+        </tr>
+        @{
+        x = 0;
+
+        foreach (var pol in ViewBag.PurchaseOrderLines)
+        {
+            if (ViewBag.ActionType == Startbutton.Web._BaseController.ActionType.Edit)
+            {
+                    <input type="hidden" name="LineItemID@(x)" id="LineItemID@(x)" value="@(IsPost ? Request.Form["LineItemID" + x.ToString()] : pol.ID)" />
+            }
+            
+                <tr>
+                    <td>    
+                        <input name='LineItemQty@(x)' id='LineItemQty@(x)' value='@(IsPost ? Request.Form["LineItemQty" + x.ToString()] : (pol.Qty == 0 ? "" : ((decimal)pol.Qty).ToString("#####0.####")))' style='width:50px; text-align:right;' />
+                        @Html.ValidationMessage("LineItemQty" + x.ToString())
+                    </td>
+                    <td>
+                        @Html.ValidationMessage("ProductSearch" + x.ToString())
+                        <input name='ProductSearch@(x)' id='ProductSearch@(x)' value='@(IsPost ? Request.Form["ProductSearch" + x.ToString()] : (pol.Product == null ? "" : pol.Product.Name))' style='width:500px;' />
+                        <input type='hidden' name='ProductID@(x)' id='ProductID@(x)' value='@(IsPost ? Request.Form["ProductID" + x.ToString()] : (pol.ProductID == null ? "" : pol.ProductID))' />
+                    </td>
+                    <td>
+                        <input class='Cost' name='LineItemCost@(x)' id='LineItemCost@(x)' value='@(IsPost ? Request.Form["LineItemCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.Cost).ToString("######0.00")))' style='width:50px; text-align:right;' />
+                        @Html.ValidationMessage("LineItemCost" + x.ToString())
+                    </td>
+                    <td>
+                        <input name='LineItemActualCost@(x)' id='LineItemActualCost@(x)' value='@(IsPost ? Request.Form["LineItemActualCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.ActualCost).ToString("######0.00")))' style='width:50px; text-align:right;' />
+                        @Html.ValidationMessage("LineItemActualCost" + x.ToString())
+                    </td>
+                    <td>
+                        <input name='LineItemReceiptNumber@(x)' id='LineItemReceiptNumber@(x)' value='@(IsPost ? Request.Form["LineItemReceiptNumber" + x.ToString()] : (pol.ReceivedProductID == null ? "" : pol.ReceivedProduct.Number))' style='width:150px; text-align:right;' />
+                        @Html.ValidationMessage("LineItemReceiptNumber" + x.ToString())
+                    </td>
+                </tr>
+            
+            x++;
+        }
+        }
+        </table>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "PurchaseOrders")
+</div>

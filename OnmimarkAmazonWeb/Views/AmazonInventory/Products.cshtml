@@ -1,0 +1,21 @@
+﻿@model OmnimarkAmazon.Models.KnownASIN
+|
+@foreach(var c in ViewBag.ListingCountries) {
+    <span><a href="@c.DefaultItemDetailsURL@Model.ASIN" target="_blank">View @c.CountryName Listing</a> | </span>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset>
+    <legend>Inventory</legend>
+
+    @Html.Partial("ProductsInventory", (IEnumerable<OmnimarkAmazon.Models.AmazonInventory>)ViewBag.ProductsInventory)
+
+</fieldset>
+
+<fieldset>
+    <legend>Associated Products</legend>
+
+    @Html.Partial("AssociatedProducts", (IEnumerable<OmnimarkAmazon.Models.AmazonInventoryProduct>)ViewBag.AssociatedProducts)
+
+</fieldset>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.User>
+    <h2>System Users</h2>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>
+                Username
+            </th>
+            <th>
+                Name / Contact Info
+            </th>
+            <th>
+                Role(s)
+            </th>
+        </tr>
+
+    @foreach (var item in Model)
+    { 
+    
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
+            </td>
+            <td>
+                @item.aspnet_Users.UserName
+            </td>
+            <td>
+                <b>@(item.NameFirst + " " + item.NameLast) </b> &nbsp;&nbsp;&nbsp;&nbsp; @item.Phone<br />
+                <a href="mailto:@item.aspnet_Users.aspnet_Membership.Email ">@item.aspnet_Users.aspnet_Membership.Email </a><br />
+            </td>
+            <td>
+                @{ foreach (var role in item.aspnet_Users.aspnet_Roles)
+                   { 
+                    @role.RoleName <br />
+                   } }
+            </td>
+        </tr>
+    }
+    
+    </table>
+
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@ 
+       
+        
+    </p>
+
+

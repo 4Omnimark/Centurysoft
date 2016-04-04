@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GetSettlementData.aspx.cs" Inherits="OmnimarkAmazonWeb.Tools.GetSettlementData" %>

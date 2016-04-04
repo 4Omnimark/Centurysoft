@@ -1,0 +1,21 @@
+﻿@model OmnimarkAmazonWeb.Models.ExportStatusModel
+
+@{
+    ViewBag.Title = "ExportStatus";
+}
+
+<h2>ExportStatus</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DropDownListFor(modelitem => modelitem.Category, (SelectList)ViewBag.category, "--Select--")
+    </div>
+    <div>
+        File Name:
+        @Html.TextAreaFor(modelitem=>modelitem.FileName)
+    </div>
+    
+    <input type="submit" value="Change Status" />
+}
+@Html.ActionLink("Return to Export", "UKExport");

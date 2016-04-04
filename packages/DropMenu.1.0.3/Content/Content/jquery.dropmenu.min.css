@@ -1,0 +1,10 @@
+﻿/*
+DropMenu v1.0.3
+Neptune Century Studios (NCS)
+http://www.neptunecentury.com
+
+Copyright (c) 2014, Eric Butler
+
+Licensed under MIT (http://opensource.org/licenses/MIT)
+*/
+.drop-menu { position: absolute; background-color: #111; width: 100%; z-index: 12000; overflow: hidden; height: 0; } .drop-menu.fixed { position: fixed; top: 50px; } .drop-menu .content { position: absolute; width: 100%; bottom: 0; left: 0; overflow: auto; }

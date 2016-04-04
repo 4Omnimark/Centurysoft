@@ -1,0 +1,38 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.eBayItem>
+
+@{
+    ViewBag.Title = "eBay Items";
+}
+
+<h2>eBay Items Product Associations</h2>
+
+
+<table>
+    <tr>
+        <th>
+            Item ID
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="background-color:@(item.ProductAssociationCount == 0 && item.ListingStatus == 0 ? "red" : "inherit");">
+        <td>
+            <a href="http://www.ebay.com/itm/@item.ItemID" target="_blank">@item.ItemID</a>
+        </td>
+        <td>
+            @Html.ActionLink(item.Title, "Products", new { id = item.ItemID })
+        </td>
+        <td>
+           @item.ListingStatusText
+        </td>
+    </tr>
+}
+
+</table>

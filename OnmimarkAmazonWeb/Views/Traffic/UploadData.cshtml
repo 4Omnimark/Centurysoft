@@ -1,0 +1,132 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.ImportedTrafficRec>
+
+<h2>@ViewBag.Title</h2>
+
+<script type="text/javascript">
+    $(function () {
+        $("a.getreport").click(function () {
+            var col = this.attributes["col"].value;
+
+            var storeName = $(".tableHeader")[0].children[parseInt(col) + 1].innerHTML;
+            var storeID = $(".tableHeader")[0].children[parseInt(col) + 1].attributes["accountid"].value;
+            var date = this.parentElement.parentElement.children[0].innerHTML.trim();
+
+            $(".selected").removeClass("selected");
+            $(this.parentElement).addClass("selected");
+
+            $("#nowDownloadingTitle")[0].innerHTML = storeName + " - " + date;
+            $("#formDate").val(date);
+            $("#formAmazonAccountID").val(storeID);
+            $("#divForm")[0].style.display = "";
+
+        });
+
+        $(":file").change(function () {
+            $("#btnUpload")[0].disabled = "";
+        });
+
+        $("#btnUpload").click(function () {
+            var formData = new FormData($('form')[0]);
+
+            $.ajax({
+                url: 'DoUpload',  //server script to process data
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.Success) {
+                        alert("Data imported successfully!");
+                        $("#divForm")[0].style.display = "none";
+                        $(".selected")[0].innerHTML = "<b>Imported</b>";
+                        $(".selected").removeClass("selected");
+                        $("#file").val("");
+                        $("#btnUpload")[0].disabled = "disabled";
+                    }
+                    else {
+                        alert("ERROR! " + data.Error);
+                        $("#file").val("");
+                        $("#btnUpload")[0].disabled = "disabled";
+                    }
+                }
+                /* xhr: function () {  // custom xhr
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // check if upload property exists
+                myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // for handling the progress of the upload
+                }
+                return myXhr;
+                }, 
+                //Ajax events
+                beforeSend: beforeSendHandler,
+                error: errorHandler, */
+            });
+        });
+    });
+</script>
+
+<style>
+    td { text-align:center; width:100px; }
+    .selected { background-color:Yellow; }
+</style>
+
+<table style="float:left;">
+    <tr class="tableHeader">
+        <th>Date</th>
+        @for (int y = 0; y < @ViewBag.AccountNames.Count; y++)
+        {
+            <th accountid="@ViewBag.AccountNames[y].ID.ToString()">@ViewBag.AccountNames[y].Name</th>
+        }
+    </tr>
+
+@for (int x = 0; x < Model.Count(); x += ViewBag.AccountNames.Count)
+{
+    bool MissingRecs = false;
+
+    for (int y = 0; y < ViewBag.AccountNames.Count; y++)
+    {
+        if (Model.ElementAt(x + y).Count == 0)
+        {
+            MissingRecs = true;
+        }
+    }
+
+    if (MissingRecs)
+    {
+        
+        var Date = (((DateTime)Model.ElementAt(x).Date).ToString("MM/dd/yyyy"));
+    
+        <tr>
+            <td>
+                @Date
+            </td>
+            @for (int y = 0; y < ViewBag.AccountNames.Count; y++)
+            {
+                <td>
+                    @if (Model.ElementAt(x + y).Count == 0)
+                    {
+                        <a class="getreport" col="@y" target="report" href="https://sellercentral.amazon.com/gp/site-metrics/report.html#&cols=/c0/c1/c2/c3/c4/c5/c6/c7/c8/c9/c10/c11/c12&sortColumn=13&filterFromDate=@Date&filterToDate=@Date&fromDate=@Date&toDate=@Date&reportID=102:DetailSalesTrafficBySKU&sortIsAscending=1&currentPage=0&dateUnit=1&viewDateUnits=ALL&runDate=">Import</a>
+                    }
+                    else
+                    {
+                        <b>Imported</b>
+                    }
+                </td>
+            }
+        </tr>
+    }
+}
+
+</table>
+
+<div id="divForm" style="float:left; margin-left:10px; border:1px solid black; display:none; padding:10px;">
+    <h3 id="nowDownloadingTitle"></h3>
+    <form enctype="multipart/form-data">
+        <input id="file" name="file" type="file" />
+        <input type="hidden" name="Date" id="formDate" />
+        <input type="hidden" name="AmazonAccountID" id="formAmazonAccountID" />
+    </form>
+    <input type="button" id="btnUpload" value="Upload Data" disabled="disabled" />
+</div>
+
+<div style="clear:both;"></div>

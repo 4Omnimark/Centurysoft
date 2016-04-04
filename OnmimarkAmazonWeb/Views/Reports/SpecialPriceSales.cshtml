@@ -1,0 +1,36 @@
+﻿<script src="@Html.GetAppPath()/Scripts/Reports.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    function reportLoaded(data) {
+        $("#StartDate").val(data.StartDate)
+        $("#EndDate").val(data.EndDate);
+    }
+
+    function StartEndDateChangedSuccess() {
+        loadReport("@Html.GetAction()Report?StartDate=" + encodeURIComponent($("#StartDate").val()) + "&EndDate=" + encodeURIComponent($("#EndDate").val()));
+    }
+
+    $(function () {
+        loadReport("@Html.GetAction()Report");
+
+        $("#StartDate").datepicker({
+            onSelect: StartEndDateChanged
+        });
+        $("#EndDate").datepicker({
+            onSelect: StartEndDateChanged
+        });
+
+    });
+
+</script>
+
+<h2 id="pageTitle" style="float:left;">@ViewBag.Title</h2>
+
+<div id="containerDays" style="float:left; margin-top:17px; margin-left:20px;">
+    Start: <input name="StartDate" id="StartDate" size="7" />
+    End: <input name="EndDate" id="EndDate" size="7" />
+</div>
+
+<div style="clear:both;"></div>
+
+<div id="divReport" style="overflow:scroll;"></div>

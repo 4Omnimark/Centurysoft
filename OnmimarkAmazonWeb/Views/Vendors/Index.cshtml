@@ -1,0 +1,58 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.Vendor>
+
+<h2>Vendors</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Phone Numbers
+        </th>
+        <th>
+            Contact
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.Phone)<br />
+            @(item.Fax == null ? "" : item.Fax + " Fax")
+        </td>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.ContactNameFirst)
+            @(item.ContactNameMiddle == null ? "" : item.ContactNameMiddle + ".")
+            @Html.DisplayFor(modelItem => item.ContactNameLast)
+        </td>
+        <td valign="top">
+            @Html.Raw(item.Address1 == null ? "" : item.Address1 + "<br />")
+            @(item.Address2 == null ? "" : item.Address2 + "<br />")
+            @Html.Raw(item.City == null ? "" : item.City + ", " ) @Html.Raw(item.StateID != null ? item.State.StateName : "") @Html.Raw(item.StateOrProvince != null ? item.StateOrProvince : "") @Html.Raw(item.PostalCode) @Html.Raw(item.City != null || item.StateID != null || item.StateOrProvince != null || item.PostalCode != null ? "<br />" : "")
+            @Html.Raw(item.CountryID != null && item.CountryID != 840 ? item.Country.CountryName + "<br />" : "")
+        </td>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td valign="top">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

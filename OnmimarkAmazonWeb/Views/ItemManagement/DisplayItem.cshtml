@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OmnimarkAmazonWeb.Controllers.ItemManagementController.InboundProductInventoryAdjustmentAudits>
+
+
+@{
+    
+    ViewBag.Title = "DisplayItem";
+}
+
+<h2>DisplayItem</h2>
+<table>
+
+    <tr>
+        <th>ASIN</th>
+        <th>SKU</th>
+        <th>Title</th>
+        <th>Quantity</th>
+    </tr>
+
+    @foreach (var item in ViewBag.Data)
+    {
+        <tr>
+            <td></td>
+            <td>@item.SKU</td>
+            <td>@item.ProductName</td>
+            <td>@item.QuantityReceived</td>
+        </tr>
+
+    }
+</table>

@@ -1,0 +1,33 @@
+﻿@model OmnimarkAmazon.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">NameFirst</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameFirst)
+    </div>
+
+    <div class="display-label">NameLast</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameLast)
+    </div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

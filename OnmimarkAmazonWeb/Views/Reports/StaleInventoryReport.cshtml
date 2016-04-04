@@ -1,0 +1,65 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.KnownASINWithInventoryAndSales>
+
+<table>
+    <tr>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            QtySold
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            BZ
+        </th>
+        <th>
+            FS
+        </th>
+        <th>
+            VP
+        </th>
+        <th>
+            NM
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @**
+        <td>
+            @(item.QtySold == null ? "INF" : ((decimal)item.QtySold == 0 ? "INF" : ((decimal)item.StockQty / (decimal)item.QtySold * 100).ToString("###,###.##")))%
+        </td>
+        **@
+        <td>
+            @Html.DisplayFor(modelItem => item.ASIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td align="right">
+            @(((decimal)(item.QtySold == null ? 0 : item.QtySold)).ToString("###,###,##0"))
+        </td>
+        <td align="right">
+            @(((decimal)(item.StockQty == null ? 0 : item.StockQty - item.StockQtyInbound)).ToString("###,###,##0"))
+        </td>
+        <td align="right">
+            @(((decimal)(item.StockQtyBrandzilla == null ? 0 : item.StockQtyBrandzilla)).ToString("###,###,##0"))
+        </td>
+        <td align="right">
+            @(((decimal)(item.StockQtyFiveStar == null ? 0 : item.StockQtyFiveStar)).ToString("###,###,##0"))
+        </td>
+        <td align="right">
+            @(((decimal)(item.StockQtyVitality == null ? 0 : item.StockQtyVitality)).ToString("###,###,##0"))
+        </td>
+        <td align="right">
+            @(((decimal)(item.StockQtyNutramart == null ? 0 : item.StockQtyNutramart)).ToString("###,###,##0"))
+        </td>
+    </tr>
+}
+
+</table>

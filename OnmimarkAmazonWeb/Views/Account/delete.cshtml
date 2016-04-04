@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "delete";
+}
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>User</legend>
+    <h2>delete</h2>
+    @foreach (var item in Model)
+    {
+
+
+        <div class="display-label">UserName</div>
+        <div class="display-field">
+            @item.UserName
+        </div>
+
+        <div class="display-label">Email</div>
+        <div class="display-field">
+            @item.Email
+        </div>
+
+
+
+    }
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> 
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

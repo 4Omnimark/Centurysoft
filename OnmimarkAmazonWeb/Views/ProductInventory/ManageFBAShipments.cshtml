@@ -1,0 +1,243 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.InboundFBAShipmentManagementView>
+<script type="text/javascript">
+    $(function () {
+
+        if (urlParams["ShowClosed"] != null)
+            $("#show_closed").attr("checked", "checked");
+
+        history.replaceState(null, null, UpdateQueryString("update"));
+
+        $("#show_closed").click(function () {
+            toggleShowClosed();
+        });
+
+        toggleShowClosed();
+
+        $(".fba-shipment-row").each(function () {
+            initRow($(this));
+        });
+    });
+
+    function initRow(row) {
+        row.find(".process-now").click(function () {
+            var $this = $(this);
+            var id = $this.attr("data-ifsid");
+            $this.hide();
+            $("#process-now-message-" + id).html("<b>Processing</b>");
+            $.ajax({
+                url: "ProcessFBAShipmentNow/" + id,
+                success: function (json) {
+                    if (json.Success) {
+                        $this.show();
+                        $("#process-now-message-" + id).hide();
+                        $("#fba-shipment-row-" + id).replaceWith(json.Html);
+                        initRow($("#fba-shipment-row-" + id));
+                        alert(json.LogText);
+                    }
+                }
+            });
+            return false;
+        });
+
+        row.find(".schedule-now").click(function () {
+            var $this = $(this);
+            var id = $this.attr("data-ifsid");
+            $this.hide();
+            $("#schedule-now-message-" + id).html("<b>Processing</b>");
+            $.ajax({
+                url: "ScheduleFBAShipment/" + id,
+                success: function (json) {
+                    if (json.Success) {
+                        $this.show();
+                        $("#schedule-now-message-" + id).hide();
+                        $("#fba-shipment-row-" + id).replaceWith(json.Html);
+                        initRow($("#fba-shipment-row-" + id));
+                    }
+                }
+            });
+            return false;
+        });
+
+        row.find(".remove-now").click(function () {
+            var $this = $(this);
+            var id = $this.attr("data-ifsid");
+            $this.hide();
+            $("#remove-now-message-" + id).html("<b>Processing</b>");
+            $.ajax({
+                url: "RemoveFBAShipment/" + id,
+                success: function (json) {
+                    if (json.Success) {
+                        $this.show();
+                        $("#remove-now-message-" + id).hide();
+                        $("#fba-shipment-row-" + id).replaceWith(json.Html);
+                        initRow($("#fba-shipment-row-" + id));
+                    }
+                }
+            });
+            return false;
+        });
+    }
+
+    function toggleShowClosed(checked)
+    {
+        if (checked == null)
+            checked = $("#show_closed").is(':checked');
+
+        if (checked) {
+            history.replaceState(null, null, UpdateQueryString("ShowClosed", "yes"));
+            $(".fba-shipment-row").show();
+        }
+        else {
+            history.replaceState(null, null, UpdateQueryString("ShowClosed"));
+            $(".fba-shipment-row").each(function () {
+                if ($(this).attr("data-status") > 5)
+                    $(this).hide();
+            });
+        }
+    }
+
+</script>
+@{
+    ViewBag.Title = "Manage FBA Shipments";
+}
+
+<h2 style="float:left;">@ViewBag.Title</h2>
+
+<a style="display:block; margin-left:20px; padding-top:20px; float:left;" href="?update=true">Update</a>
+
+<div style="margin-left:20px; padding-top:20px; float:left;">
+    <input type="checkbox" name="show_closed" id="show_closed" /> Show Closed
+</div>
+
+<div style="clear:both;"></div>
+
+@if (ViewBag.UpdateLog != null)
+{
+    <div style="border:1px solid black; width:100%; height:200px; overflow:scroll; margin-bottom:20px;">
+        @Html.Raw(ViewBag.UpdateLog)
+    </div>
+}
+
+<style>
+    table td
+    {
+        white-space: nowrap;
+    }
+</style>
+<table style="font-size:12px;">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Store
+        </th>
+        <th>
+            Created On
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            ItemCount
+        </th>
+        <th>
+            UpdateTimeStamp
+        </th>
+        <th>
+            Scheduled
+        </th>
+        <th>
+            Removed
+        </th>
+        <th>
+            First Inv Adj
+        </th>
+        <th>
+            Last Inv Adj
+        </th>
+        <th>
+            Inv Adj Count
+        </th>
+    </tr>
+
+@{
+    foreach (var item in Model)
+    {
+        <tr class="fba-shipment-row" id="fba-shipment-row-@(item.ID)" data-status="@item.Status" style="@(item.Status > 5 ? "background-color:#FFCCCC;" : "")">
+            <td align="center">
+                <b style="font-weight:bolder;">@Html.DisplayFor(modelItem => item.ID)</b><br />
+                <span style="font-size:10px;">@Html.DisplayFor(modelItem => item.Name)</span>
+            </td>
+            <td>
+                @item.AmazonAccountName
+            </td>
+            <td align="center">
+                @if (item.CreatedOn != null)
+                {
+                    @(((DateTime)item.CreatedOn).ToString("MM/dd/yyyy"))<br />
+                    @(((DateTime)item.CreatedOn).ToString("hh:mm tt"))
+                }
+            </td>
+            <td align="center">
+                @(((OmnimarkAmazon.Library.FBAInboundShipmentStatus)item.Status).ToString())
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.ItemCount)
+            </td>
+            <td align="center">
+                @(((DateTime)item.UpdateTimeStamp).ToString("MM/dd/yyyy"))<br />
+                @(((DateTime)item.UpdateTimeStamp).ToString("hh:mm tt"))
+            </td>
+            <td align="center" nowrap="nowrap">
+                @if (item.ScheduledForInventoryAdjustmentProcessing == null)
+                {
+                    <a href="#" class="schedule-now" data-ifsid="@item.ID">Schedule Now</a>
+                    <div id="schedule-now-message-@(item.ID)"></div>
+                }
+                else
+                {
+                    @(((DateTime)item.ScheduledForInventoryAdjustmentProcessing).ToString("MM/dd/yyyy hh:mm tt"))<br />
+                    if (item.RemovedFromInventoryAdjustmentProcessing == null)
+                    {
+                        <a href="#" class="process-now" data-ifsid="@item.ID">Process Now</a>
+                        <div id="process-now-message-@(item.ID)"></div>
+                    }
+                }
+            </td>
+            <td align="center" nowrap="nowrap">
+                @if (item.RemovedFromInventoryAdjustmentProcessing == null)
+                {
+                    <a href="#" class="remove-now" data-ifsid="@item.ID">Remove Now</a>
+                    <div id="remove-now-message-@(item.ID)"></div>
+                }
+                else
+                {
+                    @(((DateTime)item.RemovedFromInventoryAdjustmentProcessing).ToString("MM/dd/yyyy hh:mm tt"))
+                }
+            </td>
+            <td align="center">
+                @if (item.FirstInventoryAdjustment != null)
+                {
+                    @(((DateTime)item.FirstInventoryAdjustment).ToString("MM/dd/yyyy"))<br />
+                    @(((DateTime)item.FirstInventoryAdjustment).ToString("hh:mm tt"))
+                }
+            </td>
+            <td align="center">
+                @if (item.LastInventoryAdjustment != null)
+                {
+                    @(((DateTime)item.LastInventoryAdjustment).ToString("MM/dd/yyyy"))<br />
+                    @(((DateTime)item.LastInventoryAdjustment).ToString("hh:mm tt"))
+                }
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.InventoryAdjustmentCount)
+            </td>
+        </tr>
+
+
+    }
+}
+
+
+</table>

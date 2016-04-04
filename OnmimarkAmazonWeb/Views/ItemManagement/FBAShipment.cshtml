@@ -1,0 +1,36 @@
+﻿@model OmnimarkAmazon.Models.InboundFBAShipment
+
+@{
+    ViewBag.Title = "FBAShipment";
+}
+
+<h2>FBAShipment</h2>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<link href="@Html.GetAppPath()/Content/jquery.tooltip.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.stickyTableHeaders.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductDateSelection.js"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.dimensions.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/jquery.tooltip.js" type="text/javascript"></script>
+
+
+<h2>InventoryItemManagement</h2>
+
+<script type="text/javascript">
+
+
+    </script>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Search FBA :</td>
+            <td>@Html.TextBoxFor(modelitem=>modelitem.ID)</td>
+            @*<td>@Html.TextBox("fbastring")</td>*@
+            <td><input type="submit" value="Search" /></td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,28 @@
+﻿@model OmnimarkAmazonWeb.Models.AddKeywords
+
+@{
+    ViewBag.Title = "AddKeywords";
+}
+
+<h2>Add Keywords</h2>
+
+@using(Html.BeginForm())
+{
+   
+
+    <table style="border:hidden">
+        <tr>
+            <td>
+                Add Keyword:
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.keyword)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x=>x.keyword)
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="SAVE" class="sm-submit" />
+
+}

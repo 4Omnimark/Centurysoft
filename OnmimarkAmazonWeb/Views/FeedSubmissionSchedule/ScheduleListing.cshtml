@@ -1,0 +1,106 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.FeedSubmissionScheduleStatusRec>
+       
+<table>
+    <tr>
+        <th>
+            Enabled
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Amazon Store
+        </th>
+        <th>
+            FeedType
+        </th>
+        <th>
+            MessageType
+        </th>
+        <th>
+            NextRun
+        </th>
+        <th>
+            Run Every
+        </th>
+        <th>
+            MustRunAll
+        </th>
+        <th>
+            RunCount
+        </th>
+        <th>
+            LastRun
+        </th>
+        <th>
+            ActiveCount
+        </th>
+        <th>
+            LastCompletion
+        </th>
+        <th>
+            ErrorCount
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmazonAccountName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeedType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextRun)
+        </td>
+        <td>
+            @(new Startbutton.TimeSpan(item.TimeSpan).ToReadableString())
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MustRunAll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastRun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastCompletion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ErrorCount)
+        </td>
+        <td>
+            @if (item.AutomaticPriceChangeID != null)
+            {
+                <text>@Html.ActionLink("Edit", "Edit", "AutomaticPriceChange", new { id = item.AutomaticPriceChangeID }, null)</text>
+            }
+            else
+            {
+                <text>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </text>
+            }
+                 
+                                                                 
+        </td>
+    </tr>
+}
+
+</table>

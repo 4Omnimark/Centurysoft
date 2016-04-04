@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.ProductsView>
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New " + (string)ViewBag.RecTypeName, "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Invoice Cost
+        </th>
+        <th>
+            Actual Cost
+        </th>
+        <th>
+            Entered On
+        </th>
+        <th>
+            Categories
+        </th>
+        <th>
+            Tags
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td align="right">
+            @if (item.Cost != null)
+                { <text>@(((decimal)item.Cost).ToString("###,###,##0.00"))</text> }
+        </td>
+        <td align="right">
+            @if (item.ActualCost != null)
+                { <text>@(((decimal)item.ActualCost).ToString("###,###,##0.00"))</text> }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

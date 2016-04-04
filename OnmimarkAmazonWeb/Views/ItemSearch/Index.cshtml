@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.KnownASIN>
+
+<form method="post" name="form" id="form">
+<div style="float:left;">
+<input type="checkbox" name="cbShowFiltered" onclick="form.submit();" @(Request.Form["cbShowFiltered"] == null ? "" : "checked") /> Show filtered
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="cbShowReviewed" onclick="form.submit();" @(Request.Form["cbShowReviewed"] == null ? "" : "checked") /> Show reviewed<br />
+</div>
+<div style="float:right;">
+    <a href="/ItemSearch/AddKnownASIN">Add ASIN</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/ItemSearch/SearchTerms">Search Terms</a>
+</div>
+<div style="clear:both;"></div>
+<br />
+
+<input type="hidden" name="Action" id="Action" />
+<table>
+<tr>
+    <th>Added</th>
+    <th>Search Term</th>
+    <th>ASIN</th>
+    <th>Title</th>
+    <th>Filtered</th>
+    <th>Reviewed</th>
+</tr>
+@{ foreach (OmnimarkAmazon.Models.KnownASIN item in Model) {
+   <tr>
+       <td nowrap>@item.TimeStamp.ToString("MM/dd/yyyy HH:mm:ss")</td>
+       <td nowrap>@item.SearchTerm</td>
+       <td nowrap><a target="_blank" href="http://www.amazon.com/gp/product/@(item.ASIN)">@(item.ASIN)</a></td>
+       <td>@item.Title</td>
+       <td nowrap align="center"><input type="checkbox" name="Filtered_@(item.ASIN)" @(item.Filtered == true ? "checked" : "") onclick="$('#Action').get(0).value='Filtered_@(item.ASIN)=' + this.value; form.submit();" /></td>
+       <td nowrap align="center"><input type="checkbox" name="Reviewed_@(item.ASIN)" @(item.Reviewed == null ? "" : "checked") onclick="$('#Action').get(0).value='Reviewed_@(item.ASIN)=' + this.value; form.submit();" /></td>
+   </tr>    
+} }
+
+</table>
+
+</form>
+
+

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.OutPriced>
+
+
+<table>
+    <tr>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Our Lowest Price
+        </th>
+        <th>
+            Competitors Lowest Price
+        </th>
+        <th>
+            Amazon Fulfilled
+        </th>
+        <th>
+            StockQty
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.ASIN
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td align="right">
+            @Html.DisplayFor(modelItem => item.OurMinPrice)
+        </td>
+        <td align="right">
+            @Html.DisplayFor(modelItem => item.CompetitorMinPrice)
+        </td>
+        <td align="center">
+            @(item.AmazonFulfilled == 1 ? "Yes" : "No")
+        </td>
+        <td align="right">
+            @(((decimal)item.StockQty).ToString("###,###,##0"))
+        </td>
+    </tr>
+}
+
+</table>

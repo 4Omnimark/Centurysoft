@@ -1,0 +1,72 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.AutomaticPriceChangesView>
+
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            SKU
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Temporary Price
+        </th>
+        <th>
+            Regular Price
+        </th>
+        <th>
+            Current Price (as of)
+        </th>
+        <th>
+            Next Temporary Begins
+        </th>
+        <th>
+            Next Temporary Ends
+        </th>
+        <th>
+            Repeat Every
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SKU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @item.TempPrice.ToString("###,###,##0.00")
+        </td>
+        <td>
+            @item.RegularPrice.ToString("###,###,##0.00")
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            @item.NextStartRun.ToString("M/d/yyyy h:mm:ss tt")
+        </td>
+        <td>
+            @item.NextEndRun.ToString("M/d/yyyy h:mm:ss tt")
+        </td>
+        <td>
+            @Startbutton.TimeSpan.ToReadableString(item.TimeSpan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

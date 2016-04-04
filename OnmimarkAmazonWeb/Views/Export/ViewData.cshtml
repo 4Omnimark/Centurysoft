@@ -1,0 +1,11 @@
+﻿@model OmnimarkAmazon.Models.ExportSpec
+
+@{
+    ViewBag.Title = "View Data for " + Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>@Html.ActionLink("Back", "Index")</p>
+
+@Html.Raw(ViewBag.DataTable)

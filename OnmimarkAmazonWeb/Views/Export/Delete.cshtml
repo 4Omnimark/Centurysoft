@@ -1,0 +1,78 @@
+﻿@model OmnimarkAmazon.Models.ExportSpec
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ExportSpec</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">FieldList</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FieldList)
+    </div>
+
+    <div class="display-label">WhereClause</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WhereClause)
+    </div>
+
+    <div class="display-label">OrderByClause</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderByClause)
+    </div>
+
+    <div class="display-label">TimeStamp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeStamp)
+    </div>
+
+    <div class="display-label">UpdateTimeStamp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdateTimeStamp)
+    </div>
+
+    <div class="display-label">FieldNameTranslations</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FieldNameTranslations)
+    </div>
+
+    <div class="display-label">SelectClauseExtension</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SelectClauseExtension)
+    </div>
+
+    <div class="display-label">RecordCount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RecordCount)
+    </div>
+
+    <div class="display-label">FromClauseExtension</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromClauseExtension)
+    </div>
+
+    <div class="display-label">FileHeaderText</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FileHeaderText)
+    </div>
+
+    <div class="display-label">FieldDelimiter</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FieldDelimiter)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

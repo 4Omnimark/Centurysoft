@@ -1,0 +1,63 @@
+﻿@model OmnimarkAmazon.Models.AutomaticPriceChange
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>AutomaticPriceChange</legend>
+
+    <div class="display-label">SKU</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SKU)
+    </div>
+
+    <div class="display-label">TempPrice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TempPrice)
+    </div>
+
+    <div class="display-label">RegularPrice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegularPrice)
+    </div>
+
+    <div class="display-label">StartFeedSubmissionScheduleID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartFeedSubmissionScheduleID)
+    </div>
+
+    <div class="display-label">EndFeedSubmissionScheduleID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndFeedSubmissionScheduleID)
+    </div>
+
+    <div class="display-label">TimeStamp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeStamp)
+    </div>
+
+    <div class="display-label">TimeSpan</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeSpan)
+    </div>
+
+    <div class="display-label">TempPriceStartDateTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TempPriceStartDateTime)
+    </div>
+
+    <div class="display-label">TempPriceEndDateTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TempPriceEndDateTime)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

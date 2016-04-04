@@ -1,0 +1,35 @@
+﻿@model OmnimarkAmazon.Models.BaseRegisterModel
+
+
+    <h2>Create a New User</h2>
+
+    @{ using (Html.BeginForm()) {
+           
+       @Html.ValidationSummary(true, "The operation was unsuccessful. Please correct the errors and try again.")
+
+        <div>
+        <fieldset>
+            <legend>Account Information</legend>
+            <fieldset>
+                <legend>Roles</legend>
+                @{ List<SelectListItem> Roles = (List<SelectListItem>)ViewData["roles"]; }
+
+                @{ foreach(SelectListItem item in Roles) { 
+                    @Html.CheckBox("cbRole" + item.Text, item.Selected)  @item.Text <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                } } 
+            </fieldset>
+
+            @{ ViewData["BasicInfoHeading"] = "User Information"; }
+            @{ Html.RenderPartial("RegisterForm", Model); }
+            <p>
+                <input type="submit" value="@ViewData["ButtonText"]" />
+            </p>
+
+        </fieldset>
+    </div>
+    } }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index") 
+    </div>
+

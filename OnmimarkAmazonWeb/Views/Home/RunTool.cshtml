@@ -1,0 +1,26 @@
+﻿<h2 style="float:left;">@ViewBag.ToolName Tool</h2>
+
+<script type="text/javascript">
+
+    function btnButton_Click(btn)
+    {
+        if (btn.value == "Run")
+        {
+            btn.disabled = "disabled";
+            btn.value = "Running...";
+            $("#ScriptFrame")[0].src = '@Html.Raw(ViewBag.ToolPath)';
+        }
+        else
+        {
+            location = '@ViewBag.ReturnURL';
+        }
+    }
+
+</script>
+
+<center>
+<input style="float:left; margin-left:50px; margin-top:17px;" id="btnButton" type="button" value="Run" onclick="btnButton_Click(this);" />
+<div style="clear:both;"></div>
+<iframe id="ScriptFrame" style="width:100%; height:400px;"></iframe><br />
+<br />
+</center>

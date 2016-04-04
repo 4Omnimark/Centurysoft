@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.BuyBoxPercentageChangeReportRecord>
+
+<table>
+    <tr>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            30 Day
+        </th>
+        <th>
+            7 Day
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ASIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyBox30Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyBox7Day)
+        </td>
+    </tr>
+}
+
+</table>

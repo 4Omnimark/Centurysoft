@@ -1,0 +1,27 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.SOSInventoryChangeReport>
+
+@{
+    ViewBag.Title = "SOS Inventory Export";
+}
+
+<h2>SOS Inventory Export</h2>
+
+<p>
+    @Html.ActionLink("Create a New Batch", "CreateSOSInventoryExport")
+</p>
+<table>
+    <tr>
+        <th>
+            Existing Exports
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/AmazonInventory/GetSOSInventoryExport/@item.ID">@Html.DisplayFor(modelItem => item.TimeStamp)</a>
+        </td>
+    </tr>
+}
+
+</table>

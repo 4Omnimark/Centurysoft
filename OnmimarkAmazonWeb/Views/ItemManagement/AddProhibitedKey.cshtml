@@ -1,0 +1,28 @@
+﻿@model OmnimarkAmazonWeb.Models.UkProhibitedKeywords
+<h2>AddProhibitedKey</h2>
+@{
+    ViewBag.Title = "AddProhibitedKey";
+}
+@if(TempData["msg"]!=null)
+{
+    <span style="color:green;font:bold">@TempData["msg"].ToString()</span>
+}
+@using(Html.BeginForm())
+{
+    <div>
+        <table style="border:hidden">
+            <tr>
+                <td>
+                    Add Keyword:
+                </td>
+                <td>@Html.TextBoxFor(modelitem=>modelitem.keyname)</td>
+            </tr>
+            </table>
+        <br />
+        <input type="submit" value="ADD To UK" name="submit" class="sm-submit" />
+
+        <input type="submit" value="ADD To Canada" name="submit" class="sm-submit" />
+</div>
+}
+
+

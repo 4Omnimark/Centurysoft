@@ -1,0 +1,35 @@
+﻿
+Last known downloaded order PurchaseDate: <b>@ViewBag.LastKnownOrderPurchaseDate</b><br />
+<br />
+OmnimarkAmazonService Status: <b>@ViewBag.ServiceStatus</b><br />
+<br />
+<br />
+Last Run UK_Prohibition Process: <b>@ViewBag.UKProhibition</b><br />
+<br />
+
+<table cellpadding='1' cellspacing='0' style="border:1px solid black;">
+<tr><td colspan="2" align="center"><b>Last Inventory Update</b></td></tr>
+@foreach(OmnimarkAmazon.Models.AmazonAccount item in ViewBag.AmazonAccounts) {
+    <tr>
+    <td>@item.Name</td>
+    <td>@(item.LastInventoryUpdate != null ? (((DateTime)item.LastInventoryUpdate).ToString("M/d/yyyy HH:mm:ss")) : "")</td>
+    </tr>
+}
+</table>
+
+<input type="button" onclick="location='/Home/RunTool/UpdateInventory?ru=/';" value="Update All Inventory" />
+<input type="button" onclick="location='/Home/RunTool/UpdateNonUpdatedInventory?ru=/';" value="Update Non-Updated Inventory" />
+<br />
+<input type="button" onclick="location='/Home/RunTool/DeductInventoryFBA?ru=/';" value="Deduct FBA from Inventory" />
+<input type="button" onclick="location='/Home/RunTool/DeductInventoryMerchantFulfilled?ru=/';" value="Deduct Merchant Fulfilled from Inventory" />
+<input type="button" onclick="location='/Home/RunTool/DeductInventoryEBay?ru=/';" value="Deduct eBay from Inventory" />
+<br />
+<input type="text" name="ShipmentID" id="ShipmentID" /> 
+<select name="ShipmentAccount" id="ShipmentAccount">
+@foreach(OmnimarkAmazon.Models.AmazonAccount item in ViewBag.AmazonAccounts) {
+    <option value="@item.ID">@item.Name</option>
+}
+</select>
+<input type="button" onclick="location='/Home/RunTool/DeductInventoryFBA?ru=/&parms=' + encodeURIComponent('ShipmentID=' + $('#ShipmentID').val() + '&ShipmentAccount=' + $('#ShipmentAccount').val());" value="Deduct FBA from Inventory (single)" />
+<br />
+<input type="button" onclick="location = '/Home/RunTool/GetSettlementData?ru=/';" value="Update Settlement Data" />

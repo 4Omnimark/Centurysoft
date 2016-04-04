@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00DF6EFD-D292-437A-9D86-8AB6C96F1A62}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OmnimarkAmazonWeb</RootNamespace>
+    <AssemblyName>OnmimarkAmazonWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="com.ddmresources.EnumMetadata.Core">
+      <HintPath>..\..\..\bakup\bak\bin\com.ddmresources.EnumMetadata.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="eBay.Service">
+      <HintPath>..\..\..\bakup\bak\bin\eBay.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\..\..\bakup\bak\bin\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\..\..\bakup\bak\bin\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\bakup\bak\bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FBAInventoryServiceMWS">
+      <HintPath>..\..\..\bakup\bak\bin\FBAInventoryServiceMWS.dll</HintPath>
+    </Reference>
+    <Reference Include="MarketplaceWebService">
+      <HintPath>..\..\..\bakup\bak\bin\MarketplaceWebService.dll</HintPath>
+    </Reference>
+    <Reference Include="MarketplaceWebServiceOrders">
+      <HintPath>..\..\..\bakup\bak\bin\MarketplaceWebServiceOrders.dll</HintPath>
+    </Reference>
+    <Reference Include="MarketplaceWebServiceProducts">
+      <HintPath>..\..\..\bakup\bak\bin\MarketplaceWebServiceProducts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OmnimarkAmazonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OmnimarkAmazonLibrary\bin\Debug\OmnimarkAmazonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PagingSorting">
+      <HintPath>..\..\..\bakup\bak\bin\PagingSorting.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\..\bakup\bak\bin\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="StartbuttonCore, Version=1.0.5429.24342, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ref\StartbuttonCore.dll</HintPath>
+    </Reference>
+    <Reference Include="StartbuttonCore2013, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ref\StartbuttonCore2013.dll</HintPath>
+    </Reference>
+    <Reference Include="StartbuttonWeb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\AZUREWebsite\bin\StartbuttonWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="UkListing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\UkListing\UkListing\bin\Debug\UkListing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AmazonInventoryController.cs" />
+    <Compile Include="Controllers\AuthorizeIPAddress.cs" />
+    <Compile Include="Controllers\AutomaticPriceChangeController.cs" />
+    <Compile Include="Controllers\eBayController.cs" />
+    <Compile Include="Controllers\ExportController.cs" />
+    <Compile Include="Controllers\FeedSubmissionScheduleController.cs" />
+    <Compile Include="Controllers\ItemManagementController.cs" />
+    <Compile Include="Controllers\ProductInventoryController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ItemSearchController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PurchasingController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\SearchTermsController.cs" />
+    <Compile Include="Controllers\TrafficController.cs" />
+    <Compile Include="Controllers\UnderPricedController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VendorsController.cs" />
+    <Compile Include="Controllers\_BaseController.cs" />
+    <Compile Include="Emails.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Library.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AddKeywords.cs" />
+    <Compile Include="Models\AllowStores.cs" />
+    <Compile Include="Models\AutomaticPriceChangeWeb.cs" />
+    <Compile Include="Models\DeductFBAShipment.cs" />
+    <Compile Include="Models\DeductInward.cs" />
+    <Compile Include="Models\ExportByAccount.cs" />
+    <Compile Include="Models\ExportStatusModel.cs" />
+    <Compile Include="Models\FeedSubmissionScheduleRecWeb.cs" />
+    <Compile Include="Models\MessageFields\PriceWeb.cs" />
+    <Compile Include="Models\OnmimarkAmazonWebContext.cs" />
+    <Compile Include="Models\ServiceStatus.cs" />
+    <Compile Include="Models\UKListingModel.cs" />
+    <Compile Include="Models\UkProhibitedKeywords.cs" />
+    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\GetSettlementData.aspx.cs">
+      <DependentUpon>GetSettlementData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\GetSettlementData.aspx.designer.cs">
+      <DependentUpon>GetSettlementData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DeductInventoryEBay.aspx.cs">
+      <DependentUpon>DeductInventoryEBay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\DeductInventoryEBay.aspx.designer.cs">
+      <DependentUpon>DeductInventoryEBay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DeductInventoryMerchantFulfilled.aspx.cs">
+      <DependentUpon>DeductInventoryMerchantFulfilled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\DeductInventoryMerchantFulfilled.aspx.designer.cs">
+      <DependentUpon>DeductInventoryMerchantFulfilled.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DeductInventoryFBA.aspx.cs">
+      <DependentUpon>DeductInventoryFBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\DeductInventoryFBA.aspx.designer.cs">
+      <DependentUpon>DeductInventoryFBA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UpdateNonUpdatedInventory.aspx.cs">
+      <DependentUpon>UpdateNonUpdatedInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\UpdateNonUpdatedInventory.aspx.designer.cs">
+      <DependentUpon>UpdateNonUpdatedInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\UpdateInventory.aspx.cs">
+      <DependentUpon>UpdateInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\UpdateInventory.aspx.designer.cs">
+      <DependentUpon>UpdateInventory.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\delete.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\log.png" />
+    <Content Include="Content\images\onorder.png" />
+    <Content Include="Content\images\refresh.gif" />
+    <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui-1.10.0.css" />
+    <Content Include="Content\jquery.tooltip.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\AmazonInventory.js" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery.bgiframe.js" />
+    <Content Include="Scripts\jquery.dimensions.js" />
+    <Content Include="Scripts\jquery.numberformatter-1.2.3.min.js" />
+    <Content Include="Scripts\jquery.stickyTableHeaders.js" />
+    <Content Include="Scripts\jquery.syrinxmenu.js" />
+    <Content Include="Scripts\jshashtable-2.1.js" />
+    <Content Include="Scripts\ProductFiltering.js" />
+    <Content Include="Scripts\Reports.js" />
+    <Content Include="Scripts\VendorSelection.js" />
+    <Content Include="Scripts\jquery.tooltip.js" />
+    <Content Include="Scripts\jquery.tooltip.min.js" />
+    <Content Include="Scripts\jquery.tooltip.pack.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\ProductDateSelection.js" />
+    <Content Include="Tools\GetSettlementData.aspx" />
+    <Content Include="Tools\DeductInventoryEBay.aspx" />
+    <Content Include="Tools\DeductInventoryMerchantFulfilled.aspx" />
+    <Content Include="Tools\DeductInventoryFBA.aspx" />
+    <Content Include="Tools\UpdateNonUpdatedInventory.aspx" />
+    <Content Include="Tools\UpdateInventory.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\KnownASINs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ItemSearch\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ItemSearch\AddKnownASIN.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ItemSearch\ASINAdded.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SearchTerms\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SearchTerms\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SearchTerms\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\Products.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\ProductsInventory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\AssociatedProducts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\AssociatedProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\FBACalc.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\RunTool.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Purchasing\Received.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Purchasing\ReceivedShipment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Purchasing\PurchaseOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Purchasing\VendorSelection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Purchasing\PurchaseOrders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutForEmail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Vendors\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Vendors\Vendor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\RegisterForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\GetASINsWithAttributes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Export\ExportSpec.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Export\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Export\ViewData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Export\ViewExport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Export\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\MessageFields\Price.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\SystemStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\BlankLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\ScheduleListing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeedSubmissionSchedule\QueueList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AutomaticPriceChange\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AutomaticPriceChange\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AutomaticPriceChange\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UnderPriced\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\NeedInInventory\SelectVendor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\NeedInInventory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\NeedInInventory\SelectProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\NeedInInventory\SelectAccount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\NeedInInventory\ViewASINs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Traffic\UploadData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\NeedInInventory\SelectCountry.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\IndexNew.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\KnownASINsWithInventoryAndSales.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\StaleInventory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\StaleInventoryReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\BuyBoxChangeReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\BuyBoxChange.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\SalesChange.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\SalesChangeReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\OutPricedReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\OutPriced.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\SpecialPriceSales.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\SpecialPriceSalesReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\Profitability.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\ProfitabilityReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AmazonInventory\SOSInventoryExport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\InventoryValue.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\InventoryValueReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\eBay\Products.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\eBay\AssociatedProducts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\eBay\AssociatedProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\eBay\eBayItemsList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductInventory\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\omnimark - FTP.pubxml" />
+    <Content Include="Views\Reports\OrderProfitability.cshtml" />
+    <Content Include="Views\Reports\OrderProfitabilityReport.cshtml" />
+    <Content Include="Views\AmazonInventory\MissingProductAssociations.cshtml" />
+    <Content Include="Views\ProductInventory\ManageFBAShipments.cshtml" />
+    <Content Include="Views\Purchasing\PurchaseOrderIssue.cshtml" />
+    <None Include="Properties\PublishProfiles\omnimark.pubxml" />
+    <Content Include="Views\ProductInventory\InboundFBAShipmentManagementViewRow.cshtml" />
+    <Content Include="Views\AmazonInventory\KnownASINsWithInventoryAndSales2.cshtml" />
+    <Content Include="Views\Reports\OrderProfitabilityByVendor.cshtml" />
+    <Content Include="Views\Reports\OrderProfitabilityByVendorReport.cshtml" />
+    <Content Include="Views\Account\GetUser.cshtml" />
+    <Content Include="Views\Account\delete.cshtml" />
+    <Content Include="Views\ItemManagement\Index.cshtml" />
+    <Content Include="Views\ItemManagement\DisplayItem.cshtml" />
+    <Content Include="Views\ItemManagement\FBAShipment.cshtml" />
+    <Content Include="Views\ItemManagement\InboundShipmentItem.cshtml" />
+    <Content Include="Views\ItemManagement\DeductInward.cshtml" />
+    <Content Include="Views\ItemManagement\AddShipment.cshtml" />
+    <Content Include="Views\ItemManagement\DeductFBAShipment.cshtml" />
+    <Content Include="Views\ItemManagement\Result.cshtml" />
+    <Content Include="Views\ItemManagement\Delete.cshtml" />
+    <Content Include="Views\ItemManagement\AddMissingShipment.cshtml" />
+    <Content Include="Views\ItemManagement\UKExport.cshtml" />
+    <Content Include="Views\ItemManagement\ExportStatus.cshtml" />
+    <Content Include="Views\ItemManagement\AddProhibitedKey.cshtml" />
+    <Content Include="Views\ItemManagement\ExportByAccount.cshtml" />
+    <Content Include="Views\ItemManagement\ServiceStatus1.cshtml" />
+    <Content Include="Views\ItemManagement\AllowStores.cshtml" />
+    <Content Include="Views\ItemManagement\ServiceStatus.cshtml" />
+    <Content Include="Views\ItemManagement\AddKeywords.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:32282/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:32282/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

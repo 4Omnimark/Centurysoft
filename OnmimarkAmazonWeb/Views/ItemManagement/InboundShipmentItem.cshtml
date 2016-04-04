@@ -1,0 +1,14 @@
+﻿@model IEnumerable <OmnimarkAmazon.Models.InboundFBAShipmentItem>
+
+<table>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @item.ShipmentID
+        </tr>
+        <tr>
+            @item.QuantityReceived
+        </tr>
+    }
+</table>

@@ -1,0 +1,93 @@
+﻿@model OmnimarkAmazon.Models.BaseRegisterModel
+
+<style>
+    .editor-label { float:left; width:180px; height:14px; vertical-align:top; margin:0px; padding:4px; }
+    .editor-field { padding-right:40px; margin:0px; padding:2px; }
+    .editor-field input { width:150px; }
+    fieldset { padding:0x; margin:2px; }
+    legend { font-weight:extra-bold; }
+</style>
+
+
+        <table style="border:0px;"><tr><td style="border:0px; vertical-align:top;">
+
+            <fieldset style="width:350px;">
+                <legend>@ViewData["BasicInfoHeading"] </legend>
+
+                @Html.ValidationMessageFor(m => m.NameFirst)
+                <div class="editor-label">
+                    First Name
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.NameFirst)
+                </div>
+                <div style="clear:both;"></div>
+                
+                @Html.ValidationMessageFor(m => m.NameLast)
+                <div class="editor-label">
+                    Last Name
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.NameLast)
+                </div>
+                <div style="clear:both;"></div>
+                
+            </fieldset>
+
+            <fieldset style="width:350px;">
+                <legend>Account Information</legend>
+
+                @Html.ValidationMessageFor(m => m.Email) 
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Email) 
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Email) 
+                </div>
+                <div style="clear:both;"></div>
+
+                @Html.ValidationMessageFor(m => m.UserName) 
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.UserName) 
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.UserName) 
+                </div>
+                <div style="clear:both;"></div>
+                
+                @{ if (ViewData["PasswordNotRequired"] != null) { 
+                    <br /><div style='color:Blue;'>To change the password on this account, enter it twice here.  Otherwise, leave the fields blank.</div>
+                } }
+
+                @Html.ValidationMessageFor(m => m.Password) 
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Password) 
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(m => m.Password) 
+                </div>
+                <div style="clear:both;"></div>
+                
+                @Html.ValidationMessageFor(m => m.ConfirmPassword) 
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.ConfirmPassword) 
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(m => m.ConfirmPassword) 
+                </div>
+                <div style="clear:both;"></div>
+
+                @Html.ValidationMessageFor(m => m.Phone)
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Phone) 
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Phone)
+                </div>
+                <div style="clear:both;"></div>
+
+            </fieldset>
+
+        </td>
+
+        </tr></table>

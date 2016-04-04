@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "ServiceStatus";
+}
+
+<h2>ServiceStatus</h2>
+<script src="~/Scripts/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+
+</script>
+
+@*<div>@ViewBag.status</div>*@
+<table style="height:100%;width:100%;">
+    @foreach (var item in ViewBag.Service)
+    {
+        if (item.ServiceName.ToString() == "UK_Project_BabyItemlookup" || item.ServiceName.ToString() == "UK_Project_BabyItemSearch" || item.ServiceName.ToString() == "UK_Project_BeautyItemLookup" || item.ServiceName.ToString() == "UK_Project_BeautyItemsearch" || item.ServiceName.ToString() == "UK_Project_JewelryItemSearch" || item.ServiceName.ToString() == "UK_Project_JweleryItemlookup" || item.ServiceName.ToString() == "UK_Project_SportsItemlookup" || item.ServiceName.ToString() == "UK_Project_SportsItemSearch" || item.ServiceName.ToString() == "UK_Project_ToysItemLookup" || item.ServiceName.ToString() == "UK_Project_ToysItemSearch" || item.ServiceName.ToString() == "UK_Project_WatchesItemlookup" || item.ServiceName.ToString() == "UK_Project_WatchesItemSearch" || item.ServiceName.ToString() == "UK_Canada_Price_Update_Amazon" || item.ServiceName.ToString() == "OmnimarkAmazonService")
+        {
+            if (item.Status.ToString() == "Running")
+            {
+                <tr style="width:250px;">
+
+                    <td style="width:100px;" class="service-name" id="servicenm" name="@item.ServiceName">
+                        @item.ServiceName
+                    </td>
+
+                    <td style="width:100px;">
+                        <span class="green-status"></span>
+                    </td>
+                    @*if (@item.Status=="Running")
+                        {
+                            <td style="width:100px;">
+                                <span class="green-status" style="display:block"></span>
+                            </td>
+                        }
+                        elseif(@item.Status=="Stopped")
+                        {
+                            <td style="width:100px;">
+                                <span class="red-status" style="display:block"></span>
+                            </td>
+                        }*@
+
+
+
+
+
+                </tr>
+            }
+            else
+            {
+                <tr style="width:250px;">
+
+                    <td style="width:100px;" class="service-name">
+                        @item.ServiceName
+                    </td>
+
+                    <td style="width:100px;">
+                        <span class="red-status"></span>
+                    </td>
+                    @*if (@item.Status=="Running")
+                        {
+                            <td style="width:100px;">
+                                <span class="green-status" style="display:block"></span>
+                            </td>
+                        }
+                        elseif(@item.Status=="Stopped")
+                        {
+                            <td style="width:100px;">
+                                <span class="red-status" style="display:block"></span>
+                            </td>
+                        }*@
+
+
+
+
+
+                </tr>
+            }
+      }
+    }
+
+</table>

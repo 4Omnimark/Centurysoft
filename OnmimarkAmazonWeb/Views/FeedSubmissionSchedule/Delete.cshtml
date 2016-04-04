@@ -1,0 +1,68 @@
+﻿@model OmnimarkAmazon.Models.FeedSubmissionScheduleRec
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>FeedSubmissionScheduleRec</legend>
+
+    <div class="display-label">AmazonAccountID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmazonAccountID)
+    </div>
+
+    <div class="display-label">FeedType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FeedType)
+    </div>
+
+    <div class="display-label">MessageType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageType)
+    </div>
+
+    <div class="display-label">MessageXML</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageXML)
+    </div>
+
+    <div class="display-label">NextRun</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NextRun)
+    </div>
+
+    <div class="display-label">TimeSpan</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeSpan)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Notes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+
+    <div class="display-label">MustRunAll</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MustRunAll)
+    </div>
+
+    <div class="display-label">TimeStamp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeStamp)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

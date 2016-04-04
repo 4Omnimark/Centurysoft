@@ -1,0 +1,91 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.ShippingCalcResult>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductDateSelection.js"></script>
+
+<script type="text/javascript">
+    function ProductSelected(ui) {
+        ProductOrQuantityChanged();
+    }
+
+    function ProductOrQuantityChanged()
+    {
+        if ($("#ProductID")[0].value != null && isInt($("#Qty")[0].value))
+            $("form")[0].submit();
+    }
+</script>
+
+<form method="post" id="form">
+<h2 style="float:left;">FBA Shipment Calculator</h2>
+<div style="float:left; padding-top:16px; padding-left:20px;">
+    Primary Product:
+    <input name="ProductSearch" id="ProductSearch" style="width:150px;" value="@ViewBag.ProductName" />
+    <input type="hidden" name="ProductID" id="ProductID" value="@ViewBag.ProductID" />
+    Qty: <input name="Qty" id="Qty" value="@ViewBag.Qty" style="width:30px;" onchange="ProductOrQuantityChanged();" />
+</div>
+<div style="float:left; padding-top:16px; padding-left:20px;">
+    Sales Start: <input name="StartDate" id="StartDate" style="width:80px;" value="@(((DateTime)ViewBag.StartDate).ToString("M/d/yyyy"))" />
+    &nbsp;&nbsp;
+    End: <input name="EndDate" id="EndDate" style="width:80px;" value="@(((DateTime)ViewBag.EndDate).ToString("M/d/yyyy"))" />
+</div>
+<div style="clear:both;"></div>
+@if (ViewBag.RelatedProductCalcs.Count > 0)
+{
+    <div style="border:1px solid black; padding:10px; position:relative; top:-20px;">
+        Related Products:
+        @foreach (var item in ViewBag.RelatedProductCalcs)
+        {
+            <span style="margin-left:20px;">@item.ProductName Qty:</span>
+            <input name="RelatedProduct_@(item.ProductID)" style="width:30px; text-align:center;" value="@item.QtyAvailable" onchange="form.submit();" />
+            @*
+            foreach (var subitem in ((List<OmnimarkAmazon.Models.RelatedProductCalcASIN>)ViewBag.RelatedProductCalcASINs).Where(rpca => rpca.ProductID == item.ProductID))
+            {
+                <text> (@subitem.ASIN / @subitem.Ratio) </text>
+            }
+            *@
+        }
+    </div>
+}
+<table>
+    <tr>
+        <th>
+            Store
+        </th>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Description
+        </th>
+        <th nowrap>
+            Sales&nbsp;Last<br /><input name="SalesDays" id="SalesDays" style="width:30px; text-align:center;" value="@ViewBag.SalesDays" onchange="DateChanged('', this);" />&nbsp;Days
+        </th>
+        <th>
+            Calculated Shipment
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.AmazonAccount.Name</td>
+        <td>@item.ASIN</td>
+        <td>@item.ProductDescription</td>
+        <td align="right">@item.QtySold.ToString("###,###,##0")</td>
+        <td align="right">@item.CalculatedShipment.ToString("###,###,##0")</td>
+        @*
+        <td align="right">@item.Max</td>
+        <td align="right">@item.Fixed</td>
+        *@
+    </tr>
+ }
+
+</table>
+</form>
+@*
+<table style="border:1px solid black;" cellpadding="1" cellspacing="0">
+@Html.Raw(ViewBag.RelatedProductCalcsJoin)
+</table>
+*@

@@ -1,0 +1,44 @@
+﻿<script src="@Html.GetAppPath()/Scripts/Reports.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    function reportLoaded(data) {
+        $("#StartDate").val(data.StartDate)
+        $("#EndDate").val(data.EndDate)
+        $("#Days").val(data.Days);
+        $("#USAOnly").val(data.USAOnly);
+        $("#TotalInventoryValue").html(data.TotalInventoryValue);
+    }
+
+    function StartEndDateChangedSuccess() {
+        loadReport("@Html.GetAction()Report?StartDate=" + encodeURIComponent($("#StartDate").val()) + "&EndDate=" + encodeURIComponent($("#EndDate").val()) + "&USAOnly=" + encodeURIComponent($("#USAOnly").val()));
+    }
+
+    $(function () {
+        loadReport("@Html.GetAction()Report");
+
+        $("#StartDate").datepicker({
+            onSelect: StartEndDateChanged
+        });
+        $("#EndDate").datepicker({
+            onSelect: StartEndDateChanged
+        });
+
+    });
+
+</script>
+
+<h2 id="pageTitle" style="float:left;">@ViewBag.Title</h2>
+
+<div id="containerDays" style="float:left; margin-top:17px; margin-left:20px;">
+    Start: <input name="StartDate" id="StartDate" size="7" />
+    End: <input name="EndDate" id="EndDate" size="7" />
+    <input type="checkbox" name="USAOnly" id="USAOnly" /> USA Only
+</div>
+
+<div style="float:left; margin-top:21px; margin-left:20px; font-weight:bold;">
+    Total Inventory Value: <span id="TotalInventoryValue"></span>
+</div>
+
+<div style="clear:both;"></div>
+
+<div id="divReport" style="overflow:scroll;"></div>

@@ -1,0 +1,132 @@
+﻿@model MvcPaging.IPagedList<OmnimarkAmazon.Models.PurchaseOrder>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="@Html.GetAppPath()/Scripts/Common.js" type="text/javascript"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductFiltering.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    function ShowClosed_Clicked() {
+        if ($("#ShowClosed")[0].checked)
+            window.location = UpdateQueryString("ShowClosed", "True");
+        else
+            window.location = UpdateQueryString("ShowClosed", null);
+    }
+
+    $(function () {
+        $("#FilterVendorSearch").autocomplete({
+            source: "/Purchasing/VendorFilterLookup",
+            select: function (event, ui) {
+                $("#FilterVendorSearch").val(ui.item.label);
+                window.location = UpdateQueryString("VendorID", ui.item.value, UpdateQueryString("VendorFilter", encodeURIComponent(ui.item.label)));
+                return false;
+            },
+            change: function (event, ui) {
+                if (ui.item == null) {
+                    $("#FilterProductSearch").val('');
+                    window.location = UpdateQueryString("VendorID", null, UpdateQueryString("VendorFilter", null));
+                }
+            }
+        });
+    });
+
+
+</script>
+
+@if (Request.QueryString["errmsg"] != null)
+{
+    <div class="errorbox">@Request.QueryString["errmsg"]</div>
+}
+
+<h2 style="float:left;">Purchase Orders</h2>
+
+<p style="float:left; padding-left:20px; margin-top:19px;">
+    @Html.ActionLink("Create New", "CreatePurchaseOrder")
+</p>
+
+<div class="pager" style="float:left; padding-left:20px; margin-top:15px;">
+	@Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, Model.SortBy, Model.SortDescending)
+</div>
+
+<div style="float:left; padding-left:20px; ">
+	Filter by Product: <input name="FilterProductSearch" id="FilterProductSearch" style="width:200px;" value="@Request["ProductFilter"]" /><br />
+    Filter by Vendor: <input name="FilterVendorSearch" id="FilterVendorSearch" value="@Request["VendorFilter"]" />
+
+</div>
+
+<div style="float:left; padding-left:20px; margin-top:18px;">
+	<input type="checkbox" name="ShowClosed" id="ShowClosed" @(Request["ShowClosed"] != null ? "checked" : "") onclick="ShowClosed_Clicked();" /> Show Closed POs
+</div>
+
+<div style="clear:both;"></div>
+
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("Date", "PurchaseOrders", Model, true)
+        </th>
+        <th>
+            @Html.ActionLink("Number", "PurchaseOrders", Model, true)
+        </th>
+        <th>
+            @Html.ActionLink("Vendor", "PurchaseOrders", Model, "Vendor.Name", true)
+        </th>
+        <th>
+            @Html.ActionLink("Status", "PurchaseOrders", Model, "PurchaseOrderStatus.DisplaySeq", true)
+        </th>
+        <th>
+            Items
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            @Html.ActionLink("Total Cost", "PurchaseOrders", Model, "TotalCost", true)
+        </th>
+        <th>
+            @Html.ActionLink("Actual Cost", "PurchaseOrders", Model, "TotalActualCost", true)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="color:@(item.Status == "C" ? "#808080" : "black"); background-color:@(item.Status == "I" ? "#FFAAAA" : "");">
+        <td valign="top">
+            @(((DateTime)item.Date).ToString("M/d/yyyy"))
+        </td>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.Vendor.Name)
+        </td>
+        <td valign="top">
+            @Html.DisplayFor(modelItem => item.PurchaseOrderStatus.Name)
+        </td>
+        <td style="font-size:10px;" nowrap>
+            @foreach (var line in item.Lines)
+            { <li>@line.Product.Name</li> }
+        </td>
+        <td valign="top">
+            @(item.Notes == null ? "" : (item.Notes.Length > 500 ? item.Notes.Substring(0, 500) + "..." : item.Notes))
+        </td>
+        <td valign="top" align="right" style="color:@(item.MissingCosts ? "red" : "")">
+            @item.TotalCost
+        </td>
+        <td valign="top" align="right">
+            @item.TotalActualCost
+        </td>
+        <td valign="top" nowrap>
+            @Html.ActionLink("Details", "ViewPurchaseOrder", new { id = item.ID }) |
+            @Html.ActionLink("Edit", "EditPurchaseOrder", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "DeletePurchaseOrder", new { id = item.ID }) | 
+            @Html.ActionLink("Copy", "CopyPurchaseOrder", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+

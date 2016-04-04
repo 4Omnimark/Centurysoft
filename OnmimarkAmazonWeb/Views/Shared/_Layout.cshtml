@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/jquery-ui-1.10.0.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common.js")" type="text/javascript"></script>
+    @RenderSection("ExtraHeader", false)
+    <script type="text/javascript">
+        $(function () {
+            $("body #menucontainer li").each(function () {
+                if ($(this).find("ul").length > 0) {
+
+                    //show subnav on hover  
+                    $(this).mouseenter(function () {
+                        $(this).find("ul").stop(true, true).slideDown();
+                    });
+
+                    //hide submenus on exit  
+                    $(this).mouseleave(function () {
+                        $(this).find("ul").stop(true, true).slideUp();
+                    });
+
+                    $(this).find("ul").mousemove(function () {
+                        $(this).stop(true, true).show();
+                    });
+                }
+            });
+        });
+    </script>
+    <style>
+        #menucontainer ul li a { font-size:11px; padding-left:8px; padding-right:8px; }
+        body #menucontainer ul ul {
+            display: none;
+            position:absolute;
+            width: 100%;
+    
+            background: #5C87B2;
+            border-top: 5px solid #5C87B2;;
+            filter:alpha(opacity=80);
+            -moz-opacity:0.8;
+            -khtml-opacity: 0.8;
+            opacity: 0.8;
+        }
+        body #menucontainer ul ul li a{
+            line-height: 3.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <h1>Omnimark Amazon Web Interface</h1>
+            </div>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+            <div style="clear:both;"></div>
+
+
+            <div id="menucontainer">
+                <ul id="menu">
+                    <li>@Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li>@Html.ActionLink("Similar Products", "Index", "ItemSearch")</li>
+                    <li>
+                        <a href="#">Deduct Inventory System</a>
+                        <ul>
+                            <li style="padding-right:10px">@Html.ActionLink("Manual Deduct Inventory", "DeductInward", "ItemManagement")</li>
+                            <li style="padding-right:10px">@Html.ActionLink("Add Shipments", "AddShipment", "ItemManagement")</li>
+                            <li style="padding-right:10px">@Html.ActionLink("Deduct FBA Shipment Inventory", "DeductFBAShipment", "ItemManagement")</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Products</a>
+                        <ul>
+                            <li>@Html.ActionLink("Management", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Inventory", "Index", "ProductInventory")</li>
+                            <li>@Html.ActionLink("Ordering", "NeedInInventory", "AmazonInventory")</li>
+                            <li>@Html.ActionLink("ASINs Missing Associations", "MissingProductAssociations", "AmazonInventory")</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Purchasing</a>
+                        <ul>
+                            <li>@Html.ActionLink("Vendors", "Index", "Vendors")</li>
+                            <li>@Html.ActionLink("Purchase Orders", "PurchaseOrders", "Purchasing")</li>
+                            <li>@Html.ActionLink("Received", "Received", "Purchasing")</li>
+                        </ul>
+                    </li>
+                  
+                    <li>@Html.ActionLink("Inventory Item Management", "Index", "AmazonInventory")</li>
+                    <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Export", "Index", "Export")</li>  
+                    <li>@Html.ActionLink("Auto Feeds", "Index", "FeedSubmissionSchedule")</li>
+                    <li>@Html.ActionLink("Repricer", "Index", "AutomaticPriceChange")</li>
+                    <li>@Html.ActionLink("Under-Priced", "Index", "UnderPriced")</li>
+                    <li>@Html.ActionLink("Traffic", "UploadData", "Traffic")</li>
+                    <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+                    <li>@Html.ActionLink("EBAY", "Products", "eBay")</li>
+                    <li>@Html.ActionLink("Export CSV", "Index", "ItemManagement")</li>
+                    <li>@Html.ActionLink("ExportByAccount", "ExportByAccount", "ItemManagement")</li>
+                    <li>
+                        <a href="#">ADD Keywords</a>
+                        <ul>
+                            <li>@Html.ActionLink("UK_Prohibition", "AddProhibitedKey", "ItemManagement")</li>
+                            <li>@Html.ActionLink("New ItemSearch Key", "AddKeywords", "ItemManagement")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("E/D Stores", "AllowStores", "ItemManagement")</li>
+                   
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+    <div class="modal"></div>
+</body>
+</html>

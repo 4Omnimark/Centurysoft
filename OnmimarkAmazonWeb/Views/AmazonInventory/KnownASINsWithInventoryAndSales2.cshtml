@@ -1,0 +1,86 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.KnownASINWithInventoryAndSales2>
+
+<script src="@Html.GetAppPath()/Scripts/ProductDateSelection.js"></script>
+<script type="text/javascript">
+    function ProductSelected(ui) {
+        $("form")[0].submit();
+    }
+ </script>
+@{
+    ViewBag.Title = "KnownASINsWithInventoryAndSales2";
+}
+
+    <form method="post" id="form">
+
+        <h2 style="float:left;">KnownASINsWithInventoryAndSales2</h2>
+        <div style="float:left; padding-left:20px; margin-top:16px;">
+        Product:
+        <input name="ProductSearch" id="ProductSearch" style="width:150px;" value="@ViewBag.ProductName" />
+        &nbsp;&nbsp;
+    <input type="hidden" name="ProductID" id="ProductID" value="@ViewBag.ProductID" />
+    Sales Start: <input name="SalesStart" id="SalesStart" style="width:80px;" value="@(((DateTime)ViewBag.SalesStart).ToString("M/d/yyyy"))" />
+    &nbsp;&nbsp;
+    Sales End: <input name="SalesEnd" id="SalesEnd" style="width:80px;" value="@(((DateTime)ViewBag.SalesEnd).ToString("M/d/yyyy"))" />
+</div>
+</form>
+<div style="clear:both;"></div>
+
+<table>
+    <tr>
+        <th>
+            Product Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ASIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            FS
+        </th>
+        <th>
+            BZ
+        </th>
+        <th>
+           SQ
+        </th>
+        <th>
+            NM
+        </th>
+        <th>
+            Sales
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ASIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td style="text-align:right;">
+            @Html.DisplayFor(modelItem => item.StockQtyFiveStar)
+        </td>
+        <td style="text-align:right;">
+            @Html.DisplayFor(modelItem => item.StockQtyBrandzilla)
+        </td>
+        <td style="text-align:right;">
+            @Html.DisplayFor(modelItem => item.StockQtySuperQuick)
+        </td>
+        <td style="text-align:right;">
+            @Html.DisplayFor(modelItem => item.StockQtyNutramart)
+        </td>
+        <td style="text-align:right;">
+            @Html.DisplayFor(modelItem => item.QtySold)
+        </td>
+
+    </tr>
+}
+
+</table>

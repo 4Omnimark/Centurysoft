@@ -1,0 +1,78 @@
+﻿@model OmnimarkAmazon.Models.ShippedtoAmazon
+
+@{
+    ViewBag.Title = "AddShipment";
+}
+
+<h2>AddShipment</h2>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="@Html.GetAppPath()/Scripts/ProductFiltering.js" type="text/javascript"></script>
+
+
+
+
+    @using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+            <legend>Purchase Order</legend>
+
+            <div style="float:left;">
+                <div class="editor-label">
+
+                </div>
+                <div class="editor-field">
+
+                </div>
+            </div>
+
+            <div style="float:left; padding-left:20px;">
+                <div class="editor-label">
+    ShipmentID:
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(s=>s.ShipmentID)
+            </div>
+        </div>
+
+        <div style="float:left; padding-left:20px;">
+            <div class="editor-label">
+                Account Name:
+        </div>
+        <div class="editor-field">
+            <select name="ShipmentAccount" id="ShipmentAccount">
+                @foreach (OmnimarkAmazon.Models.AmazonAccount item in ViewBag.AmazonAccounts)
+                    {
+                        <option value="@item.ID" >@item.Name</option>
+                    }
+            </select>
+        </div>
+    </div>
+
+    <div style="float:left; padding-left:40px">
+        <div class="editor-label">
+    Date:
+            </div>
+            <div class="editor-field">
+               @Html.TextBoxFor(s=>s.TimeStamp)
+           </div>
+            <p>
+                <input type="submit" value="SAVE SHIPMENT" />
+            </p>
+        </div>
+
+
+
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "PurchaseOrders")
+</div>

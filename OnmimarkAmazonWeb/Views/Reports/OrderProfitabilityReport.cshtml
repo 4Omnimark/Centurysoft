@@ -1,0 +1,136 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.OrderProfitabilityRecord>
+<style>
+    table tr td
+    {
+        white-space: nowrap;
+    }
+
+</style>
+<table>
+    <tr>
+        <th>
+            Store
+        </th>
+        <th>
+            Order
+        </th>
+        <th>
+            ASIN
+        </th>
+        <th>
+            Item
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            Order Date
+        </th>
+        <th>
+            Fulfillment Channel
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            Amazon Net
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+            Total Net
+        </th>
+        <th>
+            Margin
+        </th>
+    </tr>
+
+@{
+    
+    var ModelArray = Model.ToArray();
+    
+    for(int x = 0; x < Model.Count(); x++) {
+
+        var item = ModelArray[x];
+
+        string color = "inherit";
+        
+        if (item.NetNet < 0)
+        {
+            color = "#FFAAAA";
+        }
+
+        <tr style="color:@color">
+            <td>
+                @item.AmazonAccountName
+            </td>
+            <td>
+                @item.AmazonOrderID
+            </td>
+            <td align="left">
+                @item.ASIN
+            </td>
+            <td align="left" style="white-space:normal;">
+                @item.Title
+            </td>
+            <td align="right">
+                @(((decimal)item.LineItemQty).ToString("###,##0"))
+            </td>
+            <td align="center">
+                @(((DateTime)item.PurchaseDate).ToString("MM/dd/yyyy hh:mm tt"))
+            </td>
+            <td align="center">
+                @(item.FulfillmentChannel == 0 ? "Merchant" : "FBA")
+            </td>
+            <td align="right" width="100">
+                @(((decimal)item.OrderTotal).ToString("###,###,##0.00"))
+            </td>
+            <td align="right" width="100">
+                @(((decimal)item.AmazonNet).ToString("###,###,##0.00"))
+            </td>
+            @if (item.Cost == null)
+            {
+                <td align="center" colspan="3" width="300" style="background-color:#FFCCCC;">
+                    <a target="_blank" href="/AmazonInventory/Products/@item.MissingProductAssociations">@item.MissingProductAssociations</a>
+                </td>
+            }
+            else
+            {
+            
+                <td align="right" width="100">
+                    @(item.Cost == null ? "" : (((decimal)item.Cost).ToString("###,###,##0.00")))
+                </td>
+                <td align="right" width="100">
+                    @(item.Cost == null ? "" : item.NetNet.ToString("###,###,##0.00"))
+                </td>
+                <td align="right" width="100">
+                    @(item.Cost == null ? "" : item.Margin.ToString("#,##0.00%"))
+                </td>
+            }
+       </tr>
+       for(int l = 1; l < item.LineItemCount; l++)
+       {
+            x++;
+
+            item = ModelArray[x];
+            <tr style="color:@color">
+                <td colspan="2">&nbsp;</td>
+                <td align="left">
+                    @item.ASIN
+                </td>
+                <td align="left" style="white-space:normal;">
+                    @item.Title
+                </td>
+                <td align="right">
+                    @(((decimal)item.LineItemQty).ToString("###,##0"))
+                </td>
+                <td colspan="6">&nbsp;</td>
+            </tr>
+       }
+       
+    }
+    
+}
+
+</table>

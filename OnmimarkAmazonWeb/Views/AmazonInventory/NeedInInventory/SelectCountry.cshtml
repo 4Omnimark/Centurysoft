@@ -1,0 +1,6 @@
+﻿
+@foreach (var Country in (dynamic)ViewBag.Model)
+{
+    <a href="?CountryID=@Country.CountryID">@Country.CountryName</a><br />
+}
+

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.AmazonInventoryProduct>
+
+<p>
+    @Html.ActionLink("Create New", "CreateAssociatedProduct", new { ASIN = ViewBag.ASIN })
+</p>
+<table>
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            Qty
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qty)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditAssociatedProduct", new { ASIN = item.ASIN, ProductID = item.ProductID }) |
+            @Html.ActionLink("Delete", "DeleteAssociatedProduct", new { ASIN = item.ASIN, ProductID = item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>

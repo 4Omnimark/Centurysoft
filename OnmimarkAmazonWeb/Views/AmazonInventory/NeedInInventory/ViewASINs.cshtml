@@ -1,0 +1,11 @@
+﻿<h3>Country: @ViewBag.CountryName</h3>
+<h3>Vendor: @ViewBag.VendorName</h3>
+<h3>Product: @ViewBag.ProductName
+@if (ViewBag.OnOrder > 0) {
+ <text>- On Order: @(((decimal)ViewBag.OnOrder).ToString("###,###,##0"))</text> }
+ </h3>
+<h3>Account: @ViewBag.AccountName</h3>
+@foreach (var ASIN in (dynamic)ViewBag.Model)
+{
+    <span>@ASIN.ASIN - @ASIN.Description - Amazon Stock: @(((decimal)ASIN.AmazonStockQty).ToString("###,###,##0")) - Projected 30-Day Sales: @(((decimal)ASIN.QtySold).ToString("###,###,##0"))</span><br />
+}

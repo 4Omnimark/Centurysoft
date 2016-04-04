@@ -1,0 +1,382 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.InventoryReportRecord>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var reasonsTable = @Html.Raw(ViewBag.ReasonsTable);
+</script>
+<style>
+    .log-column-date { text-align:left; }
+    .log-column-reason { text-align:left; }
+    .log-column-amount { text-align:right; width:100px; }
+    .log-column-qty { text-align:right; width:100px; }
+    
+</style>
+<script type="text/javascript">
+
+    var timerProductNameFilter;
+    var logButtonTimers = {}
+
+    jQuery.expr[":"].ContainsIgnoreCase = jQuery.expr.createPseudo(function (arg) {
+        return function (elem) {
+            return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+        };
+    });
+
+    $(function () {
+
+        if (urlParams["filter"] != null) {
+            $("#product-name-filter").val(urlParams["filter"]);
+            applyProductNameFilter();
+        }
+
+        $("#change-reason-dialog form").validate();
+        $("#ReasonID").rules('add', { required: true });
+
+        $(".changeable-qty").click(function () {
+            var jqthis = $(this);
+
+            jqthis.hide();
+
+            var old = $("#Old" + this.id);
+            old.html(jqthis.html());
+            old.hide();
+
+            var edit = $("#Edit" + this.id);
+            edit.show();
+            edit.focus();
+        });
+
+        $(".log-button").mouseenter(function () {
+            var id = this.id.substring(10);
+
+            if (logButtonTimers[id] != null)
+                clearTimeout(logButtonTimers[id]);
+        });
+
+        $(".log-button").mouseleave(function () {
+            var $this = $(this);
+            $this.hide();
+        });
+
+        $(".log-button").click(function () {
+            var $this = $(this);
+            var pid = this.id.substring(10, 46);
+            var loccode = this.id.substring(47, 50);
+
+            $("#log-dialog-pname").html($("#pname-" + pid).html());
+            $("#log-dialog-loccode").html(loccode);
+            $("#log-dialog-id").html(pid);
+
+            $("#log-records").empty();
+
+            $.ajax({
+                url: "/ProductInventory/GetLog/" + pid + "?loccode=" + loccode,
+                success: function (json) {
+                    $logRecords = $("#log-records");
+                    for (var x = 0; x < json.length; x++) {
+                        $row = $((
+                            '<tr>' +
+                            '<td class="log-column-date">{Date}</td>' +
+                            '<td class="log-column-reason">{Reason}</td>' +
+                            '<td class="log-column-amount">{Amount}</td>' +
+                            '<td class="log-column-qty">{Qty}</td>' +
+                            '</tr>'
+                        ).formatFromProperties(json[x]));
+
+                        $logRecords.append($row);
+                    }
+                }
+            });
+
+            $("#log-dialog").dialog("open");
+
+        });
+
+        $(".changeable-qty").mouseenter(function () {
+            var $this = $(this);
+            var id = this.id.substring(4);
+
+            $this.css("padding", "0px");
+            $this.css("margin", "0px");
+            $this.css("border", "1px solid #E0E0E0");
+
+            if (logButtonTimers[id] != null)
+                clearTimeout(logButtonTimers[id]);
+
+            logButtonTimers[id] = setTimeout(function () {
+                $("#LogButton-" + id).show();
+                logButtonTimers[id] = null;
+            }, 500);
+        });
+
+        $(".changeable-qty").mouseleave(function () {
+            var $this = $(this);
+            var id = this.id.substring(4);
+
+            $this.css("padding", "1px");
+            $this.css("margin", "");
+            $this.css("border", "");
+
+            if (logButtonTimers[id] != null)
+                clearTimeout(logButtonTimers[id]);
+
+            logButtonTimers[id] = setTimeout(function () {
+                $("#LogButton-" + id).hide();
+                logButtonTimers[id] = null;
+            }, 250);
+        });
+
+        $(".edit-qty").keypress(function (e) {
+            if (e.which == 13)
+                processChangedQuantity(this);
+        });
+
+        $(".edit-qty").blur(function () {
+            processChangedQuantity(this);
+        });
+
+        function processChangedQuantity(obj) {
+            var $obj = $(obj);
+            $obj.hide();
+
+            $("#" + obj.id.substring(4)).show();
+            var old = $("#Old" + obj.id.substring(4));
+            var pid = obj.id.substring(8, 44);
+            var loccode = obj.id.substring(45);
+
+            if ($obj.val() != old.html()) {
+                $("#invchg_oldqty").html(old.html());
+                $("#invchg_newqty").html($obj.val());
+                $("#invchg_pid").html(pid);
+                $("#invchg_loccode").html(loccode);
+                $("#invchg_pname").html($("#pname-" + pid).html());
+
+                $("#reason-ref-1-div").hide();
+                $("#reason-ref-2-div").hide();
+                $("#reason-ref-3-div").hide();
+
+                $('#change-reason-dialog').dialog("open");
+
+            }
+
+        }
+
+        $("#ReasonID").change(function () {
+            var $this = $(this);
+            var val = $(this).val();
+            var reasonRec = $.grep(reasonsTable, function (e) { return e.ID === val; })[0];
+
+            if (reasonRec == null) {
+                $("#reason-ref-1-div").hide();
+                $("#reason-ref-2-div").hide();
+                $("#reason-ref-3-div").hide();
+            }
+            else {
+                for (var x = 1; x < 4; x++) {
+                    if (reasonRec["ReasonRef" + x.toString() + "Text"] == null)
+                        $("#reason-ref-" + x.toString() + "-div").hide();
+                    else {
+                        $("#reason-ref-" + x.toString() + "-text").html(reasonRec["ReasonRef" + x.toString() + "Text"]);
+                        $("#reason-ref-" + x.toString() + "-div").show();
+                    }
+
+                    if (reasonRec["ReasonRef" + x.toString() + "Required"] == true)
+                        $("#reason-ref-" + x.toString() + "-input").rules('add', { required: true });
+                    else
+                        $("#reason-ref-" + x.toString() + "-input").rules('add', { required: false });
+                }
+            }
+
+        });
+
+        $("#product-name-filter").keyup(function () {
+            if (timerProductNameFilter != null)
+                clearTimeout(timerProductNameFilter);
+
+            timerProductNameFilter = setTimeout(applyProductNameFilter, 1000);
+        });
+
+        function applyProductNameFilter() {
+            var val = $("#product-name-filter").val();
+            if (val == "") {
+                $(".data-row").show();
+                window.history.replaceState({}, null, UpdateQueryString("filter", null));
+            }
+            else {
+                $(".data-row").hide();
+                $(".pname:ContainsIgnoreCase('" + val + "')").parents(".data-row").show();
+                window.history.replaceState({}, null, UpdateQueryString("filter", val));
+            }
+        }
+
+        $("#log-dialog").dialog({
+            modal: true,
+            autoOpen: false,
+            open: function () {
+                $(this).dialog({
+                    position: "center",
+                    width: $(window).width() * 0.8,
+                    height: $(window).height() * 0.8,
+                    title: "Change Log for " + $("#log-dialog-pname").html() + " at " + $("#log-dialog-loccode").html()
+                });
+            },
+            buttons: {
+                'OK': function () {
+                    $(this).dialog('close');
+                }
+            }
+        });
+
+        $('#change-reason-dialog').dialog({
+            modal: true,
+            autoOpen: false,
+            width: 500,
+            title: "Confirm Quantity Change",
+            buttons: {
+                'Cancel': function () {
+                    $("#EditQty-" + $("#invchg_pid").html() + "-" + $("#invchg_loccode").html()).val($("#invchg_oldqty").html());
+                    $(this).dialog('close');
+                },
+                'Accept': function () {
+
+                    if ($("#change-reason-dialog form").valid()) {
+                        $("div.ui-dialog-buttonset button").attr("disabled", "disabled");
+                        $.ajax({
+                            dataType: "json",
+                            url: "/ProductInventory/ChangeInventory/" + $("#invchg_pid").html() +
+                            "?oldqty=" + $("#invchg_oldqty").html() +
+                            "&newqty=" + $("#invchg_newqty").html() +
+                            "&loccode=" + $("#invchg_loccode").html() +
+                            "&ReasonID=" + $("#ReasonID").val() +
+                            "&ReasonRef1=" + $("#reason-ref-1-input").val() +
+                            "&ReasonRef2=" + $("#reason-ref-2-input").val() +
+                            "&ReasonRef3=" + $("#reason-ref-3-input").val(),
+                            success: function (json) {
+                                $("#EditQty-" + $("#invchg_pid").html() + "-" + $("#invchg_loccode").html()).val($("#invchg_newqty").html());
+                                $("#Qty-" + $("#invchg_pid").html() + "-" + $("#invchg_loccode").html()).html($("#invchg_newqty").html()).css("font-weight", "bold").css("color", "black");
+                                $("#OldQty-" + $("#invchg_pid").html() + "-" + $("#invchg_loccode").html()).html($("#invchg_oldqty").html());
+                                $("#OldQty-" + $("#invchg_pid").html() + "-" + $("#invchg_loccode").html()).show();
+
+                                $("div.ui-dialog-buttonset button").attr("disabled", null);
+                                $('#change-reason-dialog').dialog('close');
+                            },
+                            error: function (jqXHR, exception) {
+                                alert("Error!");
+                                $("div.ui-dialog-buttonset button").attr("disabled", null);
+                                $('#change-reason-dialog').dialog('close');
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+
+    });
+
+</script>
+
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<h2 style="float:left;">@ViewBag.Title</h2>
+
+<div style="float:left; padding-left:20px; margin-top:18px;">Filter: <input id="product-name-filter" /></div>
+
+<div style="clear:both;"></div>
+
+<table>
+    <th>Name</th>
+    @foreach (var loc in ViewBag.Locations)
+    {
+        <th style="width:100px;">@loc.Name</th>
+    }
+    @foreach (var s in ViewBag.Stores)
+    {
+        <th><div style="width:35px; overflow:hidden;">@s.CharID</div></th>
+    }
+    <th>Total</th>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr class="data-row" id="data-row-@row.ProductID" data-product-id="@row.ProductID">
+                <td><div class="pname" id="pname-@row.ProductID">@row.Name</div></td>
+                @foreach (var loc in ViewBag.Locations)
+                {
+                    <td style="width:100px; text-align:right;">
+                        <del id="OldQty-@row.ProductID-@loc.ShortCode" style="display:inline-block; display:none; width:30px;"></del>
+                        <img id="LogButton-@row.ProductID-@loc.ShortCode" class="log-button hidden-button" alt="log" src="/Content/images/log.png" style="height:15px; width:15px; display:none;" />
+                        <div id="Qty-@row.ProductID-@loc.ShortCode" class="changeable-qty" style="display:inline-block; width:30px; padding:1px; height:18px;">@(row.Qtys[loc.ShortCode] == null ? "" : ((decimal)row.Qtys[loc.ShortCode]).ToString("#######0"))</div>
+                        <input id="EditQty-@row.ProductID-@loc.ShortCode" class="edit-qty" style="display:inline-block; width:30px; display:none; text-align:right; padding:0px; margin:0px; border:1px solid black; color:#888888; font-weight:bold;" value="@(row.Qtys[loc.ShortCode] == null ? "" : ((decimal)row.Qtys[loc.ShortCode]).ToString("#######0"))" />
+                    </td>
+                }
+                @foreach (var s in ViewBag.Stores)
+                {
+                    <td style="width:35px; text-align:right;">
+                        <div style="display:inline-block; width:30px; padding:1px; height:18px;">@(row.Qtys["Amz" + s.CharID] == null ? "" : ((decimal)row.Qtys["Amz" + s.CharID]).ToString("#######0"))</div>
+                    </td>
+                }
+                <td style="text-align:right;">
+                    @(row.Qtys["Total"] == null ? "" : ((decimal)row.Qtys["Total"]).ToString("#######0"))
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<div id="change-reason-dialog">
+    <form>
+    <div id="invchg_loccode" style="display:none;"></div>
+    <div id="invchg_pid" style="display:none;"></div>
+
+    You are about to make a change the in-stock inventory for:<br />
+    <br />
+    <span id="invchg_pname" style="font-weight:bold;"></span><br />
+    <br />
+    <span style="display:inline-block; width:120px;">Old Quantity:</span> <span style="font-weight:bold; display:inline-block; width:60px; text-align:right;" id="invchg_oldqty"></span><br />
+    <span style="display:inline-block; width:120px;">New Quantity:</span> <span style="font-weight:bold; display:inline-block; width:60px; text-align:right;" id="invchg_newqty"></span><br />
+    <br />
+
+    Please select the reason for the change:<br />
+    <br />
+
+    @Html.DropDownList("ReasonID", (SelectList)ViewBag.Reasons, "-- Select --")
+
+    <div id="reason-ref-1-div">
+        <span id="reason-ref-1-text"></span>:
+        <span id="reason-ref-1-value"><input id="reason-ref-1-input" name="reason-ref-1-input" /></span>
+    </div>
+    
+    <div id="reason-ref-2-div">
+        <span id="reason-ref-2-text"></span>:
+        <span id="reason-ref-2-value"><input id="reason-ref-2-input" name="reason-ref-2-input" /></span>
+    </div>
+    
+    <div id="reason-ref-3-div">
+        <span id="reason-ref-3-text"></span>:
+        <span id="reason-ref-3-value"><input id="reason-ref-3-input" name="reason-ref-3-input" /></span>
+    </div>
+    
+    </form>
+</div>
+
+<div id="log-dialog">
+    <div id="log-dialog-pname" style="display:none;"></div>
+    <div id="log-dialog-loccode" style="display:none;"></div>
+    <div id="log-dialog-id" style="display:none;"></div>
+
+    <div style="width:100%; height:100%; overflow:scroll;">
+        <table style="width:100%; font-size:11px;">
+            <tr>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Change</th>
+                <th>New Qty</th>
+            </tr>
+            <tbody id="log-records">
+            </tbody>
+        </table>
+    </div>
+</div>
+

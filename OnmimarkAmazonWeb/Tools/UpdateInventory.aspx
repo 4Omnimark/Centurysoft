@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdateInventory.aspx.cs" Inherits="OmnimarkAmazonWeb.Tools.UpdateInventory" %>

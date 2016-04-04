@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.MoveInventoryFromInboundFBAShipmentRec>
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<table>
+    <th>Product Name</th>
+    <th>UnitQty</th>
+    <th>ASIN</th>
+    <th>SKU</th>
+    <th>Product Qty</th>
+
+   
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => item.ProductName, new { style = "width: 330px;" })
+                @Html.HiddenFor(x => item.ProductID)
+                @Html.HiddenFor(x => item.ShipmentID)
+                @Html.HiddenFor(x => item.AmazonAccountName)
+            </td>
+            <td>@Html.TextBoxFor(x => item.QuantityShipped, "{0:0}", new { style = "width: 35px;" })</td>
+            <td>@Html.TextBoxFor(x => item.ASIN, new { style = "width: 150px;" })</td>
+            <td>@Html.TextBoxFor(x => item.SKU, new { style = "width: 150px;" })</td>
+            <td>@Html.TextBoxFor(x => item.AdjustmentAmount, "{0:0}", new { style = "width: 35px;" })</td>
+         
+
+
+            <td></td>
+        </tr>
+        }
+
+   
+
+
+</table>
+<p>
+    <input type="submit" value="Delete" />
+</p>

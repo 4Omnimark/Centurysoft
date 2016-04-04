@@ -1,0 +1,71 @@
+﻿@*@model OmnimarkAmazonWeb.Models.DeductFBAShipment
+    <div style="float:left; padding-left:40px">
+
+        <div class="editor-label">
+            ProductName:
+        </div>
+        @{
+
+            int x = 0;
+
+        <table>
+            @foreach (var t in ViewBag.temp)
+            {
+
+                <tr>
+
+                    <input type="text" id="@x" value="t.ProductName" />
+
+                </tr>
+
+            }
+
+            </table>
+        }
+            <p>
+                <input type="submit" value="SAVE SHIPMENT" />
+            </p>
+    </div>*@
+@*@model IEnumerable<OmnimarkAmazon.Models.MoveInventoryFromInboundFBAShipmentRec>*@
+@model IList<OmnimarkAmazon.Models.MoveInventoryFromInboundFBAShipmentRec>
+    @using (Html.BeginForm())
+    {
+        <table>
+            <th>Product Name</th>
+            <th>Qty</th>
+            <th>StoreName</th>
+
+            @*@foreach (var t in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(modelitem => t.ProductName)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelitem => t.AdjustmentAmount)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelitem => t.AmazonAccountName)
+                    </td>
+                </tr>
+            }*@
+
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.TextBoxFor(x=>x[i].ProductName)
+                    @Html.HiddenFor(x=>x[i].ProductID)
+                    @Html.HiddenFor(x=>x[i].ShipmentID)
+                </td>
+                <td>@Html.TextBoxFor(x => x[i].AdjustmentAmount)</td>
+                <td>@Html.TextBoxFor(x => x[i].AmazonAccountName)</td>
+            </tr>
+        }
+
+
+        </table>
+        <p>
+            <input type="submit" value="Deduct" />
+        </p>
+    }

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.AmazonInventory>
+
+<table>
+    <tr>
+        <th>
+            Account
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            As Of
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmazonAccount.Name)
+        </td>
+        <td>
+            @(item.AmazonStockQty == null ? "" : (((decimal)item.AmazonStockQty).ToString("###,##0")))
+        </td>
+        <td>
+            @(item.AmazonStockTimeStamp == null ? "" : (((DateTime)item.AmazonStockTimeStamp).ToString("M/d/y HH:mm:ss")))
+        </td>
+    </tr>
+}
+
+</table>

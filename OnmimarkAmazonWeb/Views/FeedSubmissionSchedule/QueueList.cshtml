@@ -1,0 +1,79 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.FeedSubmissionQueueRec>
+
+<table>
+    <tr>
+        <th>
+            Scheduled Item
+        </th>
+        <th>
+            AmazonAccount
+        </th>
+        <th>
+            FeedType
+        </th>
+        <th>
+            MessageType
+        </th>
+        <th>
+            Scheduled Submission
+        </th>
+        <th>
+            Actual Submission
+        </th>
+        <th>
+            FeedSubmissionID
+        </th>
+        <th>
+            SubmissionStatus
+        </th>
+        <th>
+            SubmissionStatusTimeStamp
+        </th>
+        <th>
+            ResultTimeStamp
+        </th>
+        <th>
+            Error
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeedSubmissionSchedule.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmazonAccount.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeedType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionTimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeedSubmissionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionStatusTimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResultTimeStamp)
+        </td>
+        <td>
+            @(item.ErrorXML == null ? "No" : "")
+        </td>
+    </tr>
+}
+
+</table>

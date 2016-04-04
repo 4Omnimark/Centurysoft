@@ -1,0 +1,123 @@
+﻿@model OmnimarkAmazonWeb.Models.DeductFBAShipment
+
+@{
+    ViewBag.Title = "DeductFBAShipment";
+}
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+<h2>DeductFBAShipment</h2>
+@*<script>
+        jQuery(document).ready(function () {
+            var ShipmentAcc  =jQuery(this).find("option:selected").val()
+            jQuery('#ShipmentAccount').change(function () {
+                //alert(jQuery(this).find("option:selected").val());
+                jQuery.ajax({
+                    source: "/ItemManagement/Result",
+                    type: "post",
+                    data: { ShipmentAcc: ShipmentAcc },
+                    success: function (data) {
+
+                        if (data.status == "Success")
+                        {
+                            alert("success")
+                            jQuery("#result").html(data);
+                        }
+                        else
+                            alert("fail")
+                        alert(data.status)
+                        //adds the echoed response to our container
+
+                       // console.log(data);
+                        //var res = document.getElementById("result");
+                        //res.innerHTML = data;
+                    }
+                });
+            });
+        });
+    </script>*@
+<script type="text/javascript">
+    function sendParam() {
+        var shipid = $("#ShipmentAccount").val();
+        window.location = "Result?shipid=" + jQuery("#ShipmentAccount").val();
+
+    }
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div id="result">
+        <fieldset>
+            <legend>Purchase Order</legend>
+
+            <div style="float:left;">
+                <div class="editor-label">
+
+                </div>
+                <div class="editor-field">
+
+                </div>
+            </div>
+
+            @*<div style="float:left; padding-left:20px;">
+                    <div class="editor-label">
+                        ShipmentID:
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(s => s.ShipmentID)
+                    </div>
+                </div>*@
+
+            <div style="float:left; padding-left:20px;">
+                <div class="editor-label">
+                    ShipmentID:
+                </div>
+                <div class="editor-field">
+                    <select name="ShipmentAccount" id="ShipmentAccount" onchange="sendParam();">
+                        @foreach (OmnimarkAmazon.Models.ShippedtoAmazon item in ViewBag.Shipments)
+                        {
+                            <option value="@item.ShipmentID">@item.ShipmentID</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+            @*<div id="result">*@
+            <div style="float:left; padding-left:40px">
+                <div class="editor-label">
+                    ProductName:
+                </div>
+                @*<div class="editor-field">
+                       @for(int i=1;i<10;i++)
+                       {
+                           //foreach(var it in ViewBag.temp)
+                           //{
+                            <input type="text" id="@i" value="" /><br/><br />
+                           @*}
+                       }
+
+                    </div>*@
+
+                <input type="text" id="1" value="" />
+
+
+                <p>
+                    <input type="submit" value="SAVE SHIPMENT" />
+                </p>
+            </div>
+            @*</div>*@
+
+
+
+        </fieldset>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "PurchaseOrders")
+    </div>*@
+
+
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.ExportSpec>
+
+@if (ViewBag.Message != null) {
+<div style="clear:both; border:1px solid black; text-align:center; font-weight:bold; font-size:16px;">
+    @ViewBag.Message
+</div>
+}
+
+<form style="float:right; border:1px solid black; padding:5px; margin:0px;" action="/Export/UploadBuyResponse" method="post" enctype="multipart/form-data">
+    File: <input type="file" name="file1" /> <input type="submit" value="Upload Buy.com Response File" />
+</form>
+
+
+<h2>Export Specs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) | 
+            @Html.ActionLink("Copy", "Copy", new { id=item.ID }) | 
+            @Html.ActionLink("View Data", "ViewData", new { id=item.ID }) |
+            @Html.ActionLink("View Export", "ViewExport", new { id=item.ID }) |
+            @Html.ActionLink("Save Export", "SaveExport", new { id=item.ID }) | 
+            @Html.ActionLink("Get SQL", "GetSQL", new { id = item.ID }, new { target = "_blank" })
+        </td>
+    </tr>
+}
+
+</table>

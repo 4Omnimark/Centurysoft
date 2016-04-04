@@ -1,0 +1,184 @@
+﻿@model IEnumerable<OmnimarkAmazon.Models.KnownASINWithInventoryAndSales>
+
+
+<table id="tblData">
+    <thead>
+    <tr>
+        <th rowspan="2">
+            ASIN
+        </th>
+        <th rowspan="2">
+            Amazon Product Name
+        </th>
+        <th rowspan="2">
+            Actual Cost
+        </th>
+        <th rowspan="2">
+            Inventory Cost
+        </th>
+        <th rowspan="2">
+            Page Views
+        </th>
+        <th rowspan="2">
+            Buy Box
+        </th>
+        <th rowspan="2">
+            Sales Last <input name="SalesDays" id="SalesDays" style="width:30px; text-align:center;" value="@ViewBag.SalesDays" onchange="DateChanged('', this);" />&nbsp;Days
+        </th>
+        <th colspan="5" @if (ViewBag.ShowStockFor != null) { <text>rowspan="2"</text> }>Stock</th>
+    </tr>
+    <tr>
+        @if (ViewBag.ShowStockFor == null)
+        {
+            <th>
+                Total
+            </th>
+            <th>
+                Brandzilla
+            </th>
+            <th>
+                FiveStar
+            </th>
+            <th>
+                Vitality
+            </th>
+            if (ViewBag.OnlyUSA != true)
+            {
+                <th>
+                    Nutramart
+                </th>
+            }
+        }
+    </tr>
+    </thead>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink(item.ASIN, "Products", new { id = item.ASIN })
+            <span style="font-size:10px; padding:0px; margin:0px;" class="vendors" id="vendordiv_@(item.ASIN)"></span>
+        </td>
+        <td>
+            @if (item.ProductCount == 0)
+                { <b style="color:Red;">@Html.DisplayFor(modelItem => item.Title)</b> }
+            else
+                { <text>@Html.DisplayFor(modelItem => item.Title)</text> }
+        </td>
+        <td nowrap align="right" style="color:@(item.MissingCosts || item.ProductCount == 0 ? "red" : "black");">
+            @item.ProductCost.ToString("###,###,##0.00")
+        </td>
+        <td nowrap align="right" style="color:@(item.MissingCosts || item.ProductCount == 0 ? "red" : "black");">
+            @((item.ProductCost * (item.StockQty == null ? 0 : (decimal)item.StockQty)).ToString("###,###,##0.00"))
+        </td>
+        <td align="right">
+            @item.PageViews
+        </td>
+        <td align="right">
+            @item.BuyBoxPercentage
+        </td>
+        @if (ViewBag.ShowStockFor != null)
+        {
+            <td nowrap colspan="5" align="center" style="min-width:200px;">
+                @if (item.QtySold != null)
+                { <text> @(((decimal)item.QtySold).ToString("###,##0")) </text> }
+            </td>
+            <td nowrap colspan="5" align="center" style="min-width:200px;">
+                @if (item.StockQty != null)
+                { <span style="text-align:center;" title="as of @(((DateTime)item.StockTimeStamp).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQty).ToString("###,##0")) </span> }
+            </td>
+        }
+        else
+        {
+            <td align="center" nowrap>
+                @if (item.QtySold != null)
+                {
+                    if (ViewBag.OnlyUSA == true)
+                    {
+                        <span class="qtysold" 
+                            ASIN="@item.ASIN"
+                            Brandzilla="@(item.QtySoldBrandzilla == null ? "" : (((decimal)item.QtySoldBrandzilla).ToString("###,##0")))" 
+                            Vitality="@(item.QtySoldVitality == null ? "" : (((decimal)item.QtySoldVitality).ToString("###,##0")))"
+                            FiveStar="@(item.QtySoldFiveStar == null ? "" : (((decimal)item.QtySoldFiveStar).ToString("###,##0")))"
+                            Nutramart=""
+                        > @(((decimal)item.QtySoldUSA).ToString("###,##0"))</span>
+                    }
+                    else
+                    {
+                        <span class="qtysold" 
+                            ASIN="@item.ASIN"
+                            Brandzilla="@(item.QtySoldBrandzilla == null ? "" : (((decimal)item.QtySoldBrandzilla).ToString("###,##0")))" 
+                            Vitality="@(item.QtySoldVitality == null ? "" : (((decimal)item.QtySoldVitality).ToString("###,##0")))"
+                            FiveStar="@(item.QtySoldFiveStar == null ? "" : (((decimal)item.QtySoldFiveStar).ToString("###,##0")))"
+                            Nutramart="@(item.QtySoldNutramart == null ? "" : (((decimal)item.QtySoldNutramart).ToString("###,##0")))"
+                        > @(((decimal)item.QtySold).ToString("###,##0"))</span>
+                    }
+                }
+            </td>
+            <td align="right" nowrap>
+                @if (item.OnOrder != null)
+                { <img src="/Content/images/onorder.png" class="onorder" onorder="@item.OnOrder" style="float:left; padding-right:5px;" /> }
+                @if (item.StockQty != null)
+                { <span>@(((decimal)item.StockQty).ToString("###,##0")) </span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_bz">
+                @if (item.StockQtyBrandzilla != null)
+                { 
+                    <span id="stock_@(item.ASIN)_bz" style="text-align:center; color:@((ViewBag.BrandzillaUpdateTimeStamp == null) ? "red" : (ViewBag.BrandzillaUpdateTimeStamp > item.StockTimeStampBrandzilla ? "red" : "black"))" class="stockqty" store="bz" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampBrandzilla).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyBrandzilla).ToString("###,##0")) </span>
+                    if (ViewBag.BrandzillaUpdateTimeStamp == null || ViewBag.BrandzillaUpdateTimeStamp > item.StockTimeStampBrandzilla)
+                    {
+                        <a href="javascript:UpdateInventory('bz', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_bz" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.BrandzillaMissingFBAListing != null && (bool)item.BrandzillaMissingFBAListing && item.StockQtyBrandzilla == 0)
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_fs">
+                @if (item.StockQtyFiveStar != null)
+                { 
+                    <span id="stock_@(item.ASIN)_fs" style="text-align:center; color:@((ViewBag.FiveStarUpdateTimeStamp == null) ? "red" : (ViewBag.FiveStarUpdateTimeStamp > item.StockTimeStampFiveStar ? "red" : "black"))" class="stockqty" store="fs" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampFiveStar).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyFiveStar).ToString("###,##0")) </span>
+                    if (ViewBag.FiveStarUpdateTimeStamp == null || ViewBag.FiveStarUpdateTimeStamp > item.StockTimeStampFiveStar)
+                    {
+                        <a href="javascript:UpdateInventory('fs', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_fs" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.FiveStarMissingFBAListing != null && (bool)item.FiveStarMissingFBAListing && item.StockQtyFiveStar == 0)
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+            <td align="center" nowrap>
+                <span id="stockdiv_@(item.ASIN)_vp">
+                @if (item.StockQtyVitality != null)
+                { 
+                    <span id="stock_@(item.ASIN)_vp" style="text-align:center; color:@((ViewBag.VitalityUpdateTimeStamp == null) ? "red" : (ViewBag.VitalityUpdateTimeStamp > item.StockTimeStampVitality ? "red" : "black"))" class="stockqty" store="vp" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampVitality).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyVitality).ToString("###,##0")) </span>
+                    if (ViewBag.VitalityUpdateTimeStamp == null || ViewBag.VitalityUpdateTimeStamp > item.StockTimeStampVitality)
+                    {
+                        <a href="javascript:UpdateInventory('vp', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_vp" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                    }
+                }
+                </span>
+                @if (item.VitalityMissingFBAListing != null && (bool)item.VitalityMissingFBAListing && item.StockQtyVitality == 0)
+                { <span style='font-weight:bold; font-size:18px; color:red; background-color:yellow;'>!</span> }
+            </td>
+            if (ViewBag.OnlyUSA != true)
+            {
+                <td align="center" nowrap>
+                    <span id="stockdiv_@(item.ASIN)_nm">
+                    @if (item.StockQtyNutramart != null)
+                    { 
+                        <span id="stock_@(item.ASIN)_vp" style="text-align:center; color:@((ViewBag.NutramartUpdateTimeStamp == null) ? "red" : (ViewBag.NutramartUpdateTimeStamp > item.StockTimeStampNutramart ? "red" : "black"))" class="stockqty" store="nm" ASIN="@item.ASIN" stocktimestamp="@(((DateTime)item.StockTimeStampNutramart).ToString("M/d/y HH:mm:ss"))"> @(((decimal)item.StockQtyNutramart).ToString("###,##0")) </span>
+                        if (ViewBag.NutramartUpdateTimeStamp == null || ViewBag.NutramartUpdateTimeStamp > item.StockTimeStampNutramart)
+                        {
+                            <a href="javascript:UpdateInventory('nm', '@item.ASIN');"><img id="refreshbtn_@(item.ASIN)_vp" src="@Html.GetAppPath()/Content/images/refresh.gif" height="14" style="padding:0px; margin:0px; border:0px;" /></a>
+                        }
+                    }
+                    </span>
+                </td>
+            }
+        }
+    </tr>
+}
+
+</table>

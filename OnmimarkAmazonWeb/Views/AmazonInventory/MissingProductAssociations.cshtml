@@ -1,0 +1,27 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Missing Product Associations";
+}
+
+<style>
+    #list span { padding-left:20px; }
+</style>
+
+<h2>Missing Product Associations</h2>
+
+
+
+<div id="list">
+    @foreach (var ASIN in Model)
+    {
+        <span><a href="/AmazonInventory/Products/@ASIN">@ASIN</a></span>
+    }
+</div>
+
+<br />
+
+
+<div>
+@Html.Raw(ViewBag.NewASINLog)
+</div>
