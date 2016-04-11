@@ -1,0 +1,2 @@
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonInventoryService\FBAInventoryServiceMWS.Samples\obj\Debug\FBAInventoryServiceMWS.Samples.csprojResolveAssemblyReference.cache
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS.Samples\obj\Debug\FBAInventoryServiceMWS.Samples.csprojResolveAssemblyReference.cache

@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UKOmnimarkModelStoreContainer" CdmEntityContainer="UKOmnimarkEntities">
+    <EntitySetMapping Name="tbl_Category">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Category">
+        <MappingFragment StoreEntitySet="tbl_Category">
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="SellerAccount_ID_fk" ColumnName="SellerAccount_ID_fk" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Sports">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Sports">
+        <MappingFragment StoreEntitySet="tbl_Sports">
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SportsNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_SportsNotPrime">
+        <MappingFragment StoreEntitySet="tbl_SportsNotPrime">
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="Account4_cmaxExport" ColumnName="Account4_cmaxExport" />
+          <ScalarProperty Name="Account3_cmaxExport" ColumnName="Account3_cmaxExport" />
+          <ScalarProperty Name="Account2_cmaxExport" ColumnName="Account2_cmaxExport" />
+          <ScalarProperty Name="Account1_cmaxExport" ColumnName="Account1_cmaxExport" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Toys">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Toys">
+        <MappingFragment StoreEntitySet="tbl_Toys">
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SmallImageURL" ColumnName="SmallImageURL" />
+          <ScalarProperty Name="MediumImageURL" ColumnName="MediumImageURL" />
+          <ScalarProperty Name="LargeImageURL" ColumnName="LargeImageURL" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ToysNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_ToysNotPrime">
+        <MappingFragment StoreEntitySet="tbl_ToysNotPrime">
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="Account4_cmaxExport" ColumnName="Account4_cmaxExport" />
+          <ScalarProperty Name="Account3_cmaxExport" ColumnName="Account3_cmaxExport" />
+          <ScalarProperty Name="Account2_cmaxExport" ColumnName="Account2_cmaxExport" />
+          <ScalarProperty Name="Account1_cmaxExport" ColumnName="Account1_cmaxExport" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SmallImageURL" ColumnName="SmallImageURL" />
+          <ScalarProperty Name="MediumImageURL" ColumnName="MediumImageURL" />
+          <ScalarProperty Name="LargeImageURL" ColumnName="LargeImageURL" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Beauty">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Beauty">
+        <MappingFragment StoreEntitySet="tbl_Beauty">
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BeautyNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_BeautyNotPrime">
+        <MappingFragment StoreEntitySet="tbl_BeautyNotPrime">
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="Account4_cmaxExport" ColumnName="Account4_cmaxExport" />
+          <ScalarProperty Name="Account3_cmaxExport" ColumnName="Account3_cmaxExport" />
+          <ScalarProperty Name="Account2_cmaxExport" ColumnName="Account2_cmaxExport" />
+          <ScalarProperty Name="Account1_cmaxExport" ColumnName="Account1_cmaxExport" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Update_UK_Prohibited" FunctionName="UKOmnimarkModel.Store.Update_UK_Prohibited" />
+    <EntitySetMapping Name="tbl_Prohibited_Keywords">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Prohibited_Keywords">
+        <MappingFragment StoreEntitySet="tbl_Prohibited_Keywords">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ProhibitedKeys" ColumnName="ProhibitedKeys" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Baby">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Baby">
+        <MappingFragment StoreEntitySet="tbl_Baby">
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BabyNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_BabyNotPrime">
+        <MappingFragment StoreEntitySet="tbl_BabyNotPrime">
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="Account4_cmaxExport" ColumnName="Account4_cmaxExport" />
+          <ScalarProperty Name="Account3_cmaxExport" ColumnName="Account3_cmaxExport" />
+          <ScalarProperty Name="Account2_cmaxExport" ColumnName="Account2_cmaxExport" />
+          <ScalarProperty Name="Account1_cmaxExport" ColumnName="Account1_cmaxExport" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Jewellery">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Jewellery">
+        <MappingFragment StoreEntitySet="tbl_Jewellery">
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_JewelleryNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_JewelleryNotPrime">
+        <MappingFragment StoreEntitySet="tbl_JewelleryNotPrime">
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="Account4_cmaxExport" ColumnName="Account4_cmaxExport" />
+          <ScalarProperty Name="Account3_cmaxExport" ColumnName="Account3_cmaxExport" />
+          <ScalarProperty Name="Account2_cmaxExport" ColumnName="Account2_cmaxExport" />
+          <ScalarProperty Name="Account1_cmaxExport" ColumnName="Account1_cmaxExport" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Watches">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Watches">
+        <MappingFragment StoreEntitySet="tbl_Watches">
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_WatchesNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_WatchesNotPrime">
+        <MappingFragment StoreEntitySet="tbl_WatchesNotPrime">
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="Account4_cmaxExport" ColumnName="Account4_cmaxExport" />
+          <ScalarProperty Name="Account3_cmaxExport" ColumnName="Account3_cmaxExport" />
+          <ScalarProperty Name="Account2_cmaxExport" ColumnName="Account2_cmaxExport" />
+          <ScalarProperty Name="Account1_cmaxExport" ColumnName="Account1_cmaxExport" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SellingPlaces">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.SellingPlace">
+        <MappingFragment StoreEntitySet="SellingPlace">
+          <ScalarProperty Name="SellingPlace1" ColumnName="SellingPlace" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Account">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Account">
+        <MappingFragment StoreEntitySet="tbl_Account">
+          <ScalarProperty Name="ReExportAllow" ColumnName="ReExportAllow" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="Baby" ColumnName="Baby" />
+          <ScalarProperty Name="Beauty" ColumnName="Beauty" />
+          <ScalarProperty Name="SportingGoods" ColumnName="SportingGoods" />
+          <ScalarProperty Name="Toys" ColumnName="Toys" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="SellingVenue" ColumnName="SellingVenue" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Canada_Prohibited_Keywords">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.Canada_Prohibited_Keywords">
+        <MappingFragment StoreEntitySet="Canada_Prohibited_Keywords">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Keywords">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Keywords">
+        <MappingFragment StoreEntitySet="tbl_Keywords">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="WatchesSearched" ColumnName="WatchesSearched" />
+          <ScalarProperty Name="JewelrySearched" ColumnName="JewelrySearched" />
+          <ScalarProperty Name="ToysSearched" ColumnName="ToysSearched" />
+          <ScalarProperty Name="SportsSearched" ColumnName="SportsSearched" />
+          <ScalarProperty Name="BeautySearched" ColumnName="BeautySearched" />
+          <ScalarProperty Name="BabySearched" ColumnName="BabySearched" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceStatus">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.ServiceStatu">
+        <MappingFragment StoreEntitySet="ServiceStatus">
+          <ScalarProperty Name="LastUpdatedTimestamp" ColumnName="LastUpdatedTimestamp" />
+          <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonResponses">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.AmazonResponse">
+        <MappingFragment StoreEntitySet="AmazonResponse">
+          <ScalarProperty Name="SubmissionTimeStamp" ColumnName="SubmissionTimeStamp" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Sports_test">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Sports_test">
+        <MappingFragment StoreEntitySet="tbl_Sports_test">
+          <ScalarProperty Name="tbl_sports_Id" ColumnName="tbl_sports_Id" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFilename" ColumnName="ReExportFilename" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariousAsins">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.VariousAsin">
+        <MappingFragment StoreEntitySet="VariousAsins">
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="SrNo" ColumnName="SrNo" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_HomeandKitchen">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_HomeandKitchen">
+        <MappingFragment StoreEntitySet="tbl_HomeandKitchen">
+          <ScalarProperty Name="FakeUPC" ColumnName="FakeUPC" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="ImportFromNonPrime" ColumnName="ImportFromNonPrime" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="Instock" ColumnName="Instock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdatedTimeStamp" ColumnName="UpdatedTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SmallImageURL" ColumnName="SmallImageURL" />
+          <ScalarProperty Name="MediumImageURL" ColumnName="MediumImageURL" />
+          <ScalarProperty Name="LargeImageURL" ColumnName="LargeImageURL" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_HomeandKitchenNotPrime">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_HomeandKitchenNotPrime">
+        <MappingFragment StoreEntitySet="tbl_HomeandKitchenNotPrime">
+          <ScalarProperty Name="FakeUPC" ColumnName="FakeUPC" />
+          <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
+          <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
+          <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
+          <ScalarProperty Name="Account4_Status" ColumnName="Account4_Status" />
+          <ScalarProperty Name="account3_cmaxexport" ColumnName="account3_cmaxexport" />
+          <ScalarProperty Name="account2_cmaxexport" ColumnName="account2_cmaxexport" />
+          <ScalarProperty Name="account1_cmaxexport" ColumnName="account1_cmaxexport" />
+          <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
+          <ScalarProperty Name="ReExportTimeStamp" ColumnName="ReExportTimeStamp" />
+          <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
+          <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
+          <ScalarProperty Name="Account3_FileName" ColumnName="Account3_FileName" />
+          <ScalarProperty Name="Account3_ReExport" ColumnName="Account3_ReExport" />
+          <ScalarProperty Name="Account3_ExportDate" ColumnName="Account3_ExportDate" />
+          <ScalarProperty Name="Account3_Status" ColumnName="Account3_Status" />
+          <ScalarProperty Name="Account2_FileName" ColumnName="Account2_FileName" />
+          <ScalarProperty Name="Account2_ReExport" ColumnName="Account2_ReExport" />
+          <ScalarProperty Name="Account2_ExportDate" ColumnName="Account2_ExportDate" />
+          <ScalarProperty Name="Account2_Status" ColumnName="Account2_Status" />
+          <ScalarProperty Name="Account1_FileName" ColumnName="Account1_FileName" />
+          <ScalarProperty Name="Account1_ReExport" ColumnName="Account1_ReExport" />
+          <ScalarProperty Name="Account1_ExportDate" ColumnName="Account1_ExportDate" />
+          <ScalarProperty Name="Account1_Status" ColumnName="Account1_Status" />
+          <ScalarProperty Name="ExportAllStatus" ColumnName="ExportAllStatus" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
+          <ScalarProperty Name="InStock" ColumnName="InStock" />
+          <ScalarProperty Name="UpdatedSalesPriceTimeStamp" ColumnName="UpdatedSalesPriceTimeStamp" />
+          <ScalarProperty Name="UpdatedSalesPrice" ColumnName="UpdatedSalesPrice" />
+          <ScalarProperty Name="Offers_New" ColumnName="Offers_New" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="UK_Prohibited" ColumnName="UK_Prohibited" />
+          <ScalarProperty Name="WidthUnits" ColumnName="WidthUnits" />
+          <ScalarProperty Name="WeightUnits" ColumnName="WeightUnits" />
+          <ScalarProperty Name="LengthUnits" ColumnName="LengthUnits" />
+          <ScalarProperty Name="HeightUnits" ColumnName="HeightUnits" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ExpoerDate" ColumnName="ExpoerDate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SmallImageURL" ColumnName="SmallImageURL" />
+          <ScalarProperty Name="MediumImageURL" ColumnName="MediumImageURL" />
+          <ScalarProperty Name="LargeImageURL" ColumnName="LargeImageURL" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

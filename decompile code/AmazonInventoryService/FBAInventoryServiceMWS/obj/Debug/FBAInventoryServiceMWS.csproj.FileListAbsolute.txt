@@ -1,0 +1,101 @@
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.csprojResolveAssemblyReference.cache
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonWeb.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Web.Http.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonCore.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Yahoo.Yui.Compressor.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.Formatting.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\wix.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\PayPalMerchantSDK.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\libmspackn.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\JHSoftware.DnsClient.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\TidyNet.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\com.ddmresources.EnumMetadata.Core.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\PayPalCoreSDK.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\log4net.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonWeb.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Web.Http.xml
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonCore.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.xml
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.Formatting.xml
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.xml
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\libmspackn.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\JHSoftware.DnsClient.xml
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\TidyNet.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\com.ddmresources.EnumMetadata.Core.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\log4net.xml
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.dll
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.pdb
+D:\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.csprojResolveAssemblyReference.cache
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.pdb
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonWeb.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Web.Http.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonCore.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Yahoo.Yui.Compressor.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.Formatting.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\wix.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\PayPalMerchantSDK.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\libmspackn.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\JHSoftware.DnsClient.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\TidyNet.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\com.ddmresources.EnumMetadata.Core.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\PayPalCoreSDK.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\log4net.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonWeb.pdb
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Web.Http.xml
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonCore.pdb
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.xml
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.Formatting.xml
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.xml
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\libmspackn.pdb
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\JHSoftware.DnsClient.xml
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\TidyNet.pdb
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\com.ddmresources.EnumMetadata.Core.pdb
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\log4net.xml
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.dll
+D:\decompile code\omnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonWeb.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Web.Http.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonCore.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Yahoo.Yui.Compressor.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.Formatting.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\wix.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\PayPalMerchantSDK.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\libmspackn.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\JHSoftware.DnsClient.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\TidyNet.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\com.ddmresources.EnumMetadata.Core.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\PayPalCoreSDK.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\log4net.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonWeb.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Web.Http.xml
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\StartbuttonCore.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.xml
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\System.Net.Http.Formatting.xml
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.xml
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\libmspackn.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\JHSoftware.DnsClient.xml
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\TidyNet.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\com.ddmresources.EnumMetadata.Core.pdb
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\log4net.xml
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.csprojResolveAssemblyReference.cache
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.dll
+E:\TestinOmnimark\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.pdb
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.dll
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.pdb
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\Newtonsoft.Json.dll
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.csprojResolveAssemblyReference.cache
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.dll
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\obj\Debug\FBAInventoryServiceMWS.pdb
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.dll.CodeAnalysisLog.xml
+D:\salman\TestinOmnimark_Running\decompile code\AmazonInventoryService\FBAInventoryServiceMWS\bin\Debug\FBAInventoryServiceMWS.dll.lastcodeanalysissucceeded

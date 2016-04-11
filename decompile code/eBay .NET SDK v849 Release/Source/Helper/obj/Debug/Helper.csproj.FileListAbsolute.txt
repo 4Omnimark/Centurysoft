@@ -1,0 +1,16 @@
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\bin\Debug\Samples.Helper.XML
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\bin\Debug\Samples.Helper.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\bin\Debug\Samples.Helper.pdb
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\bin\Debug\eBay.Service.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\bin\Debug\eBay.Service.pdb
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\bin\Debug\eBay.Service.xml
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.UI.CheckBoxGroupControl.resources
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.UI.EditListView.resources
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.UI.InternationalShippingServiceControl.resources
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.UI.IntlShippingServiceListView.resources
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.UI.ShippingServiceControl.resources
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.UI.ShippingServiceListView.resources
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Helper.csproj.GenerateResource.Cache
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\Helper\obj\Debug\Samples.Helper.pdb

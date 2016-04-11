@@ -1,0 +1,135 @@
+/*  EBAY - Developer Program Document/Print Styles - v1
+*	April 25th, 2008
+*	Author: Amadeo Donofrio - amadeo@solutionset.com
+*   SolutionSet  http://www.solutionset.com
+*
+*	1) This style sheet is intended to supplement pre-existing additional styles.
+*	2) This style sheet and it's print conterpart (ss-print.css) is intended to be included directly before the closing head tag (</head>).
+*	3) this stylesheet depends on images located in the 'i' directory, which must be preserved to ensure correct display.
+*
+**********************************************************/
+
+*{
+  background-color: white !important;
+}
+
+#newheader{
+  background-image: none !important;
+}
+
+
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+
+
+/*	Hide Navigation Styles
+***************************************************/
+ul.mainmenu#newheader,
+table.footertoolbar,
+span.greyLinkTxt,
+div.lfthidePanel,
+div.lftpnl_f
+{
+	display:						none !important;
+}
+#mainmenubar
+{
+	display:						none !important;
+}
+
+
+/* Collapse left nav panel
+***************************************************/
+.product-list1Close,
+.product-listOpen
+{
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 10px;
+}
+
+
+
+/*	Header Styles
+***************************************************/
+h1,
+span.docTitle,
+span.subtitle,
+div.sectionTitle {
+	  line-height:					45px;
+}
+
+h2{
+	margin-top:						0;
+	padding-left:					20px;
+}
+
+/*	Main Content Styles
+***************************************************/
+p{
+  padding:                          0 20px 0 20px;
+  margin:							0 0 10px 0;
+  width:							98%;
+}
+
+ul,
+ol {
+  margin:                          0 0 10px 20px;
+}
+
+
+
+/*	Table Styles
+***************************************************/
+table{
+	table-layout:					fixed !important;
+}
+
+table td,
+table th{
+	padding:                        10px 0;
+}
+
+p.edef
+{
+	padding: 10;
+	margin: 0;
+	width: 90%
+}
+#js
+{
+	width:800px;
+}
+
+/*	Back To Top Styles
+***************************************************/
+p.btt{
+	display:						none;
+}
+
+
+
+/* Bugfixes
+---------------- */
+.clearfix:after { /* All except IE */
+content: ".";
+display: block;
+height: 0;
+line-height: 0px;
+clear: both;
+visibility: hidden;
+}
+.clearfix { /* IE Mac */
+display: inline-block;
+}
+/* Hides from IE Mac, for IE Win \*/
+* html .clearfix {
+height: 1%;
+}
+.clearfix {
+display: block;
+}

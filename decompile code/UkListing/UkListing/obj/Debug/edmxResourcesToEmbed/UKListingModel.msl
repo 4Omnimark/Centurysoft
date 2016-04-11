@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UKOmnimarkModelStoreContainer" CdmEntityContainer="UKOmnimarkEntities">
+    <EntitySetMapping Name="tbl_DataPoints">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_DataPoints">
+        <MappingFragment StoreEntitySet="tbl_DataPoints">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Toys">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Toys">
+        <MappingFragment StoreEntitySet="tbl_Toys">
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="SmallImageUrl" ColumnName="SmallImageUrl" />
+          <ScalarProperty Name="MediumImageUrl" ColumnName="MediumImageUrl" />
+          <ScalarProperty Name="LargeImageUrl" ColumnName="LargeImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Features4" ColumnName="Features4" />
+          <ScalarProperty Name="Features3" ColumnName="Features3" />
+          <ScalarProperty Name="Features2" ColumnName="Features2" />
+          <ScalarProperty Name="Features1" ColumnName="Features1" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="SalesRank" ColumnName="SalesRank" />
+          <ScalarProperty Name="Prime" ColumnName="Prime" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PackageQty" ColumnName="PackageQty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

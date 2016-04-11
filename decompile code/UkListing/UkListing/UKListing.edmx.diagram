@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6b6d37be7429425492c3aa19d1e4b38d" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Category" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Sports" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_SportsNotPrime" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Toys" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_ToysNotPrime" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Beauty" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_BeautyNotPrime" Width="1.5" PointX="2.75" PointY="12.125" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Prohibited_Keywords" Width="1.5" PointX="17.125" PointY="9" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Baby" Width="1.5" PointX="9.875" PointY="9.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_BabyNotPrime" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Jewellery" Width="1.5" PointX="11.625" PointY="14.125" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_JewelleryNotPrime" Width="1.5" PointX="5.375" PointY="13.5" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Watches" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_WatchesNotPrime" Width="1.5" PointX="13.875" PointY="13.375" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.SellingPlace" Width="1.5" PointX="15.375" PointY="6.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Account" Width="1.5" PointX="15.375" PointY="9.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.Canada_Prohibited_Keywords" Width="1.5" PointX="15.375" PointY="13.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Keywords" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.ServiceStatu" Width="1.5" PointX="15.375" PointY="16.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.AmazonResponse" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_Sports_test" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.VariousAsin" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_HomeandKitchen" Width="1.5" PointX="21.375" PointY="3.75" />
+        <EntityTypeShape EntityType="UKOmnimarkModel.tbl_HomeandKitchenNotPrime" Width="1.5" PointX="21.375" PointY="17.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

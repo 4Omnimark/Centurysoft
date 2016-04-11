@@ -1,0 +1,69 @@
+E:\My metagami doc\Practice_Projects\omnimark_all_code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe.config
+E:\My metagami doc\Practice_Projects\omnimark_all_code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.csprojResolveAssemblyReference.cache
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe.config
+D:\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.csprojResolveAssemblyReference.cache
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\EntityFramework.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebServiceOrders.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebServiceProducts.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonLibrary.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebService.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\FBAInventoryServiceMWS.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\HtmlAgilityPack.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\eBay.Service.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\StartbuttonCore.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\StartbuttonCore2013.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\com.ddmresources.EnumMetadata.Core.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\wix.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\PayPalMerchantSDK.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\libmspackn.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\JHSoftware.DnsClient.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\TidyNet.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\Newtonsoft.Json.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\PayPalCoreSDK.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\log4net.dll
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\EntityFramework.xml
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebServiceOrders.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebServiceProducts.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonLibrary.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebService.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\FBAInventoryServiceMWS.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\HtmlAgilityPack.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\HtmlAgilityPack.xml
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\eBay.Service.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\eBay.Service.xml
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\StartbuttonCore.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\StartbuttonCore2013.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\com.ddmresources.EnumMetadata.Core.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\libmspackn.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\JHSoftware.DnsClient.xml
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\TidyNet.pdb
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\Newtonsoft.Json.xml
+D:\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\log4net.xml
+D:\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.exe
+D:\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.pdb
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe.config
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.exe
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.pdb
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.pdb
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\EntityFramework.dll
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\EntityFramework.xml
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonLibrary.pdb
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.csprojResolveAssemblyReference.cache
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonLibrary.dll
+D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\MarketplaceWebServiceOrders.dll
+E:\TestinOmnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe.config
+E:\TestinOmnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.exe
+E:\TestinOmnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.pdb
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe.config
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.pdb
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonLibrary.dll
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\StartbuttonCore.dll
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\StartbuttonCore2013.dll
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonLibrary.pdb
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.exe
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.pdb
+D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\obj\x86\Debug\OmnimarkAmazonService.csprojResolveAssemblyReference.cache

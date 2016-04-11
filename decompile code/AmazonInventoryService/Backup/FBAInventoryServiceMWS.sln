@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FBAInventoryServiceMWS.Samples", "FBAInventoryServiceMWS.Samples\FBAInventoryServiceMWS.Samples.csproj", "{1BC69DCA-ECF8-378B-B163-B05573DA2617}"
+	ProjectSection(ProjectDependencies) = postProject
+		{329D8BC9-D820-37CA-9B18-098625CA0158} = {329D8BC9-D820-37CA-9B18-098625CA0158}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FBAInventoryServiceMWS", "FBAInventoryServiceMWS\FBAInventoryServiceMWS.csproj", "{329D8BC9-D820-37CA-9B18-098625CA0158}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BC69DCA-ECF8-378B-B163-B05573DA2617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BC69DCA-ECF8-378B-B163-B05573DA2617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BC69DCA-ECF8-378B-B163-B05573DA2617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BC69DCA-ECF8-378B-B163-B05573DA2617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329D8BC9-D820-37CA-9B18-098625CA0158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329D8BC9-D820-37CA-9B18-098625CA0158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329D8BC9-D820-37CA-9B18-098625CA0158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329D8BC9-D820-37CA-9B18-098625CA0158}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+
+
+
+
+
+

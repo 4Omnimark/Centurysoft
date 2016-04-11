@@ -1,0 +1,2350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OmnimarkAmazon.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AmazonAccounts" EntityType="OmnimarkAmazon.Models.AmazonAccount" />
+    <EntitySet Name="SearchTerms" EntityType="OmnimarkAmazon.Models.SearchTerm" />
+    <EntitySet Name="KnownASINs" EntityType="OmnimarkAmazon.Models.KnownASIN" />
+    <EntitySet Name="SearchTermsWithLastSearchTimeStamps" EntityType="OmnimarkAmazon.Models.SearchTermsWithLastSearchTimeStamp" />
+    <EntitySet Name="AmazonInventoryProducts" EntityType="OmnimarkAmazon.Models.AmazonInventoryProduct" />
+    <EntitySet Name="Products" EntityType="OmnimarkAmazon.Models.Product" />
+    <AssociationSet Name="FK_AmazonInventoryProducts_KnownASINs" Association="OmnimarkAmazon.Models.FK_AmazonInventoryProducts_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="AmazonInventoryProduct" EntitySet="AmazonInventoryProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventoryProducts_Products" Association="OmnimarkAmazon.Models.FK_AmazonInventoryProducts_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="AmazonInventoryProduct" EntitySet="AmazonInventoryProducts" />
+    </AssociationSet>
+    <EntitySet Name="AmazonInventoryViews" EntityType="OmnimarkAmazon.Models.AmazonInventoryView" />
+    <EntitySet Name="AmazonInventories" EntityType="OmnimarkAmazon.Models.AmazonInventory" />
+    <AssociationSet Name="FK_AmazonInventory_AmazonAccounts" Association="OmnimarkAmazon.Models.FK_AmazonInventory_AmazonAccounts">
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+      <End Role="AmazonInventory" EntitySet="AmazonInventories" />
+    </AssociationSet>
+    <EntitySet Name="KnownASINsInventoryMaintenanceViews" EntityType="OmnimarkAmazon.Models.KnownASINsInventoryMaintenanceView" />
+    <EntitySet Name="RelatedProducts" EntityType="OmnimarkAmazon.Models.RelatedProduct" />
+    <EntitySet Name="AmazonInventorySKUs" EntityType="OmnimarkAmazon.Models.AmazonInventorySKU" />
+    <AssociationSet Name="FK_AmazonInventorySKUs_AmazonAccounts" Association="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_AmazonAccounts">
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+      <End Role="AmazonInventorySKU" EntitySet="AmazonInventorySKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventorySKUs_KnownASINs" Association="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="AmazonInventorySKU" EntitySet="AmazonInventorySKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventorySKUs_AmazonInventory" Association="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_AmazonInventory">
+      <End Role="AmazonInventory" EntitySet="AmazonInventories" />
+      <End Role="AmazonInventorySKU" EntitySet="AmazonInventorySKUs" />
+    </AssociationSet>
+    <EntitySet Name="ReceivedShipments" EntityType="OmnimarkAmazon.Models.ReceivedShipment" />
+    <EntitySet Name="Vendors" EntityType="OmnimarkAmazon.Models.Vendor" />
+    <AssociationSet Name="FK_ReceivedShipments_Vendors" Association="OmnimarkAmazon.Models.FK_ReceivedShipments_Vendors">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="ReceivedShipment" EntitySet="ReceivedShipments" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseOrderLines" EntityType="OmnimarkAmazon.Models.PurchaseOrderLine" />
+    <EntitySet Name="PurchaseOrders" EntityType="OmnimarkAmazon.Models.PurchaseOrder" />
+    <AssociationSet Name="FK_PurchaseOrderLines_Products" Association="OmnimarkAmazon.Models.FK_PurchaseOrderLines_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PurchaseOrderLine" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderLines_PurchaseOrders" Association="OmnimarkAmazon.Models.FK_PurchaseOrderLines_PurchaseOrders">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderLine" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrders_Vendors" Association="OmnimarkAmazon.Models.FK_PurchaseOrders_Vendors">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseOrderStatuses" EntityType="OmnimarkAmazon.Models.PurchaseOrderStatus" />
+    <AssociationSet Name="FK_PurchaseOrders_PurchaseOrderStatuses" Association="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderStatuses">
+      <End Role="PurchaseOrderStatus" EntitySet="PurchaseOrderStatuses" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <EntitySet Name="ReceivedProducts" EntityType="OmnimarkAmazon.Models.ReceivedProduct" />
+    <AssociationSet Name="FK_ReceivedProducts_Products" Association="OmnimarkAmazon.Models.FK_ReceivedProducts_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ReceivedProduct" EntitySet="ReceivedProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderLines_ReceivedProducts" Association="OmnimarkAmazon.Models.FK_PurchaseOrderLines_ReceivedProducts">
+      <End Role="ReceivedProduct" EntitySet="ReceivedProducts" />
+      <End Role="PurchaseOrderLine" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReceivedProducts_ReceivedShipments" Association="OmnimarkAmazon.Models.FK_ReceivedProducts_ReceivedShipments">
+      <End Role="ReceivedShipment" EntitySet="ReceivedShipments" />
+      <End Role="ReceivedProduct" EntitySet="ReceivedProducts" />
+    </AssociationSet>
+    <EntitySet Name="aspnet_Membership" EntityType="OmnimarkAmazon.Models.aspnet_Membership" />
+    <EntitySet Name="aspnet_Profile" EntityType="OmnimarkAmazon.Models.aspnet_Profile" />
+    <EntitySet Name="aspnet_Roles" EntityType="OmnimarkAmazon.Models.aspnet_Roles" />
+    <EntitySet Name="aspnet_Users" EntityType="OmnimarkAmazon.Models.aspnet_Users" />
+    <EntitySet Name="Users" EntityType="OmnimarkAmazon.Models.User" />
+    <AssociationSet Name="FK__aspnet_Me__UserI__531856C7" Association="OmnimarkAmazon.Models.FK__aspnet_Me__UserI__531856C7">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__671F4F74" Association="OmnimarkAmazon.Models.FK__aspnet_Pr__UserI__671F4F74">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_aspnet_Users" Association="OmnimarkAmazon.Models.FK_Users_aspnet_Users">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="Users" Role="User" />
+    </AssociationSet>
+    <AssociationSet Name="aspnet_UsersInRoles" Association="OmnimarkAmazon.Models.aspnet_UsersInRoles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseOrderPaymentTypes" EntityType="OmnimarkAmazon.Models.PurchaseOrderPaymentType" />
+    <AssociationSet Name="FK_PurchaseOrders_PurchaseOrderPaymentTypes" Association="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderPaymentTypes">
+      <End Role="PurchaseOrderPaymentType" EntitySet="PurchaseOrderPaymentTypes" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <EntitySet Name="Countries" EntityType="OmnimarkAmazon.Models.Country" />
+    <EntitySet Name="States" EntityType="OmnimarkAmazon.Models.State" />
+    <EntitySet Name="suppliers" EntityType="OmnimarkAmazon.Models.supplier" />
+    <AssociationSet Name="FK_Vendors_Countries" Association="OmnimarkAmazon.Models.FK_Vendors_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Vendor" EntitySet="Vendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendors_States" Association="OmnimarkAmazon.Models.FK_Vendors_States">
+      <End Role="State" EntitySet="States" />
+      <End Role="Vendor" EntitySet="Vendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonAccounts_Countries" Association="OmnimarkAmazon.Models.FK_AmazonAccounts_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="ProductVendors" Association="OmnimarkAmazon.Models.ProductVendors">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Vendor" EntitySet="Vendors" />
+    </AssociationSet>
+    <EntitySet Name="ReportActionParameters" EntityType="OmnimarkAmazon.Models.ReportActionParameter" />
+    <EntitySet Name="ReportActions" EntityType="OmnimarkAmazon.Models.ReportAction" />
+    <AssociationSet Name="FK_ReportActionParameters_ReportActions" Association="OmnimarkAmazon.Models.FK_ReportActionParameters_ReportActions">
+      <End Role="ReportAction" EntitySet="ReportActions" />
+      <End Role="ReportActionParameter" EntitySet="ReportActionParameters" />
+    </AssociationSet>
+    <EntitySet Name="KnownASINAttributes" EntityType="OmnimarkAmazon.Models.KnownASINAttribute" />
+    <AssociationSet Name="FK_KnownASINAttributes_KnownASINs" Association="OmnimarkAmazon.Models.FK_KnownASINAttributes_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="KnownASINAttribute" EntitySet="KnownASINAttributes" />
+    </AssociationSet>
+    <EntitySet Name="TimeZones" EntityType="OmnimarkAmazon.Models.TimeZone" />
+    <EntitySet Name="ExportSpecs" EntityType="OmnimarkAmazon.Models.ExportSpec" />
+    <EntitySet Name="ASINsSuccessfullyExporteds" EntityType="OmnimarkAmazon.Models.ASINsSuccessfullyExported" />
+    <EntitySet Name="SalesVenues" EntityType="OmnimarkAmazon.Models.SalesVenue" />
+    <AssociationSet Name="FK_ASINsSuccessfullyExported_KnownASINs" Association="OmnimarkAmazon.Models.FK_ASINsSuccessfullyExported_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="ASINsSuccessfullyExported" EntitySet="ASINsSuccessfullyExporteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASINsSuccessfullyExported_SalesVenues" Association="OmnimarkAmazon.Models.FK_ASINsSuccessfullyExported_SalesVenues">
+      <End Role="SalesVenue" EntitySet="SalesVenues" />
+      <End Role="ASINsSuccessfullyExported" EntitySet="ASINsSuccessfullyExporteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExportSpecs_SalesVenues" Association="OmnimarkAmazon.Models.FK_ExportSpecs_SalesVenues">
+      <End Role="SalesVenue" EntitySet="SalesVenues" />
+      <End Role="ExportSpec" EntitySet="ExportSpecs" />
+    </AssociationSet>
+    <EntitySet Name="OrdersViews" EntityType="OmnimarkAmazon.Models.OrdersView" />
+    <EntitySet Name="ProductsView" EntityType="OmnimarkAmazon.Models.ProductsView" />
+    <EntitySet Name="ProductCategories" EntityType="OmnimarkAmazon.Models.ProductCategory" />
+    <EntitySet Name="ProductTags" EntityType="OmnimarkAmazon.Models.ProductTag" />
+    <EntitySet Name="ProductView" EntityType="OmnimarkAmazon.Models.ProductView" />
+    <AssociationSet Name="ProductCategoryProductTags" Association="OmnimarkAmazon.Models.ProductCategoryProductTags">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="ProductTag" EntitySet="ProductTags" />
+    </AssociationSet>
+    <AssociationSet Name="ProductProductCategories" Association="OmnimarkAmazon.Models.ProductProductCategories">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="ProductProductTags" Association="OmnimarkAmazon.Models.ProductProductTags">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductTag" EntitySet="ProductTags" />
+    </AssociationSet>
+    <EntitySet Name="FeedSubmissionQueue" EntityType="OmnimarkAmazon.Models.FeedSubmissionQueueRec" />
+    <EntitySet Name="FeedSubmissionSchedule" EntityType="OmnimarkAmazon.Models.FeedSubmissionScheduleRec" />
+    <AssociationSet Name="FK_FeedSubmissionSchedule_AmazonAccounts" Association="OmnimarkAmazon.Models.FK_FeedSubmissionSchedule_AmazonAccounts">
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+      <End Role="FeedSubmissionSchedule" EntitySet="FeedSubmissionSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedSubmissionQueue_FeedSubmissionSchedule" Association="OmnimarkAmazon.Models.FK_FeedSubmissionQueue_FeedSubmissionSchedule">
+      <End Role="FeedSubmissionSchedule" EntitySet="FeedSubmissionSchedule" />
+      <End Role="FeedSubmissionQueue" EntitySet="FeedSubmissionQueue" />
+    </AssociationSet>
+    <EntitySet Name="FeedSubmissionScheduleStatuses" EntityType="OmnimarkAmazon.Models.FeedSubmissionScheduleStatusRec" />
+    <AssociationSet Name="FK_FeedSubmissionQueue_AmazonAccounts" Association="OmnimarkAmazon.Models.FK_FeedSubmissionQueue_AmazonAccounts">
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+      <End Role="FeedSubmissionQueueRec" EntitySet="FeedSubmissionQueue" />
+    </AssociationSet>
+    <EntitySet Name="AutomaticPriceChanges" EntityType="OmnimarkAmazon.Models.AutomaticPriceChange" />
+    <AssociationSet Name="FK_AutomaticPriceChanges_FeedSubmissionQueue" Association="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionQueue">
+      <End Role="FeedSubmissionQueueRec" EntitySet="FeedSubmissionQueue" />
+      <End Role="AutomaticPriceChange" EntitySet="AutomaticPriceChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AutomaticPriceChanges_FeedSubmissionQueue1" Association="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionQueue1">
+      <End Role="FeedSubmissionQueueRec" EntitySet="FeedSubmissionQueue" />
+      <End Role="AutomaticPriceChange" EntitySet="AutomaticPriceChanges" />
+    </AssociationSet>
+    <EntitySet Name="AutomaticPriceChangesView" EntityType="OmnimarkAmazon.Models.AutomaticPriceChangesView" />
+    <AssociationSet Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule" Association="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionSchedule">
+      <End Role="FeedSubmissionScheduleRec" EntitySet="FeedSubmissionSchedule" />
+      <End Role="AutomaticPriceChange" EntitySet="AutomaticPriceChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule1" Association="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionSchedule1">
+      <End Role="FeedSubmissionScheduleRec" EntitySet="FeedSubmissionSchedule" />
+      <End Role="AutomaticPriceChange" EntitySet="AutomaticPriceChanges" />
+    </AssociationSet>
+    <EntitySet Name="ASINOfferListings" EntityType="OmnimarkAmazon.Models.ASINOfferListing" />
+    <AssociationSet Name="FK_ASINOfferListingsx_KnownASINs" Association="OmnimarkAmazon.Models.FK_ASINOfferListingsx_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="ASINOfferListing" EntitySet="ASINOfferListings" />
+    </AssociationSet>
+    <EntitySet Name="ASINOfferScrapes" EntityType="OmnimarkAmazon.Models.ASINOfferScrape" />
+    <AssociationSet Name="FK_ASINOfferScrapes_KnownASINs" Association="OmnimarkAmazon.Models.FK_ASINOfferScrapes_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="ASINOfferScrape" EntitySet="ASINOfferScrapes" />
+    </AssociationSet>
+    <EntitySet Name="OurListings" EntityType="OmnimarkAmazon.Models.OurListing" />
+    <EntitySet Name="OfferScrapeStatuses" EntityType="OmnimarkAmazon.Models.OfferScrapeStatus" />
+    <EntitySet Name="UnderPricedView" EntityType="OmnimarkAmazon.Models.UnderPricedViewRec" />
+    <EntitySet Name="OnOrders" EntityType="OmnimarkAmazon.Models.OnOrder" />
+    <EntitySet Name="DailyTraffics" EntityType="OmnimarkAmazon.Models.DailyTraffic" />
+    <EntitySet Name="NeedInInventoryWithTotals" EntityType="OmnimarkAmazon.Models.NeedInInventoryWithTotal" />
+    <EntitySet Name="OutPriceds" EntityType="OmnimarkAmazon.Models.OutPriced" />
+    <EntitySet Name="SpecialPriceSalesByDays" EntityType="OmnimarkAmazon.Models.SpecialPriceSalesByDay" />
+    <EntitySet Name="PurchaseOrderProductsVendors" EntityType="OmnimarkAmazon.Models.PurchaseOrderProductsVendor" />
+    <EntitySet Name="SOSInventoryChangeReports" EntityType="OmnimarkAmazon.Models.SOSInventoryChangeReport" />
+    <EntitySet Name="eBayRawItemDatas" EntityType="OmnimarkAmazon.Models.eBayRawItemData" />
+    <EntitySet Name="SystemStatus" EntityType="OmnimarkAmazon.Models.SystemStatu" />
+    <EntitySet Name="eBayItemsProducts" EntityType="OmnimarkAmazon.Models.eBayItemsProduct" />
+    <AssociationSet Name="FK_eBayItemsProducts_eBayRawItemData" Association="OmnimarkAmazon.Models.FK_eBayItemsProducts_eBayRawItemData">
+      <End Role="eBayRawItemData" EntitySet="eBayRawItemDatas" />
+      <End Role="eBayItemsProduct" EntitySet="eBayItemsProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayItemsProducts_Products" Association="OmnimarkAmazon.Models.FK_eBayItemsProducts_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="eBayItemsProduct" EntitySet="eBayItemsProducts" />
+    </AssociationSet>
+    <EntitySet Name="ProductInventories" EntityType="OmnimarkAmazon.Models.ProductInventory" />
+    <AssociationSet Name="FK_ProductInventory_Products" Association="OmnimarkAmazon.Models.FK_ProductInventory_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductInventory" EntitySet="ProductInventories" />
+    </AssociationSet>
+    <EntitySet Name="InboundFBAShipmentStatusChanges" EntityType="OmnimarkAmazon.Models.InboundFBAShipmentStatusChange" />
+    <EntitySet Name="InboundFBAShipments" EntityType="OmnimarkAmazon.Models.InboundFBAShipment" />
+    <AssociationSet Name="FK_InboundFBAShipments_AmazonAccounts" Association="OmnimarkAmazon.Models.FK_InboundFBAShipments_AmazonAccounts">
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+      <End Role="InboundFBAShipment" EntitySet="InboundFBAShipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipmentStatusChanges_InboundFBAShipments" Association="OmnimarkAmazon.Models.FK_InboundFBAShipmentStatusChanges_InboundFBAShipments">
+      <End Role="InboundFBAShipment" EntitySet="InboundFBAShipments" />
+      <End Role="InboundFBAShipmentStatusChange" EntitySet="InboundFBAShipmentStatusChanges" />
+    </AssociationSet>
+    <EntitySet Name="AmazonOrderLines" EntityType="OmnimarkAmazon.Models.AmazonOrderLine" />
+    <EntitySet Name="eBayOrders" EntityType="OmnimarkAmazon.Models.eBayOrder" />
+    <AssociationSet Name="FK_AmazonInventory_KnownASINs" Association="OmnimarkAmazon.Models.FK_AmazonInventory_KnownASINs">
+      <End Role="KnownASIN" EntitySet="KnownASINs" />
+      <End Role="AmazonInventory" EntitySet="AmazonInventories" />
+    </AssociationSet>
+    <EntitySet Name="ProductInventoryAdjustmentBatches" EntityType="OmnimarkAmazon.Models.ProductInventoryAdjustmentBatch" />
+    <EntitySet Name="ProductInventoryAdjustmentReasons" EntityType="OmnimarkAmazon.Models.ProductInventoryAdjustmentReason" />
+    <EntitySet Name="ProductInventoryAdjustmentReasonTypes" EntityType="OmnimarkAmazon.Models.ProductInventoryAdjustmentReasonType" />
+    <EntitySet Name="ProductInventoryAdjustments" EntityType="OmnimarkAmazon.Models.ProductInventoryAdjustment" />
+    <AssociationSet Name="FK_AmazonOrderLines_ProductInventoryAdjustments1" Association="OmnimarkAmazon.Models.FK_AmazonOrderLines_ProductInventoryAdjustments1">
+      <End Role="ProductInventoryAdjustment" EntitySet="ProductInventoryAdjustments" />
+      <End Role="AmazonOrderLine" EntitySet="AmazonOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayOrders_ProductInventoryMoves" Association="OmnimarkAmazon.Models.FK_eBayOrders_ProductInventoryMoves">
+      <End Role="ProductInventoryAdjustmentBatch" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="eBayOrder" EntitySet="eBayOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches" Association="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+      <End Role="ProductInventoryAdjustmentBatch" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="ProductInventoryAdjustment" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons" Association="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons">
+      <End Role="ProductInventoryAdjustmentReason" EntitySet="ProductInventoryAdjustmentReasons" />
+      <End Role="ProductInventoryAdjustment" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_Products" Association="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductInventoryAdjustment" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <EntitySet Name="ProductInventoryLocations" EntityType="OmnimarkAmazon.Models.ProductInventoryLocation" />
+    <AssociationSet Name="FK_ProductInventory_InventoryLocations" Association="OmnimarkAmazon.Models.FK_ProductInventory_InventoryLocations">
+      <End Role="ProductInventoryLocation" EntitySet="ProductInventoryLocations" />
+      <End Role="ProductInventory" EntitySet="ProductInventories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_ProductInventoryLocations" Association="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryLocations">
+      <End Role="ProductInventoryLocation" EntitySet="ProductInventoryLocations" />
+      <End Role="ProductInventoryAdjustment" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <EntitySet Name="InboundFBAShipmentItems" EntityType="OmnimarkAmazon.Models.InboundFBAShipmentItem" />
+    <AssociationSet Name="FK_InboundFBAShipmentItems_InboundFBAShipments" Association="OmnimarkAmazon.Models.FK_InboundFBAShipmentItems_InboundFBAShipments">
+      <End Role="InboundFBAShipment" EntitySet="InboundFBAShipments" />
+      <End Role="InboundFBAShipmentItem" EntitySet="InboundFBAShipmentItems" />
+    </AssociationSet>
+    <EntitySet Name="AmazonOrders" EntityType="OmnimarkAmazon.Models.AmazonOrder" />
+    <AssociationSet Name="FK_AmazonOrders_AmazonAccounts" Association="OmnimarkAmazon.Models.FK_AmazonOrders_AmazonAccounts">
+      <End Role="AmazonAccount" EntitySet="AmazonAccounts" />
+      <End Role="AmazonOrder" EntitySet="AmazonOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonOrderLines_AmazonOrders" Association="OmnimarkAmazon.Models.FK_AmazonOrderLines_AmazonOrders">
+      <End Role="AmazonOrder" EntitySet="AmazonOrders" />
+      <End Role="AmazonOrderLine" EntitySet="AmazonOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonOrders_ProductInventoryAdjustmentBatches" Association="OmnimarkAmazon.Models.FK_AmazonOrders_ProductInventoryAdjustmentBatches">
+      <End Role="ProductInventoryAdjustmentBatch" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="AmazonOrder" EntitySet="AmazonOrders" />
+    </AssociationSet>
+    <EntitySet Name="eBayOrderLines" EntityType="OmnimarkAmazon.Models.eBayOrderLine" />
+    <AssociationSet Name="FK_eBayOrderLines_eBayOrders" Association="OmnimarkAmazon.Models.FK_eBayOrderLines_eBayOrders">
+      <End Role="eBayOrder" EntitySet="eBayOrders" />
+      <End Role="eBayOrderLine" EntitySet="eBayOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayOrderLines_eBayRawItemData" Association="OmnimarkAmazon.Models.FK_eBayOrderLines_eBayRawItemData">
+      <End Role="eBayRawItemData" EntitySet="eBayRawItemDatas" />
+      <End Role="eBayOrderLine" EntitySet="eBayOrderLines" />
+    </AssociationSet>
+    <EntitySet Name="FakeUPCs" EntityType="OmnimarkAmazon.Models.FakeUPC" />
+    <EntitySet Name="eBayItems" EntityType="OmnimarkAmazon.Models.eBayItem" />
+    <EntitySet Name="InboundFBAShipmentProductInventoryAdjustments" EntityType="OmnimarkAmazon.Models.InboundFBAShipmentProductInventoryAdjustment" />
+    <AssociationSet Name="FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments" Association="OmnimarkAmazon.Models.FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments">
+      <End Role="InboundFBAShipment" EntitySet="InboundFBAShipments" />
+      <End Role="InboundFBAShipmentProductInventoryAdjustment" EntitySet="InboundFBAShipmentProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches" Association="OmnimarkAmazon.Models.FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+      <End Role="ProductInventoryAdjustmentBatch" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="InboundFBAShipmentProductInventoryAdjustment" EntitySet="InboundFBAShipmentProductInventoryAdjustments" />
+    </AssociationSet>
+    <EntitySet Name="InboundFBAShipmentManagementViews" EntityType="OmnimarkAmazon.Models.InboundFBAShipmentManagementView" />
+    <EntitySet Name="PurchaseOrderConfirm_Status" EntityType="OmnimarkAmazon.Models.PurchaseOrderConfirm_Status" />
+    <AssociationSet Name="FK_PurchaseOrders_PurchaseOrderConfirm_Status" Association="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderConfirm_Status">
+      <End Role="PurchaseOrderConfirm_Status" EntitySet="PurchaseOrderConfirm_Status" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <EntitySet Name="RecievedShipmentStatuses" EntityType="OmnimarkAmazon.Models.RecievedShipmentStatus" />
+    <AssociationSet Name="FK_ReceivedProducts_ReceivedShipmentStatuses" Association="OmnimarkAmazon.Models.FK_ReceivedProducts_ReceivedShipmentStatuses">
+      <End Role="RecievedShipmentStatus" EntitySet="RecievedShipmentStatuses" />
+      <End Role="ReceivedProduct" EntitySet="ReceivedProducts" />
+    </AssociationSet>
+    <EntitySet Name="ShippedtoAmazons" EntityType="OmnimarkAmazon.Models.ShippedtoAmazon" />
+  </EntityContainer>
+  <EntityType Name="AmazonAccount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SecretAccessKey" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MerchantID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AccessKeyID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="ShortID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="AmazonInventories" Relationship="OmnimarkAmazon.Models.FK_AmazonInventory_AmazonAccounts" FromRole="AmazonAccount" ToRole="AmazonInventory" />
+    <Property Type="DateTime" Name="LastInventoryUpdate" Precision="3" />
+    <NavigationProperty Name="AmazonInventorySKUs" Relationship="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_AmazonAccounts" FromRole="AmazonAccount" ToRole="AmazonInventorySKU" />
+    <Property Type="DateTime" Name="LastInventoryUpdateStart" Precision="3" />
+    <Property Type="String" Name="CharID" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="OmnimarkAmazon.Models.FK_AmazonAccounts_Countries" FromRole="AmazonAccount" ToRole="Country" />
+    <Property Type="String" Name="DateTimeFormat" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastSyncSKU" Precision="3" />
+    <NavigationProperty Name="FeedSubmissionSchedules" Relationship="OmnimarkAmazon.Models.FK_FeedSubmissionSchedule_AmazonAccounts" FromRole="AmazonAccount" ToRole="FeedSubmissionSchedule" />
+    <NavigationProperty Name="FeedSubmissionQueues" Relationship="OmnimarkAmazon.Models.FK_FeedSubmissionQueue_AmazonAccounts" FromRole="AmazonAccount" ToRole="FeedSubmissionQueueRec" />
+    <Property Type="DateTime" Name="LastOrderHistoryReportStartDate" Precision="3" />
+    <Property Type="Int32" Name="DisplaySeq" />
+    <Property Type="Boolean" Name="DoTrafficImport" Nullable="false" />
+    <Property Type="DateTime" Name="LastFBAInboundShipmentSync" Precision="3" />
+    <NavigationProperty Name="InboundFBAShipments" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipments_AmazonAccounts" FromRole="AmazonAccount" ToRole="InboundFBAShipment" />
+    <NavigationProperty Name="AmazonOrders" Relationship="OmnimarkAmazon.Models.FK_AmazonOrders_AmazonAccounts" FromRole="AmazonAccount" ToRole="AmazonOrder" />
+    <Property Type="DateTime" Name="LastGetSettlementData" Nullable="false" Precision="3" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SearchTerm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Term" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastSearch" Precision="3" />
+  </EntityType>
+  <EntityType Name="KnownASIN">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="SearchTerm" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Filtered" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastSeen" Precision="3" />
+    <Property Type="DateTime" Name="Reviewed" Precision="3" />
+    <Property Type="Boolean" Name="OurProduct" Nullable="false" />
+    <NavigationProperty Name="AmazonInventoryProducts" Relationship="OmnimarkAmazon.Models.FK_AmazonInventoryProducts_KnownASINs" FromRole="KnownASIN" ToRole="AmazonInventoryProduct" />
+    <NavigationProperty Name="AmazonInventorySKUs" Relationship="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_KnownASINs" FromRole="KnownASIN" ToRole="AmazonInventorySKU" />
+    <Property Type="String" Name="MarketPlaceID" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastScrape" Precision="3" />
+    <NavigationProperty Name="KnownASINAttributes" Relationship="OmnimarkAmazon.Models.FK_KnownASINAttributes_KnownASINs" FromRole="KnownASIN" ToRole="KnownASINAttribute" />
+    <Property Type="Decimal" Name="OurLowestPrice" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="LastScrapeTry" Precision="3" />
+    <Property Type="DateTime" Name="FirstScrapeFail" Precision="3" />
+    <Property Type="DateTime" Name="LastScrapeFail" Precision="3" />
+    <Property Type="Int32" Name="ScrapeFailCount" />
+    <Property Type="Boolean" Name="GoneFromAmazon" Nullable="false" />
+    <Property Type="Decimal" Name="OurMostRecentUSListingPrice" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="OurMostRecentUSListingOpenDate" Precision="3" />
+    <Property Type="Guid" Name="OurMostRecentUSListingAccountID" />
+    <NavigationProperty Name="ASINsSuccessfullyExporteds" Relationship="OmnimarkAmazon.Models.FK_ASINsSuccessfullyExported_KnownASINs" FromRole="KnownASIN" ToRole="ASINsSuccessfullyExported" />
+    <Property Type="String" Name="ImageName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ASINOfferListings" Relationship="OmnimarkAmazon.Models.FK_ASINOfferListingsx_KnownASINs" FromRole="KnownASIN" ToRole="ASINOfferListing" />
+    <NavigationProperty Name="ASINOfferScrapes" Relationship="OmnimarkAmazon.Models.FK_ASINOfferScrapes_KnownASINs" FromRole="KnownASIN" ToRole="ASINOfferScrape" />
+    <NavigationProperty Name="AmazonInventories" Relationship="OmnimarkAmazon.Models.FK_AmazonInventory_KnownASINs" FromRole="KnownASIN" ToRole="AmazonInventory" />
+    <Property Type="String" Name="MergedIntoASIN" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SearchTermsWithLastSearchTimeStamp">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Term" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Term" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastSearchTimeStamp" Precision="3" />
+    <Property Type="DateTime" Name="LastSearch" Precision="3" />
+  </EntityType>
+  <EntityType Name="AmazonInventoryProduct">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_AmazonInventoryProducts_KnownASINs" FromRole="AmazonInventoryProduct" ToRole="KnownASIN" />
+    <NavigationProperty Name="Product" Relationship="OmnimarkAmazon.Models.FK_AmazonInventoryProducts_Products" FromRole="AmazonInventoryProduct" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AmazonInventoryProducts" Relationship="OmnimarkAmazon.Models.FK_AmazonInventoryProducts_Products" FromRole="Product" ToRole="AmazonInventoryProduct" />
+    <Property Type="Decimal" Name="Cost" Precision="9" Scale="2" />
+    <NavigationProperty Name="PurchaseOrderLines" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrderLines_Products" FromRole="Product" ToRole="PurchaseOrderLine" />
+    <NavigationProperty Name="ReceivedProducts" Relationship="OmnimarkAmazon.Models.FK_ReceivedProducts_Products" FromRole="Product" ToRole="ReceivedProduct" />
+    <Property Type="Decimal" Name="ActualCost" Precision="9" Scale="2" />
+    <NavigationProperty Name="Vendors" Relationship="OmnimarkAmazon.Models.ProductVendors" FromRole="Product" ToRole="Vendor" />
+    <NavigationProperty Name="Categories" Relationship="OmnimarkAmazon.Models.ProductProductCategories" FromRole="Product" ToRole="ProductCategory" />
+    <NavigationProperty Name="Tags" Relationship="OmnimarkAmazon.Models.ProductProductTags" FromRole="Product" ToRole="ProductTag" />
+    <Property Type="Decimal" Name="Weight" Precision="9" Scale="4" />
+    <NavigationProperty Name="eBayItemsProducts" Relationship="OmnimarkAmazon.Models.FK_eBayItemsProducts_Products" FromRole="Product" ToRole="eBayItemsProduct" />
+    <NavigationProperty Name="ProductInventories" Relationship="OmnimarkAmazon.Models.FK_ProductInventory_Products" FromRole="Product" ToRole="ProductInventory" />
+    <NavigationProperty Name="ProductInventoryAdjustments" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_Products" FromRole="Product" ToRole="ProductInventoryAdjustment" />
+  </EntityType>
+  <Association Name="FK_AmazonInventoryProducts_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventoryProduct" Role="AmazonInventoryProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventoryProduct">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventoryProducts_Products">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventoryProduct" Role="AmazonInventoryProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonInventoryProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AmazonInventoryView">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="AmazonStockQty" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="AmazonStockTimeStamp" Precision="3" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="AmazonInventory">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="AmazonStockQty" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="AmazonStockTimeStamp" Precision="3" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AmazonAccount" Relationship="OmnimarkAmazon.Models.FK_AmazonInventory_AmazonAccounts" FromRole="AmazonInventory" ToRole="AmazonAccount" />
+    <NavigationProperty Name="AmazonInventorySKUs" Relationship="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_AmazonInventory" FromRole="AmazonInventory" ToRole="AmazonInventorySKU" />
+    <Property Type="DateTime" Name="LastKnownListingOpenDate" Precision="3" />
+    <Property Type="Decimal" Name="LastKnownListingPrice" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="UnderPricedIgnoreUntilUpdate" Precision="3" />
+    <Property Type="DateTime" Name="UnderPricedIgnoreUntil" Precision="3" />
+    <Property Type="Decimal" Name="AmazonInStockQty" Precision="18" Scale="9" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_AmazonInventory_KnownASINs" FromRole="AmazonInventory" ToRole="KnownASIN" />
+  </EntityType>
+  <Association Name="FK_AmazonInventory_AmazonAccounts">
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventory" Role="AmazonInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccount">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonInventory">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="KnownASINsInventoryMaintenanceView">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="Filtered" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="OurProduct" />
+      <PropertyRef Name="GoneFromAmazon" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="SearchTerm" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Filtered" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastSeen" Precision="3" />
+    <Property Type="DateTime" Name="Reviewed" Precision="3" />
+    <Property Type="Boolean" Name="OurProduct" Nullable="false" />
+    <Property Type="Guid" Name="AmazonAccountID" />
+    <Property Type="Decimal" Name="AmazonStockQty" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="AmazonStockTimeStamp" Precision="3" />
+    <Property Type="String" Name="MarketPlaceID" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastScrape" Precision="3" />
+    <Property Type="DateTime" Name="LastScrapeTry" Precision="3" />
+    <Property Type="DateTime" Name="FirstScrapeFail" Precision="3" />
+    <Property Type="DateTime" Name="LastScrapeFail" Precision="3" />
+    <Property Type="Int32" Name="ScrapeFailCount" />
+    <Property Type="Boolean" Name="GoneFromAmazon" Nullable="false" />
+    <Property Type="Decimal" Name="OurLowestPrice" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="OurMostRecentUSListingPrice" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="OurMostRecentUSListingOpenDate" Precision="3" />
+    <Property Type="Guid" Name="OurMostRecentUSListingAccountID" />
+    <Property Type="String" Name="ImageName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MergedIntoASIN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RelatedProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="RelatedProductID" />
+      <PropertyRef Name="RelatedProductName" />
+      <PropertyRef Name="RelatedProductQty" />
+      <PropertyRef Name="ProductQty" />
+    </Key>
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Guid" Name="RelatedProductID" Nullable="false" />
+    <Property Type="String" Name="RelatedProductName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="RelatedProductQty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="ProductQty" Nullable="false" Precision="18" Scale="9" />
+  </EntityType>
+  <EntityType Name="AmazonInventorySKU">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="SKU" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="InStockQty" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="TotalQty" Precision="18" Scale="9" />
+    <NavigationProperty Name="AmazonAccount" Relationship="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_AmazonAccounts" FromRole="AmazonInventorySKU" ToRole="AmazonAccount" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_KnownASINs" FromRole="AmazonInventorySKU" ToRole="KnownASIN" />
+    <NavigationProperty Name="AmazonInventory" Relationship="OmnimarkAmazon.Models.FK_AmazonInventorySKUs_AmazonInventory" FromRole="AmazonInventorySKU" ToRole="AmazonInventory" />
+    <Property Type="String" Name="ListingID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Precision="9" Scale="2" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="DateTime" Name="OpenDate" Precision="3" />
+    <Property Type="Int32" Name="ItemCondition" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <Property Type="Boolean" Name="Disabled" Nullable="false" />
+    <Property Type="Boolean" Name="IgnoreForFBAInventoryDeduction" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AmazonInventorySKUs_AmazonAccounts">
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventorySKU" Role="AmazonInventorySKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccount">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonInventorySKU">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventorySKUs_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventorySKU" Role="AmazonInventorySKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventorySKU">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventorySKUs_AmazonInventory">
+    <End Type="OmnimarkAmazon.Models.AmazonInventory" Role="AmazonInventory" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventorySKU" Role="AmazonInventorySKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonInventory">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventorySKU">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ReceivedShipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="VendorID" />
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Vendor" Relationship="OmnimarkAmazon.Models.FK_ReceivedShipments_Vendors" FromRole="ReceivedShipment" ToRole="Vendor" />
+    <NavigationProperty Name="ReceivedProducts" Relationship="OmnimarkAmazon.Models.FK_ReceivedProducts_ReceivedShipments" FromRole="ReceivedShipment" ToRole="ReceivedProduct" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ReceivedShipments" Relationship="OmnimarkAmazon.Models.FK_ReceivedShipments_Vendors" FromRole="Vendor" ToRole="ReceivedShipment" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_Vendors" FromRole="Vendor" ToRole="PurchaseOrder" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContactNameFirst" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContactNameLast" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContactNameMiddle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="StateID" />
+    <Property Type="Int32" Name="CountryID" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Country" Relationship="OmnimarkAmazon.Models.FK_Vendors_Countries" FromRole="Vendor" ToRole="Country" />
+    <NavigationProperty Name="State" Relationship="OmnimarkAmazon.Models.FK_Vendors_States" FromRole="Vendor" ToRole="State" />
+    <Property Type="String" Name="PostalCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StateOrProvince" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="OmnimarkAmazon.Models.ProductVendors" FromRole="Vendor" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_ReceivedShipments_Vendors">
+    <End Type="OmnimarkAmazon.Models.Vendor" Role="Vendor" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.ReceivedShipment" Role="ReceivedShipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedShipment">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseOrderLine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="PurchaseOrderID" Nullable="false" />
+    <Property Type="Int32" Name="LineNumber" Nullable="false" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="Cost" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrderLines_Products" FromRole="PurchaseOrderLine" ToRole="Product" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrderLines_PurchaseOrders" FromRole="PurchaseOrderLine" ToRole="PurchaseOrder" />
+    <Property Type="Guid" Name="ReceivedProductID" />
+    <NavigationProperty Name="ReceivedProduct" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrderLines_ReceivedProducts" FromRole="PurchaseOrderLine" ToRole="ReceivedProduct" />
+    <Property Type="Decimal" Name="ActualCost" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="Number" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="VendorID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Lines" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrderLines_PurchaseOrders" FromRole="PurchaseOrder" ToRole="PurchaseOrderLine" />
+    <NavigationProperty Name="Vendor" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_Vendors" FromRole="PurchaseOrder" ToRole="Vendor" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="PurchaseOrderStatus" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderStatuses" FromRole="PurchaseOrder" ToRole="PurchaseOrderStatus" />
+    <Property Type="Decimal" Name="TotalCost" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="MissingCosts" Nullable="false" />
+    <Property Type="Guid" Name="PaymentTypeID" />
+    <NavigationProperty Name="PaymentType" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderPaymentTypes" FromRole="PurchaseOrder" ToRole="PurchaseOrderPaymentType" />
+    <Property Type="Decimal" Name="TotalActualCost" Precision="18" Scale="2" />
+    <Property Type="String" Name="CStatus" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="PurchaseOrderConfirm_Status" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderConfirm_Status" FromRole="PurchaseOrder" ToRole="PurchaseOrderConfirm_Status" />
+  </EntityType>
+  <Association Name="FK_PurchaseOrderLines_Products">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrderLine" Role="PurchaseOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLine">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderLines_PurchaseOrders">
+    <End Type="OmnimarkAmazon.Models.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrderLine" Role="PurchaseOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLine">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrders_Vendors">
+    <End Type="OmnimarkAmazon.Models.Vendor" Role="Vendor" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseOrderStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderStatuses" FromRole="PurchaseOrderStatus" ToRole="PurchaseOrder" />
+    <Property Type="Int32" Name="DisplaySeq" />
+    <Property Name="CID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="CName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_PurchaseOrders_PurchaseOrderStatuses">
+    <End Type="OmnimarkAmazon.Models.PurchaseOrderStatus" Role="PurchaseOrderStatus" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ReceivedProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="ReceivedShipmentID" />
+    <Property Type="Int32" Name="Number" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="String" Name="TrackingNumber" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="OmnimarkAmazon.Models.FK_ReceivedProducts_Products" FromRole="ReceivedProduct" ToRole="Product" />
+    <NavigationProperty Name="PurchaseOrderLines" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrderLines_ReceivedProducts" FromRole="ReceivedProduct" ToRole="PurchaseOrderLine" />
+    <NavigationProperty Name="ReceivedShipment" Relationship="OmnimarkAmazon.Models.FK_ReceivedProducts_ReceivedShipments" FromRole="ReceivedProduct" ToRole="ReceivedShipment" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="RecievedShipmentStatus" Relationship="OmnimarkAmazon.Models.FK_ReceivedProducts_ReceivedShipmentStatuses" FromRole="ReceivedProduct" ToRole="RecievedShipmentStatus" />
+  </EntityType>
+  <Association Name="FK_ReceivedProducts_Products">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ReceivedProduct" Role="ReceivedProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderLines_ReceivedProducts">
+    <End Type="OmnimarkAmazon.Models.ReceivedProduct" Role="ReceivedProduct" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrderLine" Role="PurchaseOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReceivedProduct">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLine">
+        <PropertyRef Name="ReceivedProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReceivedProducts_ReceivedShipments">
+    <End Type="OmnimarkAmazon.Models.ReceivedShipment" Role="ReceivedShipment" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.ReceivedProduct" Role="ReceivedProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReceivedShipment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedProduct">
+        <PropertyRef Name="ReceivedShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+    <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastLoginDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Users" Relationship="OmnimarkAmazon.Models.FK__aspnet_Me__UserI__531856C7" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="PropertyNames" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PropertyValuesString" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="PropertyValuesBinary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="aspnet_Users" Relationship="OmnimarkAmazon.Models.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Users" Relationship="OmnimarkAmazon.Models.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="DateTime" Name="LastActivityDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="OmnimarkAmazon.Models.FK__aspnet_Me__UserI__531856C7" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="OmnimarkAmazon.Models.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="User" Relationship="OmnimarkAmazon.Models.FK_Users_aspnet_Users" FromRole="aspnet_Users" ToRole="User" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="OmnimarkAmazon.Models.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Nullable="false" Type="Guid" />
+    <Property Name="TimeStamp" Nullable="false" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="aspnet_Users" Relationship="OmnimarkAmazon.Models.FK_Users_aspnet_Users" FromRole="User" ToRole="aspnet_Users" />
+    <Property Name="NameFirst" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="NameLast" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__UserI__531856C7">
+    <End Type="OmnimarkAmazon.Models.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__671F4F74">
+    <End Type="OmnimarkAmazon.Models.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_aspnet_Users">
+    <End Type="OmnimarkAmazon.Models.aspnet_Users" Multiplicity="1" Role="aspnet_Users" />
+    <End Type="OmnimarkAmazon.Models.User" Multiplicity="0..1" Role="User" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnet_UsersInRoles">
+    <End Type="OmnimarkAmazon.Models.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+    <End Type="OmnimarkAmazon.Models.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+  </Association>
+  <EntityType Name="PurchaseOrderPaymentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderPaymentTypes" FromRole="PurchaseOrderPaymentType" ToRole="PurchaseOrder" />
+  </EntityType>
+  <Association Name="FK_PurchaseOrders_PurchaseOrderPaymentTypes">
+    <End Type="OmnimarkAmazon.Models.PurchaseOrderPaymentType" Role="PurchaseOrderPaymentType" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderPaymentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="PaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="CountryName" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="C2dig" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="C3dig" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Vendors" Relationship="OmnimarkAmazon.Models.FK_Vendors_Countries" FromRole="Country" ToRole="Vendor" />
+    <Property Type="String" Name="AmazonMarketPlaceID" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AWSAccessKeyID" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AWSSecretAccessKey" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ServiceURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OrderServiceURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductsServiceURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InventoryServiceURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AWSServiceURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AWSXMLNamespace" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AmazonAccounts" Relationship="OmnimarkAmazon.Models.FK_AmazonAccounts_Countries" FromRole="Country" ToRole="AmazonAccount" />
+    <Property Type="String" Name="DefaultItemDetailsURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DateTimeFormat" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DefaultURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CurrencySymbolPrefix" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="FIPS" />
+    </Key>
+    <Property Type="Int32" Name="FIPS" Nullable="false" />
+    <Property Type="String" Name="StateName" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Abbrev" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DrawCoordinates" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="MapNumber" />
+    <Property Type="String" Name="MapSize" MaxLength="16" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vendors" Relationship="OmnimarkAmazon.Models.FK_Vendors_States" FromRole="State" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Company" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Firstname" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MidInitial" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Lastname" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Addr1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Addr2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ZIP" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TLD" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FaxNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Vendors_Countries">
+    <End Type="OmnimarkAmazon.Models.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.Vendor" Role="Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Vendor">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendors_States">
+    <End Type="OmnimarkAmazon.Models.State" Role="State" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.Vendor" Role="Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="FIPS" />
+      </Principal>
+      <Dependent Role="Vendor">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonAccounts_Countries">
+    <End Type="OmnimarkAmazon.Models.Country" Role="Country" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="AmazonAccount">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductVendors">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="*" />
+    <End Type="OmnimarkAmazon.Models.Vendor" Role="Vendor" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ReportActionParameter">
+    <Key>
+      <PropertyRef Name="ReportActionID" />
+      <PropertyRef Name="ParameterName" />
+    </Key>
+    <Property Type="Guid" Name="ReportActionID" Nullable="false" />
+    <Property Type="String" Name="ParameterName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ParameterValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ReportAction" Relationship="OmnimarkAmazon.Models.FK_ReportActionParameters_ReportActions" FromRole="ReportActionParameter" ToRole="ReportAction" />
+  </EntityType>
+  <EntityType Name="ReportAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="ReportType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReportRequestID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProcessingMethod" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="ReportCompleted" Precision="3" />
+    <Property Type="String" Name="ReportID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ProcessingStarted" Precision="3" />
+    <Property Type="DateTime" Name="ProcessingComplete" Precision="3" />
+    <Property Type="String" Name="ProcessingResult" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ReportActionParameters" Relationship="OmnimarkAmazon.Models.FK_ReportActionParameters_ReportActions" FromRole="ReportAction" ToRole="ReportActionParameter" />
+    <Property Type="DateTime" Name="ReportDataSaved" Precision="3" />
+    <Property Type="String" Name="ReportDataDownloadLog" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_ReportActionParameters_ReportActions">
+    <End Type="OmnimarkAmazon.Models.ReportAction" Role="ReportAction" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ReportActionParameter" Role="ReportActionParameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReportActionParameter">
+        <PropertyRef Name="ReportActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="KnownASINAttribute">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Value" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_KnownASINAttributes_KnownASINs" FromRole="KnownASINAttribute" ToRole="KnownASIN" />
+  </EntityType>
+  <Association Name="FK_KnownASINAttributes_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.KnownASINAttribute" Role="KnownASINAttribute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="KnownASINAttribute">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TimeZone">
+    <Key>
+      <PropertyRef Name="Abbreviation" />
+    </Key>
+    <Property Type="String" Name="Abbreviation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Offset" Nullable="false" Precision="4" Scale="2" />
+    <Property Type="String" Name="OffsetText" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ExportSpec">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FieldList" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WhereClause" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OrderByClause" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <Property Type="String" Name="FieldNameTranslations" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SelectClauseExtension" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RecordCount" />
+    <Property Type="String" Name="FromClauseExtension" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FileHeaderText" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FieldDelimiter" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FileExtension" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="EncloseInQuotes" Nullable="false" />
+    <Property Type="Guid" Name="ExcludeExportsToSalesVenueID" />
+    <NavigationProperty Name="SalesVenue" Relationship="OmnimarkAmazon.Models.FK_ExportSpecs_SalesVenues" FromRole="ExportSpec" ToRole="SalesVenue" />
+  </EntityType>
+  <EntityType Name="ASINsSuccessfullyExported">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SalesVenueID" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Guid" Name="SalesVenueID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_ASINsSuccessfullyExported_KnownASINs" FromRole="ASINsSuccessfullyExported" ToRole="KnownASIN" />
+    <NavigationProperty Name="SalesVenue" Relationship="OmnimarkAmazon.Models.FK_ASINsSuccessfullyExported_SalesVenues" FromRole="ASINsSuccessfullyExported" ToRole="SalesVenue" />
+  </EntityType>
+  <EntityType Name="SalesVenue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ASINsSuccessfullyExporteds" Relationship="OmnimarkAmazon.Models.FK_ASINsSuccessfullyExported_SalesVenues" FromRole="SalesVenue" ToRole="ASINsSuccessfullyExported" />
+    <NavigationProperty Name="ExportSpecs" Relationship="OmnimarkAmazon.Models.FK_ExportSpecs_SalesVenues" FromRole="SalesVenue" ToRole="ExportSpec" />
+  </EntityType>
+  <Association Name="FK_ASINsSuccessfullyExported_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ASINsSuccessfullyExported" Role="ASINsSuccessfullyExported" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="ASINsSuccessfullyExported">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASINsSuccessfullyExported_SalesVenues">
+    <End Type="OmnimarkAmazon.Models.SalesVenue" Role="SalesVenue" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ASINsSuccessfullyExported" Role="ASINsSuccessfullyExported" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesVenue">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ASINsSuccessfullyExported">
+        <PropertyRef Name="SalesVenueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExportSpecs_SalesVenues">
+    <End Type="OmnimarkAmazon.Models.SalesVenue" Role="SalesVenue" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.ExportSpec" Role="ExportSpec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesVenue">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExportSpec">
+        <PropertyRef Name="ExcludeExportsToSalesVenueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrdersView">
+    <Key>
+      <PropertyRef Name="PurchaseDate" />
+      <PropertyRef Name="NameFirst" />
+      <PropertyRef Name="NameLast" />
+      <PropertyRef Name="Shipcity" />
+    </Key>
+    <Property Type="String" Name="AccountName" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PurchaseDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="NameFirst" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameLast" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress1" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress2" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress3" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Shipcity" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipStateProvince" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipPostalCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipCountryCode" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipPhone" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ASIN" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="ProductName" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductsView">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Cost" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="ActualCost" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Categories" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Tags" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Weight" Precision="9" Scale="4" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="DisplaySeq" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductTags" Relationship="OmnimarkAmazon.Models.ProductCategoryProductTags" FromRole="ProductCategory" ToRole="ProductTag" />
+    <NavigationProperty Name="Products" Relationship="OmnimarkAmazon.Models.ProductProductCategories" FromRole="ProductCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductTag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductCategories" Relationship="OmnimarkAmazon.Models.ProductCategoryProductTags" FromRole="ProductTag" ToRole="ProductCategory" />
+    <NavigationProperty Name="Products" Relationship="OmnimarkAmazon.Models.ProductProductTags" FromRole="ProductTag" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductView">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Cost" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="ActualCost" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Categories" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Tags" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Weight" Precision="9" Scale="4" />
+  </EntityType>
+  <Association Name="ProductCategoryProductTags">
+    <End Type="OmnimarkAmazon.Models.ProductCategory" Role="ProductCategory" Multiplicity="*" />
+    <End Type="OmnimarkAmazon.Models.ProductTag" Role="ProductTag" Multiplicity="*" />
+  </Association>
+  <Association Name="ProductProductCategories">
+    <End Type="OmnimarkAmazon.Models.ProductCategory" Role="ProductCategory" Multiplicity="*" />
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="*" />
+  </Association>
+  <Association Name="ProductProductTags">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="*" />
+    <End Type="OmnimarkAmazon.Models.ProductTag" Role="ProductTag" Multiplicity="*" />
+  </Association>
+  <EntityType Name="FeedSubmissionQueueRec">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="ScheduleID" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="FeedType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageXML" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="RunAt" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="String" Name="FeedSubmissionID" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SubmissionStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SubmissionStatusTimeStamp" Precision="3" />
+    <Property Type="DateTime" Name="ResultTimeStamp" Precision="3" />
+    <NavigationProperty Name="FeedSubmissionSchedule" Relationship="OmnimarkAmazon.Models.FK_FeedSubmissionQueue_FeedSubmissionSchedule" FromRole="FeedSubmissionQueue" ToRole="FeedSubmissionSchedule" />
+    <Property Type="Int32" Name="AmazonMessageID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ErrorXML" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AmazonAccount" Relationship="OmnimarkAmazon.Models.FK_FeedSubmissionQueue_AmazonAccounts" FromRole="FeedSubmissionQueueRec" ToRole="AmazonAccount" />
+    <Property Type="DateTime" Name="SubmissionTimeStamp" Precision="3" />
+    <NavigationProperty Name="AutomaticPriceChanges" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionQueue" FromRole="FeedSubmissionQueueRec" ToRole="AutomaticPriceChange" />
+    <NavigationProperty Name="AutomaticPriceChanges1" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionQueue1" FromRole="FeedSubmissionQueueRec" ToRole="AutomaticPriceChange" />
+  </EntityType>
+  <EntityType Name="FeedSubmissionScheduleRec">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="FeedType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageXML" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="NextRun" Nullable="false" Precision="3" />
+    <Property Type="String" Name="TimeSpan" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="MustRunAll" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AmazonAccount" Relationship="OmnimarkAmazon.Models.FK_FeedSubmissionSchedule_AmazonAccounts" FromRole="FeedSubmissionSchedule" ToRole="AmazonAccount" />
+    <NavigationProperty Name="FeedSubmissionQueueRecs" Relationship="OmnimarkAmazon.Models.FK_FeedSubmissionQueue_FeedSubmissionSchedule" FromRole="FeedSubmissionSchedule" ToRole="FeedSubmissionQueue" />
+    <Property Type="Boolean" Name="Enabled" Nullable="false" />
+    <Property Type="DateTime" Name="Deleted" Precision="3" />
+    <NavigationProperty Name="AutomaticPriceChanges" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionSchedule" FromRole="FeedSubmissionScheduleRec" ToRole="AutomaticPriceChange" />
+    <NavigationProperty Name="AutomaticPriceChanges1" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionSchedule1" FromRole="FeedSubmissionScheduleRec" ToRole="AutomaticPriceChange" />
+  </EntityType>
+  <Association Name="FK_FeedSubmissionSchedule_AmazonAccounts">
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionScheduleRec" Role="FeedSubmissionSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccount">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FeedSubmissionSchedule">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedSubmissionQueue_FeedSubmissionSchedule">
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionScheduleRec" Role="FeedSubmissionSchedule" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionQueueRec" Role="FeedSubmissionQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionSchedule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FeedSubmissionQueue">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FeedSubmissionScheduleStatusRec">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="FeedType" />
+      <PropertyRef Name="MessageType" />
+      <PropertyRef Name="MessageXML" />
+      <PropertyRef Name="NextRun" />
+      <PropertyRef Name="TimeSpan" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="MustRunAll" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Enabled" />
+      <PropertyRef Name="AmazonAccountName" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="FeedType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageXML" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="NextRun" Nullable="false" Precision="3" />
+    <Property Type="String" Name="TimeSpan" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="MustRunAll" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="Boolean" Name="Enabled" Nullable="false" />
+    <Property Type="Guid" Name="ScheduleID" />
+    <Property Type="Int32" Name="RunCount" />
+    <Property Type="DateTime" Name="LastRun" Precision="3" />
+    <Property Type="DateTime" Name="LastCompletion" Precision="3" />
+    <Property Type="Int32" Name="ErrorCount" />
+    <Property Type="String" Name="AmazonAccountName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ActiveCount" />
+    <Property Type="DateTime" Name="Deleted" Precision="3" />
+    <Property Type="Guid" Name="AutomaticPriceChangeID" />
+  </EntityType>
+  <Association Name="FK_FeedSubmissionQueue_AmazonAccounts">
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionQueueRec" Role="FeedSubmissionQueueRec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccount">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FeedSubmissionQueueRec">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AutomaticPriceChange">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="SKU" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="TempPrice" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="RegularPrice" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Guid" Name="StartFeedSubmissionScheduleID" Nullable="false" />
+    <Property Type="Guid" Name="EndFeedSubmissionScheduleID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="StartFeedSubmissionSchedule" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionQueue" FromRole="AutomaticPriceChange" ToRole="FeedSubmissionQueueRec" />
+    <NavigationProperty Name="EndFeedSubmissionSchedule" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionQueue1" FromRole="AutomaticPriceChange" ToRole="FeedSubmissionQueueRec" />
+    <Property Type="String" Name="TimeSpan" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TempPriceStartDateTime" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="TempPriceEndDateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="FeedSubmissionSchedule" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionSchedule" FromRole="AutomaticPriceChange" ToRole="FeedSubmissionScheduleRec" />
+    <NavigationProperty Name="FeedSubmissionSchedule1" Relationship="OmnimarkAmazon.Models.FK_AutomaticPriceChanges_FeedSubmissionSchedule1" FromRole="AutomaticPriceChange" ToRole="FeedSubmissionScheduleRec" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_AutomaticPriceChanges_FeedSubmissionQueue">
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionQueueRec" Role="FeedSubmissionQueueRec" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AutomaticPriceChange" Role="AutomaticPriceChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionQueueRec">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AutomaticPriceChange">
+        <PropertyRef Name="StartFeedSubmissionScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AutomaticPriceChanges_FeedSubmissionQueue1">
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionQueueRec" Role="FeedSubmissionQueueRec" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AutomaticPriceChange" Role="AutomaticPriceChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionQueueRec">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AutomaticPriceChange">
+        <PropertyRef Name="EndFeedSubmissionScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AutomaticPriceChangesView">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SKU" />
+      <PropertyRef Name="TempPrice" />
+      <PropertyRef Name="RegularPrice" />
+      <PropertyRef Name="StartFeedSubmissionScheduleID" />
+      <PropertyRef Name="EndFeedSubmissionScheduleID" />
+      <PropertyRef Name="TimeSpan" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="NextStartRun" />
+      <PropertyRef Name="NextEndRun" />
+      <PropertyRef Name="TempPriceStartDateTime" />
+      <PropertyRef Name="TempPriceEndDateTime" />
+      <PropertyRef Name="AmazonAccountID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="SKU" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="TempPrice" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="RegularPrice" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Guid" Name="StartFeedSubmissionScheduleID" Nullable="false" />
+    <Property Type="Guid" Name="EndFeedSubmissionScheduleID" Nullable="false" />
+    <Property Type="String" Name="TimeSpan" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="NextStartRun" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="NextEndRun" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="TempPriceStartDateTime" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="TempPriceEndDateTime" Nullable="false" Precision="3" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule">
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionScheduleRec" Role="FeedSubmissionScheduleRec" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AutomaticPriceChange" Role="AutomaticPriceChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionScheduleRec">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AutomaticPriceChange">
+        <PropertyRef Name="StartFeedSubmissionScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule1">
+    <End Type="OmnimarkAmazon.Models.FeedSubmissionScheduleRec" Role="FeedSubmissionScheduleRec" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AutomaticPriceChange" Role="AutomaticPriceChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionScheduleRec">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AutomaticPriceChange">
+        <PropertyRef Name="EndFeedSubmissionScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ASINOfferListing">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="MerchantID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="AmazonFulfilled" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="String" Name="PricePerUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="ShippingPrice" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_ASINOfferListingsx_KnownASINs" FromRole="ASINOfferListing" ToRole="KnownASIN" />
+    <Property Type="Binary" Name="OfferingIDDecoded" MaxLength="180" FixedLength="true" />
+  </EntityType>
+  <Association Name="FK_ASINOfferListingsx_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ASINOfferListing" Role="ASINOfferListing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="ASINOfferListing">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ASINOfferScrape">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="DateTime" Name="LastScrape" Precision="3" />
+    <Property Type="DateTime" Name="LastScrapeTry" Precision="3" />
+    <Property Type="DateTime" Name="FirstScrapeFail" Precision="3" />
+    <Property Type="DateTime" Name="LastScrapeFail" Precision="3" />
+    <Property Type="Int32" Name="ScrapeFailCount" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="KnownASIN" Relationship="OmnimarkAmazon.Models.FK_ASINOfferScrapes_KnownASINs" FromRole="ASINOfferScrape" ToRole="KnownASIN" />
+    <Property Type="Int32" Name="ActualPages" />
+    <Property Type="Int32" Name="RecordsPerPage" />
+    <Property Type="Int32" Name="PagesScraped" />
+    <Property Type="Int32" Name="ActualOffers" />
+  </EntityType>
+  <Association Name="FK_ASINOfferScrapes_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ASINOfferScrape" Role="ASINOfferScrape" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="ASINOfferScrape">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OurListing">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="MerchantID" />
+      <PropertyRef Name="AmazonFulfilled" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="MerchantID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="AmazonFulfilled" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="String" Name="PricePerUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="ShippingPrice" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="Binary" Name="OfferingIDDecoded" MaxLength="180" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="OfferScrapeStatus">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="OurProduct" />
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="LastScrapeTry" Precision="3" />
+    <Property Type="Boolean" Name="OurProduct" Nullable="false" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnderPricedViewRec">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Source" />
+      <PropertyRef Name="StoreName" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Precision="9" Scale="2" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="String" Name="SKU" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="OpenDate" Precision="3" />
+    <Property Type="String" Name="Source" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="SystemActualCost" Precision="38" Scale="11" />
+    <Property Type="String" Name="StoreName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="CalculatedMinimumPrice" Precision="38" Scale="9" />
+    <Property Type="DateTime" Name="UnderPricedIgnoreUntilUpdate" Precision="3" />
+    <Property Type="DateTime" Name="UnderPricedIgnoreUntil" Precision="3" />
+  </EntityType>
+  <EntityType Name="OnOrder">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="OnOrder1" Precision="38" Scale="9" />
+  </EntityType>
+  <EntityType Name="DailyTraffic">
+    <Key>
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="SKU" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Sessions" Nullable="false" />
+    <Property Type="Decimal" Name="SessionPercentage" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Int32" Name="PageViews" Nullable="false" />
+    <Property Type="Decimal" Name="PageViewPercentage" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="BuyBoxPercentage" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Int32" Name="UnitsOrdered" Nullable="false" />
+    <Property Type="Decimal" Name="UnitSessionPercentage" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="OrderedProductSales" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Int32" Name="TotalOrderItems" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NeedInInventoryWithTotal">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="VendorID" />
+      <PropertyRef Name="OnOrder" />
+      <PropertyRef Name="AccountName" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="VendorName" />
+      <PropertyRef Name="NeedInInventoryTotal" />
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Guid" Name="VendorID" Nullable="false" />
+    <Property Type="Decimal" Name="QtySold" Precision="38" Scale="9" />
+    <Property Type="Decimal" Name="AmazonStockQty" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="NeedInInventory" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="OnOrder" Nullable="false" Precision="38" Scale="9" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AccountName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VendorName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="NeedInInventoryTotal" Nullable="false" Precision="38" Scale="6" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="String" Name="CountryName" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="FBAQty" Type="Decimal" Precision="37" Scale="18" />
+  </EntityType>
+  <EntityType Name="OutPriced">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="CompetitorMinPrice" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="AmazonFulfilled" />
+    <Property Type="Decimal" Name="StockQty" Precision="38" Scale="9" />
+    <Property Type="Decimal" Name="OurMinPrice" Precision="10" Scale="2" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SpecialPriceSalesByDay">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="SpecialPrice" />
+    </Key>
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="PurchaseDate" Precision="3" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="SpecialPrice" Nullable="false" Precision="9" Scale="2" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderProductsVendor">
+    <Key>
+      <PropertyRef Name="POID" />
+      <PropertyRef Name="PONumber" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Type="Guid" Name="POID" Nullable="false" />
+    <Property Type="Int32" Name="PONumber" Nullable="false" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Guid" Name="VendorID" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOSInventoryChangeReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="eBayRawItemData">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RawData" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="eBayItemsProducts" Relationship="OmnimarkAmazon.Models.FK_eBayItemsProducts_eBayRawItemData" FromRole="eBayRawItemData" ToRole="eBayItemsProduct" />
+    <NavigationProperty Name="eBayOrderLines" Relationship="OmnimarkAmazon.Models.FK_eBayOrderLines_eBayRawItemData" FromRole="eBayRawItemData" ToRole="eBayOrderLine" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+  </EntityType>
+  <EntityType Name="SystemStatu">
+    <Key>
+      <PropertyRef Name="Key" />
+    </Key>
+    <Property Type="Guid" Name="Key" Nullable="false" />
+    <Property Type="DateTime" Name="LastSearch" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastUpdateSalesPerDayByASINTable" Precision="3" />
+    <Property Type="DateTime" Name="OldesteBayRawItemQueryDate" Precision="3" />
+    <Property Type="DateTime" Name="LatesteBayRawItemQueryDate" Precision="3" />
+    <Property Type="DateTime" Name="LasteBayOrderDownloadQueryDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="eBayItemsProduct">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="eBayRawItemData" Relationship="OmnimarkAmazon.Models.FK_eBayItemsProducts_eBayRawItemData" FromRole="eBayItemsProduct" ToRole="eBayRawItemData" />
+    <NavigationProperty Name="Product" Relationship="OmnimarkAmazon.Models.FK_eBayItemsProducts_Products" FromRole="eBayItemsProduct" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_eBayItemsProducts_eBayRawItemData">
+    <End Type="OmnimarkAmazon.Models.eBayRawItemData" Role="eBayRawItemData" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.eBayItemsProduct" Role="eBayItemsProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eBayRawItemData">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="eBayItemsProduct">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayItemsProducts_Products">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.eBayItemsProduct" Role="eBayItemsProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="eBayItemsProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductInventory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Guid" Name="LocationID" Nullable="false" />
+    <Property Type="Decimal" Name="Qty" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="OmnimarkAmazon.Models.FK_ProductInventory_Products" FromRole="ProductInventory" ToRole="Product" />
+    <NavigationProperty Name="ProductInventoryLocation" Relationship="OmnimarkAmazon.Models.FK_ProductInventory_InventoryLocations" FromRole="ProductInventory" ToRole="ProductInventoryLocation" />
+  </EntityType>
+  <Association Name="FK_ProductInventory_Products">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ProductInventory" Role="ProductInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventory">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="InboundFBAShipmentStatusChange">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ShipmentID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="OldStatus" />
+    <Property Type="Int32" Name="NewStatus" />
+    <Property Type="Guid" Name="ProductInventoryMoveID" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="InboundFBAShipment" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentStatusChanges_InboundFBAShipments" FromRole="InboundFBAShipmentStatusChange" ToRole="InboundFBAShipment" />
+  </EntityType>
+  <EntityType Name="InboundFBAShipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="Int32" Name="ItemCount" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <NavigationProperty Name="AmazonAccount" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipments_AmazonAccounts" FromRole="InboundFBAShipment" ToRole="AmazonAccount" />
+    <NavigationProperty Name="InboundFBAShipmentStatusChanges" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentStatusChanges_InboundFBAShipments" FromRole="InboundFBAShipment" ToRole="InboundFBAShipmentStatusChange" />
+    <NavigationProperty Name="InboundFBAShipmentItems" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentItems_InboundFBAShipments" FromRole="InboundFBAShipment" ToRole="InboundFBAShipmentItem" />
+    <NavigationProperty Name="InboundFBAShipmentProductInventoryAdjustments" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments" FromRole="InboundFBAShipment" ToRole="InboundFBAShipmentProductInventoryAdjustment" />
+    <Property Type="DateTime" Name="RemovedFromInventoryAdjustmentProcessing" Precision="3" />
+    <Property Type="DateTime" Name="ScheduledForInventoryAdjustmentProcessing" Precision="3" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+  </EntityType>
+  <Association Name="FK_InboundFBAShipments_AmazonAccounts">
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipment" Role="InboundFBAShipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccount">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipment">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipmentStatusChanges_InboundFBAShipments">
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipment" Role="InboundFBAShipment" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipmentStatusChange" Role="InboundFBAShipmentStatusChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboundFBAShipment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentStatusChange">
+        <PropertyRef Name="ShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AmazonOrderLine">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="AmazonOrderID" />
+      <PropertyRef Name="LineNumber" />
+    </Key>
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="AmazonOrderID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="LineNumber" Nullable="false" />
+    <Property Type="String" Name="ASIN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="Decimal" Name="OrderItemID" Precision="14" Scale="0" />
+    <Property Type="Guid" Name="NotShippedFromWarehouseID" />
+    <NavigationProperty Name="ProductInventoryAdjustment" Relationship="OmnimarkAmazon.Models.FK_AmazonOrderLines_ProductInventoryAdjustments1" FromRole="AmazonOrderLine" ToRole="ProductInventoryAdjustment" />
+    <NavigationProperty Name="AmazonOrder" Relationship="OmnimarkAmazon.Models.FK_AmazonOrderLines_AmazonOrders" FromRole="AmazonOrderLine" ToRole="AmazonOrder" />
+  </EntityType>
+  <EntityType Name="eBayOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RawData" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="Guid" Name="ProductInventoryMoveID" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="DateTime" Name="ShippedNoticedTimeStamp" Precision="3" />
+    <NavigationProperty Name="ProductInventoryAdjustmentBatch" Relationship="OmnimarkAmazon.Models.FK_eBayOrders_ProductInventoryMoves" FromRole="eBayOrder" ToRole="ProductInventoryAdjustmentBatch" />
+    <NavigationProperty Name="eBayOrderLines" Relationship="OmnimarkAmazon.Models.FK_eBayOrderLines_eBayOrders" FromRole="eBayOrder" ToRole="eBayOrderLine" />
+    <Property Type="DateTime" Name="Created" Precision="3" />
+    <Property Type="DateTime" Name="ShippedTime" Precision="3" />
+    <Property Type="String" Name="Site" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_AmazonInventory_KnownASINs">
+    <End Type="OmnimarkAmazon.Models.KnownASIN" Role="KnownASIN" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonInventory" Role="AmazonInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASIN">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventory">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductInventoryAdjustmentBatch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="eBayOrders" Relationship="OmnimarkAmazon.Models.FK_eBayOrders_ProductInventoryMoves" FromRole="ProductInventoryAdjustmentBatch" ToRole="eBayOrder" />
+    <NavigationProperty Name="ProductInventoryAdjustments" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches" FromRole="ProductInventoryAdjustmentBatch" ToRole="ProductInventoryAdjustment" />
+    <NavigationProperty Name="AmazonOrders" Relationship="OmnimarkAmazon.Models.FK_AmazonOrders_ProductInventoryAdjustmentBatches" FromRole="ProductInventoryAdjustmentBatch" ToRole="AmazonOrder" />
+    <NavigationProperty Name="InboundFBAShipmentProductInventoryAdjustments" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches" FromRole="ProductInventoryAdjustmentBatch" ToRole="InboundFBAShipmentProductInventoryAdjustment" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustmentReason">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="Seq" />
+    <Property Type="String" Name="Types" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Text" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonRef1Text" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ReasonRef1Required" />
+    <Property Type="String" Name="ReasonRef2Text" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ReasonRef2Required" />
+    <Property Type="String" Name="ReasonRef3Text" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ReasonRef3Required" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductInventoryAdjustments" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons" FromRole="ProductInventoryAdjustmentReason" ToRole="ProductInventoryAdjustment" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustmentReasonType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="Guid" Name="LocationID" Nullable="false" />
+    <Property Type="Guid" Name="ReasonID" Nullable="false" />
+    <Property Type="String" Name="ReasonRef1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonRef2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonRef3" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="Decimal" Name="AdjustmentAmount" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="OldQty" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="NewQty" Precision="18" Scale="9" />
+    <Property Type="Guid" Name="ProductInventoryAdjustmentBatchID" />
+    <NavigationProperty Name="AmazonOrderLines" Relationship="OmnimarkAmazon.Models.FK_AmazonOrderLines_ProductInventoryAdjustments1" FromRole="ProductInventoryAdjustment" ToRole="AmazonOrderLine" />
+    <NavigationProperty Name="ProductInventoryAdjustmentBatch" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches" FromRole="ProductInventoryAdjustment" ToRole="ProductInventoryAdjustmentBatch" />
+    <NavigationProperty Name="ProductInventoryAdjustmentReason" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons" FromRole="ProductInventoryAdjustment" ToRole="ProductInventoryAdjustmentReason" />
+    <NavigationProperty Name="Product" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_Products" FromRole="ProductInventoryAdjustment" ToRole="Product" />
+    <NavigationProperty Name="ProductInventoryLocation" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryLocations" FromRole="ProductInventoryAdjustment" ToRole="ProductInventoryLocation" />
+  </EntityType>
+  <Association Name="FK_AmazonOrderLines_ProductInventoryAdjustments1">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustment" Role="ProductInventoryAdjustment" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.AmazonOrderLine" Role="AmazonOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonOrderLine">
+        <PropertyRef Name="NotShippedFromWarehouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayOrders_ProductInventoryMoves">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustmentBatch" Role="ProductInventoryAdjustmentBatch" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.eBayOrder" Role="eBayOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="eBayOrder">
+        <PropertyRef Name="ProductInventoryMoveID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustmentBatch" Role="ProductInventoryAdjustmentBatch" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustment" Role="ProductInventoryAdjustment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustment">
+        <PropertyRef Name="ProductInventoryAdjustmentBatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustmentReason" Role="ProductInventoryAdjustmentReason" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustment" Role="ProductInventoryAdjustment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentReason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustment">
+        <PropertyRef Name="ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_Products">
+    <End Type="OmnimarkAmazon.Models.Product" Role="Product" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustment" Role="ProductInventoryAdjustment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustment">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductInventoryLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ShortCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="Seq" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductInventories" Relationship="OmnimarkAmazon.Models.FK_ProductInventory_InventoryLocations" FromRole="ProductInventoryLocation" ToRole="ProductInventory" />
+    <NavigationProperty Name="ProductInventoryAdjustments" Relationship="OmnimarkAmazon.Models.FK_ProductInventoryAdjustments_ProductInventoryLocations" FromRole="ProductInventoryLocation" ToRole="ProductInventoryAdjustment" />
+  </EntityType>
+  <Association Name="FK_ProductInventory_InventoryLocations">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryLocation" Role="ProductInventoryLocation" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ProductInventory" Role="ProductInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventory">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_ProductInventoryLocations">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryLocation" Role="ProductInventoryLocation" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustment" Role="ProductInventoryAdjustment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustment">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="InboundFBAShipmentItem">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Type="String" Name="ShipmentID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SKU" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="QuantityShipped" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="QuantityReceived" Precision="18" Scale="9" />
+    <Property Type="Decimal" Name="QuantityInCase" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <NavigationProperty Name="InboundFBAShipment" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentItems_InboundFBAShipments" FromRole="InboundFBAShipmentItem" ToRole="InboundFBAShipment" />
+  </EntityType>
+  <Association Name="FK_InboundFBAShipmentItems_InboundFBAShipments">
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipment" Role="InboundFBAShipment" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipmentItem" Role="InboundFBAShipmentItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboundFBAShipment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentItem">
+        <PropertyRef Name="ShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AmazonOrder">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="AmazonOrderID" />
+    </Key>
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="String" Name="AmazonOrderID" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PurchaseDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="NameFirst" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameLast" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress1" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress2" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress3" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipCity" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipStateProvince" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ShipStateID" />
+    <Property Type="String" Name="ShipPostalCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipCountryCode" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ShipCountryID" />
+    <Property Type="String" Name="ShipPhone" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="FulfillmentChannel" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="DateTime" Name="LastStatusChangeNoticed" Precision="3" />
+    <Property Type="Guid" Name="ProductInventoryAdjustmentBatchID" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AmazonAccount" Relationship="OmnimarkAmazon.Models.FK_AmazonOrders_AmazonAccounts" FromRole="AmazonOrder" ToRole="AmazonAccount" />
+    <NavigationProperty Name="AmazonOrderLines" Relationship="OmnimarkAmazon.Models.FK_AmazonOrderLines_AmazonOrders" FromRole="AmazonOrder" ToRole="AmazonOrderLine" />
+    <NavigationProperty Name="ProductInventoryAdjustmentBatch" Relationship="OmnimarkAmazon.Models.FK_AmazonOrders_ProductInventoryAdjustmentBatches" FromRole="AmazonOrder" ToRole="ProductInventoryAdjustmentBatch" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SOSInventoryChangeReportID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ShipToName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_AmazonOrders_AmazonAccounts">
+    <End Type="OmnimarkAmazon.Models.AmazonAccount" Role="AmazonAccount" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonOrder" Role="AmazonOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccount">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonOrder">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonOrderLines_AmazonOrders">
+    <End Type="OmnimarkAmazon.Models.AmazonOrder" Role="AmazonOrder" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.AmazonOrderLine" Role="AmazonOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonOrder">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="AmazonOrderID" />
+      </Principal>
+      <Dependent Role="AmazonOrderLine">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="AmazonOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonOrders_ProductInventoryAdjustmentBatches">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustmentBatch" Role="ProductInventoryAdjustmentBatch" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.AmazonOrder" Role="AmazonOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonOrder">
+        <PropertyRef Name="ProductInventoryAdjustmentBatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="eBayOrderLine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OrderID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Qty" Nullable="false" Precision="18" Scale="9" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <NavigationProperty Name="eBayOrder" Relationship="OmnimarkAmazon.Models.FK_eBayOrderLines_eBayOrders" FromRole="eBayOrderLine" ToRole="eBayOrder" />
+    <NavigationProperty Name="eBayRawItemData" Relationship="OmnimarkAmazon.Models.FK_eBayOrderLines_eBayRawItemData" FromRole="eBayOrderLine" ToRole="eBayRawItemData" />
+    <Property Type="Int32" Name="SellingManagerSalesRecordNumber" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Precision="18" Scale="9" />
+  </EntityType>
+  <Association Name="FK_eBayOrderLines_eBayOrders">
+    <End Type="OmnimarkAmazon.Models.eBayOrder" Role="eBayOrder" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.eBayOrderLine" Role="eBayOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eBayOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="eBayOrderLine">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayOrderLines_eBayRawItemData">
+    <End Type="OmnimarkAmazon.Models.eBayRawItemData" Role="eBayRawItemData" Multiplicity="1" />
+    <End Type="OmnimarkAmazon.Models.eBayOrderLine" Role="eBayOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eBayRawItemData">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="eBayOrderLine">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FakeUPC">
+    <Key>
+      <PropertyRef Name="UPC" />
+    </Key>
+    <Property Type="String" Name="UPC" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductComboCode" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="Guid" Name="BatchID" />
+    <Property Type="String" Name="SKU" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="eBayItem">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="CurrentPrice" Precision="9" Scale="2" />
+    <Property Type="String" Name="Title" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ListingStatusText" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ListingStatus" />
+    <Property Type="Int32" Name="ProductAssociationCount" />
+  </EntityType>
+  <EntityType Name="InboundFBAShipmentProductInventoryAdjustment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="String" Name="InboundFBAShipmentID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductInventoryAdjustmentBatchID" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="InboundFBAShipment" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments" FromRole="InboundFBAShipmentProductInventoryAdjustment" ToRole="InboundFBAShipment" />
+    <NavigationProperty Name="ProductInventoryAdjustmentBatch" Relationship="OmnimarkAmazon.Models.FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches" FromRole="InboundFBAShipmentProductInventoryAdjustment" ToRole="ProductInventoryAdjustmentBatch" />
+  </EntityType>
+  <Association Name="FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments">
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipment" Role="InboundFBAShipment" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipmentProductInventoryAdjustment" Role="InboundFBAShipmentProductInventoryAdjustment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboundFBAShipment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentProductInventoryAdjustment">
+        <PropertyRef Name="InboundFBAShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+    <End Type="OmnimarkAmazon.Models.ProductInventoryAdjustmentBatch" Role="ProductInventoryAdjustmentBatch" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.InboundFBAShipmentProductInventoryAdjustment" Role="InboundFBAShipmentProductInventoryAdjustment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentProductInventoryAdjustment">
+        <PropertyRef Name="ProductInventoryAdjustmentBatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="InboundFBAShipmentManagementView">
+    <Key>
+      <PropertyRef Name="OrderBy" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="AmazonAccountName" />
+    </Key>
+    <Property Type="DateTime" Name="OrderBy" Nullable="false" Precision="3" />
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="AmazonAccountID" Nullable="false" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="Int32" Name="ItemCount" />
+    <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTimeStamp" Precision="3" />
+    <Property Type="DateTime" Name="RemovedFromInventoryAdjustmentProcessing" Precision="3" />
+    <Property Type="DateTime" Name="ScheduledForInventoryAdjustmentProcessing" Precision="3" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+    <Property Type="String" Name="InboundFBAShipmentID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FirstInventoryAdjustment" Precision="3" />
+    <Property Type="DateTime" Name="LastInventoryAdjustment" Precision="3" />
+    <Property Type="Int32" Name="InventoryAdjustmentCount" />
+    <Property Type="String" Name="AmazonAccountName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderConfirm_Status">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="CName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DisplaySeq" Type="Int32" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="OmnimarkAmazon.Models.FK_PurchaseOrders_PurchaseOrderConfirm_Status" FromRole="PurchaseOrderConfirm_Status" ToRole="PurchaseOrder" />
+  </EntityType>
+  <Association Name="FK_PurchaseOrders_PurchaseOrderConfirm_Status">
+    <End Type="OmnimarkAmazon.Models.PurchaseOrderConfirm_Status" Role="PurchaseOrderConfirm_Status" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderConfirm_Status">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="CStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RecievedShipmentStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DisplaySeq" Type="Int32" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ReceivedProducts" Relationship="OmnimarkAmazon.Models.FK_ReceivedProducts_ReceivedShipmentStatuses" FromRole="RecievedShipmentStatus" ToRole="ReceivedProduct" />
+  </EntityType>
+  <Association Name="FK_ReceivedProducts_ReceivedShipmentStatuses">
+    <End Type="OmnimarkAmazon.Models.RecievedShipmentStatus" Role="RecievedShipmentStatus" Multiplicity="0..1" />
+    <End Type="OmnimarkAmazon.Models.ReceivedProduct" Role="ReceivedProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecievedShipmentStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedProduct">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ShippedtoAmazon">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="ShipmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

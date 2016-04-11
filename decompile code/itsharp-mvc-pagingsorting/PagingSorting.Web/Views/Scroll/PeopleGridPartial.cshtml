@@ -1,0 +1,9 @@
+﻿@model MvcPaging.IPagedList<PagingSorting.Web.Models.People>
+@foreach (var i in Model) { 
+    <tr>
+        <td>@i.Id</td>
+        <td>@i.Username</td>
+        <td>@i.Age</td>
+    </tr>
+}
+

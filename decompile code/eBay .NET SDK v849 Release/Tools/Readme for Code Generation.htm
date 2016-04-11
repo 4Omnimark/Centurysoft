@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">BODY { font-size: 11pt; font-family: arial; }</style>
+<title>Readme for Code Generation</title>
+</head>
+
+<body>
+
+<h2>Generating Code Using the eBay Code Generation Tool</h2>
+
+<p>You can use the eBayCodeGenerator Tool to generate code from an eBay WSDL. The tool can be executed
+from inside Visual Studio .NET or from the command line.</p>
+<ol>
+<li>Confirm that the path to version 2.0 of the Microsoft .NET Framework (for example,
+C:\WINNT\Microsoft.NET\Framework\v2.0.50727) has been set correctly in Setup.bat(Setup05.bat for
+VS2005, Setup08.bat for VS2008) in the Tools\Generator folder.</li><br>
+<li>Register the code generator as a Custom Tool by running the Setup.bat file. If you are
+running Visual Studio .NET when you run Setup.bat, close and reopen Visual Studio .NET  after
+running Setup.bat.</li><br>
+<li>Update the following file with the WSDL version you want to use for generating code:
+<code>C:\Program Files\eBay\&lt;SDK for Windows InstallDir&gt;\Source\eBay.Service.SDK\Core\Soap\WebService.xml.
+</code><br><br>
+The follow code snippet shows the WSDLFile element, which points to the eBay WSDL file you want
+to use to generate code:
+<code> &lt;WSDLFile&gt;http://developer.ebay.com/webservices/615/eBaySvc.wsdl&lt;/WSDLFile&gt;</code></li><br>
+<li>The following file will be updated if the code generation by the eBayCodeGenerator Tool is
+successful: <code>C:\Program Files\eBay\&lt;SDK for Windows InstallDir&gt;\Source\eBay.Service.SDK\Core\Soap\WebService.cs</code>.
+<br>Note the time stamp of the file and confirm that it is writable.</li><br>
+</ol>
+
+<h3>Running the eBayCodeGenerator Tool from Inside Visual Studio .NET</h3>
+<p>
+</p><ol>
+<li>Confirm that the Custom Tool and Custom Tool Namespace properties are set for the
+WebService.xml file.</li>
+<li>Right-click the WebService.xml file and select the Run Custom Tool option to generate code
+with the eBayCodeGenerator Tool.</li>
+</ol>
+<img src="Readme%20for%20Code%20Generation_files/custom_tool.JPG">
+<p></p>
+
+<h3>Running the eBayCodeGenerator Tool from the Command Line</h3>
+
+<p>1. To run the eBayCodeGenerator Tool from the command line, use either gen05.bat or gen08.bat
+batch file in Tools\CodeGen folder, depending on whether you have Visual Studio .NET 2005 or Visual Studio .NET 2008.
+The following input parameters are supported:
+</p><pre>	-h	display the usage information
+	-f	output file name
+	-l	language for the generated code; (cs = Csharp, vb = VB .NET)
+	-m	mode of the output file
+	1	create one file for all generated classes
+	2	create one file for one generated class
+	-n	root namespace for the generated code
+	-p	path for the output file(s)
+	-w	URL for the wsdl
+
+</pre>
+
+
+<p>The batch files execute the following command: <br><br>
+<code>CodeGen -f  out.cs  -m  1  -n eBay.Service.Core.Soap -l cs  -p soap
+-w http://developer.ebay.com/webservices/latest/eBaySvc.wsdl</code></p>
+
+
+<p>
+2. An <b>NAnt</b> build script has been provided in the SDK root folder,
+ if you have NAnt intalled, you can run the eBayCodeGenerator Tool using
+ command: 
+<b>nant  GenProxy</b>
+
+
+
+
+</p></body></html>

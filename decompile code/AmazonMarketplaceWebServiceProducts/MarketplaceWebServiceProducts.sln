@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebServiceProducts.Samples", "MarketplaceWebServiceProducts.Samples\MarketplaceWebServiceProducts.Samples.csproj", "{8523985A-019F-30D6-B95A-D1452B0C0855}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F893AAE7-6B96-4AEE-8F68-63123778B36C} = {F893AAE7-6B96-4AEE-8F68-63123778B36C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebServiceProducts", "MarketplaceWebServiceProducts\MarketplaceWebServiceProducts.csproj", "{F893AAE7-6B96-4AEE-8F68-63123778B36C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8523985A-019F-30D6-B95A-D1452B0C0855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8523985A-019F-30D6-B95A-D1452B0C0855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8523985A-019F-30D6-B95A-D1452B0C0855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8523985A-019F-30D6-B95A-D1452B0C0855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F893AAE7-6B96-4AEE-8F68-63123778B36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F893AAE7-6B96-4AEE-8F68-63123778B36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F893AAE7-6B96-4AEE-8F68-63123778B36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F893AAE7-6B96-4AEE-8F68-63123778B36C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

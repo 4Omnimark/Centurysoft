@@ -1,0 +1,1 @@
+D:\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders.Samples\obj\Debug\MarketplaceWebServiceOrders.Samples.csprojResolveAssemblyReference.cache

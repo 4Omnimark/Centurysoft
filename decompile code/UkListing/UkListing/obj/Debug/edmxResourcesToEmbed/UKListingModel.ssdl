@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UKOmnimarkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_DataPoints">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="nvarchar(max)" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="nvarchar(max)" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Toys">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="nvarchar(max)" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="nvarchar(max)" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="UKOmnimarkModelStoreContainer">
+    <EntitySet Name="tbl_DataPoints" EntityType="Self.tbl_DataPoints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Toys" EntityType="Self.tbl_Toys" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

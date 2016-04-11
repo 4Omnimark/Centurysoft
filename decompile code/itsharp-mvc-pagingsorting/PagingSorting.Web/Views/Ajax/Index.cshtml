@@ -1,0 +1,14 @@
+﻿@model MvcPaging.IPagedList<PagingSorting.Web.Models.People>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="gridcontainer">
+    @Html.Partial("PeopleGridPartial",Model)
+</div>
+
+<div id="loadingcontainer">
+</div>
+

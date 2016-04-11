@@ -1,0 +1,25 @@
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.pdb
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.csprojResolveAssemblyReference.cache
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.dll
+E:\My metagami doc\Practice_Projects\omnimark_all_code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.pdb
+D:\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll
+D:\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.pdb
+D:\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.dll
+D:\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.pdb
+D:\decompile code\omnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll
+D:\decompile code\omnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.pdb
+D:\decompile code\omnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.dll
+D:\decompile code\omnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.pdb
+E:\TestinOmnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll
+E:\TestinOmnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.pdb
+E:\TestinOmnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.dll
+E:\TestinOmnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.pdb
+E:\TestinOmnimark\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.csprojResolveAssemblyReference.cache
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.pdb
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.csprojResolveAssemblyReference.cache
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.dll
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\obj\Debug\MarketplaceWebServiceOrders.pdb
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll.CodeAnalysisLog.xml
+D:\salman\TestinOmnimark_Running\decompile code\AmazonClientLibrary\src\MarketplaceWebServiceOrders\bin\Debug\MarketplaceWebServiceOrders.dll.lastcodeanalysissucceeded

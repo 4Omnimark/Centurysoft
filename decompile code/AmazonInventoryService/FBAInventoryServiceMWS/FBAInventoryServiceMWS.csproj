@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FBAInventoryServiceMWS</RootNamespace>
+    <AssemblyName>FBAInventoryServiceMWS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <ProjectGuid>{D48AA052-9816-43BD-97EE-533F6900A4AC}</ProjectGuid>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="StartbuttonWeb">
+      <HintPath>D:\bakup\bak\bin\StartbuttonWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FBAInboundServiceMWS\FBAInboundServiceMWS.cs" />
+    <Compile Include="FBAInboundServiceMWS\FBAInboundServiceMWSClient.cs" />
+    <Compile Include="FBAInboundServiceMWS\FBAInboundServiceMWSConfig.cs" />
+    <Compile Include="FBAInboundServiceMWS\FBAInboundServiceMWSException.cs" />
+    <Compile Include="FBAInboundServiceMWS\FBAInboundServiceMWSSample.cs" />
+    <Compile Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWSMock.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\Address.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\Amount.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ConfirmTransportInputRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ConfirmTransportRequestResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ConfirmTransportRequestResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\Contact.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\CreateInboundShipmentPlanRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\CreateInboundShipmentPlanResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\CreateInboundShipmentPlanResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\CreateInboundShipmentRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\CreateInboundShipmentResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\CreateInboundShipmentResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\Dimensions.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\EstimateTransportInputRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\EstimateTransportRequestResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\EstimateTransportRequestResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetBillOfLadingRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetBillOfLadingResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetBillOfLadingResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetPackageLabelsRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetPackageLabelsResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetPackageLabelsResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetServiceStatusRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetServiceStatusResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetServiceStatusResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetTransportContentRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetTransportContentResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\GetTransportContentResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\IMWSResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentHeader.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentInfo.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentItem.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentItemList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentPlan.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentPlanItem.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentPlanItemList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentPlanList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentPlanRequestItem.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\InboundShipmentPlanRequestItemList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentItemsByNextTokenRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentItemsByNextTokenResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentItemsByNextTokenResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentItemsRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentItemsResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentItemsResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentsByNextTokenRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentsByNextTokenResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentsByNextTokenResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentsRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentsResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ListInboundShipmentsResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredLtlDataInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredLtlDataOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredSmallParcelDataInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredSmallParcelDataOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredSmallParcelPackageInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredSmallParcelPackageInputList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredSmallParcelPackageOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\NonPartneredSmallParcelPackageOutputList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\Pallet.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PalletList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredEstimate.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredLtlDataInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredLtlDataOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredSmallParcelDataInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredSmallParcelDataOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredSmallParcelPackageInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredSmallParcelPackageInputList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredSmallParcelPackageOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PartneredSmallParcelPackageOutputList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PutTransportContentRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PutTransportContentResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\PutTransportContentResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ResponseHeaderMetadata.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ResponseMetadata.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ShipmentIdList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\ShipmentStatusList.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\TransportContent.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\TransportDetailInput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\TransportDetailOutput.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\TransportDocument.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\TransportHeader.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\TransportResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\UpdateInboundShipmentRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\UpdateInboundShipmentResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\UpdateInboundShipmentResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\VoidTransportInputRequest.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\VoidTransportRequestResponse.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\VoidTransportRequestResult.cs" />
+    <Compile Include="FBAInboundServiceMWS\Model\Weight.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\AbstractMwsObject.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\IMwsCall.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\IMwsObject.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\IMwsReader.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\IMwsRequestType.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\IMwsWriter.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsAQCall.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsConnection.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsException.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsResponseHeaderMetadata.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsResponseMetadata.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsUtil.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsXmlBuilder.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsXmlReader.cs" />
+    <Compile Include="FBAInboundServiceMWS\runtime-src\MwsXmlWriter.cs" />
+    <Compile Include="FBAInventoryServiceMWS\*.cs" />
+    <Compile Include="FBAInventoryServiceMWS\Model\*.cs" />
+    <Compile Include="FBAInventoryServiceMWS\Mock\*.cs" />
+    <Compile Include="FBAInventoryServiceMWS\Util\*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FBAInventoryServiceMWS\Mock\ListInventorySupplyByNextTokenResponse.xml">
+      <LogicalName>ListInventorySupplyByNextTokenResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBAInventoryServiceMWS\Mock\ListInventorySupplyResponse.xml">
+      <LogicalName>ListInventorySupplyResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBAInventoryServiceMWS\Mock\GetServiceStatusResponse.xml">
+      <LogicalName>GetServiceStatusResponse.xml</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.ConfirmTransportRequestResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.CreateInboundShipmentPlanResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.CreateInboundShipmentResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.EstimateTransportRequestResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.GetBillOfLadingResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.GetPackageLabelsResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.GetServiceStatusResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.GetTransportContentResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.ListInboundShipmentItemsByNextTokenResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.ListInboundShipmentItemsResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.ListInboundShipmentsByNextTokenResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.ListInboundShipmentsResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.PutTransportContentResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.UpdateInboundShipmentResponse.xml" />
+    <Content Include="FBAInboundServiceMWS\Mock\FBAInboundServiceMWS.Model.VoidTransportRequestResponse.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

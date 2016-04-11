@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UKOmnimarkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_DataPoints">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="UKOmnimarkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_DataPoints" EntityType="Self.tbl_DataPoints" />
+    <EntitySet Name="tbl_Toys" EntityType="UKOmnimarkModel.tbl_Toys" />
+  </EntityContainer>
+  <EntityType Name="tbl_Toys">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Count" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

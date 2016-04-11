@@ -1,0 +1,13 @@
+﻿Installing assembly 'D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.InstallLog
+   assemblypath = D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe
+Installing service OmnimarkAmazonService...
+Service OmnimarkAmazonService has been successfully installed.
+Creating EventLog source OmnimarkAmazonService in log Application...
+Committing assembly 'D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.InstallLog
+   assemblypath = D:\decompile code\omnimark\decompile code\OmnimarkAmazonService\OmnimarkAmazonService\bin\Debug\OmnimarkAmazonService.exe

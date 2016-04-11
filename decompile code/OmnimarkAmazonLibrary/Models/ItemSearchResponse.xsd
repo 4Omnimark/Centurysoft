@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://webservices.amazon.com/AWSECommerceService/2011-08-01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ItemSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OperationRequest">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RequestId" type="xs:string" />
+              <xs:element name="Arguments">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Argument">
+                      <xs:complexType>
+                        <xs:attribute name="Name" type="xs:string" use="required" />
+                        <xs:attribute name="Value" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RequestProcessingTime" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Items">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Request">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IsValid" type="xs:string" />
+                    <xs:element name="ItemSearchRequest">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Keywords" type="xs:string" />
+                          <xs:element name="ResponseGroup" type="xs:string" />
+                          <xs:element name="SearchIndex" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="TotalResults" type="xs:unsignedInt" />
+              <xs:element name="TotalPages" type="xs:unsignedInt" />
+              <xs:element name="MoreSearchResultsUrl" type="xs:string" />
+              <xs:element maxOccurs="unbounded" name="Item">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ASIN" type="xs:string" />
+                    <xs:element minOccurs="0" name="ParentASIN" type="xs:string" />
+                    <xs:element name="DetailPageURL" type="xs:string" />
+                    <xs:element name="ItemLinks">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="ItemLink">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Description" type="xs:string" />
+                                <xs:element name="URL" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ItemAttributes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Author" type="xs:string" />
+                          <xs:element name="Manufacturer" type="xs:string" />
+                          <xs:element name="ProductGroup" type="xs:string" />
+                          <xs:element name="Title" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

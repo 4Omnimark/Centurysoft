@@ -1,0 +1,1129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UKOmnimarkModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="UKOmnimarkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Category" EntityType="UKOmnimarkModel.tbl_Category" />
+    <EntitySet Name="tbl_Sports" EntityType="UKOmnimarkModel.tbl_Sports" />
+    <EntitySet Name="tbl_SportsNotPrime" EntityType="UKOmnimarkModel.tbl_SportsNotPrime" />
+    <EntitySet Name="tbl_Toys" EntityType="UKOmnimarkModel.tbl_Toys" />
+    <EntitySet Name="tbl_ToysNotPrime" EntityType="UKOmnimarkModel.tbl_ToysNotPrime" />
+    <EntitySet Name="tbl_Beauty" EntityType="UKOmnimarkModel.tbl_Beauty" />
+    <EntitySet Name="tbl_BeautyNotPrime" EntityType="UKOmnimarkModel.tbl_BeautyNotPrime" />
+    <FunctionImport Name="Update_UK_Prohibited">
+      <Parameter Name="flag" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_Prohibited_Keywords" EntityType="UKOmnimarkModel.tbl_Prohibited_Keywords" />
+    <EntitySet Name="tbl_Baby" EntityType="UKOmnimarkModel.tbl_Baby" />
+    <EntitySet Name="tbl_BabyNotPrime" EntityType="UKOmnimarkModel.tbl_BabyNotPrime" />
+    <EntitySet Name="tbl_Jewellery" EntityType="UKOmnimarkModel.tbl_Jewellery" />
+    <EntitySet Name="tbl_JewelleryNotPrime" EntityType="UKOmnimarkModel.tbl_JewelleryNotPrime" />
+    <EntitySet Name="tbl_Watches" EntityType="UKOmnimarkModel.tbl_Watches" />
+    <EntitySet Name="tbl_WatchesNotPrime" EntityType="UKOmnimarkModel.tbl_WatchesNotPrime" />
+    <EntitySet Name="SellingPlaces" EntityType="UKOmnimarkModel.SellingPlace" />
+    <EntitySet Name="tbl_Account" EntityType="UKOmnimarkModel.tbl_Account" />
+    <EntitySet Name="Canada_Prohibited_Keywords" EntityType="UKOmnimarkModel.Canada_Prohibited_Keywords" />
+    <EntitySet Name="tbl_Keywords" EntityType="UKOmnimarkModel.tbl_Keywords" />
+    <EntitySet Name="ServiceStatus" EntityType="UKOmnimarkModel.ServiceStatu" />
+    <EntitySet Name="AmazonResponses" EntityType="UKOmnimarkModel.AmazonResponse" />
+    <EntitySet Name="tbl_Sports_test" EntityType="UKOmnimarkModel.tbl_Sports_test" />
+    <EntitySet Name="VariousAsins" EntityType="UKOmnimarkModel.VariousAsin" />
+    <EntitySet Name="tbl_HomeandKitchen" EntityType="UKOmnimarkModel.tbl_HomeandKitchen" />
+    <EntitySet Name="tbl_HomeandKitchenNotPrime" EntityType="UKOmnimarkModel.tbl_HomeandKitchenNotPrime" />
+  </EntityContainer>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SellerAccount_ID_fk" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Enabled" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Sports">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="Account4_Status" Type="Int32" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_SportsNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Account4_Status" Type="Int16" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Account1_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
+    <Property Name="ForceExport" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Toys">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="Count" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="LargeImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="Account4_Status" Type="Int32" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_ToysNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="LargeImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Account4_Status" Type="Int16" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Account1_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
+    <Property Name="ReExportStatus" Type="Int16" Nullable="false" />
+    <Property Name="ForceExport" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Beauty">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="Account4_Status" Type="Int32" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_BeautyNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account4_Status" Type="Int16" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Account1_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="ReExportStatus" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Prohibited_Keywords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProhibitedKeys" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Baby">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="Account4_Status" Type="Int32" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_BabyNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account4_Status" Type="Int16" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Account1_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Jewellery">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="Account4_Status" Type="Int32" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_JewelleryNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account4_Status" Type="Int16" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Account1_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
+    <Property Name="ForceExport" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Watches">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="Account4_Status" Type="Int32" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_WatchesNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Account4_Status" Type="Int16" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Account1_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="Int16" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
+    <Property Name="ForceExport" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SellingPlace">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellingPlace1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellingVenue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MerchantId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Toys" Type="Int32" />
+    <Property Name="SportingGoods" Type="Int32" />
+    <Property Name="Beauty" Type="Int32" />
+    <Property Name="Baby" Type="Int32" />
+    <Property Name="ShortCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ReExportAllow" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Canada_Prohibited_Keywords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Keywords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Keywords" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BabySearched" Type="DateTime" Precision="3" />
+    <Property Name="BeautySearched" Type="DateTime" Precision="3" />
+    <Property Name="SportsSearched" Type="DateTime" Precision="3" />
+    <Property Name="ToysSearched" Type="DateTime" Precision="3" />
+    <Property Name="JewelrySearched" Type="DateTime" Precision="3" />
+    <Property Name="WatchesSearched" Type="DateTime" Precision="3" />
+    <Property Name="Priority" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceStatus" Type="Int32" />
+    <Property Name="LastUpdatedTimestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AmazonResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubmissionID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SubmissionTimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Sports_test">
+    <Key>
+      <PropertyRef Name="tbl_sports_Id" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prime" Type="Int32" />
+    <Property Name="SalesRank" Type="Int64" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LargeImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int64" />
+    <Property Name="LengthUnits" Type="Int64" />
+    <Property Name="WeightUnits" Type="Int64" />
+    <Property Name="WidthUnits" Type="Int64" />
+    <Property Name="UK_Prohibited" Type="Int32" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int32" />
+    <Property Name="UpdatedSalesPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int32" />
+    <Property Name="ReExportStatus" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ImportFromNonPrime" Type="Int32" />
+    <Property Name="ExportAllStatus" Type="Int32" />
+    <Property Name="Account1_Status" Type="Int32" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int32" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int32" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int32" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int32" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int32" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="Int32" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFilename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="Int32" Nullable="false" />
+    <Property Name="tbl_sports_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="VariousAsin">
+    <Key>
+      <PropertyRef Name="SrNo" />
+    </Key>
+    <Property Name="ASIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SrNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Processed" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_HomeandKitchen">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="SalesPrice" Type="Single" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="Int32" />
+    <Property Name="Amount" Type="Single" />
+    <Property Name="Prime" Type="Int16" />
+    <Property Name="SalesRank" Type="Int32" />
+    <Property Name="LargeImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Features1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int32" />
+    <Property Name="LengthUnits" Type="Int32" />
+    <Property Name="WeightUnits" Type="Int32" />
+    <Property Name="WidthUnits" Type="Int32" />
+    <Property Name="UK_Prohibited" Type="Int16" Nullable="false" />
+    <Property Name="UpdatedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int16" />
+    <Property Name="UpdatedSalesPrice" Type="Single" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Instock" Type="Int16" />
+    <Property Name="ReExportStatus" Type="Int16" />
+    <Property Name="Qty" Type="Int16" />
+    <Property Name="ImportFromNonPrime" Type="Int16" />
+    <Property Name="ExportAllStatus" Type="Int16" />
+    <Property Name="Account1_Status" Type="Int16" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int16" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int16" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int16" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int16" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int16" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" />
+    <Property Name="ForceExport" Type="Int16" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int16" />
+    <Property Name="account2_cmaxexport" Type="Int16" />
+    <Property Name="account3_cmaxexport" Type="Int16" />
+    <Property Name="Account4_Status" Type="Int16" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FakeUPC" Type="Int16" />
+  </EntityType>
+  <EntityType Name="tbl_HomeandKitchenNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UPC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="ASIN" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="SalesPrice" Type="Single" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PackageQty" Type="Int32" />
+    <Property Name="Amount" Type="Single" />
+    <Property Name="Prime" Type="Int16" />
+    <Property Name="SalesRank" Type="Int32" />
+    <Property Name="LargeImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MediumImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SmallImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Features1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Features2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Features3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Features4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ExpoerDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HeightUnits" Type="Int32" />
+    <Property Name="LengthUnits" Type="Int32" />
+    <Property Name="WeightUnits" Type="Int32" />
+    <Property Name="WidthUnits" Type="Int32" />
+    <Property Name="UK_Prohibited" Type="Int16" />
+    <Property Name="UpdateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Offers_New" Type="Int16" />
+    <Property Name="UpdatedSalesPrice" Type="Single" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="InStock" Type="Int16" />
+    <Property Name="ReExportStatus" Type="Int16" />
+    <Property Name="Qty" Type="Int16" />
+    <Property Name="ExportAllStatus" Type="Int16" />
+    <Property Name="Account1_Status" Type="Int16" />
+    <Property Name="Account1_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account1_ReExport" Type="Int16" />
+    <Property Name="Account1_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account2_Status" Type="Int16" />
+    <Property Name="Account2_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account2_ReExport" Type="Int16" />
+    <Property Name="Account2_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account3_Status" Type="Int16" />
+    <Property Name="Account3_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account3_ReExport" Type="Int16" />
+    <Property Name="Account3_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CanadaProhibited" Type="Int16" />
+    <Property Name="ForceExport" Type="Int16" />
+    <Property Name="ReExportTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReExportFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="account1_cmaxexport" Type="Int16" />
+    <Property Name="account2_cmaxexport" Type="Int16" />
+    <Property Name="account3_cmaxexport" Type="Int16" />
+    <Property Name="Account4_Status" Type="Int16" />
+    <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
+    <Property Name="Account4_ReExport" Type="Int32" />
+    <Property Name="Account4_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FakeUPC" Type="Int16" />
+  </EntityType>
+</Schema>

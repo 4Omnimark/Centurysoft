@@ -1,0 +1,1202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OmnimarkAmazonModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AmazonAccounts">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonAccount">
+        <MappingFragment StoreEntitySet="AmazonAccounts">
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="LastGetSettlementData" ColumnName="LastGetSettlementData" />
+          <ScalarProperty Name="LastFBAInboundShipmentSync" ColumnName="LastFBAInboundShipmentSync" />
+          <ScalarProperty Name="DoTrafficImport" ColumnName="DoTrafficImport" />
+          <ScalarProperty Name="DisplaySeq" ColumnName="DisplaySeq" />
+          <ScalarProperty Name="LastOrderHistoryReportStartDate" ColumnName="LastOrderHistoryReportStartDate" />
+          <ScalarProperty Name="LastSyncSKU" ColumnName="LastSyncSKU" />
+          <ScalarProperty Name="DateTimeFormat" ColumnName="DateTimeFormat" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CharID" ColumnName="CharID" />
+          <ScalarProperty Name="LastInventoryUpdateStart" ColumnName="LastInventoryUpdateStart" />
+          <ScalarProperty Name="LastInventoryUpdate" ColumnName="LastInventoryUpdate" />
+          <ScalarProperty Name="ShortID" ColumnName="ShortID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="AccessKeyID" ColumnName="AccessKeyID" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="SecretAccessKey" ColumnName="SecretAccessKey" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchTerms">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.SearchTerm">
+        <MappingFragment StoreEntitySet="SearchTerms">
+          <ScalarProperty Name="LastSearch" ColumnName="LastSearch" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnownASINs">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.KnownASIN">
+        <MappingFragment StoreEntitySet="KnownASINs">
+          <ScalarProperty Name="MergedIntoASIN" ColumnName="MergedIntoASIN" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="OurMostRecentUSListingAccountID" ColumnName="OurMostRecentUSListingAccountID" />
+          <ScalarProperty Name="OurMostRecentUSListingOpenDate" ColumnName="OurMostRecentUSListingOpenDate" />
+          <ScalarProperty Name="OurMostRecentUSListingPrice" ColumnName="OurMostRecentUSListingPrice" />
+          <ScalarProperty Name="GoneFromAmazon" ColumnName="GoneFromAmazon" />
+          <ScalarProperty Name="ScrapeFailCount" ColumnName="ScrapeFailCount" />
+          <ScalarProperty Name="LastScrapeFail" ColumnName="LastScrapeFail" />
+          <ScalarProperty Name="FirstScrapeFail" ColumnName="FirstScrapeFail" />
+          <ScalarProperty Name="LastScrapeTry" ColumnName="LastScrapeTry" />
+          <ScalarProperty Name="OurLowestPrice" ColumnName="OurLowestPrice" />
+          <ScalarProperty Name="LastScrape" ColumnName="LastScrape" />
+          <ScalarProperty Name="MarketPlaceID" ColumnName="MarketPlaceID" />
+          <ScalarProperty Name="OurProduct" ColumnName="OurProduct" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
+          <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Filtered" ColumnName="Filtered" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="SearchTerm" ColumnName="SearchTerm" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchTermsWithLastSearchTimeStamps">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.SearchTermsWithLastSearchTimeStamp">
+        <MappingFragment StoreEntitySet="SearchTermsWithLastSearchTimeStamp">
+          <ScalarProperty Name="LastSearch" ColumnName="LastSearch" />
+          <ScalarProperty Name="LastSearchTimeStamp" ColumnName="LastSearchTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonInventoryProducts">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonInventoryProduct">
+        <MappingFragment StoreEntitySet="AmazonInventoryProducts">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonInventoryViews">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonInventoryView">
+        <MappingFragment StoreEntitySet="AmazonInventoryView">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="AmazonStockTimeStamp" ColumnName="AmazonStockTimeStamp" />
+          <ScalarProperty Name="AmazonStockQty" ColumnName="AmazonStockQty" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonInventories">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonInventory">
+        <MappingFragment StoreEntitySet="AmazonInventory">
+          <ScalarProperty Name="AmazonInStockQty" ColumnName="AmazonInStockQty" />
+          <ScalarProperty Name="UnderPricedIgnoreUntil" ColumnName="UnderPricedIgnoreUntil" />
+          <ScalarProperty Name="UnderPricedIgnoreUntilUpdate" ColumnName="UnderPricedIgnoreUntilUpdate" />
+          <ScalarProperty Name="LastKnownListingPrice" ColumnName="LastKnownListingPrice" />
+          <ScalarProperty Name="LastKnownListingOpenDate" ColumnName="LastKnownListingOpenDate" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="AmazonStockTimeStamp" ColumnName="AmazonStockTimeStamp" />
+          <ScalarProperty Name="AmazonStockQty" ColumnName="AmazonStockQty" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnownASINsInventoryMaintenanceViews">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.KnownASINsInventoryMaintenanceView">
+        <MappingFragment StoreEntitySet="KnownASINsInventoryMaintenanceView">
+          <ScalarProperty Name="MergedIntoASIN" ColumnName="MergedIntoASIN" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="OurMostRecentUSListingAccountID" ColumnName="OurMostRecentUSListingAccountID" />
+          <ScalarProperty Name="OurMostRecentUSListingOpenDate" ColumnName="OurMostRecentUSListingOpenDate" />
+          <ScalarProperty Name="OurMostRecentUSListingPrice" ColumnName="OurMostRecentUSListingPrice" />
+          <ScalarProperty Name="OurLowestPrice" ColumnName="OurLowestPrice" />
+          <ScalarProperty Name="GoneFromAmazon" ColumnName="GoneFromAmazon" />
+          <ScalarProperty Name="ScrapeFailCount" ColumnName="ScrapeFailCount" />
+          <ScalarProperty Name="LastScrapeFail" ColumnName="LastScrapeFail" />
+          <ScalarProperty Name="FirstScrapeFail" ColumnName="FirstScrapeFail" />
+          <ScalarProperty Name="LastScrapeTry" ColumnName="LastScrapeTry" />
+          <ScalarProperty Name="LastScrape" ColumnName="LastScrape" />
+          <ScalarProperty Name="MarketPlaceID" ColumnName="MarketPlaceID" />
+          <ScalarProperty Name="AmazonStockTimeStamp" ColumnName="AmazonStockTimeStamp" />
+          <ScalarProperty Name="AmazonStockQty" ColumnName="AmazonStockQty" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="OurProduct" ColumnName="OurProduct" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
+          <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Filtered" ColumnName="Filtered" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="SearchTerm" ColumnName="SearchTerm" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelatedProducts">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.RelatedProduct">
+        <MappingFragment StoreEntitySet="RelatedProducts">
+          <ScalarProperty Name="ProductQty" ColumnName="ProductQty" />
+          <ScalarProperty Name="RelatedProductQty" ColumnName="RelatedProductQty" />
+          <ScalarProperty Name="RelatedProductName" ColumnName="RelatedProductName" />
+          <ScalarProperty Name="RelatedProductID" ColumnName="RelatedProductID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonInventorySKUs">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonInventorySKU">
+        <MappingFragment StoreEntitySet="AmazonInventorySKUs">
+          <ScalarProperty Name="IgnoreForFBAInventoryDeduction" ColumnName="IgnoreForFBAInventoryDeduction" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ItemCondition" ColumnName="ItemCondition" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ListingID" ColumnName="ListingID" />
+          <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
+          <ScalarProperty Name="InStockQty" ColumnName="InStockQty" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceivedShipments">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ReceivedShipment">
+        <MappingFragment StoreEntitySet="ReceivedShipments">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.Vendor">
+        <MappingFragment StoreEntitySet="Vendors">
+          <ScalarProperty Name="StateOrProvince" ColumnName="StateOrProvince" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="ContactNameMiddle" ColumnName="ContactNameMiddle" />
+          <ScalarProperty Name="ContactNameLast" ColumnName="ContactNameLast" />
+          <ScalarProperty Name="ContactNameFirst" ColumnName="ContactNameFirst" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderLines">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.PurchaseOrderLine">
+        <MappingFragment StoreEntitySet="PurchaseOrderLines">
+          <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+          <ScalarProperty Name="ReceivedProductID" ColumnName="ReceivedProductID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrders">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrders">
+          <ScalarProperty Name="TotalActualCost" ColumnName="TotalActualCost" />
+          <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
+          <ScalarProperty Name="MissingCosts" ColumnName="MissingCosts" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CStatus" ColumnName="CStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderStatuses">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.PurchaseOrderStatus">
+        <MappingFragment StoreEntitySet="PurchaseOrderStatuses">
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="DisplaySeq" ColumnName="DisplaySeq" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceivedProducts">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ReceivedProduct">
+        <MappingFragment StoreEntitySet="ReceivedProducts">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ReceivedShipmentID" ColumnName="ReceivedShipmentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.aspnet_Membership">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Profile">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.aspnet_Profile">
+        <MappingFragment StoreEntitySet="aspnet_Profile">
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+          <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Roles">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.aspnet_Roles">
+        <MappingFragment StoreEntitySet="aspnet_Roles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="NameLast" ColumnName="NameLast" />
+          <ScalarProperty Name="NameFirst" ColumnName="NameFirst" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="OmnimarkAmazon.Models.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="aspnet_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="PurchaseOrderPaymentTypes">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.PurchaseOrderPaymentType">
+        <MappingFragment StoreEntitySet="PurchaseOrderPaymentTypes">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="CurrencySymbolPrefix" ColumnName="CurrencySymbolPrefix" />
+          <ScalarProperty Name="DefaultURL" ColumnName="DefaultURL" />
+          <ScalarProperty Name="DateTimeFormat" ColumnName="DateTimeFormat" />
+          <ScalarProperty Name="DefaultItemDetailsURL" ColumnName="DefaultItemDetailsURL" />
+          <ScalarProperty Name="AWSXMLNamespace" ColumnName="AWSXMLNamespace" />
+          <ScalarProperty Name="AWSServiceURL" ColumnName="AWSServiceURL" />
+          <ScalarProperty Name="InventoryServiceURL" ColumnName="InventoryServiceURL" />
+          <ScalarProperty Name="ProductsServiceURL" ColumnName="ProductsServiceURL" />
+          <ScalarProperty Name="OrderServiceURL" ColumnName="OrderServiceURL" />
+          <ScalarProperty Name="ServiceURL" ColumnName="ServiceURL" />
+          <ScalarProperty Name="AWSSecretAccessKey" ColumnName="AWSSecretAccessKey" />
+          <ScalarProperty Name="AWSAccessKeyID" ColumnName="AWSAccessKeyID" />
+          <ScalarProperty Name="AmazonMarketPlaceID" ColumnName="AmazonMarketPlaceID" />
+          <ScalarProperty Name="C3dig" ColumnName="3dig" />
+          <ScalarProperty Name="C2dig" ColumnName="2dig" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="MapSize" ColumnName="MapSize" />
+          <ScalarProperty Name="MapNumber" ColumnName="MapNumber" />
+          <ScalarProperty Name="DrawCoordinates" ColumnName="DrawCoordinates" />
+          <ScalarProperty Name="Abbrev" ColumnName="Abbrev" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="FIPS" ColumnName="FIPS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.supplier">
+        <MappingFragment StoreEntitySet="suppliers">
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TLD" ColumnName="TLD" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="Addr2" ColumnName="Addr2" />
+          <ScalarProperty Name="Addr1" ColumnName="Addr1" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MidInitial" ColumnName="MidInitial" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductVendors" TypeName="OmnimarkAmazon.Models.ProductVendors" StoreEntitySet="ProductVendors">
+      <EndProperty Name="Vendor">
+        <ScalarProperty Name="ID" ColumnName="VendorID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ID" ColumnName="ProductID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ReportActionParameters">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ReportActionParameter">
+        <MappingFragment StoreEntitySet="ReportActionParameters">
+          <ScalarProperty Name="ParameterValue" ColumnName="ParameterValue" />
+          <ScalarProperty Name="ParameterName" ColumnName="ParameterName" />
+          <ScalarProperty Name="ReportActionID" ColumnName="ReportActionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportActions">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ReportAction">
+        <MappingFragment StoreEntitySet="ReportActions">
+          <ScalarProperty Name="ReportDataDownloadLog" ColumnName="ReportDataDownloadLog" />
+          <ScalarProperty Name="ReportDataSaved" ColumnName="ReportDataSaved" />
+          <ScalarProperty Name="ProcessingResult" ColumnName="ProcessingResult" />
+          <ScalarProperty Name="ProcessingComplete" ColumnName="ProcessingComplete" />
+          <ScalarProperty Name="ProcessingStarted" ColumnName="ProcessingStarted" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="ReportCompleted" ColumnName="ReportCompleted" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ProcessingMethod" ColumnName="ProcessingMethod" />
+          <ScalarProperty Name="ReportRequestID" ColumnName="ReportRequestID" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnownASINAttributes">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.KnownASINAttribute">
+        <MappingFragment StoreEntitySet="KnownASINAttributes">
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeZones">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.TimeZone">
+        <MappingFragment StoreEntitySet="TimeZones">
+          <ScalarProperty Name="OffsetText" ColumnName="OffsetText" />
+          <ScalarProperty Name="Offset" ColumnName="Offset" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportSpecs">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ExportSpec">
+        <MappingFragment StoreEntitySet="ExportSpecs">
+          <ScalarProperty Name="ExcludeExportsToSalesVenueID" ColumnName="ExcludeExportsToSalesVenueID" />
+          <ScalarProperty Name="EncloseInQuotes" ColumnName="EncloseInQuotes" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="FieldDelimiter" ColumnName="FieldDelimiter" />
+          <ScalarProperty Name="FileHeaderText" ColumnName="FileHeaderText" />
+          <ScalarProperty Name="FromClauseExtension" ColumnName="FromClauseExtension" />
+          <ScalarProperty Name="RecordCount" ColumnName="RecordCount" />
+          <ScalarProperty Name="SelectClauseExtension" ColumnName="SelectClauseExtension" />
+          <ScalarProperty Name="FieldNameTranslations" ColumnName="FieldNameTranslations" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="OrderByClause" ColumnName="OrderByClause" />
+          <ScalarProperty Name="WhereClause" ColumnName="WhereClause" />
+          <ScalarProperty Name="FieldList" ColumnName="FieldList" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASINsSuccessfullyExporteds">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ASINsSuccessfullyExported">
+        <MappingFragment StoreEntitySet="ASINsSuccessfullyExported">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="SalesVenueID" ColumnName="SalesVenueID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesVenues">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.SalesVenue">
+        <MappingFragment StoreEntitySet="SalesVenues">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersViews">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.OrdersView">
+        <MappingFragment StoreEntitySet="OrdersView">
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="ShipPhone" ColumnName="ShipPhone" />
+          <ScalarProperty Name="ShipCountryCode" ColumnName="ShipCountryCode" />
+          <ScalarProperty Name="ShipPostalCode" ColumnName="ShipPostalCode" />
+          <ScalarProperty Name="ShipStateProvince" ColumnName="ShipStateProvince" />
+          <ScalarProperty Name="Shipcity" ColumnName="Shipcity" />
+          <ScalarProperty Name="ShipAddress3" ColumnName="ShipAddress3" />
+          <ScalarProperty Name="ShipAddress2" ColumnName="ShipAddress2" />
+          <ScalarProperty Name="ShipAddress1" ColumnName="ShipAddress1" />
+          <ScalarProperty Name="NameLast" ColumnName="NameLast" />
+          <ScalarProperty Name="NameFirst" ColumnName="NameFirst" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductsView">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductsView">
+        <MappingFragment StoreEntitySet="ProductsView">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Categories" ColumnName="Categories" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategories">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplaySeq" ColumnName="DisplaySeq" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTags">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductTag">
+        <MappingFragment StoreEntitySet="ProductTags">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductView">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductView">
+        <MappingFragment StoreEntitySet="ProductView">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Categories" ColumnName="Categories" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductCategoryProductTags" TypeName="OmnimarkAmazon.Models.ProductCategoryProductTags" StoreEntitySet="ProductCategoryProductTags">
+      <EndProperty Name="ProductTag">
+        <ScalarProperty Name="ID" ColumnName="ProductTagID" />
+      </EndProperty>
+      <EndProperty Name="ProductCategory">
+        <ScalarProperty Name="ID" ColumnName="ProductCategoryID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductProductCategories" TypeName="OmnimarkAmazon.Models.ProductProductCategories" StoreEntitySet="ProductProductCategories">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ID" ColumnName="ProductID" />
+      </EndProperty>
+      <EndProperty Name="ProductCategory">
+        <ScalarProperty Name="ID" ColumnName="CategoryID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductProductTags" TypeName="OmnimarkAmazon.Models.ProductProductTags" StoreEntitySet="ProductProductTags">
+      <EndProperty Name="ProductTag">
+        <ScalarProperty Name="ID" ColumnName="ProductTagID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ID" ColumnName="ProductID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="FeedSubmissionQueue">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.FeedSubmissionQueueRec">
+        <MappingFragment StoreEntitySet="FeedSubmissionQueue">
+          <ScalarProperty Name="SubmissionTimeStamp" ColumnName="SubmissionTimeStamp" />
+          <ScalarProperty Name="ErrorXML" ColumnName="ErrorXML" />
+          <ScalarProperty Name="AmazonMessageID" ColumnName="AmazonMessageID" />
+          <ScalarProperty Name="ResultTimeStamp" ColumnName="ResultTimeStamp" />
+          <ScalarProperty Name="SubmissionStatusTimeStamp" ColumnName="SubmissionStatusTimeStamp" />
+          <ScalarProperty Name="SubmissionStatus" ColumnName="SubmissionStatus" />
+          <ScalarProperty Name="FeedSubmissionID" ColumnName="FeedSubmissionID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="RunAt" ColumnName="RunAt" />
+          <ScalarProperty Name="MessageXML" ColumnName="MessageXML" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+          <ScalarProperty Name="FeedType" ColumnName="FeedType" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedSubmissionSchedule">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.FeedSubmissionScheduleRec">
+        <MappingFragment StoreEntitySet="FeedSubmissionSchedule">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="MustRunAll" ColumnName="MustRunAll" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+          <ScalarProperty Name="NextRun" ColumnName="NextRun" />
+          <ScalarProperty Name="MessageXML" ColumnName="MessageXML" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+          <ScalarProperty Name="FeedType" ColumnName="FeedType" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedSubmissionScheduleStatuses">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.FeedSubmissionScheduleStatusRec">
+        <MappingFragment StoreEntitySet="FeedSubmissionScheduleStatus">
+          <ScalarProperty Name="AutomaticPriceChangeID" ColumnName="AutomaticPriceChangeID" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ActiveCount" ColumnName="ActiveCount" />
+          <ScalarProperty Name="AmazonAccountName" ColumnName="AmazonAccountName" />
+          <ScalarProperty Name="ErrorCount" ColumnName="ErrorCount" />
+          <ScalarProperty Name="LastCompletion" ColumnName="LastCompletion" />
+          <ScalarProperty Name="LastRun" ColumnName="LastRun" />
+          <ScalarProperty Name="RunCount" ColumnName="RunCount" />
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="MustRunAll" ColumnName="MustRunAll" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+          <ScalarProperty Name="NextRun" ColumnName="NextRun" />
+          <ScalarProperty Name="MessageXML" ColumnName="MessageXML" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+          <ScalarProperty Name="FeedType" ColumnName="FeedType" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutomaticPriceChanges">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AutomaticPriceChange">
+        <MappingFragment StoreEntitySet="AutomaticPriceChanges">
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="TempPriceEndDateTime" ColumnName="TempPriceEndDateTime" />
+          <ScalarProperty Name="TempPriceStartDateTime" ColumnName="TempPriceStartDateTime" />
+          <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="EndFeedSubmissionScheduleID" ColumnName="EndFeedSubmissionScheduleID" />
+          <ScalarProperty Name="StartFeedSubmissionScheduleID" ColumnName="StartFeedSubmissionScheduleID" />
+          <ScalarProperty Name="RegularPrice" ColumnName="RegularPrice" />
+          <ScalarProperty Name="TempPrice" ColumnName="TempPrice" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutomaticPriceChangesView">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AutomaticPriceChangesView">
+        <MappingFragment StoreEntitySet="AutomaticPriceChangesView">
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="TempPriceEndDateTime" ColumnName="TempPriceEndDateTime" />
+          <ScalarProperty Name="TempPriceStartDateTime" ColumnName="TempPriceStartDateTime" />
+          <ScalarProperty Name="NextEndRun" ColumnName="NextEndRun" />
+          <ScalarProperty Name="NextStartRun" ColumnName="NextStartRun" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+          <ScalarProperty Name="EndFeedSubmissionScheduleID" ColumnName="EndFeedSubmissionScheduleID" />
+          <ScalarProperty Name="StartFeedSubmissionScheduleID" ColumnName="StartFeedSubmissionScheduleID" />
+          <ScalarProperty Name="RegularPrice" ColumnName="RegularPrice" />
+          <ScalarProperty Name="TempPrice" ColumnName="TempPrice" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASINOfferListings">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ASINOfferListing">
+        <MappingFragment StoreEntitySet="ASINOfferListings">
+          <ScalarProperty Name="OfferingIDDecoded" ColumnName="OfferingIDDecoded" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+          <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AmazonFulfilled" ColumnName="AmazonFulfilled" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASINOfferScrapes">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ASINOfferScrape">
+        <MappingFragment StoreEntitySet="ASINOfferScrapes">
+          <ScalarProperty Name="ActualOffers" ColumnName="ActualOffers" />
+          <ScalarProperty Name="PagesScraped" ColumnName="PagesScraped" />
+          <ScalarProperty Name="RecordsPerPage" ColumnName="RecordsPerPage" />
+          <ScalarProperty Name="ActualPages" ColumnName="ActualPages" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ScrapeFailCount" ColumnName="ScrapeFailCount" />
+          <ScalarProperty Name="LastScrapeFail" ColumnName="LastScrapeFail" />
+          <ScalarProperty Name="FirstScrapeFail" ColumnName="FirstScrapeFail" />
+          <ScalarProperty Name="LastScrapeTry" ColumnName="LastScrapeTry" />
+          <ScalarProperty Name="LastScrape" ColumnName="LastScrape" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OurListings">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.OurListing">
+        <MappingFragment StoreEntitySet="OurListings">
+          <ScalarProperty Name="OfferingIDDecoded" ColumnName="OfferingIDDecoded" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+          <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AmazonFulfilled" ColumnName="AmazonFulfilled" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferScrapeStatuses">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.OfferScrapeStatus">
+        <MappingFragment StoreEntitySet="OfferScrapeStatus">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="OurProduct" ColumnName="OurProduct" />
+          <ScalarProperty Name="LastScrapeTry" ColumnName="LastScrapeTry" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnderPricedView">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.UnderPricedViewRec">
+        <MappingFragment StoreEntitySet="UnderPriced">
+          <ScalarProperty Name="UnderPricedIgnoreUntil" ColumnName="UnderPricedIgnoreUntil" />
+          <ScalarProperty Name="UnderPricedIgnoreUntilUpdate" ColumnName="UnderPricedIgnoreUntilUpdate" />
+          <ScalarProperty Name="CalculatedMinimumPrice" ColumnName="CalculatedMinimumPrice" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="SystemActualCost" ColumnName="SystemActualCost" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnOrders">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.OnOrder">
+        <MappingFragment StoreEntitySet="OnOrder">
+          <ScalarProperty Name="OnOrder1" ColumnName="OnOrder" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyTraffics">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.DailyTraffic">
+        <MappingFragment StoreEntitySet="DailyTraffic">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="TotalOrderItems" ColumnName="OrdersPlaced" />
+          <ScalarProperty Name="OrderedProductSales" ColumnName="OrderedProductSales" />
+          <ScalarProperty Name="UnitSessionPercentage" ColumnName="UnitSessionPercentage" />
+          <ScalarProperty Name="UnitsOrdered" ColumnName="UnitsOrdered" />
+          <ScalarProperty Name="BuyBoxPercentage" ColumnName="BuyBoxPercentage" />
+          <ScalarProperty Name="PageViewPercentage" ColumnName="PageViewPercentage" />
+          <ScalarProperty Name="PageViews" ColumnName="PageViews" />
+          <ScalarProperty Name="SessionPercentage" ColumnName="SessionPercentage" />
+          <ScalarProperty Name="Sessions" ColumnName="Sessions" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NeedInInventoryWithTotals">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.NeedInInventoryWithTotal">
+        <MappingFragment StoreEntitySet="NeedInInventoryWithTotal">
+          <ScalarProperty Name="FBAQty" ColumnName="FBAQty" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="NeedInInventoryTotal" ColumnName="NeedInInventoryTotal" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OnOrder" ColumnName="OnOrder" />
+          <ScalarProperty Name="NeedInInventory" ColumnName="NeedInInventory" />
+          <ScalarProperty Name="AmazonStockQty" ColumnName="AmazonStockQty" />
+          <ScalarProperty Name="QtySold" ColumnName="QtySold" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutPriceds">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.OutPriced">
+        <MappingFragment StoreEntitySet="OutPriced">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="OurMinPrice" ColumnName="OurMinPrice" />
+          <ScalarProperty Name="StockQty" ColumnName="StockQty" />
+          <ScalarProperty Name="AmazonFulfilled" ColumnName="AmazonFulfilled" />
+          <ScalarProperty Name="CompetitorMinPrice" ColumnName="CompetitorMinPrice" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialPriceSalesByDays">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.SpecialPriceSalesByDay">
+        <MappingFragment StoreEntitySet="SpecialPriceSalesByDay">
+          <ScalarProperty Name="SpecialPrice" ColumnName="SpecialPrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderProductsVendors">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.PurchaseOrderProductsVendor">
+        <MappingFragment StoreEntitySet="PurchaseOrderProductsVendors">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+          <ScalarProperty Name="POID" ColumnName="POID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOSInventoryChangeReports">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.SOSInventoryChangeReport">
+        <MappingFragment StoreEntitySet="SOSInventoryChangeReports">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eBayRawItemDatas">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.eBayRawItemData">
+        <MappingFragment StoreEntitySet="eBayRawItemData">
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="RawData" ColumnName="RawData" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemStatus">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.SystemStatu">
+        <MappingFragment StoreEntitySet="SystemStatus">
+          <ScalarProperty Name="LasteBayOrderDownloadQueryDate" ColumnName="LasteBayOrderDownloadQueryDate" />
+          <ScalarProperty Name="LatesteBayRawItemQueryDate" ColumnName="LatesteBayRawItemQueryDate" />
+          <ScalarProperty Name="OldesteBayRawItemQueryDate" ColumnName="OldesteBayRawItemQueryDate" />
+          <ScalarProperty Name="LastUpdateSalesPerDayByASINTable" ColumnName="LastUpdateSalesPerDayByASINTable" />
+          <ScalarProperty Name="LastSearch" ColumnName="LastSearch" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eBayItemsProducts">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.eBayItemsProduct">
+        <MappingFragment StoreEntitySet="eBayItemsProducts">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventories">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductInventory">
+        <MappingFragment StoreEntitySet="ProductInventory">
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InboundFBAShipmentStatusChanges">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.InboundFBAShipmentStatusChange">
+        <MappingFragment StoreEntitySet="InboundFBAShipmentStatusChanges">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ProductInventoryMoveID" ColumnName="ProductInventoryMoveID" />
+          <ScalarProperty Name="NewStatus" ColumnName="NewStatus" />
+          <ScalarProperty Name="OldStatus" ColumnName="OldStatus" />
+          <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InboundFBAShipments">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.InboundFBAShipment">
+        <MappingFragment StoreEntitySet="InboundFBAShipments">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ScheduledForInventoryAdjustmentProcessing" ColumnName="ScheduledForInventoryAdjustmentProcessing" />
+          <ScalarProperty Name="RemovedFromInventoryAdjustmentProcessing" ColumnName="RemovedFromInventoryAdjustmentProcessing" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonOrderLines">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonOrderLine">
+        <MappingFragment StoreEntitySet="AmazonOrderLines">
+          <ScalarProperty Name="NotShippedFromWarehouseID" ColumnName="NotShippedFromWarehouseID" />
+          <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ASIN" ColumnName="ASIN" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="AmazonOrderID" ColumnName="AmazonOrderID" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eBayOrders">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.eBayOrder">
+        <MappingFragment StoreEntitySet="eBayOrders">
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="ShippedTime" ColumnName="ShippedTime" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ShippedNoticedTimeStamp" ColumnName="ShippedNoticedTimeStamp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="ProductInventoryMoveID" ColumnName="ProductInventoryMoveID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="RawData" ColumnName="RawData" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventoryAdjustmentBatches">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductInventoryAdjustmentBatch">
+        <MappingFragment StoreEntitySet="ProductInventoryAdjustmentBatches">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventoryAdjustmentReasons">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductInventoryAdjustmentReason">
+        <MappingFragment StoreEntitySet="ProductInventoryAdjustmentReasons">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ReasonRef3Required" ColumnName="ReasonRef3Required" />
+          <ScalarProperty Name="ReasonRef3Text" ColumnName="ReasonRef3Text" />
+          <ScalarProperty Name="ReasonRef2Required" ColumnName="ReasonRef2Required" />
+          <ScalarProperty Name="ReasonRef2Text" ColumnName="ReasonRef2Text" />
+          <ScalarProperty Name="ReasonRef1Required" ColumnName="ReasonRef1Required" />
+          <ScalarProperty Name="ReasonRef1Text" ColumnName="ReasonRef1Text" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Types" ColumnName="Types" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventoryAdjustmentReasonTypes">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductInventoryAdjustmentReasonType">
+        <MappingFragment StoreEntitySet="ProductInventoryAdjustmentReasonTypes">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventoryAdjustments">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductInventoryAdjustment">
+        <MappingFragment StoreEntitySet="ProductInventoryAdjustments">
+          <ScalarProperty Name="ProductInventoryAdjustmentBatchID" ColumnName="ProductInventoryAdjustmentBatchID" />
+          <ScalarProperty Name="NewQty" ColumnName="NewQty" />
+          <ScalarProperty Name="OldQty" ColumnName="OldQty" />
+          <ScalarProperty Name="AdjustmentAmount" ColumnName="AdjustmentAmount" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ReasonRef3" ColumnName="ReasonRef3" />
+          <ScalarProperty Name="ReasonRef2" ColumnName="ReasonRef2" />
+          <ScalarProperty Name="ReasonRef1" ColumnName="ReasonRef1" />
+          <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventoryLocations">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ProductInventoryLocation">
+        <MappingFragment StoreEntitySet="ProductInventoryLocations">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InboundFBAShipmentItems">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.InboundFBAShipmentItem">
+        <MappingFragment StoreEntitySet="InboundFBAShipmentItems">
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="QuantityInCase" ColumnName="QuantityInCase" />
+          <ScalarProperty Name="QuantityReceived" ColumnName="QuantityReceived" />
+          <ScalarProperty Name="QuantityShipped" ColumnName="QuantityShipped" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmazonOrders">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.AmazonOrder">
+        <MappingFragment StoreEntitySet="AmazonOrders">
+          <ScalarProperty Name="ShipToName" ColumnName="ShipToName" />
+          <ScalarProperty Name="SOSInventoryChangeReportID" ColumnName="SOSInventoryChangeReportID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ProductInventoryAdjustmentBatchID" ColumnName="ProductInventoryAdjustmentBatchID" />
+          <ScalarProperty Name="LastStatusChangeNoticed" ColumnName="LastStatusChangeNoticed" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FulfillmentChannel" ColumnName="FulfillmentChannel" />
+          <ScalarProperty Name="ShipPhone" ColumnName="ShipPhone" />
+          <ScalarProperty Name="ShipCountryID" ColumnName="ShipCountryID" />
+          <ScalarProperty Name="ShipCountryCode" ColumnName="ShipCountryCode" />
+          <ScalarProperty Name="ShipPostalCode" ColumnName="ShipPostalCode" />
+          <ScalarProperty Name="ShipStateID" ColumnName="ShipStateID" />
+          <ScalarProperty Name="ShipStateProvince" ColumnName="ShipStateProvince" />
+          <ScalarProperty Name="ShipCity" ColumnName="ShipCity" />
+          <ScalarProperty Name="ShipAddress3" ColumnName="ShipAddress3" />
+          <ScalarProperty Name="ShipAddress2" ColumnName="ShipAddress2" />
+          <ScalarProperty Name="ShipAddress1" ColumnName="ShipAddress1" />
+          <ScalarProperty Name="NameLast" ColumnName="NameLast" />
+          <ScalarProperty Name="NameFirst" ColumnName="NameFirst" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="AmazonOrderID" ColumnName="AmazonOrderID" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eBayOrderLines">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.eBayOrderLine">
+        <MappingFragment StoreEntitySet="eBayOrderLines">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="SellingManagerSalesRecordNumber" ColumnName="SellingManagerSalesRecordNumber" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FakeUPCs">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.FakeUPC">
+        <MappingFragment StoreEntitySet="FakeUPCs">
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ProductComboCode" ColumnName="ProductComboCode" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eBayItems">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.eBayItem">
+        <MappingFragment StoreEntitySet="eBayItems">
+          <ScalarProperty Name="ProductAssociationCount" ColumnName="ProductAssociationCount" />
+          <ScalarProperty Name="ListingStatus" ColumnName="ListingStatus" />
+          <ScalarProperty Name="ListingStatusText" ColumnName="ListingStatusText" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CurrentPrice" ColumnName="CurrentPrice" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InboundFBAShipmentProductInventoryAdjustments">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.InboundFBAShipmentProductInventoryAdjustment">
+        <MappingFragment StoreEntitySet="InboundFBAShipmentProductInventoryAdjustments">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ProductInventoryAdjustmentBatchID" ColumnName="ProductInventoryAdjustmentBatchID" />
+          <ScalarProperty Name="InboundFBAShipmentID" ColumnName="InboundFBAShipmentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InboundFBAShipmentManagementViews">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.InboundFBAShipmentManagementView">
+        <MappingFragment StoreEntitySet="InboundFBAShipmentManagementView">
+          <ScalarProperty Name="AmazonAccountName" ColumnName="AmazonAccountName" />
+          <ScalarProperty Name="InventoryAdjustmentCount" ColumnName="InventoryAdjustmentCount" />
+          <ScalarProperty Name="LastInventoryAdjustment" ColumnName="LastInventoryAdjustment" />
+          <ScalarProperty Name="FirstInventoryAdjustment" ColumnName="FirstInventoryAdjustment" />
+          <ScalarProperty Name="InboundFBAShipmentID" ColumnName="InboundFBAShipmentID" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ScheduledForInventoryAdjustmentProcessing" ColumnName="ScheduledForInventoryAdjustmentProcessing" />
+          <ScalarProperty Name="RemovedFromInventoryAdjustmentProcessing" ColumnName="RemovedFromInventoryAdjustmentProcessing" />
+          <ScalarProperty Name="UpdateTimeStamp" ColumnName="UpdateTimeStamp" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AmazonAccountID" ColumnName="AmazonAccountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderConfirm_Status">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.PurchaseOrderConfirm_Status">
+        <MappingFragment StoreEntitySet="PurchaseOrderConfirm_Status">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="DisplaySeq" ColumnName="DisplaySeq" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecievedShipmentStatuses">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.RecievedShipmentStatus">
+        <MappingFragment StoreEntitySet="RecievedShipmentStatuses">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="DisplaySeq" ColumnName="DisplaySeq" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippedtoAmazons">
+      <EntityTypeMapping TypeName="OmnimarkAmazon.Models.ShippedtoAmazon">
+        <MappingFragment StoreEntitySet="ShippedtoAmazon">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

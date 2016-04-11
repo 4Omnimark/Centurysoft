@@ -1,0 +1,874 @@
+/*  EBAY - Developer Program Document/Template Styles - v1
+*	April 25th, 2008
+*	Author: Amadeo Donofrio - amadeo@solutionset.com
+*   SolutionSet  http://www.solutionset.com
+*
+*	1) This style sheet is intended to supplement pre-existing additional styles.
+*	2) This style sheet and it's print conterpart (ss-print.css) is intended to be included directly before the closing head tag (</head>).
+*	3) this stylesheet depends on images located in the 'i' directory, which must be preserved to ensure correct display.
+*
+**********************************************************/
+
+/*	Layout Styles
+***************************************************/
+body{
+	/*margin: 0px;*/ /* No margins for left nav layout */
+	margin: 20px;
+	padding: 0;
+}
+
+
+/*	Content Header Styles
+***************************************************/
+
+div.schemaTitle,
+span.title,
+span.version{
+	font-family:				Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+	font-size:					14px;
+	color:							#999999;
+	padding:						0;
+	margin:							0 0 15px 0;
+	line-height:				14px;
+	border:							none !important;
+}
+
+
+span.version{
+  	margin:							0 0 0 10px;
+}
+
+h1,
+span.docTitle,
+span.subtitle {
+	  font-family:				Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+	  font-weight:				normal;
+	  font-size:					32px;
+	  line-height:				32px;
+	  color:							#999999;
+	  padding:						0;
+	  margin:							10px;
+	  border:							none !important;
+
+}
+
+h1{
+	 font-weight:					bold;
+}
+
+/* Compensating for Inconsistant Title Layout with Negative margins */
+div.schemaTitle{
+	margin:							0;
+}
+
+/* Compensating for Inconsistant Title Layout with Negative margins */
+span.docTitle{
+	 margin:						0 0 0 0;
+}
+
+div.sectionTitle {
+	font-family: 					"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: 					normal;
+	font-size: 						24px;
+	color: 							333333;
+	padding: 						10px 0px 10px 0px;
+	margin:	               	 		0px 0px 0px 0px;
+	line-height: 					30px;
+}
+
+
+h1.title {
+	 border:						none !important;
+	 margin-bottom:					12px;
+	 display:						inline;
+	 line-height:					0;
+}
+
+h2{
+	  font-family:					"Trebuchet MS", Arial, Helvetica, sans-serif;
+	  font-weight: 					normal;
+	  font-size: 					18px;
+	  color: 						333333;
+	  line-height: 					22px;
+	  border-top:	 				1px dashed #f5f5f5;
+	  margin:	               	 	10px 0px 10px 20px;
+	  padding-bottom:				5px;
+	  padding-left:                 0px;
+	  padding-top:					20px;
+}
+
+
+#x div.sectionTitle, h1 {
+	font-family: 					"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: 					normal;
+	font-size: 						24px;
+	color: 							333333;
+	padding: 						10px 0px 10px 0px;
+	margin:	               	 		0px 0px 0px 0px;
+	line-height: 					30px;
+}
+
+#x h2 {
+	  margin:	               	 	12px 0 0 0px;
+}
+
+h3{
+	font-family: 					"Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: 							#333333;
+	font-size: 						16px;
+	line-height: 					20px;
+	font-weight: 					bold;
+	text-decoration: 				none;
+	padding: 						10px 0px 10px 20px;
+	margin-bottom: 					0px;
+}
+
+h3.detailHdr2{
+	font-family: 					"Trebuchet MS", Arial, Helvetica, sans-serif!important;
+	color: 							#333333!important;
+	font-size: 						16px!important;
+	line-height: 					20px;
+	font-weight: 					bold;
+	text-decoration: 				none;
+	padding: 						10px 0px 10px 0px;
+	margin-bottom: 					0px;
+}
+
+#x h3 {
+	  padding:	               	 	0px 0 0 0px;
+}
+
+#js h3 {
+	  padding-left:	      			10px;
+}
+
+h4{
+	font-family: 					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  	color:							#000000;
+  	font-size:						16px;
+  	line-height: 					1;
+	font-weight:					bold;
+  	text-decoration: 				none none none;
+	padding:                        0 0 0 60px;
+	margin-bottom:					3px;
+}
+
+
+
+/*	Body Content Styles
+***************************************************/
+p {
+	font-family: 				Arial, Helvetica, sans-serif;
+	color: 						#333333;
+	font-size:					13px;
+	line-height:				16px;
+	text-decoration: 			none none none;
+	margin:						0 0 10px 0;
+	padding:					0 0 0 20px;
+}
+
+#x p {
+	padding-left:				20px ;
+}
+
+p span{
+	margin:						0;
+	padding: 					0;
+	line-height:				10px;
+}
+
+p.ref{
+  line-height:					15px;
+  margin:						0 0 10px 0;
+  padding:						0 0 0 60px;
+}
+
+
+.outdent {
+	padding-left:				0 ;
+}
+
+pre {
+	background-color: #f8f8f8;
+	font-size: 9pt;
+	font-family: "Courier New";
+	margin: 15px 0 20px 20px;
+	padding: 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #e1e1e1;
+	max-width: 100%;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+
+#x pre {
+	margin:							0 0 20px;
+}
+p.Ref{
+	margin:							0;
+}
+
+
+hr{
+	display:						none;
+}
+
+ul {
+	margin: 0 0 10px 10px;
+}
+
+#x ul{
+	margin:       					0 0 10px 0px;
+	_margin:						0 0 10px 0px
+}
+
+ol{
+	margin:       					0 0 10px 41px;
+	_margin:						0 0 10px 85px
+}
+
+#x ol{
+	margin:       					0 0 10px 10px;
+	_margin:						0 0 10px 85px
+}
+
+ul ul,
+ol ol,
+ol ul{
+	margin:       					-10px 0 10px -10px;
+	_margin:						0 0 10px 20px;
+}
+
+
+ul li{
+	margin:       					0;
+	list-style-type:				square;
+	font-size:						12px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+	line-height: 18px;
+	margin-left: 30px;
+}
+
+ul li p {
+	padding: 5px 0 5px 0;
+}
+
+ol li{
+	margin:       					0;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+	line-height: 16px;
+	font-size: 13px;
+}
+
+ol li p {
+	padding: 5px 0 5px 0;
+}
+
+/*	Table Styles
+***************************************************/
+
+div.table{
+	margin:							0 0 0 58px;
+	width:							95%;
+}
+
+
+span.tablenote{
+	background-color: 				#F2F2F2;
+	border:							1px solid #cccccc;
+	padding:                        12px 15px;
+	display: 						block;
+	color: 							#333;
+	font-size:						11px;
+	margin: 						0px 10px 10px 0px;
+}
+
+.tablenote .con {color: #666;}
+
+table {
+	border:	 						1px solid #fff;
+	margin:		 					0 0 5px 0;
+	width:							100%;
+	border-collapse: collapse;
+}
+
+table.indent {
+	margin: 10px 0px 10px 20px!important;
+	width: 99%;
+	border-collapse: collapse;
+}
+
+table th{
+	background:						#eeeeee;
+	color:							#000000;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:						left;
+	border:							none;
+	padding:                        10px 5px !important;
+	font-size:						13px;
+
+}
+
+
+table td{
+	background:						#ffffff;
+	color: 							#333;
+	font-family: 					Arial, Helvetica, sans-serif;
+	text-align:						left;
+	border:							none;
+	font-size:						13px;
+	padding:                   		5px;
+	border-bottom:					1px solid #dddddd;
+}
+
+
+table td.sub-head{
+	background-color: 				#eeeeee;
+}
+
+table td.current{
+	background-color: White;
+	border-top: 2px solid Gray;
+	border-bottom: 2px solid Gray;
+}
+
+table td.clear,
+table th.clear{
+	background:						none;
+	border:							none;
+}
+
+table td pre{
+	background:						none;
+	border:							none;
+	padding:                        0;
+	margin:							0;
+	color:							#000;
+}
+
+table.nav {
+	margin-left:					0;
+	padding:                        0;
+}
+
+ul.InTable {
+	color:							#000000;
+	font-family:					Tahoma,"MS Sans Serif",Arial,Verdana,sans-serif;
+	font-size:						13px;
+	margin-top:						2px;
+	margin-left:					-25px;
+	_margin-left:					15px;
+}
+
+
+/*	Form & Rating Styles
+***************************************************/
+div.comments{
+	display:						inline;
+	min-width:						800px;
+	width:							auto !important;
+	width:							800px;
+	_width:							100%;
+	padding:                        0;
+	_padding: 						0 0 0 50px;
+}
+
+div.c-right{
+	margin:							-14px 0 0 40px !important;
+	display:						inline;
+	float:							right;
+	width:							200px;
+}
+
+
+div.solset_comments h3.detailHdr2 {
+	background:						none !important;
+	/*border-top:					2px dotted #ccc !important;*/ /* Dec10 */
+	/*margin-left:					280px !important; */
+	_margin-left:					10px !important;
+	padding:                        5px 0 0 0 !important;
+	display:						block;
+	position:						relative;
+	/*left: 							-220px;
+	_left: 							0px; */ /* Dec10 */
+}
+
+div.solset_comments ol p{
+	margin:							0 0 0 10px; !important;
+	padding:                        0 !important;
+	font-family:					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif !important;
+	font-size:						13px !important;
+}
+
+div.solset_addcomment{
+	margin:							5px 0 0 60px; !important;
+	_margin:						5px 0 0 20px; !important;
+	padding:                        0 !important;
+	font-family:					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif !important;
+	font-size:						13px !important;
+}
+
+div.solset_addcomment a{
+	margin:							0; !important;
+	padding:                        0 !important;
+	font-family:					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif !important;
+	font-size:						13px !important;
+}
+
+div.SolSet_boxcontent p{
+	padding:					0 !important;
+}
+
+div.SolSet_corner{
+}
+
+
+
+
+/*	Back to Top Link Styles
+***************************************************/
+p.btt{
+	display:						block;
+	height:							13px;
+	margin:							5px 0 10px 0;
+	padding:                        0;
+
+}
+
+p.btt a:link,
+p.btt a:active,
+p.btt a:visited{
+	float: 							right;
+	display: 						inline;
+	background:						url('i/btt.gif') 0 2px no-repeat;
+	font-size:						10px;
+	color:							#666666;
+	padding:               			0 0 0 15px;
+	font-family: 					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+	margin:							0;
+	text-decoration:				none;
+}
+
+p.btt a:hover{
+	text-decoration:				underline !important;
+}
+
+
+a.btt{
+	float: 							right;
+	display: 						inline;
+	background:						url('i/btt.gif') 0 4px no-repeat;
+	font-size:						10px;
+	color:							#666666;
+	padding:               			0 0 0 15px;
+	font-family: 					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+	margin:							4px 0 0 0;
+	text-decoration:				none;
+}
+
+a.btt:hover{
+	text-decoration:				underline !important;
+}
+
+
+/*	Ebay Main Navigation Styles
+***************************************************/
+#header{
+	margin:							0;
+	*margin-bottom:20px;
+}
+
+#header p{
+	margin-bottom:					0;
+}
+
+#header .pageHeader{
+	display:						block;
+	width:							auto;
+	min-height:	 					50px;
+  	height:							auto !important;
+  	height:							50px;
+	margin:							0 0 5px 0;
+	clear:							both;
+}
+
+#header a#logo{
+	display:						block;
+	height:							45px;
+	width:							203px;
+	margin:							0;
+	float: 							right;
+}
+
+#header .topNav a {
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.srchBox {
+	background:						transparent url(i/imgHdrSearchBg.gif) repeat-x scroll right top;
+	position:						relative;
+}
+
+#header .srchBoxE {
+	background:						transparent url(i/imgHdrSearchLft-ss.gif) no-repeat scroll left top;
+}
+
+#header .srchBoxW {
+	background:						transparent url(i/imgHdrSearchRgt-ss.gif) no-repeat scroll right top;
+	height:							38px;
+}
+
+#header div.snav {
+	background:						transparent url(i/imgHdrCatsLft-ss.gif) no-repeat scroll left bottom;
+	margin:							0;
+	padding: 0;
+}
+
+#header div.snavE {
+	background:						transparent url(i/imgHdrCatsRgt-ss.gif) no-repeat scroll right bottom;
+}
+
+#header table{
+	padding:                        0;
+	margin:							0;
+}
+
+#header table td{
+	padding:                        0;
+	background:						inherit;
+}
+
+#header div.snav div table {
+	background:						inherit;
+	margin:							0pt;
+	width:							auto;
+}
+
+
+#header div.snavW {
+	background:						transparent url(http://pics.ebaystatic.com/aw/pics/globalHeader/imgHdrCatsBg2.gif) repeat-x 0 -5px;
+	margin:							0 6px 0 2px;
+	display:						block;
+	height:							30px;
+}
+
+#header td.snav td {
+	background:						transparent url(i/imgHdrMainNavBgHighlight.gif) no-repeat scroll right top !important;
+	height:							29px;
+	white-space:					nowrap;
+}
+
+
+#header td.brnd1 {
+	background-color:				#FF0000;
+	height:							4px;
+	margin:							0pt;
+	padding:	                    0pt;
+	width:							22%;
+}
+#header td.brnd2 {
+	background-color:				#990033;
+	width:							4%;
+	height:							4px;
+}
+#header td.brnd3 {
+	background-color:				#000099;
+	width:							22%;
+	height:							4px;
+}
+#header td.brnd4 {
+	background-color:				#CC6600;
+	width:							5%;
+	height:							4px;
+}
+#header td.brnd5 {
+	background-color:				#FFCC00;
+	width:							22%;
+	height:							4px;
+}
+#header td.brnd6 {
+	background-color:				#999900;
+	width:							4%;
+	height:							4px;
+}
+
+#header td.brnd7 {
+	background-color:				#99CC00;
+	width:							22%;
+	height:							4px;
+}
+
+#header td.brnd8 {
+	background-color:				#C0C0C0;
+	height:							2px;
+	margin:							0pt;
+	padding:	                    0pt;
+}
+
+
+/*	Main Nav Link Styles
+***************************************************/
+
+#header ul#mainNav{
+	display: 						inline;
+	float:							left;
+	margin:							13px 0 0 19px;
+	padding:                        0;
+	font-family:					Arial, Helvetica, sans-serif ;
+	min-width:	    				800px;
+  	width:							auto !important;
+  	width:							800px;
+}
+
+#header ul#mainNav li{
+	list-style-type:				none !important;
+	display: 						inline;
+	float:							left;
+	margin:							0;
+	padding:                        0;
+	border-left:					2px solid #000;
+	line-height:					14px;
+}
+
+#header ul#mainNav li.first a{
+	padding-left:                   0;
+}
+
+#header ul#mainNav li.first{
+	border-left:					none;
+}
+
+#header ul#mainNav li a{
+	display:						block;
+	color:							#000;
+	font-size:						16px;
+	font-weight:					bold;
+	padding:                        0 10px 1px 10px;
+	_padding-top;					1px;
+	margin:							0;
+	font-family:					Arial, Helvetica, sans-serif ;
+}
+
+
+#header td.snav td a{
+	padding:                        6px 10px 3px 10px;
+}
+
+#header td.snav td.fc a{
+	padding:                        6px 10px 3px 0;
+}
+
+#header a:link,
+#header a:active,
+#header a:visited{
+	text-decoration:				none;
+
+}
+
+#header a:hover{
+	text-decoration:underline;
+}
+
+/*	Main Sub Nav Link Styles
+***************************************************/
+#header ul#mainSubNav{
+	display: 						inline;
+	float:							left;
+	margin:							0 0 0 8px;;
+	padding:                        0;
+	font-family:					Arial, Helvetica, sans-serif;
+	min-width:	    				800px;
+  	width:							auto !important;
+}
+
+#header ul#mainSubNav li{
+	list-style-type:				none !important;
+	display: 						inline;
+	float:							left;
+	margin:							0;
+	padding:                        0;
+	_padding:                       0 0 7px 0;
+	border-right:					1px solid #bababa;
+	height: 						100%;
+}
+
+#header ul#mainSubNav li a{
+	display:						block;
+	color:							#666;
+	font-size:						13px;
+	font-weight:					bold;
+	padding:                        6px 10px 0 10px;
+	margin:							0;
+	position:						relative;
+	top:							-1px;
+}
+
+
+/*	Main Tirchery Nav Link Styles
+***************************************************/
+#header .subNav{
+	width:							100%;
+	padding:                   0;
+	margin:							2px 0 0 0;
+	font-family:					Arial, Helvetica, sans-serif ;
+	display:							block;
+	float: 							left !important;
+	min-width:	    				800px;
+  	width:							auto !important;
+  	width:							800px;
+	_width:							900px !important;
+}
+
+#header .fourth{
+	margin-bottom:					20px;
+}
+
+#header .subNav li{
+	padding:                   0;
+	margin:							5px 0 0 0;
+	border-left:					1px solid #00;
+	border-right:					none;
+	line-height:					12px;
+}
+
+#header .fourth li{
+	border-left:					1px solid #666;
+}
+
+#header .subNav li.first{
+	border:							none;
+	margin-left: 					15px;
+}
+
+#header .subNav li.first a{
+	padding-left:                   0;
+}
+
+
+#header .subNav li a{
+	font-size:						13px;
+	font-weight: 					bold;
+	padding:                   0 10px;
+	color:							#000;
+}
+
+#header .fourth li a{
+	color:							#666;
+	font-weight: 					normal;
+	white-space:					pre !important;
+}
+
+/*	Sub Navigation Styles
+***************************************************/
+.navbar {
+	width:							100%;
+	margin:							0;
+  	border:							none;
+	margin-bottom:					15px;
+}
+
+.navbar td.navbar_local{
+	background:						none !important;
+	text-align: 					right !important;
+	padding: 	                    5px;
+}
+
+.quickPicks{
+	font-family: 					Verdana, Geneva, sans-serif;
+	font-size:						10px;
+	font-variant:					normal;
+}
+
+a.navlink:link,
+a.navlink:hover,
+a.navlink:active,
+a.navlink:visited,
+span.navlink{
+	margin:							0 0 0 13px;
+	padding:                        0 0 0 13px;
+	border-left:					1px solid #666666;
+	border: none;
+	color:							#666666;
+}
+
+
+ul.subnav{
+	display: 						block;
+	clear:							both;
+	float: 							right;
+	padding:                        0;
+	margin:							10px 0 0 0;
+}
+
+ul.subnav li{
+	display:						inline;
+	float: 							left;
+	border-left:					1px solid #666;
+	line-height:					8px;
+	margin:							0 0 0 10px;
+	padding:                        0 0 0 0;
+}
+
+ul.subnav li.first{
+	border:							none;
+}
+
+ul.subnav li a{
+	font-family: 					Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+	font-size:						10px;
+	font-variant:					normal;
+	color:							#666;
+	margin:							0 5px;
+	padding: 	                    0 0 0 5px;
+	text-decoration:				none;
+	position:						relative;
+	top: 							-1px;
+}
+
+ul.subnav li a:hover{
+	text-decoration:				underline;
+}
+
+table.clear,
+table.clear td{
+	background:						none !important;
+}
+
+
+/* Bugfixes
+---------------- */
+.clearfix:after { /* All except IE */
+content: ".";
+display: block;
+height: 0;
+line-height: 0px;
+clear: both;
+visibility: hidden;
+}
+.clearfix { /* IE Mac */
+display: inline-block;
+}
+/* Hides from IE Mac, for IE Win \*/
+* html .clearfix {
+height: 1%;
+}
+.clearfix {
+display: block;
+}
+
+#js td {
+	padding: 0px!important;
+	margin: 0px;
+}
+
+.longerr {
+	padding-top:6px;
+	display:block;
+}

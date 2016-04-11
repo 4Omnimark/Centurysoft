@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02D327F1-7694-418D-AA71-8F1EA731B022}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OmnimarkAmazon.Models</RootNamespace>
+    <AssemblyName>OmnimarkAmazonLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="com.ddmresources.EnumMetadata.Core">
+      <HintPath>..\..\bakup\bak\bin\com.ddmresources.EnumMetadata.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="eBay.Service">
+      <HintPath>..\..\bakup\bak\bin\eBay.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\bakup\bak\bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FBAInventoryServiceMWS">
+      <HintPath>..\..\bakup\bak\bin\FBAInventoryServiceMWS.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\bakup\bak\bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="MarketplaceWebService">
+      <HintPath>..\..\bakup\bak\bin\MarketplaceWebService.dll</HintPath>
+    </Reference>
+    <Reference Include="MarketplaceWebServiceOrders">
+      <HintPath>..\..\bakup\bak\bin\MarketplaceWebServiceOrders.dll</HintPath>
+    </Reference>
+    <Reference Include="MarketplaceWebServiceProducts">
+      <HintPath>..\..\bakup\bak\bin\MarketplaceWebServiceProducts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\OmnimarkAmazonWeb\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StartbuttonCore">
+      <HintPath>..\..\bakup\bak\bin\StartbuttonCore.dll</HintPath>
+    </Reference>
+    <Reference Include="StartbuttonCore2013">
+      <HintPath>..\..\bakup\bak\bin\StartbuttonCore2013.dll</HintPath>
+    </Reference>
+    <Reference Include="StartbuttonWeb">
+      <HintPath>..\..\bakup\bak\bin\StartbuttonWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmazonAccount.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmazonInventory.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmazonInventoryProduct.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmazonInventorySKU.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmazonInventoryView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmazonOrder.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmazonOrderLine.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASINOfferListing.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASINOfferScrape.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASINsSuccessfullyExported.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutomaticPriceChange.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutomaticPriceChangesView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\Emails.cs" />
+    <Compile Include="BLL\FeedSubmissionSchedule.cs" />
+    <Compile Include="BLL\ReportActions.cs" />
+    <Compile Include="BLL\ScheduledFeeds.cs" />
+    <Compile Include="Country.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyTraffic.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eBayItem.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eBayItemsProduct.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eBayOrder.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eBayOrderLine.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eBayRawItemData.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExportSpec.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FakeUPC.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedSubmissionQueueRec.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedSubmissionScheduleRec.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedSubmissionScheduleStatusRec.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InboundFBAShipment.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InboundFBAShipmentItem.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InboundFBAShipmentManagementView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InboundFBAShipmentProductInventoryAdjustment.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InboundFBAShipmentStatusChange.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KnownASIN.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KnownASINAttribute.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KnownASINsInventoryMaintenanceView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Library\AWS.cs" />
+    <Compile Include="Library\Feeds.cs" />
+    <Compile Include="Library\FeedsProductCreation.cs" />
+    <Compile Include="Library\Inbound.cs" />
+    <Compile Include="Library\Inventory.cs" />
+    <Compile Include="Library\ProductInventoryRecord.cs" />
+    <Compile Include="Library\Products.cs" />
+    <Compile Include="Library\ItemSearch.cs" />
+    <Compile Include="Library\_Library.cs" />
+    <Compile Include="Library\Orders.cs" />
+    <Compile Include="Models\amzn-base-mods.cs" />
+    <Compile Include="Models\amzn-base.cs">
+      <DependentUpon>amzn-base.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MoveInventoryFromInboundFBAShipmentRec.cs" />
+    <Compile Include="Models\VendorListing.cs" />
+    <Compile Include="Models\_GET_FLAT_FILE_ORDERS_DATA_.cs" />
+    <Compile Include="Models\ProductTagListing.cs" />
+    <Compile Include="Models\ProductCategoryListing.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\InventorySupplySummary.cs" />
+    <Compile Include="Models\ReceivedShipment.cs" />
+    <Compile Include="Models\RelatedProductCalcASIN.cs" />
+    <Compile Include="Models\RelatedProductCalc.cs" />
+    <Compile Include="Models\ItemLookupResponse.cs">
+      <DependentUpon>ItemLookupResponse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemSearchResponse.cs">
+      <DependentUpon>ItemSearchResponse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShippingCalcResult.cs" />
+    <Compile Include="Models\_GET_MERCHANT_LISTINGS_DATA_BACK_COMPAT_.cs" />
+    <Compile Include="NeedInInventoryWithTotal.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OfferScrapeStatus.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OmnimarkAmazon.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmnimarkAmazon.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OmnimarkAmazon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OmnimarkAmazon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmnimarkAmazon.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OnOrder.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OurListing.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutPriced.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCategory.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventory.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventoryAdjustment.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventoryAdjustmentBatch.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventoryAdjustmentReason.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventoryAdjustmentReasonType.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventoryLocation.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTag.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductView.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderConfirm_Status.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderLine.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderPaymentType.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderProductsVendor.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderStatus.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivedProduct.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivedShipment.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecievedShipmentStatus.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelatedProduct.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportAction.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportActionParameter.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesVenue.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTerm.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTermModels.cs" />
+    <Compile Include="SearchTermsWithLastSearchTimeStamp.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippedtoAmazon.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SignedRequestHelper.cs" />
+    <Compile Include="Models\SQLFunctions.cs" />
+    <Compile Include="SOSInventoryChangeReport.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialPriceSalesByDay.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="supplier.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStatu.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeZone.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnderPricedViewRec.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor.cs">
+      <DependentUpon>OmnimarkAmazon.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="OmnimarkAmazon.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OmnimarkAmazon.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\amzn-base.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\ItemLookupResponse.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\ItemSearchResponse.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Price.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Product.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OmnimarkAmazon.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OmnimarkAmazon.Context.cs</LastGenOutput>
+      <DependentUpon>OmnimarkAmazon.edmx</DependentUpon>
+    </None>
+    <None Include="OmnimarkAmazon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OmnimarkAmazon.cs</LastGenOutput>
+      <DependentUpon>OmnimarkAmazon.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

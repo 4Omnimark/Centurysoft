@@ -1,0 +1,73 @@
+body {
+	font-family: Verdana,Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.elementBlock {
+	border:0px solid red;
+	margin-left:10px;
+}
+
+.elementDefn {
+  border:1px solid #CCCCCC;
+  background:#eee;
+  padding: 5px;
+	margin-bottom: 5px;
+	margin-right: 200px;
+}
+
+.elementDetails {
+	border:0px solid green;
+	margin-left:20px;
+}
+
+.elementID {
+	padding-bottom:5px;
+	border:0px solid blue;
+  font-weight:bold;
+}
+
+.elementMMOccurs {
+}
+
+.protobox {
+  padding:5px;
+	border:1px solid #ccc;
+	margin:0px 200px 20px 10px;
+}
+
+.proto_element {
+	font-size:90%;
+}
+
+.proto_type {
+}
+
+.tableEnum {
+	border-top : 1px solid dimgray;
+	border-right : 1px solid dimgray;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.tdEnum {
+	border-left: 1px solid dimgray;
+	border-bottom : 1px solid dimgray;
+	font: normal 10pt sans-serif;
+	background-color : white;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.thEnum {
+	background-color : #f7f7f7;
+	border-left: 1px solid dimgray;
+	border-bottom : 1px solid dimgray;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.thNameEnum {
+	font: bold 10pt sans-serif;
+}
+

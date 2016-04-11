@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="12.0">
+ <Targets>
+  <Target Name="D:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\bin\Debug\OmnimarkAmazonLibrary.dll">
+   <Modules>
+    <Module Name="omnimarkamazonlibrary.dll">
+     <Namespaces>
+      <Namespace Name="AmazonProductAdvtApi">
+       <Types>
+        <Type Name="SignedRequestHelper" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'SignedRequestHelper' because it creates members of the following IDisposable types: 'HMACSHA256'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="OmnimarkAmazon">
+       <Types>
+        <Type Name="Library" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetASINsWithAttributes(OmnimarkAmazon.Models.Entities,System.Collections.Generic.IEnumerable`1&lt;System.String&gt;,System.String,System.String,System.Nullable`1&lt;System.Int32&gt;,System.String&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\Library" File="_Library.cs" Line="320">Object 'conn' can be disposed more than once in method 'Library.GetASINsWithAttributes(Entities, IEnumerable&lt;string&gt;, string, string, int?, ref string)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 320</Issue>
+            </Message>
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\Library" File="_Library.cs" Line="301">The query string passed to 'SqlCommand.CommandText.set(string)' in 'Library.GetASINsWithAttributes(Entities, IEnumerable&lt;string&gt;, string, string, int?, ref string)' could contain the following variables 'Library.GetGetASINsWithAttributesSQL(db, Fields, SelectClauseExtension, EndClauses, NumberOfRecords)'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDocumentFromURL(System.String,System.Action`2&lt;System.Boolean,System.String&gt;)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\Library" File="ItemSearch.cs" Line="339">Object 'stream' can be disposed more than once in method 'Library.GetDocumentFromURL(string, Action&lt;bool, string&gt;)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 339</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetFeedSubmissionResult(System.Collections.Generic.List`1&lt;OmnimarkAmazon.Library+Throttler&gt;,OmnimarkAmazon.Models.AmazonAccount,System.String,System.Action`2&lt;System.Boolean,System.String&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\Library" File="Feeds.cs" Line="306">Object 'ms' can be disposed more than once in method 'Library.GetFeedSubmissionResult(List&lt;Library.Throttler&gt;, AmazonAccount, string, Action&lt;bool, string&gt;)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 306</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Library+AmazonFeedMessageList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+           <Issue Certainty="75" Level="Warning">Add [Serializable] to 'Library.AmazonFeedMessageList' as this type implements ISerializable.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Add(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotHideBaseClassMethods" Category="Microsoft.Design" CheckId="CA1061" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\Library" File="Feeds.cs" Line="41">Change or remove 'Library.AmazonFeedMessageList.Add(int, object)' because it hides a more specific base class method: 'Dictionary&lt;int, Tuple&lt;AmazonEnvelopeMessageOperationType?, object&gt;&gt;.Add(int, Tuple&lt;AmazonEnvelopeMessageOperationType?, object&gt;)'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="OmnimarkAmazon.BLL">
+       <Types>
+        <Type Name="ReportActions" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetCompletedReports(OmnimarkAmazon.Models.Entities,System.Action`2&lt;System.Boolean,System.String&gt;,System.Collections.Generic.List`1&lt;OmnimarkAmazon.BLL.ReportActions+ReportError&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\BLL" File="ReportActions.cs" Line="159">Object 'ReportStream' can be disposed more than once in method 'ReportActions.GetCompletedReports(Entities, Action&lt;bool, string&gt;, List&lt;ReportActions.ReportError&gt;)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 159, 180</Issue>
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary\BLL" File="ReportActions.cs" Line="180">Object 'ReportStream' can be disposed more than once in method 'ReportActions.GetCompletedReports(Entities, Action&lt;bool, string&gt;, List&lt;ReportActions.ReportError&gt;)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 180</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="OmnimarkAmazon.Models">
+       <Types>
+        <Type Name="AmazonAccount" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonAccount.cs" Line="17">'AmazonAccount.AmazonAccount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonAccount..ctor()&#xD;&#xA;AmazonAccount.set_AmazonInventories(ICollection&lt;AmazonInventory&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonAccount.cs" Line="17">'AmazonAccount.AmazonAccount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonAccount..ctor()&#xD;&#xA;AmazonAccount.set_AmazonInventorySKUs(ICollection&lt;AmazonInventorySKU&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonAccount.cs" Line="17">'AmazonAccount.AmazonAccount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonAccount..ctor()&#xD;&#xA;AmazonAccount.set_AmazonOrders(ICollection&lt;AmazonOrder&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonAccount.cs" Line="17">'AmazonAccount.AmazonAccount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonAccount..ctor()&#xD;&#xA;AmazonAccount.set_FeedSubmissionQueues(ICollection&lt;FeedSubmissionQueueRec&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonAccount.cs" Line="17">'AmazonAccount.AmazonAccount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonAccount..ctor()&#xD;&#xA;AmazonAccount.set_FeedSubmissionSchedules(ICollection&lt;FeedSubmissionScheduleRec&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonAccount.cs" Line="17">'AmazonAccount.AmazonAccount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonAccount..ctor()&#xD;&#xA;AmazonAccount.set_InboundFBAShipments(ICollection&lt;InboundFBAShipment&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AmazonInventory" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonInventory.cs" Line="17">'AmazonInventory.AmazonInventory()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonInventory..ctor()&#xD;&#xA;AmazonInventory.set_AmazonInventorySKUs(ICollection&lt;AmazonInventorySKU&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AmazonOrder" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="AmazonOrder.cs" Line="17">'AmazonOrder.AmazonOrder()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;AmazonOrder..ctor()&#xD;&#xA;AmazonOrder.set_AmazonOrderLines(ICollection&lt;AmazonOrderLine&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="aspnet_Roles" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="aspnet_Roles.cs" Line="17">'aspnet_Roles.aspnet_Roles()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;aspnet_Roles..ctor()&#xD;&#xA;aspnet_Roles.set_aspnet_Users(ICollection&lt;aspnet_Users&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="aspnet_Users" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="aspnet_Users.cs" Line="17">'aspnet_Users.aspnet_Users()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;aspnet_Users..ctor()&#xD;&#xA;aspnet_Users.set_aspnet_Roles(ICollection&lt;aspnet_Roles&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Country" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Country.cs" Line="17">'Country.Country()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Country..ctor()&#xD;&#xA;Country.set_AmazonAccounts(ICollection&lt;AmazonAccount&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Country.cs" Line="17">'Country.Country()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Country..ctor()&#xD;&#xA;Country.set_Vendors(ICollection&lt;Vendor&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="eBayOrder" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="eBayOrder.cs" Line="17">'eBayOrder.eBayOrder()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;eBayOrder..ctor()&#xD;&#xA;eBayOrder.set_eBayOrderLines(ICollection&lt;eBayOrderLine&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="eBayRawItemData" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="eBayRawItemData.cs" Line="17">'eBayRawItemData.eBayRawItemData()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;eBayRawItemData..ctor()&#xD;&#xA;eBayRawItemData.set_eBayItemsProducts(ICollection&lt;eBayItemsProduct&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="eBayRawItemData.cs" Line="17">'eBayRawItemData.eBayRawItemData()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;eBayRawItemData..ctor()&#xD;&#xA;eBayRawItemData.set_eBayOrderLines(ICollection&lt;eBayOrderLine&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FeedSubmissionQueueRec" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="FeedSubmissionQueueRec.cs" Line="17">'FeedSubmissionQueueRec.FeedSubmissionQueueRec()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;FeedSubmissionQueueRec..ctor()&#xD;&#xA;FeedSubmissionQueueRec.set_AutomaticPriceChanges(ICollection&lt;AutomaticPriceChange&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="FeedSubmissionQueueRec.cs" Line="17">'FeedSubmissionQueueRec.FeedSubmissionQueueRec()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;FeedSubmissionQueueRec..ctor()&#xD;&#xA;FeedSubmissionQueueRec.set_AutomaticPriceChanges1(ICollection&lt;AutomaticPriceChange&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FeedSubmissionScheduleRec" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="FeedSubmissionScheduleRec.cs" Line="17">'FeedSubmissionScheduleRec.FeedSubmissionScheduleRec()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;FeedSubmissionScheduleRec..ctor()&#xD;&#xA;FeedSubmissionScheduleRec.set_AutomaticPriceChanges(ICollection&lt;AutomaticPriceChange&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="FeedSubmissionScheduleRec.cs" Line="17">'FeedSubmissionScheduleRec.FeedSubmissionScheduleRec()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;FeedSubmissionScheduleRec..ctor()&#xD;&#xA;FeedSubmissionScheduleRec.set_AutomaticPriceChanges1(ICollection&lt;AutomaticPriceChange&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="FeedSubmissionScheduleRec.cs" Line="17">'FeedSubmissionScheduleRec.FeedSubmissionScheduleRec()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;FeedSubmissionScheduleRec..ctor()&#xD;&#xA;FeedSubmissionScheduleRec.set_FeedSubmissionQueueRecs(ICollection&lt;FeedSubmissionQueueRec&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="InboundFBAShipment" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="InboundFBAShipment.cs" Line="17">'InboundFBAShipment.InboundFBAShipment()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;InboundFBAShipment..ctor()&#xD;&#xA;InboundFBAShipment.set_InboundFBAShipmentItems(ICollection&lt;InboundFBAShipmentItem&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="InboundFBAShipment.cs" Line="17">'InboundFBAShipment.InboundFBAShipment()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;InboundFBAShipment..ctor()&#xD;&#xA;InboundFBAShipment.set_InboundFBAShipmentProductInventoryAdjustments(ICollection&lt;InboundFBAShipmentProductInventoryAdjustment&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="InboundFBAShipment.cs" Line="17">'InboundFBAShipment.InboundFBAShipment()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;InboundFBAShipment..ctor()&#xD;&#xA;InboundFBAShipment.set_InboundFBAShipmentStatusChanges(ICollection&lt;InboundFBAShipmentStatusChange&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="KnownASIN" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_ASINOfferListings(ICollection&lt;ASINOfferListing&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_ASINOfferScrapes(ICollection&lt;ASINOfferScrape&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_ASINsSuccessfullyExporteds(ICollection&lt;ASINsSuccessfullyExported&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_AmazonInventories(ICollection&lt;AmazonInventory&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_AmazonInventoryProducts(ICollection&lt;AmazonInventoryProduct&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_AmazonInventorySKUs(ICollection&lt;AmazonInventorySKU&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="KnownASIN.cs" Line="17">'KnownASIN.KnownASIN()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;KnownASIN..ctor()&#xD;&#xA;KnownASIN.set_KnownASINAttributes(ICollection&lt;KnownASINAttribute&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Product" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_AmazonInventoryProducts(ICollection&lt;AmazonInventoryProduct&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_Categories(ICollection&lt;ProductCategory&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_ProductInventories(ICollection&lt;ProductInventory&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_ProductInventoryAdjustments(ICollection&lt;ProductInventoryAdjustment&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_PurchaseOrderLines(ICollection&lt;PurchaseOrderLine&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_ReceivedProducts(ICollection&lt;ReceivedProduct&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_Tags(ICollection&lt;ProductTag&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_Vendors(ICollection&lt;Vendor&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Product.cs" Line="17">'Product.Product()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Product..ctor()&#xD;&#xA;Product.set_eBayItemsProducts(ICollection&lt;eBayItemsProduct&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProductCategory" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductCategory.cs" Line="17">'ProductCategory.ProductCategory()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductCategory..ctor()&#xD;&#xA;ProductCategory.set_ProductTags(ICollection&lt;ProductTag&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductCategory.cs" Line="17">'ProductCategory.ProductCategory()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductCategory..ctor()&#xD;&#xA;ProductCategory.set_Products(ICollection&lt;Product&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProductInventoryAdjustment" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryAdjustment.cs" Line="17">'ProductInventoryAdjustment.ProductInventoryAdjustment()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryAdjustment..ctor()&#xD;&#xA;ProductInventoryAdjustment.set_AmazonOrderLines(ICollection&lt;AmazonOrderLine&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProductInventoryAdjustmentBatch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryAdjustmentBatch.cs" Line="17">'ProductInventoryAdjustmentBatch.ProductInventoryAdjustmentBatch()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryAdjustmentBatch..ctor()&#xD;&#xA;ProductInventoryAdjustmentBatch.set_AmazonOrders(ICollection&lt;AmazonOrder&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryAdjustmentBatch.cs" Line="17">'ProductInventoryAdjustmentBatch.ProductInventoryAdjustmentBatch()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryAdjustmentBatch..ctor()&#xD;&#xA;ProductInventoryAdjustmentBatch.set_InboundFBAShipmentProductInventoryAdjustments(ICollection&lt;InboundFBAShipmentProductInventoryAdjustment&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryAdjustmentBatch.cs" Line="17">'ProductInventoryAdjustmentBatch.ProductInventoryAdjustmentBatch()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryAdjustmentBatch..ctor()&#xD;&#xA;ProductInventoryAdjustmentBatch.set_ProductInventoryAdjustments(ICollection&lt;ProductInventoryAdjustment&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryAdjustmentBatch.cs" Line="17">'ProductInventoryAdjustmentBatch.ProductInventoryAdjustmentBatch()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryAdjustmentBatch..ctor()&#xD;&#xA;ProductInventoryAdjustmentBatch.set_eBayOrders(ICollection&lt;eBayOrder&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProductInventoryAdjustmentReason" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryAdjustmentReason.cs" Line="17">'ProductInventoryAdjustmentReason.ProductInventoryAdjustmentReason()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryAdjustmentReason..ctor()&#xD;&#xA;ProductInventoryAdjustmentReason.set_ProductInventoryAdjustments(ICollection&lt;ProductInventoryAdjustment&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProductInventoryLocation" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryLocation.cs" Line="17">'ProductInventoryLocation.ProductInventoryLocation()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryLocation..ctor()&#xD;&#xA;ProductInventoryLocation.set_ProductInventories(ICollection&lt;ProductInventory&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductInventoryLocation.cs" Line="17">'ProductInventoryLocation.ProductInventoryLocation()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductInventoryLocation..ctor()&#xD;&#xA;ProductInventoryLocation.set_ProductInventoryAdjustments(ICollection&lt;ProductInventoryAdjustment&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProductTag" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductTag.cs" Line="17">'ProductTag.ProductTag()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductTag..ctor()&#xD;&#xA;ProductTag.set_ProductCategories(ICollection&lt;ProductCategory&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ProductTag.cs" Line="17">'ProductTag.ProductTag()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ProductTag..ctor()&#xD;&#xA;ProductTag.set_Products(ICollection&lt;Product&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PurchaseOrder" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="PurchaseOrder.cs" Line="17">'PurchaseOrder.PurchaseOrder()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;PurchaseOrder..ctor()&#xD;&#xA;PurchaseOrder.set_Lines(ICollection&lt;PurchaseOrderLine&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PurchaseOrderConfirm_Status" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="PurchaseOrderConfirm_Status.cs" Line="17">'PurchaseOrderConfirm_Status.PurchaseOrderConfirm_Status()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;PurchaseOrderConfirm_Status..ctor()&#xD;&#xA;PurchaseOrderConfirm_Status.set_PurchaseOrders(ICollection&lt;PurchaseOrder&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PurchaseOrderPaymentType" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="PurchaseOrderPaymentType.cs" Line="17">'PurchaseOrderPaymentType.PurchaseOrderPaymentType()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;PurchaseOrderPaymentType..ctor()&#xD;&#xA;PurchaseOrderPaymentType.set_PurchaseOrders(ICollection&lt;PurchaseOrder&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PurchaseOrderStatus" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="PurchaseOrderStatus.cs" Line="17">'PurchaseOrderStatus.PurchaseOrderStatus()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;PurchaseOrderStatus..ctor()&#xD;&#xA;PurchaseOrderStatus.set_PurchaseOrders(ICollection&lt;PurchaseOrder&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ReceivedProduct" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ReceivedProduct.cs" Line="17">'ReceivedProduct.ReceivedProduct()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ReceivedProduct..ctor()&#xD;&#xA;ReceivedProduct.set_PurchaseOrderLines(ICollection&lt;PurchaseOrderLine&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ReceivedShipment" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ReceivedShipment.cs" Line="17">'ReceivedShipment.ReceivedShipment()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ReceivedShipment..ctor()&#xD;&#xA;ReceivedShipment.set_ReceivedProducts(ICollection&lt;ReceivedProduct&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RecievedShipmentStatus" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="RecievedShipmentStatus.cs" Line="17">'RecievedShipmentStatus.RecievedShipmentStatus()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;RecievedShipmentStatus..ctor()&#xD;&#xA;RecievedShipmentStatus.set_ReceivedProducts(ICollection&lt;ReceivedProduct&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ReportAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="ReportAction.cs" Line="17">'ReportAction.ReportAction()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;ReportAction..ctor()&#xD;&#xA;ReportAction.set_ReportActionParameters(ICollection&lt;ReportActionParameter&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SalesVenue" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="SalesVenue.cs" Line="17">'SalesVenue.SalesVenue()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;SalesVenue..ctor()&#xD;&#xA;SalesVenue.set_ASINsSuccessfullyExporteds(ICollection&lt;ASINsSuccessfullyExported&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="SalesVenue.cs" Line="17">'SalesVenue.SalesVenue()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;SalesVenue..ctor()&#xD;&#xA;SalesVenue.set_ExportSpecs(ICollection&lt;ExportSpec&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="State" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="State.cs" Line="17">'State.State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;State..ctor()&#xD;&#xA;State.set_Vendors(ICollection&lt;Vendor&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Vendor" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-04-06 13:27:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Vendor.cs" Line="17">'Vendor.Vendor()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Vendor..ctor()&#xD;&#xA;Vendor.set_Products(ICollection&lt;Product&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Vendor.cs" Line="17">'Vendor.Vendor()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Vendor..ctor()&#xD;&#xA;Vendor.set_PurchaseOrders(ICollection&lt;PurchaseOrder&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="d:\salman\TestinOmnimark_Running\decompile code\OmnimarkAmazonLibrary" File="Vendor.cs" Line="17">'Vendor.Vendor()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Vendor..ctor()&#xD;&#xA;Vendor.set_ReceivedShipments(ICollection&lt;ReceivedShipment&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>Do not dispose objects multiple times</Name>
+   <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 320</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+   <Name>Do not call overridable methods in constructors</Name>
+   <Description>Virtual methods defined on the class should not be called from constructors. If a derived class has overridden the method, the derived class version will be called (before the derived class constructor is called).</Description>
+   <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182331.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotHideBaseClassMethods" Category="Microsoft.Design" CheckId="CA1061">
+   <Name>Do not hide base class methods</Name>
+   <Description>Defining a method in a derived class with the same name and parameters that are more weakly typed as one that is defined in the base class will obstruct access to the method defined in the base class.</Description>
+   <Resolution Name="Default">Change or remove {0} because it hides a more specific base class method: {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182143.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="designrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+   <Name>Mark ISerializable types with SerializableAttribute</Name>
+   <Description>The System.Runtime.Serialization.ISerializable interface allows the type to customize its serialization, while the Serializable attribute enables the runtime to recognize the type as being serializable.</Description>
+   <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182350.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Review SQL queries for security vulnerabilities</Name>
+   <Description>A SQL command string built from user input is vulnerable to SQL injection attacks. Microsoft SQL Server and other database servers support stored procedures and parameterized SQL queries, which reduce the risk of injection attacks.</Description>
+   <Resolution Name="WithNonLiterals">The query string passed to {0} in {1} could contain the following variables {2}. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>Types that own disposable fields should be disposable</Name>
+   <Description>Types that declare disposable members should also implement IDisposable. If the type does not own any unmanaged resources, do not implement a finalizer on it.</Description>
+   <Resolution Name="NonBreaking">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="12.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

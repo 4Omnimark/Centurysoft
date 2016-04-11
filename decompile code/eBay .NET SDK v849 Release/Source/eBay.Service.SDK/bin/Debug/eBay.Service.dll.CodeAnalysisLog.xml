@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="12.0">
+ <Targets>
+  <Target Name="D:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\bin\Debug\eBay.Service.dll">
+   <Modules>
+    <Module Name="ebay.service.dll">
+     <Namespaces>
+      <Namespace Name="eBay.Service.Core.Sdk">
+       <Types>
+        <Type Name="ApiCall" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SendRequest()" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Sdk" File="ApiCall.cs" Line="276">'ApiCall.SendRequest()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ApiException" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="OverrideLinkDemandsShouldBeIdenticalToBase" Category="Microsoft.Security" CheckId="CA2123" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="Breaking">
+             <Issue Name="BaseOnly" Certainty="33" Level="CriticalError" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Sdk" File="ApiException.cs" Line="98">Add the following security attribute to 'ApiException.GetObjectData(SerializationInfo, StreamingContext)' in order to match a LinkDemand on base method 'ISerializable.GetObjectData(SerializationInfo, StreamingContext)':  'SecurityCriticalAttribute'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="HttpException" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="OverrideLinkDemandsShouldBeIdenticalToBase" Category="Microsoft.Security" CheckId="CA2123" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="Breaking">
+             <Issue Name="BaseOnly" Certainty="33" Level="CriticalError" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Sdk" File="HttpException.cs" Line="89">Add the following security attribute to 'HttpException.GetObjectData(SerializationInfo, StreamingContext)' in order to match a LinkDemand on base method 'ISerializable.GetObjectData(SerializationInfo, StreamingContext)':  'SecurityCriticalAttribute'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="HttpWebResponseDecompressed" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'HttpWebResponseDecompressed' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'WebResponse'</Issue>
+          </Message>
+          <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="NonBreaking">
+           <Issue Certainty="75" Level="Warning">Add [Serializable] to 'HttpWebResponseDecompressed' as this type implements ISerializable.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#.ctor(System.Net.WebRequest)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Sdk" File="HttpWebResponseDecompressed.cs" Line="47">'HttpWebResponseDecompressed.HttpWebResponseDecompressed(WebRequest)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SdkException" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="OverrideLinkDemandsShouldBeIdenticalToBase" Category="Microsoft.Security" CheckId="CA2123" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="Breaking">
+             <Issue Name="BaseOnly" Certainty="33" Level="CriticalError" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Sdk" File="SdkException.cs" Line="74">Add the following security attribute to 'SdkException.GetObjectData(SerializationInfo, StreamingContext)' in order to match a LinkDemand on base method 'Exception.GetObjectData(SerializationInfo, StreamingContext)':  'SecurityCriticalAttribute'.</Issue>
+             <Issue Name="BaseOnly" Certainty="33" Level="CriticalError" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Sdk" File="SdkException.cs" Line="74">Add the following security attribute to 'SdkException.GetObjectData(SerializationInfo, StreamingContext)' in order to match a LinkDemand on base method 'ISerializable.GetObjectData(SerializationInfo, StreamingContext)':  'SecurityCriticalAttribute'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="eBay.Service.Core.Soap">
+       <Types>
+        <Type Name="eBayXmlAPIInterfaceService" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Invoke(System.Xml.XmlDocument)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Soap" File="eBayXmlAPIInterfaceService.cs" Line="103">Object 'str' can be disposed more than once in method 'eBayXmlAPIInterfaceService.Invoke(XmlDocument)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 103</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Pretty(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Soap" File="eBayXmlAPIInterfaceService.cs" Line="127">Object 'MemStr' can be disposed more than once in method 'eBayXmlAPIInterfaceService.Pretty(string)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 127</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SoapExtensionEx" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'SoapExtensionEx' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SoapExtension'</Issue>
+          </Message>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'SoapExtensionEx' because it creates members of the following IDisposable types: 'MemoryStream'. If 'SoapExtensionEx' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="SoapExtensionExAttribute" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'SoapExtensionExAttribute' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SoapExtensionAttribute'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="SoapHttpClientProtocolEx" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Pretty(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Core\Soap" File="WebService.cs" Line="126364">Object 'MemStr' can be disposed more than once in method 'SoapHttpClientProtocolEx.Pretty(string)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 126364</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="eBay.Service.EPS">
+       <Types>
+        <Type Name="eBayPictureService" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#sendFile(System.String,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\EPS" File="eBayPictureService.cs" Line="233">Object 'fs' can be disposed more than once in method 'eBayPictureService.sendFile(string, string)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 233</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="eBay.Service.Util">
+       <Types>
+        <Type Name="FileLogger" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#RecordMessage(System.String,eBay.Service.Util.MessageSeverity)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Util" File="FileLogger.cs" Line="92">Object 'fileStream' can be disposed more than once in method 'FileLogger.RecordMessage(string, MessageSeverity)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 92</Issue>
+             <Issue Certainty="75" Level="Warning" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Util" File="FileLogger.cs" Line="92">Object 'writer' can be disposed more than once in method 'FileLogger.RecordMessage(string, MessageSeverity)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 92</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SdkUtility" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LaunchSignInPage(eBay.Service.Core.Sdk.ApiContext,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Status="Active" Created="2016-04-06 13:27:16Z" FixCategory="NonBreaking">
+             <Issue Certainty="33" Level="CriticalError" Path="d:\salman\TestinOmnimark_Running\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK\Util" File="SdkUtility.cs" Line="36">'SdkUtility.LaunchSignInPage(ApiContext, string)' calls into 'Process.Start(string)' which has a LinkDemand. By making this call, 'Process.Start(string)' is indirectly exposed to user code. Review the following call stack that might expose a way to circumvent security protection: &#xD;&#xA;   -&gt;'SdkUtility.LaunchSignInPage(ApiContext, string)'&#xD;&#xA;   -&gt;'SdkUtility.LaunchSignInPage(ApiContext, string)'</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405">
+   <Name>COM visible type base types should be COM visible</Name>
+   <Description>COM visible types should have an object hierarchy that is uniformly COM visible.</Description>
+   <Resolution Name="Default">{0} is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182202.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>Do not dispose objects multiple times</Name>
+   <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 92</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122">
+   <Name>Do not indirectly expose methods with link demands</Name>
+   <Description>Do not wrap a method protected by a LinkDemand with a method that does not perform a security check. A LinkDemand checks the permissions of the immediate caller rather than checking the permissions of all callers in the call stack. In this case, the permissions of the wrapper method will be checked. If the wrapper method does not, itself, check the permissions of callers higher in the call stack, malicious code might be able to execute the wrapped function even though it lacks permission to do so.</Description>
+   <Resolution Name="Default">{0} calls into {1} which has a LinkDemand. By making this call, {1} is indirectly exposed to user code. Review the following call stack that might expose a way to circumvent security protection: {2}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182303.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="33">CriticalError</MessageLevel>
+   <File Name="securityrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+   <Name>Mark ISerializable types with SerializableAttribute</Name>
+   <Description>The System.Runtime.Serialization.ISerializable interface allows the type to customize its serialization, while the Serializable attribute enables the runtime to recognize the type as being serializable.</Description>
+   <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182350.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="OverrideLinkDemandsShouldBeIdenticalToBase" Category="Microsoft.Security" CheckId="CA2123">
+   <Name>Override link demands should be identical to base</Name>
+   <Description>If a virtual method has a LinkDemand, in many cases, so should any override of it, and if an override has a LinkDemand, so should the overridden virtual method. Because it is possible to call any of the overrides of a virtual method explicitly, they should all have the same LinkDemand status or, if not, should be reviewed. This also applies to LinkDemand security checks for methods that part of an interface implementation, because the caller might use an interface-typed reference to access the method.</Description>
+   <Resolution Name="BaseOnly">Add the following security attribute to {0} in order to match a LinkDemand on base method {1}:  {2}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182305(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="33">CriticalError</MessageLevel>
+   <File Name="securitytransparencyrules.dll" Version="4.0.0.0" />
+  </Rule>
+  <Rule TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200">
+   <Name>Rethrow to preserve stack details</Name>
+   <Description>Use the IL rethrow instruction to preserve original stack details when re-raising a caught exception.</Description>
+   <Resolution Name="Default">{0} rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182363.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>Types that own disposable fields should be disposable</Name>
+   <Description>Types that declare disposable members should also implement IDisposable. If the type does not own any unmanaged resources, do not implement a finalizer on it.</Description>
+   <Resolution Name="DependsOnFix">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}. If {0} has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="12.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

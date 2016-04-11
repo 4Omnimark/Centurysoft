@@ -1,0 +1,60 @@
+﻿@model MvcPaging.IPagedList<PagingSorting.Web.Models.People>
+@using MvcPaging
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).scrollTop('0px');
+        var page = 2;
+        var lock = false;
+        var isEnd = false;
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + 150 >= ($(document).height() - ($(window).height()))) {
+                if (!isEnd) {
+                    if (!lock) {
+                        lock = true;
+                        $('#scroll-loadingcontainer').show();
+                        loadMore();
+                    }
+                }
+            }
+        });
+
+        function loadMore() {
+            $.post('@Url.Content("~/Scroll/AjaxPeople")', { Page: page }, function (data) {
+                lock = false;
+                if (jQuery.trim(data).length > 0) {
+                    page++;
+                    $('#gridcontainer .grid tbody').append(data);
+                }
+                else {
+                    isEnd = true;
+                }
+                $('#scroll-loadingcontainer').hide();
+            });
+        }
+    });
+</script>
+
+<div id="gridcontainer">
+    <table class="grid">
+<thead>
+    <tr>
+        <th>@Html.ActionLink("Id", "Index", Model)</th>
+        <th>@Html.ActionLink("Username", "Index", Model)</th>
+        <th>@Html.ActionLink("Age", "Index", Model)</th>
+    </tr>
+</thead>
+<tbody>
+    @Html.Partial("PeopleGridPartial",Model)
+</tbody>
+</table>
+</div>
+
+<div id="scroll-loadingcontainer">
+</div>

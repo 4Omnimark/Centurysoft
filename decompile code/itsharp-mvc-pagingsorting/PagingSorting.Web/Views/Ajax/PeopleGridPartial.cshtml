@@ -1,0 +1,25 @@
+﻿@model MvcPaging.IPagedList<PagingSorting.Web.Models.People>
+@using MvcPaging
+           
+<table class="grid">
+<thead>
+    <tr>
+        <th>@Ajax.ActionLink("Id", "AjaxPeople", Model, new AjaxOptions { UpdateTargetId = "gridcontainer", LoadingElementId = "loadingcontainer" })</th>
+        <th>@Ajax.ActionLink("Username", "AjaxPeople", Model, new AjaxOptions { UpdateTargetId = "gridcontainer", LoadingElementId = "loadingcontainer" })</th>
+        <th>@Ajax.ActionLink("Age", "AjaxPeople", Model, new AjaxOptions { UpdateTargetId = "gridcontainer", LoadingElementId = "loadingcontainer" })</th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (var i in Model) { 
+        <tr>
+            <td>@i.Id</td>
+            <td>@i.Username</td>
+            <td>@i.Age</td>
+        </tr>
+    }
+</tbody>
+</table>
+
+<div class="pager">
+	@Ajax.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, Model.SortBy, Model.SortDescending, "AjaxPeople", new AjaxOptions { UpdateTargetId = "gridcontainer", LoadingElementId = "loadingcontainer" })
+</div>

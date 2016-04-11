@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://webservices.amazon.com/AWSECommerceService/2011-08-01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ItemLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OperationRequest">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RequestId" type="xs:string" />
+              <xs:element name="Arguments">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Argument">
+                      <xs:complexType>
+                        <xs:attribute name="Name" type="xs:string" use="required" />
+                        <xs:attribute name="Value" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RequestProcessingTime" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Items">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Request">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IsValid" type="xs:string" />
+                    <xs:element name="ItemLookupRequest">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="IdType" type="xs:string" />
+                          <xs:element name="ItemId" type="xs:string" />
+                          <xs:element name="ResponseGroup" type="xs:string" />
+                          <xs:element name="VariationPage" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Item">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ASIN" type="xs:string" />
+                    <xs:element name="DetailPageURL" type="xs:string" />
+                    <xs:element name="ItemLinks">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="ItemLink">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Description" type="xs:string" />
+                                <xs:element name="URL" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ItemAttributes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Manufacturer" type="xs:string" />
+                          <xs:element name="ProductGroup" type="xs:string" />
+                          <xs:element name="Title" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,7 @@
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\bin\Debug\MarketplaceWebService.Samples.exe
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\bin\Debug\MarketplaceWebService.Samples.pdb
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\bin\Debug\MarketplaceWebService.dll
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\bin\Debug\MarketplaceWebService.pdb
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\obj\Debug\MarketplaceWebService.Samples.csprojResolveAssemblyReference.cache
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\obj\Debug\MarketplaceWebService.Samples.exe
+D:\omnimark\omnimark_21_01_svn\AmazonMarketplaceWebService\MarketplaceWebService.Samples\obj\Debug\MarketplaceWebService.Samples.pdb

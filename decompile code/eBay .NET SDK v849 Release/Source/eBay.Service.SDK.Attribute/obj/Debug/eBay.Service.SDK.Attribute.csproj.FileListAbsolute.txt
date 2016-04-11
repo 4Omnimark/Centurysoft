@@ -1,0 +1,11 @@
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\obj\Debug\eBay.Service.SDK.Attribute.csprojResolveAssemblyReference.cache
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\bin\Debug\eBay.Service.SDK.Attribute.XML
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\obj\Debug\Interop.MSXML2.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\obj\Debug\eBay.Service.SDK.Attribute.csproj.ResolveComReference.cache
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\bin\Debug\eBay.Service.SDK.Attribute.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\bin\Debug\eBay.Service.SDK.Attribute.pdb
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\bin\Debug\eBay.Service.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\bin\Debug\eBay.Service.pdb
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\bin\Debug\eBay.Service.xml
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\obj\Debug\eBay.Service.SDK.Attribute.dll
+D:\decompile code\eBay .NET SDK v849 Release\Source\eBay.Service.SDK.Attribute\obj\Debug\eBay.Service.SDK.Attribute.pdb

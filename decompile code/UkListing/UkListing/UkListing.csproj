@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FADCA4EB-E582-47EA-AFCB-9077CBFDA5A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UkListing</RootNamespace>
+    <AssemblyName>UkListing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\TestinOmnimark\decompile code\OmnimarkAmazonWeb\OnmimarkAmazonWeb\bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmazonResponse.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Canada_Prohibited_Keywords.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SellingPlace.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceStatu.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Account.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Baby.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_BabyNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Beauty.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_BeautyNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Category.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_HomeandKitchen.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_HomeandKitchenNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Jewellery.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_JewelleryNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Keywords.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Prohibited_Keywords.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Sports.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_SportsNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Sports_test.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Toys.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ToysNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Watches.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_WatchesNotPrime.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UKListing.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKListing.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UKListing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UKListing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKListing.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="VariousAsin.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="UKListing.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UKListing.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="UKListing.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UKListing.edmx</DependentUpon>
+      <LastGenOutput>UKListing.Context.cs</LastGenOutput>
+    </None>
+    <None Include="UKListing.edmx.diagram">
+      <DependentUpon>UKListing.edmx</DependentUpon>
+    </None>
+    <None Include="UKListing.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UKListing.edmx</DependentUpon>
+      <LastGenOutput>UKListing.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

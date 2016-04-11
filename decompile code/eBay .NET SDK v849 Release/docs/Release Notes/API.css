@@ -1,0 +1,719 @@
+a:link {
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #800080;
+}
+
+a:hover   {
+	color: #CC0033;
+}
+
+a.de:link {
+	text-decoration:none;
+	color: #A0A0A0;
+}
+
+a.de:visited {
+	text-decoration:none;
+	color: #A0A0A0;
+}
+
+a.lavender:link {
+	text-decoration:none;
+	color: #ba55d3;
+}
+
+a.lavender:visited {
+	text-decoration:none;
+	color: #ba55d3;
+}
+
+a.navlink {
+  text-decoration:none;
+  margin: 0px 15px;
+}
+
+a.navlink:link {
+	color:blue;
+}
+
+a.navlink:visited {
+	color:blue;
+}
+
+a.navlink:hover {
+  text-decoration:underline;
+}
+
+a.navlinkUniv {
+  text-decoration:none;
+  margin:0 10px;
+}
+
+a.navlinkUniv:link {
+	color:blue;
+}
+
+a.navlinkUniv:visited {
+	color:blue;
+}
+
+a.navlinkUniv:hover {
+  text-decoration:underline;
+}
+
+a.nohi {
+  text-decoration:none;
+}
+
+a.nohi:link {
+	color:blue;
+}
+
+a.nohi:visited {
+	color:blue;
+}
+
+a.nohi:hover {
+  text-decoration:underline;
+}
+
+a.proto_attr_type {
+	text-decoration:none;
+	color: Teal;
+	font-style: italic;
+}
+
+a.proto_attr_type:link {
+	text-decoration:none;
+	color: Teal;
+}
+
+a.proto_attr_type:visited {
+	text-decoration:none;
+	color: Teal;
+}
+
+a.proto_attr_type:hover {
+  text-decoration:underline;
+  color: Teal;
+}
+
+a.proto_name:link {
+	text-decoration:none;
+	color: black;
+}
+
+a.proto_name:visited {
+	text-decoration:none;
+	color: black;
+}
+
+a.proto_name:hover {
+  text-decoration:underline;
+  color: black;
+}
+
+a.proto_nameDepr:link {
+	text-decoration:none;
+	color: red;
+}
+
+a.proto_nameDepr:visited {
+	text-decoration:none;
+	color: red;
+}
+
+a.proto_nameDepr:hover {
+  text-decoration:underline;
+  color: red;
+}
+
+a.proto_nameDeprNoOp:link {
+	text-decoration:none;
+	color: #999999;
+}
+
+a.proto_nameDeprNoOp:visited {
+	text-decoration:none;
+	color: #999999;
+}
+
+a.proto_nameDeprNoOp:hover {
+  text-decoration:underline;
+	color: #999999;
+}
+
+a.proto_type {
+  text-decoration:none;
+  color:Teal;
+	font-style: italic;
+}
+
+a.proto_type:link {
+  text-decoration:none;
+  color:Teal;
+}
+
+a.proto_type:hover {
+  text-decoration:underline;
+  color:Teal;
+}
+
+a.proto_type:visited {
+  color:Teal;
+}
+
+a.proto_typeDepr {
+  text-decoration:none;
+  color:red;
+	font-style: italic;
+}
+
+a.proto_typeDepr:link {
+  text-decoration:none;
+  color:red;
+}
+
+a.proto_typeDepr:hover {
+  text-decoration:underline;
+  color:red;
+}
+
+a.proto_typeDepr:visited {
+  color:red;
+}
+
+a.proto_typeDeprNoOp {
+  text-decoration:none;
+  color:#999999;
+	font-style: italic;
+}
+
+a.proto_typeDeprNoOp:link {
+  text-decoration:none;
+  color:#999999;
+}
+
+a.proto_typeDeprNoOp:hover {
+  text-decoration:underline;
+  color:#999999;
+}
+
+a.proto_typeDeprNoOp:visited {
+  color:#999999;
+}
+
+a.proto_nameLav {
+  text-decoration:none;
+  color:#ba55d3;
+}
+
+a.proto_nameLav:link {
+  text-decoration:none;
+  color:#ba55d3;
+}
+
+a.proto_nameLav:hover {
+  text-decoration:underline;
+  color:#ba55d3;
+}
+
+a.proto_nameLav:visited {
+  color:#ba55d3;
+}
+
+a.proto_typeLav {
+  text-decoration:none;
+  color:#ba55d3;
+	font-style: italic;
+}
+
+a.proto_typeLav:link {
+  text-decoration:none;
+  color:#ba55d3;
+}
+
+a.proto_typeLav:hover {
+  text-decoration:underline;
+  color:#ba55d3;
+}
+
+a.proto_typeLav:visited {
+  color:#ba55d3;
+}
+
+a.quickPicks {
+	text-decoration:none;
+	color: black;
+}
+
+a.quickPicks:link {
+	text-decoration:none;
+	color: black;
+}
+
+a.quickPicks:visited {
+	text-decoration:none;
+	color: black;
+}
+
+a.quickPicks:hover {
+  text-decoration:underline;
+  color: black;
+}
+
+/* to use tooltip, set a's class to tooltip and put the hover text inside a span */
+a.tooltip {
+	position: relative;
+	z-index: 24;
+	color: #000;
+	text-decoration: none
+}
+
+a.tooltip:visited {
+	text-decoration:none;
+	color: black;
+}
+
+a.tooltip:hover {
+	z-index: 25;
+	background-color: #ddf
+}
+
+a.tooltip span {
+	display: none
+}
+
+a.tooltip:hover span {
+	display: block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding: 5px;
+	position: absolute;
+	top: 3em;
+	left: 2em;
+	width: 300px;
+	border: 1px solid black;
+	background-color: #eef;
+	color: #000;
+}
+
+.attrdefn_type {
+	font-size: 7pt;
+}
+
+a.normal {
+}
+
+b.con {
+	color: #000000;
+}
+
+b.ListRunIn {
+	color: #006800;
+}
+
+blockquote {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 12px;
+}
+
+body {
+	background-color: #ffffff;
+}
+
+code {
+	font-size: 9pt;
+	color: #333;
+	font-family: Courier New, Courier, mono;
+}
+
+.current {
+	font-weight: bold;
+	background-color: #90EE90;
+}
+
+.de {
+	color: #A0A0A0;
+}
+
+.defn_attr_type {
+	font-size: 7pt;
+}
+
+.defn_cond {
+	font-size: 7pt;
+}
+
+.defn_type {
+	font-size: 7pt;
+}
+
+.depr {
+  color: #ff0000;
+}
+
+.deprNoOp {
+  color: #999999;
+}
+
+.docTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+.fieldsStandard {
+  font-family: serif;
+  font-style: italic;
+  margin:0 0 5px 0;
+}
+
+.fieldsCallSpecific {
+  font-family: serif;
+  font-style: italic;
+  margin:10px 0 5px 0;
+}
+
+.future {
+	color: #4497BB;
+}
+
+h1, h2, h3, h4 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	padding: 10px 0 0 0;
+}
+
+h1 {
+	font-size: 21px;
+	font-weight: bold;
+	padding: 0;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+h4 {
+	font-size: 12px;
+}
+
+.important {
+	font-weight: bold;
+	color: #E66020;
+}
+
+.lavender {
+  color: #ba55d3;
+}
+
+li {
+	color: #000000;
+	padding: 5px 0px 0px 0px;
+}
+
+li p {
+	font-size: 10pt;
+}
+
+li.InTable {
+	font-family: Tahoma, "MS Sans Serif", Arial, Verdana, sans-serif;
+	color: #000000;
+	font-size: 11px;
+	list-style: inherited;
+	list-style-position: inherited;
+  margin-top: 2px;
+}
+
+/* for table */
+.navbar {
+	width:95%;
+	margin:0;
+  border-collapse:collapse;
+  border:1px solid #808080;
+	margin-bottom:15px;
+}
+
+/* for td */
+.navbar_global {
+	padding-bottom: 1px;
+	background:#BBDDAA;
+}
+
+/* for td */
+.navbar_local {
+	padding-bottom: 1px;
+	background:#FFEEAA;
+}
+
+/* for table */
+.navbarUniv {
+	width:95%;
+	margin:0;
+  border-collapse:collapse;
+	margin-bottom:15px;
+}
+
+.navlink {
+  color:#999999;
+  margin-right:20px;
+}
+
+.navlinkUniv {
+  color:#999999;
+  margin:0 10px;
+}
+
+ol {
+	font-family: Verdana,Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 12px;
+	list-style-position: outside;
+	text-decoration: none;
+}
+
+ol.InTable {
+	font-size: 11px;
+	font-family: Tahoma, "MS Sans Serif", Arial, Verdana, sans-serif;
+}
+
+p {
+  font-family: Verdana,Arial, Helvetica, sans-serif;
+  color:#000000;
+  font-size:12px;
+	line-height: 1.1;
+}
+
+pre {
+  background-color: #F9F9F9;
+  font-size: 9pt;
+  font-family: "Courier New";
+  margin-left: 0.10in;
+  margin-right: 0.10in;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.proto_attr_name {
+	color: Navy;
+}
+
+.proto_attr_nameLav {
+	color: #ba55d3;
+}
+
+.proto_attr_typeLav {
+	color: #ba55d3;
+	font-style: italic;
+}
+
+.quickPicks {
+	font-size: 10pt;
+	font-variant: small-caps;
+}
+
+.sampleBar1 {
+	border: none;
+}
+
+.sampleBar2 {
+	border:none;
+	font-family: 					"Trebuchet MS", Arial, Helvetica, sans-serif; 
+	color: 							#333333; 
+	font-size: 						16px; 
+	line-height: 					20px; 
+	font-weight: 					bold; 
+	text-decoration: 				none; 
+	padding: 						10px 0px 10px 20px; 
+	margin-bottom: 					0px;
+}
+
+
+.schemaTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+.sectionTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+span.MoreNodes {
+  color : #808080;
+}
+
+span.MoreNodesNV {
+  color : #808080;
+  font-family: serif;
+  font-style: italic;
+}
+
+.subSectionTitle {
+	font-family: 					"Trebuchet MS", Arial, Helvetica, sans-serif; 
+	color: 							#333333; 
+	font-size: 						16px; 
+	line-height: 					20px; 
+	font-weight: 					bold; 
+	text-decoration: 				none; 
+	padding: 						10px 0px; 
+	margin-bottom: 					0px;
+}
+
+table {
+	border-color: #e0e0e0 #838383 #838383 #e0e0e0;
+	border-width: 0px;
+	margin-left: 0.10in;
+}
+
+.tableCaption {
+	font-style: italic;
+	margin-bottom: 2px;
+	margin-left: 0.10in;
+}
+
+.tablenote {
+	color: #008000;
+}
+
+table.notebox {
+	margin: 0 0 0 50px;
+}
+
+td {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 11px;
+	border-width: 0px 0px 1px 0px;
+	padding: 0px 4px 0px 4px;
+    vertical-align: top;
+}
+
+td dt {
+}
+
+td dd {
+	margin:0 0 5px 20px;
+}
+
+td.navbarUniv {
+	background:white;
+}
+
+td.notebox {
+	color: #666;
+	background-color: #f2f2f2;
+	padding: 12px 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	border: none!important;
+	
+} 
+
+.notebox .con {
+	color: #666;
+}
+
+td p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+td p.edef {
+	margin-top: 10px;
+	margin-bottom: -4px;
+	margin-left: 34px;
+}
+
+td p.edefDepr {
+  color: #ff0000;
+	margin-top: 10px;
+	margin-bottom: -4px;
+	margin-left: 34px;
+}
+
+td p.edefDeprNoOp {
+  color: #999999;
+	margin-top: 10px;
+	margin-bottom: -4px;
+	margin-left: 34px;
+}
+
+td p.edefLavender {
+	color: #ba55d3;
+	margin-top: 10px;
+	margin-bottom: -4px;
+	margin-left: 34px;
+}
+
+td p.ename {
+  margin-top: 8px;
+  margin-bottom: -8px;
+}
+
+td p.enameDepr {
+  color: #ff0000;
+  margin-top: 8px;
+  margin-bottom: -8px;
+}
+
+td p.enameDeprNoOp {
+  color: #999999;
+  margin-top: 8px;
+  margin-bottom: -8px;
+}
+
+td p.enameLavender {
+	color: #ba55d3;
+  margin-top: 8px;
+  margin-bottom: -8px;
+}
+
+th {
+	font-family: Tahoma, "MS Sans Serif", Arial, Verdana, sans-serif;
+	color: #000000;
+	background-color: #e0e0e0;
+	font-size: 11px;
+	border-width: 1px;
+	padding: 4px;
+}
+
+ul {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 12px;
+	list-style: square;
+	list-style-position: outside;
+}
+
+.urlPreLike {
+  background-color: #F9F9F9;
+  font-size: 9pt;
+  font-family: "Courier New";
+  margin: 0 0.10in 15px 0.10in;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.version {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10pt;
+	margin-left:20px;
+}

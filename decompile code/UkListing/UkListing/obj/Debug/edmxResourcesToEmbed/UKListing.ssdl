@@ -1,0 +1,1129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UKOmnimarkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="AmazonResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubmissionID" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SubmissionTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Canada_Prohibited_Keywords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Keywords" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SellingPlace">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellingPlace" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ServiceStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="20" />
+    <Property Name="ServiceStatus" Type="int" />
+    <Property Name="LastUpdatedTimestamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellingVenue" Type="nvarchar" MaxLength="50" />
+    <Property Name="MerchantId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Toys" Type="int" />
+    <Property Name="SportingGoods" Type="int" />
+    <Property Name="Beauty" Type="int" />
+    <Property Name="Baby" Type="int" />
+    <Property Name="ShortCode" Type="char" MaxLength="2" />
+    <Property Name="ReExportAllow" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Baby">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="Account4_Status" Type="int" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_BabyNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="Account4_Status" Type="smallint" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Account1_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanadaProhibited" Type="smallint" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Beauty">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="Account4_Status" Type="int" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_BeautyNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="Account4_Status" Type="smallint" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Account1_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanadaProhibited" Type="smallint" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="ReExportStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar(max)" />
+    <Property Name="SellerAccount_ID_fk" Type="nvarchar" MaxLength="5" />
+    <Property Name="Account_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Enabled" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_HomeandKitchen">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="UPC" Type="varchar" MaxLength="13" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Category" Type="char" MaxLength="50" />
+    <Property Name="SalesPrice" Type="real" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="PackageQty" Type="int" />
+    <Property Name="Amount" Type="real" />
+    <Property Name="Prime" Type="smallint" />
+    <Property Name="SalesRank" Type="int" />
+    <Property Name="LargeImageURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="MediumImageURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="SmallImageURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="Manufacturer" Type="varchar" MaxLength="100" />
+    <Property Name="Features1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Features2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Features3" Type="nvarchar" MaxLength="500" />
+    <Property Name="Features4" Type="nvarchar" MaxLength="500" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="CurrencyCode" Type="varchar" MaxLength="5" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="HeightUnits" Type="int" />
+    <Property Name="LengthUnits" Type="int" />
+    <Property Name="WeightUnits" Type="int" />
+    <Property Name="WidthUnits" Type="int" />
+    <Property Name="UK_Prohibited" Type="smallint" Nullable="false" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="smallint" />
+    <Property Name="UpdatedSalesPrice" Type="real" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="smallint" />
+    <Property Name="ReExportStatus" Type="smallint" />
+    <Property Name="Qty" Type="smallint" />
+    <Property Name="ImportFromNonPrime" Type="smallint" />
+    <Property Name="ExportAllStatus" Type="smallint" />
+    <Property Name="Account1_Status" Type="smallint" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="smallint" />
+    <Property Name="Account1_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account2_Status" Type="smallint" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="smallint" />
+    <Property Name="Account2_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account3_Status" Type="smallint" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="smallint" />
+    <Property Name="Account3_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CanadaProhibited" Type="smallint" />
+    <Property Name="ForceExport" Type="smallint" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="account1_cmaxexport" Type="smallint" />
+    <Property Name="account2_cmaxexport" Type="smallint" />
+    <Property Name="account3_cmaxexport" Type="smallint" />
+    <Property Name="Account4_Status" Type="smallint" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FakeUPC" Type="smallint" />
+  </EntityType>
+  <EntityType Name="tbl_HomeandKitchenNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="UPC" Type="varchar" MaxLength="13" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Category" Type="char" MaxLength="50" />
+    <Property Name="SalesPrice" Type="real" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="PackageQty" Type="int" />
+    <Property Name="Amount" Type="real" />
+    <Property Name="Prime" Type="smallint" />
+    <Property Name="SalesRank" Type="int" />
+    <Property Name="LargeImageURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="MediumImageURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="SmallImageURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="Manufacturer" Type="varchar" MaxLength="100" />
+    <Property Name="Features1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Features2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Features3" Type="nvarchar" MaxLength="500" />
+    <Property Name="Features4" Type="nvarchar" MaxLength="500" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="CurrencyCode" Type="varchar" MaxLength="5" />
+    <Property Name="ExpoerDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="HeightUnits" Type="int" />
+    <Property Name="LengthUnits" Type="int" />
+    <Property Name="WeightUnits" Type="int" />
+    <Property Name="WidthUnits" Type="int" />
+    <Property Name="UK_Prohibited" Type="smallint" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="smallint" />
+    <Property Name="UpdatedSalesPrice" Type="real" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="InStock" Type="smallint" />
+    <Property Name="ReExportStatus" Type="smallint" />
+    <Property Name="Qty" Type="smallint" />
+    <Property Name="ExportAllStatus" Type="smallint" />
+    <Property Name="Account1_Status" Type="smallint" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="smallint" />
+    <Property Name="Account1_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account2_Status" Type="smallint" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="smallint" />
+    <Property Name="Account2_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account3_Status" Type="smallint" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="smallint" />
+    <Property Name="Account3_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CanadaProhibited" Type="smallint" />
+    <Property Name="ForceExport" Type="smallint" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="account1_cmaxexport" Type="smallint" />
+    <Property Name="account2_cmaxexport" Type="smallint" />
+    <Property Name="account3_cmaxexport" Type="smallint" />
+    <Property Name="Account4_Status" Type="smallint" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FakeUPC" Type="smallint" />
+  </EntityType>
+  <EntityType Name="tbl_Jewellery">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="Account4_Status" Type="int" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_JewelleryNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="Account4_Status" Type="smallint" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Account1_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanadaProhibited" Type="smallint" Nullable="false" />
+    <Property Name="ForceExport" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Keywords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="20" />
+    <Property Name="BabySearched" Type="datetime" />
+    <Property Name="BeautySearched" Type="datetime" />
+    <Property Name="SportsSearched" Type="datetime" />
+    <Property Name="ToysSearched" Type="datetime" />
+    <Property Name="JewelrySearched" Type="datetime" />
+    <Property Name="WatchesSearched" Type="datetime" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Prohibited_Keywords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProhibitedKeys" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Sports">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="Account4_Status" Type="int" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Sports_test">
+    <Key>
+      <PropertyRef Name="tbl_sports_Id" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="int" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="tbl_sports_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_SportsNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="Account4_Status" Type="smallint" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Account1_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanadaProhibited" Type="smallint" Nullable="false" />
+    <Property Name="ForceExport" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Toys">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="LargeImageURL" Type="nvarchar(max)" />
+    <Property Name="MediumImageURL" Type="nvarchar(max)" />
+    <Property Name="SmallImageURL" Type="nvarchar(max)" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="Account4_Status" Type="int" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_ToysNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="LargeImageURL" Type="nvarchar(max)" />
+    <Property Name="MediumImageURL" Type="nvarchar(max)" />
+    <Property Name="SmallImageURL" Type="nvarchar(max)" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="Account4_Status" Type="smallint" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Account1_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanadaProhibited" Type="smallint" Nullable="false" />
+    <Property Name="ReExportStatus" Type="smallint" Nullable="false" />
+    <Property Name="ForceExport" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Watches">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="ImportFromNonPrime" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CanadaProhibited" Type="int" Nullable="false" />
+    <Property Name="ForceExport" Type="int" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" />
+    <Property Name="ReExportFilename" Type="nvarchar(max)" />
+    <Property Name="account1_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account2_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="account3_cmaxexport" Type="int" Nullable="false" />
+    <Property Name="Account4_Status" Type="int" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="int" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_WatchesNotPrime">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UPC" Type="nvarchar(max)" />
+    <Property Name="ASIN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="PackageQty" Type="nvarchar(max)" />
+    <Property Name="SalesPrice" Type="nvarchar(max)" />
+    <Property Name="Prime" Type="nvarchar(max)" />
+    <Property Name="SalesRank" Type="bigint" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" />
+    <Property Name="Features1" Type="nvarchar(max)" />
+    <Property Name="Features2" Type="nvarchar(max)" />
+    <Property Name="Features3" Type="nvarchar(max)" />
+    <Property Name="Features4" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LargeImageUrl" Type="nvarchar(max)" />
+    <Property Name="MediumImageUrl" Type="nvarchar(max)" />
+    <Property Name="SmallImageUrl" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CurrencyCode" Type="nvarchar(max)" />
+    <Property Name="ExportDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HeightUnits" Type="bigint" />
+    <Property Name="LengthUnits" Type="bigint" />
+    <Property Name="WeightUnits" Type="bigint" />
+    <Property Name="WidthUnits" Type="bigint" />
+    <Property Name="UK_Prohibited" Type="int" />
+    <Property Name="UpdatedTimeStamp" Type="datetime" />
+    <Property Name="Offers_New" Type="int" />
+    <Property Name="UpdatedSalesPrice" Type="nvarchar(max)" />
+    <Property Name="UpdatedSalesPriceTimeStamp" Type="datetime" />
+    <Property Name="Instock" Type="int" />
+    <Property Name="ReExportStatus" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExportAllStatus" Type="int" />
+    <Property Name="Account1_Status" Type="int" />
+    <Property Name="Account1_ExportDate" Type="datetime" />
+    <Property Name="Account1_ReExport" Type="int" />
+    <Property Name="Account1_FileName" Type="nvarchar(max)" />
+    <Property Name="Account2_Status" Type="int" />
+    <Property Name="Account2_ExportDate" Type="datetime" />
+    <Property Name="Account2_ReExport" Type="int" />
+    <Property Name="Account2_FileName" Type="nvarchar(max)" />
+    <Property Name="Account3_Status" Type="int" />
+    <Property Name="Account3_ExportDate" Type="datetime" />
+    <Property Name="Account3_ReExport" Type="int" />
+    <Property Name="Account3_FileName" Type="nvarchar(max)" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="Account4_Status" Type="smallint" Nullable="false" />
+    <Property Name="Account4_ExportDate" Type="datetime" />
+    <Property Name="Account4_ReExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Account1_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account2_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account3_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="Account4_cmaxExport" Type="smallint" Nullable="false" />
+    <Property Name="ReExportTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReExportFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanadaProhibited" Type="smallint" Nullable="false" />
+    <Property Name="ForceExport" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VariousAsins">
+    <Key>
+      <PropertyRef Name="SrNo" />
+    </Key>
+    <Property Name="ASIN" Type="varchar" MaxLength="50" />
+    <Property Name="SrNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" />
+  </EntityType>
+  <Function Name="Update_UK_Prohibited" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="flag" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="UKOmnimarkModelStoreContainer">
+    <EntitySet Name="AmazonResponse" EntityType="Self.AmazonResponse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Canada_Prohibited_Keywords" EntityType="Self.Canada_Prohibited_Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SellingPlace" EntityType="Self.SellingPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceStatus" EntityType="Self.ServiceStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Account" EntityType="Self.tbl_Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Baby" EntityType="Self.tbl_Baby" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BabyNotPrime" EntityType="Self.tbl_BabyNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Beauty" EntityType="Self.tbl_Beauty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BeautyNotPrime" EntityType="Self.tbl_BeautyNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_HomeandKitchen" EntityType="Self.tbl_HomeandKitchen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_HomeandKitchenNotPrime" EntityType="Self.tbl_HomeandKitchenNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Jewellery" EntityType="Self.tbl_Jewellery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_JewelleryNotPrime" EntityType="Self.tbl_JewelleryNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Keywords" EntityType="Self.tbl_Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Prohibited_Keywords" EntityType="Self.tbl_Prohibited_Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Sports" EntityType="Self.tbl_Sports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Sports_test" EntityType="Self.tbl_Sports_test" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SportsNotPrime" EntityType="Self.tbl_SportsNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Toys" EntityType="Self.tbl_Toys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ToysNotPrime" EntityType="Self.tbl_ToysNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Watches" EntityType="Self.tbl_Watches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_WatchesNotPrime" EntityType="Self.tbl_WatchesNotPrime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VariousAsins" EntityType="Self.VariousAsins" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

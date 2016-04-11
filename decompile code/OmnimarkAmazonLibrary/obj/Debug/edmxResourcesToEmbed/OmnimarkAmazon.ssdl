@@ -1,0 +1,2787 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OmnimarkAmazonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="AmazonAccounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="SecretAccessKey" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MerchantID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AccessKeyID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="LastInventoryUpdate" Type="datetime" />
+    <Property Name="LastInventoryUpdateStart" Type="datetime" />
+    <Property Name="ShortID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CharID" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="DateTimeFormat" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastSyncSKU" Type="datetime" />
+    <Property Name="LastOrderHistoryReportStartDate" Type="datetime" />
+    <Property Name="LastFBAInboundShipmentSync" Type="datetime" />
+    <Property Name="DisplaySeq" Type="int" />
+    <Property Name="DoTrafficImport" Type="bit" Nullable="false" />
+    <Property Name="LastGetSettlementData" Type="datetime" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AmazonInventory">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="AmazonStockQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="AmazonInStockQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="AmazonStockTimeStamp" Type="datetime" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="LastKnownListingOpenDate" Type="datetime" />
+    <Property Name="LastKnownListingPrice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="UnderPricedIgnoreUntilUpdate" Type="datetime" />
+    <Property Name="UnderPricedIgnoreUntil" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AmazonInventoryProducts">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AmazonInventorySKUs">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InStockQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="TotalQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="ListingID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="OpenDate" Type="datetime" />
+    <Property Name="ItemCondition" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="Disabled" Type="bit" Nullable="false" />
+    <Property Name="IgnoreForFBAInventoryDeduction" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AmazonOrderLines">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="AmazonOrderID" />
+      <PropertyRef Name="LineNumber" />
+    </Key>
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonOrderID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LineNumber" Type="int" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="OrderItemID" Type="numeric" Precision="14" Scale="0" />
+    <Property Name="NotShippedFromWarehouseID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="AmazonOrders">
+    <Key>
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="AmazonOrderID" />
+    </Key>
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonOrderID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
+    <Property Name="NameFirst" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NameLast" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShipAddress1" Type="nvarchar" MaxLength="150" />
+    <Property Name="ShipAddress2" Type="nvarchar" MaxLength="150" />
+    <Property Name="ShipAddress3" Type="nvarchar" MaxLength="150" />
+    <Property Name="ShipCity" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShipStateProvince" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShipStateID" Type="int" />
+    <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShipCountryCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShipCountryID" Type="int" />
+    <Property Name="ShipPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="FulfillmentChannel" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastStatusChangeNoticed" Type="datetime" />
+    <Property Name="ProductInventoryAdjustmentBatchID" Type="uniqueidentifier" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="SOSInventoryChangeReportID" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShipToName" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ASINOfferListings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MerchantID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="AmazonFulfilled" Type="bit" Nullable="false" />
+    <Property Name="Price" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="PricePerUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShippingPrice" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="OfferingIDDecoded" Type="binary" MaxLength="180" />
+  </EntityType>
+  <EntityType Name="ASINOfferScrapes">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="LastScrape" Type="datetime" />
+    <Property Name="LastScrapeTry" Type="datetime" />
+    <Property Name="FirstScrapeFail" Type="datetime" />
+    <Property Name="LastScrapeFail" Type="datetime" />
+    <Property Name="ScrapeFailCount" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ActualPages" Type="int" />
+    <Property Name="ActualOffers" Type="int" />
+    <Property Name="RecordsPerPage" Type="int" />
+    <Property Name="PagesScraped" Type="int" />
+  </EntityType>
+  <EntityType Name="ASINsSuccessfullyExported">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SalesVenueID" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SalesVenueID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+    <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+    <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LoweredRoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AutomaticPriceChanges">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TempPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="RegularPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="TempPriceStartDateTime" Type="datetime" Nullable="false" />
+    <Property Name="TempPriceEndDateTime" Type="datetime" Nullable="false" />
+    <Property Name="StartFeedSubmissionScheduleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EndFeedSubmissionScheduleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TimeSpan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="128" />
+    <Property Name="2dig" Type="char" MaxLength="2" />
+    <Property Name="3dig" Type="char" MaxLength="3" />
+    <Property Name="AmazonMarketPlaceID" Type="nvarchar" MaxLength="20" />
+    <Property Name="AWSAccessKeyID" Type="nvarchar" MaxLength="32" />
+    <Property Name="AWSSecretAccessKey" Type="nvarchar" MaxLength="200" />
+    <Property Name="ServiceURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderServiceURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProductsServiceURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="InventoryServiceURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="AWSServiceURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="AWSXMLNamespace" Type="nvarchar" MaxLength="200" />
+    <Property Name="DefaultItemDetailsURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateTimeFormat" Type="nvarchar" MaxLength="50" />
+    <Property Name="DefaultURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="CurrencySymbolPrefix" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="DailyTraffic">
+    <Key>
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sessions" Type="int" Nullable="false" />
+    <Property Name="SessionPercentage" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="PageViews" Type="int" Nullable="false" />
+    <Property Name="PageViewPercentage" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="BuyBoxPercentage" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="UnitsOrdered" Type="int" Nullable="false" />
+    <Property Name="UnitSessionPercentage" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="OrderedProductSales" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="OrdersPlaced" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eBayItemsProducts">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ItemID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eBayOrderLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrderID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="SellingManagerSalesRecordNumber" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="9" />
+  </EntityType>
+  <EntityType Name="eBayOrders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RawData" Type="xml" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ShippedNoticedTimeStamp" Type="datetime" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ProductInventoryMoveID" Type="uniqueidentifier" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="ShippedTime" Type="datetime" />
+    <Property Name="Site" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="eBayRawItemData">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RawData" Type="xml" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ExportSpecs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FieldList" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SelectClauseExtension" Type="nvarchar(max)" />
+    <Property Name="FromClauseExtension" Type="nvarchar(max)" />
+    <Property Name="WhereClause" Type="nvarchar(max)" />
+    <Property Name="OrderByClause" Type="nvarchar" MaxLength="50" />
+    <Property Name="FieldNameTranslations" Type="nvarchar(max)" />
+    <Property Name="RecordCount" Type="int" />
+    <Property Name="FileHeaderText" Type="nvarchar(max)" />
+    <Property Name="FieldDelimiter" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileExtension" Type="nvarchar" MaxLength="50" />
+    <Property Name="EncloseInQuotes" Type="bit" Nullable="false" />
+    <Property Name="ExcludeExportsToSalesVenueID" Type="uniqueidentifier" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FakeUPCs">
+    <Key>
+      <PropertyRef Name="UPC" />
+    </Key>
+    <Property Name="UPC" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="ProductComboCode" Type="nvarchar" MaxLength="1000" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="BatchID" Type="uniqueidentifier" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FeedSubmissionQueue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ScheduleID" Type="uniqueidentifier" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FeedType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageXML" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RunAt" Type="datetime" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="FeedSubmissionID" Type="nvarchar" MaxLength="16" />
+    <Property Name="AmazonMessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubmissionTimeStamp" Type="datetime" />
+    <Property Name="SubmissionStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubmissionStatusTimeStamp" Type="datetime" />
+    <Property Name="ErrorXML" Type="nvarchar(max)" />
+    <Property Name="ResultTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FeedSubmissionSchedule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FeedType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageXML" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NextRun" Type="datetime" Nullable="false" />
+    <Property Name="TimeSpan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="MustRunAll" Type="bit" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InboundFBAShipmentItems">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="ShipmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuantityShipped" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="QuantityReceived" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="QuantityInCase" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InboundFBAShipmentProductInventoryAdjustments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InboundFBAShipmentID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductInventoryAdjustmentBatchID" Type="uniqueidentifier" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InboundFBAShipments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ItemCount" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="RemovedFromInventoryAdjustmentProcessing" Type="datetime" />
+    <Property Name="ScheduledForInventoryAdjustmentProcessing" Type="datetime" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InboundFBAShipmentStatusChanges">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipmentID" Type="nvarchar" MaxLength="50" />
+    <Property Name="OldStatus" Type="int" />
+    <Property Name="NewStatus" Type="int" />
+    <Property Name="ProductInventoryMoveID" Type="uniqueidentifier" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KnownASINAttributes">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KnownASINs">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SearchTerm" Type="nvarchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Filtered" Type="bit" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="LastSeen" Type="datetime" />
+    <Property Name="Reviewed" Type="datetime" />
+    <Property Name="OurProduct" Type="bit" Nullable="false" />
+    <Property Name="MarketPlaceID" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastScrape" Type="datetime" />
+    <Property Name="LastScrapeTry" Type="datetime" />
+    <Property Name="FirstScrapeFail" Type="datetime" />
+    <Property Name="LastScrapeFail" Type="datetime" />
+    <Property Name="ScrapeFailCount" Type="int" />
+    <Property Name="GoneFromAmazon" Type="bit" Nullable="false" />
+    <Property Name="OurLowestPrice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="OurMostRecentUSListingPrice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="OurMostRecentUSListingOpenDate" Type="datetime" />
+    <Property Name="OurMostRecentUSListingAccountID" Type="uniqueidentifier" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MergedIntoASIN" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ProductCategories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DisplaySeq" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategoryProductTags">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+      <PropertyRef Name="ProductTagID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductTagID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInventory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustmentBatches">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustmentReasons">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="Types" Type="nvarchar" MaxLength="50" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ReasonRef1Text" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReasonRef1Required" Type="bit" />
+    <Property Name="ReasonRef2Text" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReasonRef2Required" Type="bit" />
+    <Property Name="ReasonRef3Text" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReasonRef3Required" Type="bit" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustmentReasonTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInventoryAdjustments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ReasonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ReasonRef1" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReasonRef2" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReasonRef3" Type="nvarchar" MaxLength="100" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="AdjustmentAmount" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="OldQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="NewQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="ProductInventoryAdjustmentBatchID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="ProductInventoryLocations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductProductCategories">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductProductTags">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="ProductTagID" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductTagID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cost" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="ActualCost" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Weight" Type="decimal" Precision="9" Scale="4" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductTags">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductVendors">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VendorID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderConfirm_Status">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DisplaySeq" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LineNumber" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ActualCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReceivedProductID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderPaymentTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Notes" Type="text" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="TotalCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalActualCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MissingCosts" Type="bit" Nullable="false" />
+    <Property Name="PaymentTypeID" Type="uniqueidentifier" />
+    <Property Name="CStatus" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderStatuses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DisplaySeq" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="CID" Type="char" MaxLength="3" />
+    <Property Name="CName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ReceivedProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ReceivedShipmentID" Type="uniqueidentifier" />
+    <Property Name="Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="TrackingNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ReceivedShipments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VendorID" Type="uniqueidentifier" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecievedShipmentStatuses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DisplaySeq" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportActionParameters">
+    <Key>
+      <PropertyRef Name="ReportActionID" />
+      <PropertyRef Name="ParameterName" />
+    </Key>
+    <Property Name="ReportActionID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ParameterName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParameterValue" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportActions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ReportType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ReportRequestID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProcessingMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ReportCompleted" Type="datetime" />
+    <Property Name="ReportID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReportDataDownloadLog" Type="nvarchar(max)" />
+    <Property Name="ReportDataSaved" Type="datetime" />
+    <Property Name="ProcessingStarted" Type="datetime" />
+    <Property Name="ProcessingComplete" Type="datetime" />
+    <Property Name="ProcessingResult" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SalesVenues">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SearchTerms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Term" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="LastSearch" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ShippedtoAmazon">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShipmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountName" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SOSInventoryChangeReports">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="FIPS" />
+    </Key>
+    <Property Name="FIPS" Type="int" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="128" />
+    <Property Name="Code" Type="char" MaxLength="2" />
+    <Property Name="Abbrev" Type="varchar" MaxLength="20" />
+    <Property Name="DrawCoordinates" Type="varchar" MaxLength="1024" />
+    <Property Name="MapNumber" Type="int" />
+    <Property Name="MapSize" Type="varchar" MaxLength="16" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.suppliers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="suppliers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="MidInitial" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Addr1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Addr2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="TLD" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="FaxNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SystemStatus">
+    <Key>
+      <PropertyRef Name="Key" />
+    </Key>
+    <Property Name="Key" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LastSearch" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateSalesPerDayByASINTable" Type="datetime" />
+    <Property Name="OldesteBayRawItemQueryDate" Type="datetime" />
+    <Property Name="LatesteBayRawItemQueryDate" Type="datetime" />
+    <Property Name="LasteBayOrderDownloadQueryDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TimeZones">
+    <Key>
+      <PropertyRef Name="Abbreviation" />
+    </Key>
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Offset" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="OffsetText" Type="nvarchar" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NameFirst" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameLast" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNameFirst" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNameLast" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNameMiddle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="StateOrProvince" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.AmazonInventoryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AmazonInventoryView">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="AmazonStockQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="AmazonStockTimeStamp" Type="datetime" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.AutomaticPriceChangesView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AutomaticPriceChangesView">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="SKU" />
+      <PropertyRef Name="TempPrice" />
+      <PropertyRef Name="RegularPrice" />
+      <PropertyRef Name="TempPriceStartDateTime" />
+      <PropertyRef Name="TempPriceEndDateTime" />
+      <PropertyRef Name="StartFeedSubmissionScheduleID" />
+      <PropertyRef Name="EndFeedSubmissionScheduleID" />
+      <PropertyRef Name="TimeSpan" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="NextStartRun" />
+      <PropertyRef Name="NextEndRun" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TempPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="RegularPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="TempPriceStartDateTime" Type="datetime" Nullable="false" />
+    <Property Name="TempPriceEndDateTime" Type="datetime" Nullable="false" />
+    <Property Name="StartFeedSubmissionScheduleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EndFeedSubmissionScheduleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TimeSpan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="NextStartRun" Type="datetime" Nullable="false" />
+    <Property Name="NextEndRun" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.eBayItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="eBayItems">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CurrentPrice" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Title" Type="varchar(max)" />
+    <Property Name="ListingStatusText" Type="varchar(max)" />
+    <Property Name="ListingStatus" Type="int" />
+    <Property Name="ProductAssociationCount" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.FeedSubmissionScheduleStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FeedSubmissionScheduleStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="FeedType" />
+      <PropertyRef Name="MessageType" />
+      <PropertyRef Name="MessageXML" />
+      <PropertyRef Name="NextRun" />
+      <PropertyRef Name="TimeSpan" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="MustRunAll" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Enabled" />
+      <PropertyRef Name="AmazonAccountName" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FeedType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageXML" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NextRun" Type="datetime" Nullable="false" />
+    <Property Name="TimeSpan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="MustRunAll" Type="bit" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="datetime" />
+    <Property Name="ScheduleID" Type="uniqueidentifier" />
+    <Property Name="RunCount" Type="int" />
+    <Property Name="LastRun" Type="datetime" />
+    <Property Name="LastCompletion" Type="datetime" />
+    <Property Name="ErrorCount" Type="int" />
+    <Property Name="ActiveCount" Type="int" />
+    <Property Name="AmazonAccountName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="AutomaticPriceChangeID" Type="uniqueidentifier" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.InboundFBAShipmentManagementView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InboundFBAShipmentManagementView">
+    <Key>
+      <PropertyRef Name="AmazonAccountName" />
+      <PropertyRef Name="OrderBy" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="AmazonAccountName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="OrderBy" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ItemCount" Type="int" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="RemovedFromInventoryAdjustmentProcessing" Type="datetime" />
+    <Property Name="ScheduledForInventoryAdjustmentProcessing" Type="datetime" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="InboundFBAShipmentID" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstInventoryAdjustment" Type="datetime" />
+    <Property Name="LastInventoryAdjustment" Type="datetime" />
+    <Property Name="InventoryAdjustmentCount" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.KnownASINsInventoryMaintenanceView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="KnownASINsInventoryMaintenanceView">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="Filtered" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="OurProduct" />
+      <PropertyRef Name="GoneFromAmazon" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SearchTerm" Type="nvarchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Filtered" Type="bit" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="LastSeen" Type="datetime" />
+    <Property Name="Reviewed" Type="datetime" />
+    <Property Name="OurProduct" Type="bit" Nullable="false" />
+    <Property Name="MarketPlaceID" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastScrape" Type="datetime" />
+    <Property Name="LastScrapeTry" Type="datetime" />
+    <Property Name="FirstScrapeFail" Type="datetime" />
+    <Property Name="LastScrapeFail" Type="datetime" />
+    <Property Name="ScrapeFailCount" Type="int" />
+    <Property Name="GoneFromAmazon" Type="bit" Nullable="false" />
+    <Property Name="OurLowestPrice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="OurMostRecentUSListingPrice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="OurMostRecentUSListingOpenDate" Type="datetime" />
+    <Property Name="OurMostRecentUSListingAccountID" Type="uniqueidentifier" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MergedIntoASIN" Type="char" MaxLength="10" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" />
+    <Property Name="AmazonStockQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="AmazonStockTimeStamp" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.NeedInInventoryWithTotal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NeedInInventoryWithTotal">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="VendorID" />
+      <PropertyRef Name="OnOrder" />
+      <PropertyRef Name="AccountName" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="VendorName" />
+      <PropertyRef Name="CountryID" />
+      <PropertyRef Name="NeedInInventoryTotal" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VendorID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QtySold" Type="numeric" Precision="38" Scale="9" />
+    <Property Name="AmazonStockQty" Type="decimal" Precision="18" Scale="9" />
+    <Property Name="NeedInInventory" Type="numeric" Precision="38" Scale="6" />
+    <Property Name="OnOrder" Type="decimal" Precision="38" Scale="9" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="128" />
+    <Property Name="FBAQty" Type="decimal" Precision="37" Scale="18" />
+    <Property Name="NeedInInventoryTotal" Type="numeric" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.OfferScrapeStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OfferScrapeStatus">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="CountryID" />
+      <PropertyRef Name="OurProduct" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="LastScrapeTry" Type="datetime" />
+    <Property Name="OurProduct" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.OnOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OnOrder">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OnOrder" Type="decimal" Precision="38" Scale="9" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.OrdersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrdersView">
+    <Key>
+      <PropertyRef Name="PurchaseDate" />
+      <PropertyRef Name="NameFirst" />
+      <PropertyRef Name="NameLast" />
+      <PropertyRef Name="Shipcity" />
+    </Key>
+    <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+    <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
+    <Property Name="NameFirst" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NameLast" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShipAddress1" Type="nvarchar" MaxLength="150" />
+    <Property Name="ShipAddress2" Type="nvarchar" MaxLength="150" />
+    <Property Name="ShipAddress3" Type="nvarchar" MaxLength="150" />
+    <Property Name="Shipcity" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShipStateProvince" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShipCountryCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShipPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="ASIN" Type="char" MaxLength="10" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.OurListings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OurListings">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="MerchantID" />
+      <PropertyRef Name="AmazonFulfilled" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MerchantID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="AmazonFulfilled" Type="bit" Nullable="false" />
+    <Property Name="Price" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="PricePerUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShippingPrice" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTimeStamp" Type="datetime" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="OfferingIDDecoded" Type="binary" MaxLength="180" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.OutPriced' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OutPriced">
+    <Key>
+      <PropertyRef Name="ASIN" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="OurMinPrice" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="CompetitorMinPrice" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="AmazonFulfilled" Type="int" />
+    <Property Name="StockQty" Type="decimal" Precision="38" Scale="9" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.ProductsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProductsView">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cost" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="ActualCost" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Weight" Type="decimal" Precision="9" Scale="4" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Categories" Type="nvarchar(max)" />
+    <Property Name="Tags" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.ProductView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProductView">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cost" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="ActualCost" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Weight" Type="decimal" Precision="9" Scale="4" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Categories" Type="nvarchar(max)" />
+    <Property Name="Tags" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.PurchaseOrderProductsVendors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PurchaseOrderProductsVendors">
+    <Key>
+      <PropertyRef Name="POID" />
+      <PropertyRef Name="PONumber" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="POID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PONumber" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VendorID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.RelatedProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RelatedProducts">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="ProductQty" />
+      <PropertyRef Name="RelatedProductID" />
+      <PropertyRef Name="RelatedProductName" />
+      <PropertyRef Name="RelatedProductQty" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ProductQty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="RelatedProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RelatedProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RelatedProductQty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.SearchTermsWithLastSearchTimeStamp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SearchTermsWithLastSearchTimeStamp">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Term" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Term" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="LastSearch" Type="datetime" />
+    <Property Name="LastSearchTimeStamp" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.SpecialPriceSalesByDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SpecialPriceSalesByDay">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="SpecialPrice" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="PurchaseDate" Type="datetime" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="9" Nullable="false" />
+    <Property Name="SpecialPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOmnimark.dbo.UnderPriced' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UnderPriced">
+    <Key>
+      <PropertyRef Name="ASIN" />
+      <PropertyRef Name="AmazonAccountID" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Source" />
+      <PropertyRef Name="StoreName" />
+    </Key>
+    <Property Name="ASIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="AmazonAccountID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Price" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" />
+    <Property Name="OpenDate" Type="datetime" />
+    <Property Name="Source" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="StoreName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="SystemActualCost" Type="numeric" Precision="38" Scale="11" />
+    <Property Name="CalculatedMinimumPrice" Type="numeric" Precision="38" Scale="9" />
+    <Property Name="UnderPricedIgnoreUntilUpdate" Type="datetime" />
+    <Property Name="UnderPricedIgnoreUntil" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__UserI__29AC2CE0">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__2AA05119">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__2C88998B">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__38EE7070">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__39E294A9">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__3AD6B8E2">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__4277DAAA">
+    <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__4460231C">
+    <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__45544755">
+    <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__4183B671">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__436BFEE3">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__46486B8E">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonAccounts_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="AmazonAccounts">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventory_AmazonAccounts">
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="1" />
+    <End Role="AmazonInventory" Type="Self.AmazonInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonInventory">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventory_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="AmazonInventory" Type="Self.AmazonInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventory">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventoryProducts_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="AmazonInventoryProducts" Type="Self.AmazonInventoryProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventoryProducts">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventoryProducts_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="AmazonInventoryProducts" Type="Self.AmazonInventoryProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonInventoryProducts">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventorySKUs_AmazonAccounts">
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="1" />
+    <End Role="AmazonInventorySKUs" Type="Self.AmazonInventorySKUs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonInventorySKUs">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventorySKUs_AmazonInventory">
+    <End Role="AmazonInventory" Type="Self.AmazonInventory" Multiplicity="1" />
+    <End Role="AmazonInventorySKUs" Type="Self.AmazonInventorySKUs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonInventory">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventorySKUs">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonInventorySKUs_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="AmazonInventorySKUs" Type="Self.AmazonInventorySKUs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="AmazonInventorySKUs">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonOrderLines_AmazonOrders">
+    <End Role="AmazonOrders" Type="Self.AmazonOrders" Multiplicity="1" />
+    <End Role="AmazonOrderLines" Type="Self.AmazonOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonOrders">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="AmazonOrderID" />
+      </Principal>
+      <Dependent Role="AmazonOrderLines">
+        <PropertyRef Name="AmazonAccountID" />
+        <PropertyRef Name="AmazonOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonOrderLines_ProductInventoryAdjustments1">
+    <End Role="ProductInventoryAdjustments" Type="Self.ProductInventoryAdjustments" Multiplicity="0..1" />
+    <End Role="AmazonOrderLines" Type="Self.AmazonOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustments">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonOrderLines">
+        <PropertyRef Name="NotShippedFromWarehouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonOrders_AmazonAccounts">
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="1" />
+    <End Role="AmazonOrders" Type="Self.AmazonOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonOrders">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AmazonOrders_ProductInventoryAdjustmentBatches">
+    <End Role="ProductInventoryAdjustmentBatches" Type="Self.ProductInventoryAdjustmentBatches" Multiplicity="0..1" />
+    <End Role="AmazonOrders" Type="Self.AmazonOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AmazonOrders">
+        <PropertyRef Name="ProductInventoryAdjustmentBatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASINOfferListingsx_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="ASINOfferListings" Type="Self.ASINOfferListings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="ASINOfferListings">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASINOfferScrapes_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="ASINOfferScrapes" Type="Self.ASINOfferScrapes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="ASINOfferScrapes">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASINsSuccessfullyExported_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="ASINsSuccessfullyExported" Type="Self.ASINsSuccessfullyExported" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="ASINsSuccessfullyExported">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASINsSuccessfullyExported_SalesVenues">
+    <End Role="SalesVenues" Type="Self.SalesVenues" Multiplicity="1" />
+    <End Role="ASINsSuccessfullyExported" Type="Self.ASINsSuccessfullyExported" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesVenues">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ASINsSuccessfullyExported">
+        <PropertyRef Name="SalesVenueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule">
+    <End Role="FeedSubmissionSchedule" Type="Self.FeedSubmissionSchedule" Multiplicity="1" />
+    <End Role="AutomaticPriceChanges" Type="Self.AutomaticPriceChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionSchedule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AutomaticPriceChanges">
+        <PropertyRef Name="StartFeedSubmissionScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule1">
+    <End Role="FeedSubmissionSchedule" Type="Self.FeedSubmissionSchedule" Multiplicity="1" />
+    <End Role="AutomaticPriceChanges" Type="Self.AutomaticPriceChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionSchedule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AutomaticPriceChanges">
+        <PropertyRef Name="EndFeedSubmissionScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayItemsProducts_eBayRawItemData">
+    <End Role="eBayRawItemData" Type="Self.eBayRawItemData" Multiplicity="1" />
+    <End Role="eBayItemsProducts" Type="Self.eBayItemsProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eBayRawItemData">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="eBayItemsProducts">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayItemsProducts_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="eBayItemsProducts" Type="Self.eBayItemsProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="eBayItemsProducts">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayOrderLines_eBayOrders">
+    <End Role="eBayOrders" Type="Self.eBayOrders" Multiplicity="1" />
+    <End Role="eBayOrderLines" Type="Self.eBayOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eBayOrders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="eBayOrderLines">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayOrderLines_eBayRawItemData">
+    <End Role="eBayRawItemData" Type="Self.eBayRawItemData" Multiplicity="1" />
+    <End Role="eBayOrderLines" Type="Self.eBayOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eBayRawItemData">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="eBayOrderLines">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eBayOrders_ProductInventoryMoves">
+    <End Role="ProductInventoryAdjustmentBatches" Type="Self.ProductInventoryAdjustmentBatches" Multiplicity="0..1" />
+    <End Role="eBayOrders" Type="Self.eBayOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="eBayOrders">
+        <PropertyRef Name="ProductInventoryMoveID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExportSpecs_SalesVenues">
+    <End Role="SalesVenues" Type="Self.SalesVenues" Multiplicity="0..1" />
+    <End Role="ExportSpecs" Type="Self.ExportSpecs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesVenues">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExportSpecs">
+        <PropertyRef Name="ExcludeExportsToSalesVenueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedSubmissionQueue_AmazonAccounts">
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="1" />
+    <End Role="FeedSubmissionQueue" Type="Self.FeedSubmissionQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FeedSubmissionQueue">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedSubmissionQueue_FeedSubmissionSchedule">
+    <End Role="FeedSubmissionSchedule" Type="Self.FeedSubmissionSchedule" Multiplicity="0..1" />
+    <End Role="FeedSubmissionQueue" Type="Self.FeedSubmissionQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSubmissionSchedule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FeedSubmissionQueue">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedSubmissionSchedule_AmazonAccounts">
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="1" />
+    <End Role="FeedSubmissionSchedule" Type="Self.FeedSubmissionSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FeedSubmissionSchedule">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipmentItems_InboundFBAShipments">
+    <End Role="InboundFBAShipments" Type="Self.InboundFBAShipments" Multiplicity="1" />
+    <End Role="InboundFBAShipmentItems" Type="Self.InboundFBAShipmentItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboundFBAShipments">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentItems">
+        <PropertyRef Name="ShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments">
+    <End Role="InboundFBAShipments" Type="Self.InboundFBAShipments" Multiplicity="0..1" />
+    <End Role="InboundFBAShipmentProductInventoryAdjustments" Type="Self.InboundFBAShipmentProductInventoryAdjustments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboundFBAShipments">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentProductInventoryAdjustments">
+        <PropertyRef Name="InboundFBAShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+    <End Role="ProductInventoryAdjustmentBatches" Type="Self.ProductInventoryAdjustmentBatches" Multiplicity="0..1" />
+    <End Role="InboundFBAShipmentProductInventoryAdjustments" Type="Self.InboundFBAShipmentProductInventoryAdjustments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentProductInventoryAdjustments">
+        <PropertyRef Name="ProductInventoryAdjustmentBatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipments_AmazonAccounts">
+    <End Role="AmazonAccounts" Type="Self.AmazonAccounts" Multiplicity="1" />
+    <End Role="InboundFBAShipments" Type="Self.InboundFBAShipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmazonAccounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipments">
+        <PropertyRef Name="AmazonAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboundFBAShipmentStatusChanges_InboundFBAShipments">
+    <End Role="InboundFBAShipments" Type="Self.InboundFBAShipments" Multiplicity="0..1" />
+    <End Role="InboundFBAShipmentStatusChanges" Type="Self.InboundFBAShipmentStatusChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboundFBAShipments">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InboundFBAShipmentStatusChanges">
+        <PropertyRef Name="ShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnownASINAttributes_KnownASINs">
+    <End Role="KnownASINs" Type="Self.KnownASINs" Multiplicity="1" />
+    <End Role="KnownASINAttributes" Type="Self.KnownASINAttributes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnownASINs">
+        <PropertyRef Name="ASIN" />
+      </Principal>
+      <Dependent Role="KnownASINAttributes">
+        <PropertyRef Name="ASIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCategoryProductTags_ProductCategories">
+    <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="1" />
+    <End Role="ProductCategoryProductTags" Type="Self.ProductCategoryProductTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductCategoryProductTags">
+        <PropertyRef Name="ProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCategoryProductTags_ProductTags">
+    <End Role="ProductTags" Type="Self.ProductTags" Multiplicity="1" />
+    <End Role="ProductCategoryProductTags" Type="Self.ProductCategoryProductTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTags">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductCategoryProductTags">
+        <PropertyRef Name="ProductTagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventory_InventoryLocations">
+    <End Role="ProductInventoryLocations" Type="Self.ProductInventoryLocations" Multiplicity="1" />
+    <End Role="ProductInventory" Type="Self.ProductInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryLocations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventory">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventory_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductInventory" Type="Self.ProductInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventory">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+    <End Role="ProductInventoryAdjustmentBatches" Type="Self.ProductInventoryAdjustmentBatches" Multiplicity="0..1" />
+    <End Role="ProductInventoryAdjustments" Type="Self.ProductInventoryAdjustments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentBatches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustments">
+        <PropertyRef Name="ProductInventoryAdjustmentBatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons">
+    <End Role="ProductInventoryAdjustmentReasons" Type="Self.ProductInventoryAdjustmentReasons" Multiplicity="1" />
+    <End Role="ProductInventoryAdjustments" Type="Self.ProductInventoryAdjustments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryAdjustmentReasons">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustments">
+        <PropertyRef Name="ReasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_ProductInventoryLocations">
+    <End Role="ProductInventoryLocations" Type="Self.ProductInventoryLocations" Multiplicity="1" />
+    <End Role="ProductInventoryAdjustments" Type="Self.ProductInventoryAdjustments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInventoryLocations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustments">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInventoryAdjustments_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductInventoryAdjustments" Type="Self.ProductInventoryAdjustments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInventoryAdjustments">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductProductCategories_ProductCategories">
+    <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="1" />
+    <End Role="ProductProductCategories" Type="Self.ProductProductCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductProductCategories">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductProductCategories_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductProductCategories" Type="Self.ProductProductCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductProductCategories">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductProductTags_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductProductTags" Type="Self.ProductProductTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductProductTags">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductProductTags_ProductTags">
+    <End Role="ProductTags" Type="Self.ProductTags" Multiplicity="1" />
+    <End Role="ProductProductTags" Type="Self.ProductProductTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTags">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductProductTags">
+        <PropertyRef Name="ProductTagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductVendors_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductVendors" Type="Self.ProductVendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductVendors">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductVendors_Vendors">
+    <End Role="Vendors" Type="Self.Vendors" Multiplicity="1" />
+    <End Role="ProductVendors" Type="Self.ProductVendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductVendors">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderLines_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderLines_PurchaseOrders">
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderLines_ReceivedProducts">
+    <End Role="ReceivedProducts" Type="Self.ReceivedProducts" Multiplicity="0..1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReceivedProducts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="ReceivedProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrders_PurchaseOrderConfirm_Status">
+    <End Role="PurchaseOrderConfirm_Status" Type="Self.PurchaseOrderConfirm_Status" Multiplicity="0..1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderConfirm_Status">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="CStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrders_PurchaseOrderPaymentTypes">
+    <End Role="PurchaseOrderPaymentTypes" Type="Self.PurchaseOrderPaymentTypes" Multiplicity="0..1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderPaymentTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="PaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrders_PurchaseOrderStatuses">
+    <End Role="PurchaseOrderStatuses" Type="Self.PurchaseOrderStatuses" Multiplicity="1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderStatuses">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrders_Vendors">
+    <End Role="Vendors" Type="Self.Vendors" Multiplicity="1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReceivedProducts_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ReceivedProducts" Type="Self.ReceivedProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedProducts">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReceivedProducts_ReceivedShipments">
+    <End Role="ReceivedShipments" Type="Self.ReceivedShipments" Multiplicity="0..1" />
+    <End Role="ReceivedProducts" Type="Self.ReceivedProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReceivedShipments">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedProducts">
+        <PropertyRef Name="ReceivedShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReceivedProducts_RecievedShipmentStatuses">
+    <End Role="RecievedShipmentStatuses" Type="Self.RecievedShipmentStatuses" Multiplicity="0..1" />
+    <End Role="ReceivedProducts" Type="Self.ReceivedProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecievedShipmentStatuses">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedProducts">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReceivedShipments_Vendors">
+    <End Role="Vendors" Type="Self.Vendors" Multiplicity="0..1" />
+    <End Role="ReceivedShipments" Type="Self.ReceivedShipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceivedShipments">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportActionParameters_ReportActions">
+    <End Role="ReportActions" Type="Self.ReportActions" Multiplicity="1" />
+    <End Role="ReportActionParameters" Type="Self.ReportActionParameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportActions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReportActionParameters">
+        <PropertyRef Name="ReportActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_aspnet_Users">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendors_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Vendors" Type="Self.Vendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Vendors">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendors_States">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Vendors" Type="Self.Vendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="FIPS" />
+      </Principal>
+      <Dependent Role="Vendors">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OmnimarkAmazonModelStoreContainer">
+    <EntitySet Name="AmazonAccounts" EntityType="Self.AmazonAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AmazonInventory" EntityType="Self.AmazonInventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AmazonInventoryProducts" EntityType="Self.AmazonInventoryProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AmazonInventorySKUs" EntityType="Self.AmazonInventorySKUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AmazonOrderLines" EntityType="Self.AmazonOrderLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AmazonOrders" EntityType="Self.AmazonOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ASINOfferListings" EntityType="Self.ASINOfferListings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ASINOfferScrapes" EntityType="Self.ASINOfferScrapes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ASINsSuccessfullyExported" EntityType="Self.ASINsSuccessfullyExported" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AutomaticPriceChanges" EntityType="Self.AutomaticPriceChanges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DailyTraffic" EntityType="Self.DailyTraffic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eBayItemsProducts" EntityType="Self.eBayItemsProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eBayOrderLines" EntityType="Self.eBayOrderLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eBayOrders" EntityType="Self.eBayOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eBayRawItemData" EntityType="Self.eBayRawItemData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExportSpecs" EntityType="Self.ExportSpecs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FakeUPCs" EntityType="Self.FakeUPCs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedSubmissionQueue" EntityType="Self.FeedSubmissionQueue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedSubmissionSchedule" EntityType="Self.FeedSubmissionSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InboundFBAShipmentItems" EntityType="Self.InboundFBAShipmentItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InboundFBAShipmentProductInventoryAdjustments" EntityType="Self.InboundFBAShipmentProductInventoryAdjustments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InboundFBAShipments" EntityType="Self.InboundFBAShipments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InboundFBAShipmentStatusChanges" EntityType="Self.InboundFBAShipmentStatusChanges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnownASINAttributes" EntityType="Self.KnownASINAttributes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnownASINs" EntityType="Self.KnownASINs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategoryProductTags" EntityType="Self.ProductCategoryProductTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventory" EntityType="Self.ProductInventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventoryAdjustmentBatches" EntityType="Self.ProductInventoryAdjustmentBatches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventoryAdjustmentReasons" EntityType="Self.ProductInventoryAdjustmentReasons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventoryAdjustmentReasonTypes" EntityType="Self.ProductInventoryAdjustmentReasonTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventoryAdjustments" EntityType="Self.ProductInventoryAdjustments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventoryLocations" EntityType="Self.ProductInventoryLocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductProductCategories" EntityType="Self.ProductProductCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductProductTags" EntityType="Self.ProductProductTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTags" EntityType="Self.ProductTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductVendors" EntityType="Self.ProductVendors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderConfirm_Status" EntityType="Self.PurchaseOrderConfirm_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderLines" EntityType="Self.PurchaseOrderLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderPaymentTypes" EntityType="Self.PurchaseOrderPaymentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderStatuses" EntityType="Self.PurchaseOrderStatuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceivedProducts" EntityType="Self.ReceivedProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceivedShipments" EntityType="Self.ReceivedShipments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecievedShipmentStatuses" EntityType="Self.RecievedShipmentStatuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportActionParameters" EntityType="Self.ReportActionParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportActions" EntityType="Self.ReportActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesVenues" EntityType="Self.SalesVenues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SearchTerms" EntityType="Self.SearchTerms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShippedtoAmazon" EntityType="Self.ShippedtoAmazon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOSInventoryChangeReports" EntityType="Self.SOSInventoryChangeReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemStatus" EntityType="Self.SystemStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimeZones" EntityType="Self.TimeZones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendors" EntityType="Self.Vendors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="suppliers" EntityType="Self.suppliers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[suppliers].[ID] AS [ID], 
+[suppliers].[Company] AS [Company], 
+[suppliers].[PhoneNumber] AS [PhoneNumber], 
+[suppliers].[Firstname] AS [Firstname], 
+[suppliers].[MidInitial] AS [MidInitial], 
+[suppliers].[Lastname] AS [Lastname], 
+[suppliers].[Addr1] AS [Addr1], 
+[suppliers].[Addr2] AS [Addr2], 
+[suppliers].[ZIP] AS [ZIP], 
+[suppliers].[City] AS [City], 
+[suppliers].[State] AS [State], 
+[suppliers].[TLD] AS [TLD], 
+[suppliers].[Email] AS [Email], 
+[suppliers].[FaxNumber] AS [FaxNumber]
+FROM [dbo].[suppliers] AS [suppliers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AmazonInventoryView" EntityType="Self.AmazonInventoryView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[AmazonInventoryView].[ASIN] AS [ASIN], 
+[AmazonInventoryView].[Title] AS [Title], 
+[AmazonInventoryView].[AmazonStockQty] AS [AmazonStockQty], 
+[AmazonInventoryView].[AmazonStockTimeStamp] AS [AmazonStockTimeStamp], 
+[AmazonInventoryView].[TimeStamp] AS [TimeStamp]
+FROM [dbo].[AmazonInventoryView] AS [AmazonInventoryView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AutomaticPriceChangesView" EntityType="Self.AutomaticPriceChangesView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[AutomaticPriceChangesView].[ID] AS [ID], 
+[AutomaticPriceChangesView].[AmazonAccountID] AS [AmazonAccountID], 
+[AutomaticPriceChangesView].[ASIN] AS [ASIN], 
+[AutomaticPriceChangesView].[SKU] AS [SKU], 
+[AutomaticPriceChangesView].[TempPrice] AS [TempPrice], 
+[AutomaticPriceChangesView].[RegularPrice] AS [RegularPrice], 
+[AutomaticPriceChangesView].[TempPriceStartDateTime] AS [TempPriceStartDateTime], 
+[AutomaticPriceChangesView].[TempPriceEndDateTime] AS [TempPriceEndDateTime], 
+[AutomaticPriceChangesView].[StartFeedSubmissionScheduleID] AS [StartFeedSubmissionScheduleID], 
+[AutomaticPriceChangesView].[EndFeedSubmissionScheduleID] AS [EndFeedSubmissionScheduleID], 
+[AutomaticPriceChangesView].[TimeSpan] AS [TimeSpan], 
+[AutomaticPriceChangesView].[TimeStamp] AS [TimeStamp], 
+[AutomaticPriceChangesView].[Title] AS [Title], 
+[AutomaticPriceChangesView].[NextStartRun] AS [NextStartRun], 
+[AutomaticPriceChangesView].[NextEndRun] AS [NextEndRun]
+FROM [dbo].[AutomaticPriceChangesView] AS [AutomaticPriceChangesView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="eBayItems" EntityType="Self.eBayItems" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[eBayItems].[ItemID] AS [ItemID], 
+[eBayItems].[CurrentPrice] AS [CurrentPrice], 
+[eBayItems].[Title] AS [Title], 
+[eBayItems].[ListingStatusText] AS [ListingStatusText], 
+[eBayItems].[ListingStatus] AS [ListingStatus], 
+[eBayItems].[ProductAssociationCount] AS [ProductAssociationCount]
+FROM [dbo].[eBayItems] AS [eBayItems]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FeedSubmissionScheduleStatus" EntityType="Self.FeedSubmissionScheduleStatus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[FeedSubmissionScheduleStatus].[ID] AS [ID], 
+[FeedSubmissionScheduleStatus].[AmazonAccountID] AS [AmazonAccountID], 
+[FeedSubmissionScheduleStatus].[FeedType] AS [FeedType], 
+[FeedSubmissionScheduleStatus].[MessageType] AS [MessageType], 
+[FeedSubmissionScheduleStatus].[MessageXML] AS [MessageXML], 
+[FeedSubmissionScheduleStatus].[NextRun] AS [NextRun], 
+[FeedSubmissionScheduleStatus].[TimeSpan] AS [TimeSpan], 
+[FeedSubmissionScheduleStatus].[Name] AS [Name], 
+[FeedSubmissionScheduleStatus].[Notes] AS [Notes], 
+[FeedSubmissionScheduleStatus].[MustRunAll] AS [MustRunAll], 
+[FeedSubmissionScheduleStatus].[TimeStamp] AS [TimeStamp], 
+[FeedSubmissionScheduleStatus].[Enabled] AS [Enabled], 
+[FeedSubmissionScheduleStatus].[Deleted] AS [Deleted], 
+[FeedSubmissionScheduleStatus].[ScheduleID] AS [ScheduleID], 
+[FeedSubmissionScheduleStatus].[RunCount] AS [RunCount], 
+[FeedSubmissionScheduleStatus].[LastRun] AS [LastRun], 
+[FeedSubmissionScheduleStatus].[LastCompletion] AS [LastCompletion], 
+[FeedSubmissionScheduleStatus].[ErrorCount] AS [ErrorCount], 
+[FeedSubmissionScheduleStatus].[ActiveCount] AS [ActiveCount], 
+[FeedSubmissionScheduleStatus].[AmazonAccountName] AS [AmazonAccountName], 
+[FeedSubmissionScheduleStatus].[AutomaticPriceChangeID] AS [AutomaticPriceChangeID]
+FROM [dbo].[FeedSubmissionScheduleStatus] AS [FeedSubmissionScheduleStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="InboundFBAShipmentManagementView" EntityType="Self.InboundFBAShipmentManagementView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[InboundFBAShipmentManagementView].[AmazonAccountName] AS [AmazonAccountName], 
+[InboundFBAShipmentManagementView].[OrderBy] AS [OrderBy], 
+[InboundFBAShipmentManagementView].[ID] AS [ID], 
+[InboundFBAShipmentManagementView].[AmazonAccountID] AS [AmazonAccountID], 
+[InboundFBAShipmentManagementView].[Status] AS [Status], 
+[InboundFBAShipmentManagementView].[ItemCount] AS [ItemCount], 
+[InboundFBAShipmentManagementView].[TimeStamp] AS [TimeStamp], 
+[InboundFBAShipmentManagementView].[UpdateTimeStamp] AS [UpdateTimeStamp], 
+[InboundFBAShipmentManagementView].[RemovedFromInventoryAdjustmentProcessing] AS [RemovedFromInventoryAdjustmentProcessing], 
+[InboundFBAShipmentManagementView].[ScheduledForInventoryAdjustmentProcessing] AS [ScheduledForInventoryAdjustmentProcessing], 
+[InboundFBAShipmentManagementView].[Name] AS [Name], 
+[InboundFBAShipmentManagementView].[CreatedOn] AS [CreatedOn], 
+[InboundFBAShipmentManagementView].[InboundFBAShipmentID] AS [InboundFBAShipmentID], 
+[InboundFBAShipmentManagementView].[FirstInventoryAdjustment] AS [FirstInventoryAdjustment], 
+[InboundFBAShipmentManagementView].[LastInventoryAdjustment] AS [LastInventoryAdjustment], 
+[InboundFBAShipmentManagementView].[InventoryAdjustmentCount] AS [InventoryAdjustmentCount]
+FROM [dbo].[InboundFBAShipmentManagementView] AS [InboundFBAShipmentManagementView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="KnownASINsInventoryMaintenanceView" EntityType="Self.KnownASINsInventoryMaintenanceView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[KnownASINsInventoryMaintenanceView].[ASIN] AS [ASIN], 
+[KnownASINsInventoryMaintenanceView].[SearchTerm] AS [SearchTerm], 
+[KnownASINsInventoryMaintenanceView].[Title] AS [Title], 
+[KnownASINsInventoryMaintenanceView].[Filtered] AS [Filtered], 
+[KnownASINsInventoryMaintenanceView].[TimeStamp] AS [TimeStamp], 
+[KnownASINsInventoryMaintenanceView].[LastSeen] AS [LastSeen], 
+[KnownASINsInventoryMaintenanceView].[Reviewed] AS [Reviewed], 
+[KnownASINsInventoryMaintenanceView].[OurProduct] AS [OurProduct], 
+[KnownASINsInventoryMaintenanceView].[MarketPlaceID] AS [MarketPlaceID], 
+[KnownASINsInventoryMaintenanceView].[LastScrape] AS [LastScrape], 
+[KnownASINsInventoryMaintenanceView].[LastScrapeTry] AS [LastScrapeTry], 
+[KnownASINsInventoryMaintenanceView].[FirstScrapeFail] AS [FirstScrapeFail], 
+[KnownASINsInventoryMaintenanceView].[LastScrapeFail] AS [LastScrapeFail], 
+[KnownASINsInventoryMaintenanceView].[ScrapeFailCount] AS [ScrapeFailCount], 
+[KnownASINsInventoryMaintenanceView].[GoneFromAmazon] AS [GoneFromAmazon], 
+[KnownASINsInventoryMaintenanceView].[OurLowestPrice] AS [OurLowestPrice], 
+[KnownASINsInventoryMaintenanceView].[OurMostRecentUSListingPrice] AS [OurMostRecentUSListingPrice], 
+[KnownASINsInventoryMaintenanceView].[OurMostRecentUSListingOpenDate] AS [OurMostRecentUSListingOpenDate], 
+[KnownASINsInventoryMaintenanceView].[OurMostRecentUSListingAccountID] AS [OurMostRecentUSListingAccountID], 
+[KnownASINsInventoryMaintenanceView].[ImageName] AS [ImageName], 
+[KnownASINsInventoryMaintenanceView].[MergedIntoASIN] AS [MergedIntoASIN], 
+[KnownASINsInventoryMaintenanceView].[AmazonAccountID] AS [AmazonAccountID], 
+[KnownASINsInventoryMaintenanceView].[AmazonStockQty] AS [AmazonStockQty], 
+[KnownASINsInventoryMaintenanceView].[AmazonStockTimeStamp] AS [AmazonStockTimeStamp]
+FROM [dbo].[KnownASINsInventoryMaintenanceView] AS [KnownASINsInventoryMaintenanceView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NeedInInventoryWithTotal" EntityType="Self.NeedInInventoryWithTotal" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[NeedInInventoryWithTotal].[ASIN] AS [ASIN], 
+[NeedInInventoryWithTotal].[AmazonAccountID] AS [AmazonAccountID], 
+[NeedInInventoryWithTotal].[ProductID] AS [ProductID], 
+[NeedInInventoryWithTotal].[VendorID] AS [VendorID], 
+[NeedInInventoryWithTotal].[QtySold] AS [QtySold], 
+[NeedInInventoryWithTotal].[AmazonStockQty] AS [AmazonStockQty], 
+[NeedInInventoryWithTotal].[NeedInInventory] AS [NeedInInventory], 
+[NeedInInventoryWithTotal].[OnOrder] AS [OnOrder], 
+[NeedInInventoryWithTotal].[Description] AS [Description], 
+[NeedInInventoryWithTotal].[AccountName] AS [AccountName], 
+[NeedInInventoryWithTotal].[ProductName] AS [ProductName], 
+[NeedInInventoryWithTotal].[VendorName] AS [VendorName], 
+[NeedInInventoryWithTotal].[CountryID] AS [CountryID], 
+[NeedInInventoryWithTotal].[CountryName] AS [CountryName], 
+[NeedInInventoryWithTotal].[FBAQty] AS [FBAQty], 
+[NeedInInventoryWithTotal].[NeedInInventoryTotal] AS [NeedInInventoryTotal]
+FROM [dbo].[NeedInInventoryWithTotal] AS [NeedInInventoryWithTotal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OfferScrapeStatus" EntityType="Self.OfferScrapeStatus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[OfferScrapeStatus].[ASIN] AS [ASIN], 
+[OfferScrapeStatus].[CountryID] AS [CountryID], 
+[OfferScrapeStatus].[LastScrapeTry] AS [LastScrapeTry], 
+[OfferScrapeStatus].[OurProduct] AS [OurProduct]
+FROM [dbo].[OfferScrapeStatus] AS [OfferScrapeStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OnOrder" EntityType="Self.OnOrder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[OnOrder].[ProductID] AS [ProductID], 
+[OnOrder].[OnOrder] AS [OnOrder]
+FROM [dbo].[OnOrder] AS [OnOrder]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrdersView" EntityType="Self.OrdersView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[OrdersView].[AccountName] AS [AccountName], 
+[OrdersView].[PurchaseDate] AS [PurchaseDate], 
+[OrdersView].[NameFirst] AS [NameFirst], 
+[OrdersView].[NameLast] AS [NameLast], 
+[OrdersView].[ShipAddress1] AS [ShipAddress1], 
+[OrdersView].[ShipAddress2] AS [ShipAddress2], 
+[OrdersView].[ShipAddress3] AS [ShipAddress3], 
+[OrdersView].[Shipcity] AS [Shipcity], 
+[OrdersView].[ShipStateProvince] AS [ShipStateProvince], 
+[OrdersView].[ShipPostalCode] AS [ShipPostalCode], 
+[OrdersView].[ShipCountryCode] AS [ShipCountryCode], 
+[OrdersView].[ShipPhone] AS [ShipPhone], 
+[OrdersView].[ASIN] AS [ASIN], 
+[OrdersView].[ProductName] AS [ProductName]
+FROM [dbo].[OrdersView] AS [OrdersView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OurListings" EntityType="Self.OurListings" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[OurListings].[ID] AS [ID], 
+[OurListings].[ASIN] AS [ASIN], 
+[OurListings].[MerchantID] AS [MerchantID], 
+[OurListings].[AmazonFulfilled] AS [AmazonFulfilled], 
+[OurListings].[Price] AS [Price], 
+[OurListings].[PricePerUnit] AS [PricePerUnit], 
+[OurListings].[ShippingPrice] AS [ShippingPrice], 
+[OurListings].[TimeStamp] AS [TimeStamp], 
+[OurListings].[UpdateTimeStamp] AS [UpdateTimeStamp], 
+[OurListings].[CountryID] AS [CountryID], 
+[OurListings].[OfferingIDDecoded] AS [OfferingIDDecoded]
+FROM [dbo].[OurListings] AS [OurListings]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OutPriced" EntityType="Self.OutPriced" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[OutPriced].[ASIN] AS [ASIN], 
+[OutPriced].[Title] AS [Title], 
+[OutPriced].[OurMinPrice] AS [OurMinPrice], 
+[OutPriced].[CompetitorMinPrice] AS [CompetitorMinPrice], 
+[OutPriced].[AmazonFulfilled] AS [AmazonFulfilled], 
+[OutPriced].[StockQty] AS [StockQty]
+FROM [dbo].[OutPriced] AS [OutPriced]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ProductsView" EntityType="Self.ProductsView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ProductsView].[ID] AS [ID], 
+[ProductsView].[Name] AS [Name], 
+[ProductsView].[Cost] AS [Cost], 
+[ProductsView].[ActualCost] AS [ActualCost], 
+[ProductsView].[Weight] AS [Weight], 
+[ProductsView].[TimeStamp] AS [TimeStamp], 
+[ProductsView].[Categories] AS [Categories], 
+[ProductsView].[Tags] AS [Tags]
+FROM [dbo].[ProductsView] AS [ProductsView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ProductView" EntityType="Self.ProductView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ProductView].[ID] AS [ID], 
+[ProductView].[Name] AS [Name], 
+[ProductView].[Cost] AS [Cost], 
+[ProductView].[ActualCost] AS [ActualCost], 
+[ProductView].[Weight] AS [Weight], 
+[ProductView].[TimeStamp] AS [TimeStamp], 
+[ProductView].[Categories] AS [Categories], 
+[ProductView].[Tags] AS [Tags]
+FROM [dbo].[ProductView] AS [ProductView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PurchaseOrderProductsVendors" EntityType="Self.PurchaseOrderProductsVendors" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[PurchaseOrderProductsVendors].[POID] AS [POID], 
+[PurchaseOrderProductsVendors].[PONumber] AS [PONumber], 
+[PurchaseOrderProductsVendors].[ProductID] AS [ProductID], 
+[PurchaseOrderProductsVendors].[VendorID] AS [VendorID]
+FROM [dbo].[PurchaseOrderProductsVendors] AS [PurchaseOrderProductsVendors]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RelatedProducts" EntityType="Self.RelatedProducts" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[RelatedProducts].[ProductID] AS [ProductID], 
+[RelatedProducts].[ASIN] AS [ASIN], 
+[RelatedProducts].[ProductQty] AS [ProductQty], 
+[RelatedProducts].[RelatedProductID] AS [RelatedProductID], 
+[RelatedProducts].[RelatedProductName] AS [RelatedProductName], 
+[RelatedProducts].[RelatedProductQty] AS [RelatedProductQty]
+FROM [dbo].[RelatedProducts] AS [RelatedProducts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SearchTermsWithLastSearchTimeStamp" EntityType="Self.SearchTermsWithLastSearchTimeStamp" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SearchTermsWithLastSearchTimeStamp].[ID] AS [ID], 
+[SearchTermsWithLastSearchTimeStamp].[Term] AS [Term], 
+[SearchTermsWithLastSearchTimeStamp].[TimeStamp] AS [TimeStamp], 
+[SearchTermsWithLastSearchTimeStamp].[LastSearch] AS [LastSearch], 
+[SearchTermsWithLastSearchTimeStamp].[LastSearchTimeStamp] AS [LastSearchTimeStamp]
+FROM [dbo].[SearchTermsWithLastSearchTimeStamp] AS [SearchTermsWithLastSearchTimeStamp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SpecialPriceSalesByDay" EntityType="Self.SpecialPriceSalesByDay" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SpecialPriceSalesByDay].[ASIN] AS [ASIN], 
+[SpecialPriceSalesByDay].[Title] AS [Title], 
+[SpecialPriceSalesByDay].[PurchaseDate] AS [PurchaseDate], 
+[SpecialPriceSalesByDay].[Qty] AS [Qty], 
+[SpecialPriceSalesByDay].[SpecialPrice] AS [SpecialPrice]
+FROM [dbo].[SpecialPriceSalesByDay] AS [SpecialPriceSalesByDay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UnderPriced" EntityType="Self.UnderPriced" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[UnderPriced].[ASIN] AS [ASIN], 
+[UnderPriced].[AmazonAccountID] AS [AmazonAccountID], 
+[UnderPriced].[Price] AS [Price], 
+[UnderPriced].[TimeStamp] AS [TimeStamp], 
+[UnderPriced].[SKU] AS [SKU], 
+[UnderPriced].[OpenDate] AS [OpenDate], 
+[UnderPriced].[Source] AS [Source], 
+[UnderPriced].[StoreName] AS [StoreName], 
+[UnderPriced].[SystemActualCost] AS [SystemActualCost], 
+[UnderPriced].[CalculatedMinimumPrice] AS [CalculatedMinimumPrice], 
+[UnderPriced].[UnderPricedIgnoreUntilUpdate] AS [UnderPricedIgnoreUntilUpdate], 
+[UnderPriced].[UnderPricedIgnoreUntil] AS [UnderPricedIgnoreUntil]
+FROM [dbo].[UnderPriced] AS [UnderPriced]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__29AC2CE0" Association="Self.FK__aspnet_Me__UserI__29AC2CE0">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__2AA05119" Association="Self.FK__aspnet_Me__UserI__2AA05119">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__2C88998B" Association="Self.FK__aspnet_Me__UserI__2C88998B">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__38EE7070" Association="Self.FK__aspnet_Pr__UserI__38EE7070">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__39E294A9" Association="Self.FK__aspnet_Pr__UserI__39E294A9">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__3AD6B8E2" Association="Self.FK__aspnet_Pr__UserI__3AD6B8E2">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__4277DAAA" Association="Self.FK__aspnet_Us__RoleI__4277DAAA">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__4460231C" Association="Self.FK__aspnet_Us__RoleI__4460231C">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__45544755" Association="Self.FK__aspnet_Us__RoleI__45544755">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__4183B671" Association="Self.FK__aspnet_Us__UserI__4183B671">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__436BFEE3" Association="Self.FK__aspnet_Us__UserI__436BFEE3">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__46486B8E" Association="Self.FK__aspnet_Us__UserI__46486B8E">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonAccounts_Countries" Association="Self.FK_AmazonAccounts_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventory_AmazonAccounts" Association="Self.FK_AmazonInventory_AmazonAccounts">
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+      <End Role="AmazonInventory" EntitySet="AmazonInventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventory_KnownASINs" Association="Self.FK_AmazonInventory_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="AmazonInventory" EntitySet="AmazonInventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventoryProducts_KnownASINs" Association="Self.FK_AmazonInventoryProducts_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="AmazonInventoryProducts" EntitySet="AmazonInventoryProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventoryProducts_Products" Association="Self.FK_AmazonInventoryProducts_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="AmazonInventoryProducts" EntitySet="AmazonInventoryProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventorySKUs_AmazonAccounts" Association="Self.FK_AmazonInventorySKUs_AmazonAccounts">
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+      <End Role="AmazonInventorySKUs" EntitySet="AmazonInventorySKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventorySKUs_AmazonInventory" Association="Self.FK_AmazonInventorySKUs_AmazonInventory">
+      <End Role="AmazonInventory" EntitySet="AmazonInventory" />
+      <End Role="AmazonInventorySKUs" EntitySet="AmazonInventorySKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonInventorySKUs_KnownASINs" Association="Self.FK_AmazonInventorySKUs_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="AmazonInventorySKUs" EntitySet="AmazonInventorySKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonOrderLines_AmazonOrders" Association="Self.FK_AmazonOrderLines_AmazonOrders">
+      <End Role="AmazonOrders" EntitySet="AmazonOrders" />
+      <End Role="AmazonOrderLines" EntitySet="AmazonOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonOrderLines_ProductInventoryAdjustments1" Association="Self.FK_AmazonOrderLines_ProductInventoryAdjustments1">
+      <End Role="ProductInventoryAdjustments" EntitySet="ProductInventoryAdjustments" />
+      <End Role="AmazonOrderLines" EntitySet="AmazonOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonOrders_AmazonAccounts" Association="Self.FK_AmazonOrders_AmazonAccounts">
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+      <End Role="AmazonOrders" EntitySet="AmazonOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AmazonOrders_ProductInventoryAdjustmentBatches" Association="Self.FK_AmazonOrders_ProductInventoryAdjustmentBatches">
+      <End Role="ProductInventoryAdjustmentBatches" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="AmazonOrders" EntitySet="AmazonOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASINOfferListingsx_KnownASINs" Association="Self.FK_ASINOfferListingsx_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="ASINOfferListings" EntitySet="ASINOfferListings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASINOfferScrapes_KnownASINs" Association="Self.FK_ASINOfferScrapes_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="ASINOfferScrapes" EntitySet="ASINOfferScrapes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASINsSuccessfullyExported_KnownASINs" Association="Self.FK_ASINsSuccessfullyExported_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="ASINsSuccessfullyExported" EntitySet="ASINsSuccessfullyExported" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASINsSuccessfullyExported_SalesVenues" Association="Self.FK_ASINsSuccessfullyExported_SalesVenues">
+      <End Role="SalesVenues" EntitySet="SalesVenues" />
+      <End Role="ASINsSuccessfullyExported" EntitySet="ASINsSuccessfullyExported" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule" Association="Self.FK_AutomaticPriceChanges_FeedSubmissionSchedule">
+      <End Role="FeedSubmissionSchedule" EntitySet="FeedSubmissionSchedule" />
+      <End Role="AutomaticPriceChanges" EntitySet="AutomaticPriceChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AutomaticPriceChanges_FeedSubmissionSchedule1" Association="Self.FK_AutomaticPriceChanges_FeedSubmissionSchedule1">
+      <End Role="FeedSubmissionSchedule" EntitySet="FeedSubmissionSchedule" />
+      <End Role="AutomaticPriceChanges" EntitySet="AutomaticPriceChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayItemsProducts_eBayRawItemData" Association="Self.FK_eBayItemsProducts_eBayRawItemData">
+      <End Role="eBayRawItemData" EntitySet="eBayRawItemData" />
+      <End Role="eBayItemsProducts" EntitySet="eBayItemsProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayItemsProducts_Products" Association="Self.FK_eBayItemsProducts_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="eBayItemsProducts" EntitySet="eBayItemsProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayOrderLines_eBayOrders" Association="Self.FK_eBayOrderLines_eBayOrders">
+      <End Role="eBayOrders" EntitySet="eBayOrders" />
+      <End Role="eBayOrderLines" EntitySet="eBayOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayOrderLines_eBayRawItemData" Association="Self.FK_eBayOrderLines_eBayRawItemData">
+      <End Role="eBayRawItemData" EntitySet="eBayRawItemData" />
+      <End Role="eBayOrderLines" EntitySet="eBayOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eBayOrders_ProductInventoryMoves" Association="Self.FK_eBayOrders_ProductInventoryMoves">
+      <End Role="ProductInventoryAdjustmentBatches" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="eBayOrders" EntitySet="eBayOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExportSpecs_SalesVenues" Association="Self.FK_ExportSpecs_SalesVenues">
+      <End Role="SalesVenues" EntitySet="SalesVenues" />
+      <End Role="ExportSpecs" EntitySet="ExportSpecs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedSubmissionQueue_AmazonAccounts" Association="Self.FK_FeedSubmissionQueue_AmazonAccounts">
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+      <End Role="FeedSubmissionQueue" EntitySet="FeedSubmissionQueue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedSubmissionQueue_FeedSubmissionSchedule" Association="Self.FK_FeedSubmissionQueue_FeedSubmissionSchedule">
+      <End Role="FeedSubmissionSchedule" EntitySet="FeedSubmissionSchedule" />
+      <End Role="FeedSubmissionQueue" EntitySet="FeedSubmissionQueue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedSubmissionSchedule_AmazonAccounts" Association="Self.FK_FeedSubmissionSchedule_AmazonAccounts">
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+      <End Role="FeedSubmissionSchedule" EntitySet="FeedSubmissionSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipmentItems_InboundFBAShipments" Association="Self.FK_InboundFBAShipmentItems_InboundFBAShipments">
+      <End Role="InboundFBAShipments" EntitySet="InboundFBAShipments" />
+      <End Role="InboundFBAShipmentItems" EntitySet="InboundFBAShipmentItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments" Association="Self.FK_InboundFBAShipmentProductInventoryAdjustments_InboundFBAShipments">
+      <End Role="InboundFBAShipments" EntitySet="InboundFBAShipments" />
+      <End Role="InboundFBAShipmentProductInventoryAdjustments" EntitySet="InboundFBAShipmentProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches" Association="Self.FK_InboundFBAShipmentProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+      <End Role="ProductInventoryAdjustmentBatches" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="InboundFBAShipmentProductInventoryAdjustments" EntitySet="InboundFBAShipmentProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipments_AmazonAccounts" Association="Self.FK_InboundFBAShipments_AmazonAccounts">
+      <End Role="AmazonAccounts" EntitySet="AmazonAccounts" />
+      <End Role="InboundFBAShipments" EntitySet="InboundFBAShipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboundFBAShipmentStatusChanges_InboundFBAShipments" Association="Self.FK_InboundFBAShipmentStatusChanges_InboundFBAShipments">
+      <End Role="InboundFBAShipments" EntitySet="InboundFBAShipments" />
+      <End Role="InboundFBAShipmentStatusChanges" EntitySet="InboundFBAShipmentStatusChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnownASINAttributes_KnownASINs" Association="Self.FK_KnownASINAttributes_KnownASINs">
+      <End Role="KnownASINs" EntitySet="KnownASINs" />
+      <End Role="KnownASINAttributes" EntitySet="KnownASINAttributes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCategoryProductTags_ProductCategories" Association="Self.FK_ProductCategoryProductTags_ProductCategories">
+      <End Role="ProductCategories" EntitySet="ProductCategories" />
+      <End Role="ProductCategoryProductTags" EntitySet="ProductCategoryProductTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCategoryProductTags_ProductTags" Association="Self.FK_ProductCategoryProductTags_ProductTags">
+      <End Role="ProductTags" EntitySet="ProductTags" />
+      <End Role="ProductCategoryProductTags" EntitySet="ProductCategoryProductTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventory_InventoryLocations" Association="Self.FK_ProductInventory_InventoryLocations">
+      <End Role="ProductInventoryLocations" EntitySet="ProductInventoryLocations" />
+      <End Role="ProductInventory" EntitySet="ProductInventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventory_Products" Association="Self.FK_ProductInventory_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductInventory" EntitySet="ProductInventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches" Association="Self.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentBatches">
+      <End Role="ProductInventoryAdjustmentBatches" EntitySet="ProductInventoryAdjustmentBatches" />
+      <End Role="ProductInventoryAdjustments" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons" Association="Self.FK_ProductInventoryAdjustments_ProductInventoryAdjustmentReasons">
+      <End Role="ProductInventoryAdjustmentReasons" EntitySet="ProductInventoryAdjustmentReasons" />
+      <End Role="ProductInventoryAdjustments" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_ProductInventoryLocations" Association="Self.FK_ProductInventoryAdjustments_ProductInventoryLocations">
+      <End Role="ProductInventoryLocations" EntitySet="ProductInventoryLocations" />
+      <End Role="ProductInventoryAdjustments" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInventoryAdjustments_Products" Association="Self.FK_ProductInventoryAdjustments_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductInventoryAdjustments" EntitySet="ProductInventoryAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductProductCategories_ProductCategories" Association="Self.FK_ProductProductCategories_ProductCategories">
+      <End Role="ProductCategories" EntitySet="ProductCategories" />
+      <End Role="ProductProductCategories" EntitySet="ProductProductCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductProductCategories_Products" Association="Self.FK_ProductProductCategories_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductProductCategories" EntitySet="ProductProductCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductProductTags_Products" Association="Self.FK_ProductProductTags_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductProductTags" EntitySet="ProductProductTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductProductTags_ProductTags" Association="Self.FK_ProductProductTags_ProductTags">
+      <End Role="ProductTags" EntitySet="ProductTags" />
+      <End Role="ProductProductTags" EntitySet="ProductProductTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductVendors_Products" Association="Self.FK_ProductVendors_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductVendors" EntitySet="ProductVendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductVendors_Vendors" Association="Self.FK_ProductVendors_Vendors">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="ProductVendors" EntitySet="ProductVendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderLines_Products" Association="Self.FK_PurchaseOrderLines_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderLines_PurchaseOrders" Association="Self.FK_PurchaseOrderLines_PurchaseOrders">
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderLines_ReceivedProducts" Association="Self.FK_PurchaseOrderLines_ReceivedProducts">
+      <End Role="ReceivedProducts" EntitySet="ReceivedProducts" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrders_PurchaseOrderConfirm_Status" Association="Self.FK_PurchaseOrders_PurchaseOrderConfirm_Status">
+      <End Role="PurchaseOrderConfirm_Status" EntitySet="PurchaseOrderConfirm_Status" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrders_PurchaseOrderPaymentTypes" Association="Self.FK_PurchaseOrders_PurchaseOrderPaymentTypes">
+      <End Role="PurchaseOrderPaymentTypes" EntitySet="PurchaseOrderPaymentTypes" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrders_PurchaseOrderStatuses" Association="Self.FK_PurchaseOrders_PurchaseOrderStatuses">
+      <End Role="PurchaseOrderStatuses" EntitySet="PurchaseOrderStatuses" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrders_Vendors" Association="Self.FK_PurchaseOrders_Vendors">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReceivedProducts_Products" Association="Self.FK_ReceivedProducts_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ReceivedProducts" EntitySet="ReceivedProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReceivedProducts_ReceivedShipments" Association="Self.FK_ReceivedProducts_ReceivedShipments">
+      <End Role="ReceivedShipments" EntitySet="ReceivedShipments" />
+      <End Role="ReceivedProducts" EntitySet="ReceivedProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReceivedProducts_RecievedShipmentStatuses" Association="Self.FK_ReceivedProducts_RecievedShipmentStatuses">
+      <End Role="RecievedShipmentStatuses" EntitySet="RecievedShipmentStatuses" />
+      <End Role="ReceivedProducts" EntitySet="ReceivedProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReceivedShipments_Vendors" Association="Self.FK_ReceivedShipments_Vendors">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="ReceivedShipments" EntitySet="ReceivedShipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportActionParameters_ReportActions" Association="Self.FK_ReportActionParameters_ReportActions">
+      <End Role="ReportActions" EntitySet="ReportActions" />
+      <End Role="ReportActionParameters" EntitySet="ReportActionParameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_aspnet_Users" Association="Self.FK_Users_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendors_Countries" Association="Self.FK_Vendors_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Vendors" EntitySet="Vendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendors_States" Association="Self.FK_Vendors_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Vendors" EntitySet="Vendors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
