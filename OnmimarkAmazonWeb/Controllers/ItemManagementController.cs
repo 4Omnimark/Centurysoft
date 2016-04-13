@@ -238,7 +238,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_Toys");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed==1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.ASIN == "B000UCPKYE").Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportToys(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
@@ -251,7 +251,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_Beauty");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeauty(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else
@@ -262,7 +262,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                     UkProhibitionTbl("tbl_Sports");
                                 }
                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                 ExportForUK(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                             }
                             else
@@ -273,7 +273,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         UkProhibitionTbl("tbl_Baby");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     ExportBaby(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
                                 else
@@ -284,7 +284,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             UkProhibitionTbl("tbl_Watches");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportWatches(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -295,7 +295,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_Jewelry");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportJewelry(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
                                         else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -305,7 +305,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_HomeandKitchen");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportHomeAndKitchen(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
                     }
@@ -322,7 +322,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_Sports");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             //IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportForUK(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
@@ -335,7 +335,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                     UkProhibitionTbl("tbl_Beauty");
                                 }
                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                 ExportBeauty(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                             }
                             else
@@ -346,7 +346,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         UkProhibitionTbl("tbl_Toys");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     ExportToys(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
@@ -358,7 +358,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             UkProhibitionTbl("tbl_Baby");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportBaby(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -369,7 +369,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_Watches");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportWatches(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
                                         else
@@ -380,7 +380,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                     UkProhibitionTbl("tbl_Jewelry");
                                                 }
                                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                 ExportJewelry(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                             }
                                             else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -390,7 +390,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                     UkProhibitionTbl("tbl_HomeandKitchen");
                                                 }
                                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.TimeStamp < dt && x.Account2_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account2_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                 ExportHomeAndKitchen(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                             }
                         }
@@ -406,7 +406,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                     CanadaProhibitionTbl("tbl_Sports");
                                 }
                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                 ExportSportsCanada(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                             }
                             else
@@ -418,7 +418,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         CanadaProhibitionTbl("tbl_Beauty");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     ExportBeautyCanada(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
                                 else
@@ -429,7 +429,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             CanadaProhibitionTbl("tbl_Toys");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportToysCanada(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -440,7 +440,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 CanadaProhibitionTbl("tbl_Baby");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportBabyCanada(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
                                         else
@@ -451,7 +451,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                     CanadaProhibitionTbl("tbl_Watches");
                                                 }
                                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                 ExportWatchesCanada(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                             }
                                             else
@@ -462,7 +462,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                         CanadaProhibitionTbl("tbl_Jewelry");
                                                     }
                                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                    IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                    IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                     ExportJewelryCanada(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                 }
                                                 else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -472,7 +472,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                         UkProhibitionTbl("tbl_HomeandKitchen");
                                                     }
                                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                    IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                    IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account3_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.CanadaProhibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                     ExportHomeAndKitchen(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                 }
                             }
@@ -488,7 +488,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         UkProhibitionTbl("tbl_Sports");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
 
                                     ExportForUK(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
@@ -501,7 +501,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             UkProhibitionTbl("tbl_Beauty");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportBeauty(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -512,7 +512,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_Toys");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportToys(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
@@ -524,7 +524,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                     UkProhibitionTbl("tbl_Baby");
                                                 }
                                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                 ExportBaby(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                             }
                                             else
@@ -535,7 +535,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                         UkProhibitionTbl("tbl_Watches");
                                                     }
                                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                    IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                    IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                     ExportWatches(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                 }
                                                 else
@@ -546,7 +546,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                             UkProhibitionTbl("tbl_Jewelry");
                                                         }
                                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                        IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                        IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                         ExportJewelry(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                     }
                                                     else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -556,7 +556,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                             UkProhibitionTbl("tbl_HomeandKitchen");
                                                         }
                                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                        IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.TimeStamp < dt && x.Account4_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                        IEnumerable<tbl_HomeandKitchen> data = ukdb.tbl_HomeandKitchen.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account4_Status != 1 && x.Prime == 0 && x.SalesPrice.ToString() != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                         ExportHomeAndKitchen(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                     }
                                 }
@@ -709,7 +709,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_ToysNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Beauty)
@@ -719,7 +719,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_BeautyNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportBeautyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.SportingGoods)
@@ -729,7 +729,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_SportsNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportForUKNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Baby)
@@ -739,7 +739,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_BabyNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportBabyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Watches)
@@ -749,7 +749,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_WatchesNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportWatchesNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Jewelry)
@@ -759,7 +759,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_JewelleryNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportJewelryNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
 
@@ -776,7 +776,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_SportsNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportForUKNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Beauty)
@@ -786,7 +786,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BeautyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeautyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Toys)
@@ -796,7 +796,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_ToysNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Baby)
@@ -806,7 +806,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BabyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBabyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Watches)
@@ -816,7 +816,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_WatchesNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportWatchesNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Jewelry)
@@ -826,7 +826,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_JewelleryNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportJewelryNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
 
@@ -842,7 +842,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 CanadaProhibitionTbl("tbl_SportsNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportSportsCanadaNotPrime(ea.rownumber, ea.marketplace, ea.PriceValue, data);
                         }
                         else if (ea.Cat == ConstantData.Beauty)
@@ -852,7 +852,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 CanadaProhibitionTbl("tbl_BeautyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeautyCanadaNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Toys)
@@ -862,7 +862,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 CanadaProhibitionTbl("tbl_ToysNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportToysCanadaNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Baby)
@@ -872,7 +872,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 CanadaProhibitionTbl("tbl_BabyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBabyCanadaNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Watches)
@@ -882,7 +882,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 CanadaProhibitionTbl("tbl_WatchesNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportWatchesCanadaNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Jewelry)
@@ -892,7 +892,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 CanadaProhibitionTbl("tbl_JewelleryNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.UPC == null && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account3_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportJewelryCanadaNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
 
@@ -907,7 +907,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_SportsNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
 
                             ExportForUKNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
@@ -918,7 +918,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BeautyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeautyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Toys)
@@ -928,7 +928,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_ToysNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
@@ -939,7 +939,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BabyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBabyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Watches)
@@ -949,7 +949,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_WatchesNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportWatchesNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Jewelry)
@@ -959,7 +959,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_JewelleryNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportJewelryNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
 
@@ -1021,11 +1021,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
 
@@ -1039,96 +1038,80 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
                                 else
-                                    if (price > 19.99 && price <= 29.99)
+                                    if (price > 129.99 && price <= 139.99)
                                     {
-                                        pricemin = 120.99;
+                                        pricemin = 420.99;
+                                    }
+                                    else if (price > 139.99 && price <= 149.99)
+                                    {
+                                        pricemin = 442.99;
+                                    }
+                                    else if (price > 149.99 && price <= 159.99)
+                                    {
+                                        pricemin = 463.99;
+                                    }
+                                    else if (price > 159.99 && price <= 169.99)
+                                    {
+                                        pricemin = 485.99;
                                     }
                                     else
-                                        if (price > 29.99 && price <= 39.99)
+                                        if (price > 169.99 && price <= 179.99)
                                         {
-                                            pricemin = 142.99;
+                                            pricemin = 513.99;
                                         }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                        else if (price > 179.99 && price <= 189.99)
+                                        {
+                                            pricemin = 542.99;
+                                        }
+                                        else if (price > 189.99 && price <= 199.99)
+                                        {
+                                            pricemin = 569.99;
+                                        }
                                 pricecal = price * PriceValue;
                                 if (pricemin >= pricecal)
                                 {
@@ -1419,11 +1402,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
 
@@ -1437,96 +1419,80 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
                                 else
-                                    if (price > 19.99 && price <= 29.99)
+                                    if (price > 59.99 && price <= 69.99)
                                     {
-                                        pricemin = 120.99;
+                                        pricemin = 222.99;
+                                    }
+                                    else if (price > 69.99 && price <= 79.99)
+                                    {
+                                        pricemin = 255.99;
+                                    }
+                                    else if (price > 79.99 && price <= 89.99)
+                                    {
+                                        pricemin = 285.99;
+                                    }
+                                    else if (price > 89.99 && price <= 99.99)
+                                    {
+                                        pricemin = 313.99;
+                                    }
+                                    else if (price > 99.99 && price <= 109.99)
+                                    {
+                                        pricemin = 327.99;
+                                    }
+                                    else if (price > 109.99 && price <= 119.99)
+                                    {
+                                        pricemin = 356.99;
+                                    }
+                                    else if (price > 119.99 && price <= 129.99)
+                                    {
+                                        pricemin = 385.99;
+                                    }
+                                    else if (price > 129.99 && price <= 139.99)
+                                    {
+                                        pricemin = 420.99;
+                                    }
+                                    else if (price > 139.99 && price <= 149.99)
+                                    {
+                                        pricemin = 442.99;
                                     }
                                     else
-                                        if (price > 29.99 && price <= 39.99)
+                                        if (price > 149.99 && price <= 159.99)
                                         {
-                                            pricemin = 142.99;
+                                            pricemin = 463.99;
                                         }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                        else if (price > 159.99 && price <= 169.99)
+                                        {
+                                            pricemin = 485.99;
+                                        }
+                                        else if (price > 169.99 && price <= 179.99)
+                                        {
+                                            pricemin = 513.99;
+                                        }
+                                        else if (price > 179.99 && price <= 189.99)
+                                        {
+                                            pricemin = 542.99;
+                                        }
+                                        else if (price > 189.99 && price <= 199.99)
+                                        {
+                                            pricemin = 569.99;
+                                        }
                                 pricecal = price * PriceValue;
                                 if (pricemin >= pricecal)
                                 {
@@ -1788,11 +1754,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
                             double minval = 49.99;
@@ -1802,96 +1767,79 @@ namespace OmnimarkAmazonWeb.Controllers
                             {
                                 pricemin = 92.99;
                             }
+                            else if (price > 19.99 && price <= 29.99)
+                            {
+                                pricemin = 120.99;
+                            }
+                            else if (price > 29.99 && price <= 39.99)
+                            {
+                                pricemin = 142.99;
+                            }
+                            else if (price > 39.99 && price <= 49.99)
+                            {
+                                pricemin = 168.99;
+                            }
                             else
-                                if (price > 19.99 && price <= 29.99)
+                                if (price > 49.99 && price <= 59.99)
                                 {
-                                    pricemin = 120.99;
+                                    pricemin = 192.99;
                                 }
-                                else
-                                    if (price > 29.99 && price <= 39.99)
-                                    {
-                                        pricemin = 142.99;
-                                    }
-                                    else
-                                        if (price > 39.99 && price <= 49.99)
-                                        {
-                                            pricemin = 168.99;
-                                        }
-                                        else
-                                            if (price > 49.99 && price <= 59.99)
-                                            {
-                                                pricemin = 192.99;
-                                            }
-                                            else
-                                                if (price > 59.99 && price <= 69.99)
-                                                {
-                                                    pricemin = 222.99;
-                                                }
-                                                else
-                                                    if (price > 69.99 && price <= 79.99)
-                                                    {
-                                                        pricemin = 255.99;
-                                                    }
-                                                    else
-                                                        if (price > 79.99 && price <= 89.99)
-                                                        {
-                                                            pricemin = 285.99;
-                                                        }
-                                                        else
-                                                            if (price > 89.99 && price <= 99.99)
-                                                            {
-                                                                pricemin = 313.99;
-                                                            }
-                                                            else
-                                                                if (price > 99.99 && price <= 109.99)
-                                                                {
-                                                                    pricemin = 327.99;
-                                                                }
-                                                                else
-                                                                    if (price > 109.99 && price <= 119.99)
-                                                                    {
-                                                                        pricemin = 356.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 119.99 && price <= 129.99)
-                                                                        {
-                                                                            pricemin = 385.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 129.99 && price <= 139.99)
-                                                                            {
-                                                                                pricemin = 420.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 139.99 && price <= 149.99)
-                                                                                {
-                                                                                    pricemin = 442.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 149.99 && price <= 159.99)
-                                                                                    {
-                                                                                        pricemin = 463.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 159.99 && price <= 169.99)
-                                                                                        {
-                                                                                            pricemin = 485.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 169.99 && price <= 179.99)
-                                                                                            {
-                                                                                                pricemin = 513.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 179.99 && price <= 189.99)
-                                                                                                {
-                                                                                                    pricemin = 542.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 189.99 && price <= 199.99)
-                                                                                                    {
-                                                                                                        pricemin = 569.99;
-                                                                                                    }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
                             pricecal = price * PriceValue;
                             if (pricemin >= pricecal)
                             {
@@ -2138,11 +2086,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                 string Exportpath = "";
 
+
+
                 StringWriter st = new StringWriter();
 
-                string header1 = "TemplateType=Toys	Version=2015.1217	The top 3 rows are for Amazon.com use only. Do not modify or delete the top 3 rows.								Offer - Offer Information - These attributes are required to make your item buyable for customers on the site.																		Dimensions - Product Dimensions - These attributes specify the size and weight of a product.												Discovery - Item discovery information - These attributes have an effect on how customers can find your product on the site using browse or search.							Images - Image Information - See Image Instructions tab for details.					Fulfillment - Use these columns to provide fulfilment-related information for orders fulfilled either by Amazon (FBA) or by the Seller.							Ungrouped - These attributes create rich product listings for your buyers.";
-                string header2 = "Seller SKU	Item Name (aka Title)	Product ID	Product ID Type	Feed Product Type	Brand Name	Manufacturer	Manufacturer Part Number	Product Description	Update Delete	Quantity	Standard Price	Condition Type	Offer Condition Note	Launch Date	Fulfillment Latency	Release Date	Sale Price	Sale From Date	Sale End Date	Number of Items	Stop Selling Date	Max Aggregate Ship Quantity	Product Tax Code	Can Be Gift Messaged	Is Gift Wrap Available?	Is Discontinued by Manufacturer	Merchant Shipping Group	Shipping Weight	Website Shipping Weight Unit Of Measure	Item Height	Item Length	Item Width	Item Length Unit Of Measure	Item Weight	Unit of measure of item weight	Display Weight	Item Display Weight Unit Of Measure	Display Length	Item Display Length Unit Of Measure	Key Product Features1	Key Product Features2	Key Product Features3	Key Product Features4	Key Product Features5	Recommended Browse Nodes	Search Terms	Main Image URL	Swatch Image Url	Other Image URL1	Other Image URL2	Other Image URL3	Fulfillment Centre ID	Package Height	Package Width	Package Length	Package Length Unit Of Measure	Package Weight	Package Weight Unit Of Measure	Parentage	Relationship Type	Parent SKU	Is Adult Product	Variation Theme	Colour	Colour Map	Size	Size Map	Manufacturer Warranty Description	Material Type	Product Care Instructions	Assembly Instructions	Minimum Age Recommendation	Mfg Minimum Unit Of Measure	Maximum Age Recommendation	Mfg Maximum Unit Of Measure	Target Gender	Special Features	Seller Warranty Description	Subject Character	Material Composition	Scale	Rail Gauge	Batteries are Included	BatteryType	Number of Batteries	Lithium Battery Voltage	Lithium Battery Weight	Lithium Battery Packaging";
-                string header3 = "item_sku	item_name	external_product_id	external_product_id_type	feed_product_type	brand_name	manufacturer	part_number	product_description	update_delete	quantity	standard_price	condition_type	condition_note	product_site_launch_date	fulfillment_latency	merchant_release_date	sale_price	sale_from_date	sale_end_date	number_of_items	offering_end_date	max_aggregate_ship_quantity	product_tax_code	offering_can_be_gift_messaged	offering_can_be_giftwrapped	is_discontinued_by_manufacturer	merchant_shipping_group_name	website_shipping_weight	website_shipping_weight_unit_of_measure	item_height	item_length	item_width	item_length_unit_of_measure	item_weight	item_weight_unit_of_measure	item_display_weight	item_display_weight_unit_of_measure	item_display_length	item_display_length_unit_of_measure	bullet_point1	bullet_point2	bullet_point3	bullet_point4	bullet_point5	recommended_browse_nodes	generic_keywords	main_image_url	swatch_image_url	other_image_url1	other_image_url2	other_image_url3	fulfillment_center_id	package_height	package_width	package_length	package_length_unit_of_measure	package_weight	package_weight_unit_of_measure	parent_child	relationship_type	parent_sku	is_adult_product	variation_theme	color_name	color_map	size_name	size_map	warranty_description	material_type	care_instructions	assembly_instructions	mfg_minimum	mfg_minimum_unit_of_measure	mfg_maximum	mfg_maximum_unit_of_measure	target_gender	special_features	seller_warranty_description	subject_character	material_composition	scale_name	rail_gauge	are_batteries_included	battery_type	number_of_batteries	lithium_battery_voltage	lithium_battery_weight	lithium_battery_packaging";
+                string header1 = "TemplateType=Toys	Version=2015.1204	The top 3 rows are for Amazon.com use only. Do not modify or delete the top 3 rows.									Offer - Offer Information - These attributes are required to make your item buyable for customers on the site.																					Dimensions - Product Dimensions - These attributes specify the size and weight of a product.								Discovery - Item discovery information - These attributes have an effect on how customers can find your product on the site using browse or search.																Images - Image Information - See Image Instructions tab for details.					Fulfillment - Use these columns to provide fulfillment-related information for either Amazon-fulfilled (FBA) or seller-fulfilled orders.							Compliance - Compliance Information - Attributes used to comply with consumer laws in the country or region where the item is sold.					Ungrouped - These attributes create rich product listings for your buyers.";
+                string header2 = "Seller SKU	Product ID	Product ID Type	Product Type	Product Name	Brand Name	Manufacturer	Manufacturer Part Number	Product Description	Edition	Update Delete	Product Tax Code	Launch Date	Stop Selling Date	Item Condition	Offer Condition Note	Is Gift Wrap Available	Offering Can Be Gift Messaged	Minimum Advertised Price	Manufacturer's Suggested Retail Price	Standard Price	Quantity	Release Date	Fulfillment Latency	Restock Date	Sale Price	Sale Start Date	Sale End Date	Package Quantity	Max Aggregate Ship Quantity	Is Discontinued by Manufacturer	Shipping-Template	Item Weight	Item Weight Unit Of Measure	Item Height	Item Length	Item Width	Item Length Unit Of Measure	Shipping Weight	Website Shipping Weight Unit Of Measure	recommended-browse-nodes	Key Product Features1	Key Product Features2	Key Product Features3	Key Product Features4	Key Product Features5	Intended Use1	Intended Use2	Intended Use3	Intended Use4	Intended Use5	Target Audience1	Target Audience2	Target Audience3	Search Terms	Style-specific Terms	Swatch Image URL	Main Image URL	Other Image URL1	Other Image URL2	Other Image URL3	Fulfillment Center ID	Package Length	Package Width	Package Height	Package Length Unit Of Measure	Package Weight	Package Weight Unit Of Measure	Cpsia Warning	CPSIA Warning Description	Legal Disclaimer	Safety Warning	Country of Publication	Minimum Manufacturer Age Recommended	Minimum Manufacturer Age Recommended Unit Of Measure	Maximum Manufacturer Age Recommended	Maximum Manufacturer Age Recommended Unit Of Measure	Other Attributes1	Other Attributes2	Other Attributes3	Other Attributes4	Other Attributes5	Theme	Character	Educational Objective	Size	Size Map	Specific Uses For Product	Genre	Material Type	Assembly Time	Assembly Time Unit Of Measure	Manufacturer Warranty Description	Number of Pieces	Batteries are Included	Battery Type	Number of Batteries Required	Parentage	Parent SKU	Relationship Type	Weight Supported	Maximum Weight Recommendation Unit Of Measure	Variation Theme	Color	Color Map";
+                string header3 = "item_sku	external_product_id	external_product_id_type	feed_product_type	item_name	brand_name	manufacturer	part_number	product_description	edition	update_delete	product_tax_code	product_site_launch_date	offering_end_date	condition_type	condition_note	offering_can_be_giftwrapped	offering_can_be_gift_messaged	map_price	list_price	standard_price	quantity	merchant_release_date	fulfillment_latency	restock_date	sale_price	sale_from_date	sale_end_date	item_package_quantity	max_aggregate_ship_quantity	is_discontinued_by_manufacturer	merchant_shipping_group_name	item_weight	item_weight_unit_of_measure	item_height	item_length	item_width	item_length_unit_of_measure	website_shipping_weight	website_shipping_weight_unit_of_measure	recommended_browse_nodes	bullet_point1	bullet_point2	bullet_point3	bullet_point4	bullet_point5	specific_uses_keywords1	specific_uses_keywords2	specific_uses_keywords3	specific_uses_keywords4	specific_uses_keywords5	target_audience_keywords1	target_audience_keywords2	target_audience_keywords3	generic_keywords	style_keywords	swatch_image_url	main_image_url	other_image_url1	other_image_url2	other_image_url3	fulfillment_center_id	package_length	package_width	package_height	package_length_unit_of_measure	package_weight	package_weight_unit_of_measure	cpsia_cautionary_statement	cpsia_cautionary_description	legal_disclaimer_description	safety_warning	country_of_origin	mfg_minimum	mfg_minimum_unit_of_measure	mfg_maximum	mfg_maximum_unit_of_measure	thesaurus_attribute_keywords1	thesaurus_attribute_keywords2	thesaurus_attribute_keywords3	thesaurus_attribute_keywords4	thesaurus_attribute_keywords5	theme	subject_character	educational_objective	size_name	size_map	specific_uses_for_product	genre	material_type	assembly_time	assembly_time_unit_of_measure	warranty_description	number_of_pieces	are_batteries_included	battery_type	number_of_batteries	parent_child	parent_sku	relationship_type	maximum_weight_recommendation	maximum_weight_recommendation_unit_of_measure	variation_theme	color_name	color_map";
 
 
                 StringBuilder sb = new StringBuilder();
@@ -2158,12 +2108,13 @@ namespace OmnimarkAmazonWeb.Controllers
                         double pricecal;
                         double pricemin = 0.00;
                         double finalprice;
+
                         string UPC;
                         if (d.UPC == null)
                         {
                             upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.Processed = d.ASIN;
 
                         }
                         else
@@ -2174,267 +2125,347 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
 
                         if (price != 0)
                         {
-                            double minval = 49.99;
 
-                            if (price > 0 && price <= 19.99)
+                            if (price < 200.01)
                             {
-                                pricemin = minval;
-                            }
-                            else
-                            {
-                                for (double i = 20; i < 500; i += 10)
+
+                                double minval = 0.00;
+
+                                if (price > 0 && price <= 19.99)
                                 {
-                                    minval = minval + 10;
-                                    double temp = i + 10;
-                                    if (price >= i && price < temp)
+                                    pricemin = 92.99;
+                                }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
+
+
+                                pricecal = price * PriceValue;
+                                if (pricemin >= pricecal)
+                                {
+                                    finalprice = pricemin;
+                                }
+                                else
+                                {
+                                    finalprice = pricecal;
+                                }
+
+
+
+                                string ItemName;
+                                if (d.Title != null)
+                                {
+                                    ItemName = new string(d.Title.Take(490).ToArray());
+                                }
+                                else
+                                {
+                                    ItemName = null;
+                                }
+                                string description;
+                                if (d.Description != null)
+                                {
+                                    string desc = Regex.Replace(d.Description, "<.*?>", String.Empty);
+                                    description = new string(desc.Take(1990).ToArray());
+
+                                }
+                                else
+                                {
+                                    description = null;
+                                }
+
+                                string manufacturer;
+                                string brand;
+                                if (d.Manufacturer == null && d.Brand == null)
+                                {
+                                    manufacturer = "Unknown";
+                                    brand = "Unknown";
+                                }
+                                else
+                                {
+                                    if (d.Manufacturer == null)
                                     {
-                                        pricemin = minval;
-                                        break;
+                                        manufacturer = d.Brand;
                                     }
+                                    else
+                                    {
+                                        manufacturer = d.Manufacturer;
+                                    }
+
+                                    if (d.Brand == null)
+                                    {
+                                        brand = d.Manufacturer;
+                                    }
+                                    else
+                                    {
+                                        brand = d.Brand;
+                                    }
+
                                 }
-                            }
-                            pricecal = price * PriceValue;
-                            if (pricemin >= pricecal)
-                            {
-                                finalprice = pricemin;
-                            }
-                            else
-                            {
-                                finalprice = pricecal;
-                            }
-
-
-
-                            string ItemName;
-                            if (d.Title != null)
-                            {
-                                ItemName = new string(d.Title.Take(490).ToArray());
-                            }
-                            else
-                            {
-                                ItemName = null;
-                            }
-                            string description;
-                            if (d.Description != null)
-                            {
-                                string desc = Regex.Replace(d.Description, "<.*?>", String.Empty);
-                                description = new string(desc.Take(1990).ToArray());
-
-                            }
-                            else
-                            {
-                                description = null;
-                            }
-                            string manufacturer;
-                            string brand;
-                            if (d.Manufacturer == null && d.Brand == null)
-                            {
-                                manufacturer = "Unknown";
-                                brand = "Unknown";
-                            }
-                            else
-                            {
-                                if (d.Manufacturer == null)
+                                string feature1, feature2, feature3, feature4;
+                                if (d.Features1 != null)
                                 {
-                                    manufacturer = d.Brand;
+                                    feature1 = new string(d.Features1.Take(500).ToArray());
+
+                                }
+                                else
+                                    feature1 = d.Features1;
+                                if (d.Features2 != null)
+                                {
+                                    feature2 = new string(d.Features2.Take(500).ToArray());
+                                }
+                                else
+                                    feature2 = d.Features2;
+                                if (d.Features3 != null)
+                                {
+                                    feature3 = new string(d.Features3.Take(500).ToArray());
+                                }
+                                else
+                                    feature3 = d.Features3;
+                                if (d.Features4 != null)
+                                {
+                                    feature4 = new string(d.Features4.Take(500).ToArray());
+                                }
+                                else
+                                    feature4 = d.Features4;
+
+                                sb.AppendLine(string.Join("\t",
+                                              string.Format(@"""{0}""", "NP-"+d.ASIN.Trim()),
+                                              string.Format(@"""{0}""", UPC),
+                                              string.Format(@"""{0}""", "UPC"),
+                                              string.Format(@"""{0}""", "ToysAndGames"),
+                                              string.Format(@"""{0}""", !string.IsNullOrEmpty(ItemName) ? ItemName.Contains('"') ? ItemName.Replace('"', ' ') : ItemName : string.Empty),
+                                              string.Format(@"""{0}""", brand),
+                                              string.Format(@"""{0}""", manufacturer),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", !string.IsNullOrEmpty(description) ? description.Contains('"') ? description.Replace('"', ' ') : description : string.Empty),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", String.Format("{0:0.00}", finalprice)),
+                                              string.Format(@"""{0}""", d.Qty),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", "10"),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", !string.IsNullOrEmpty(feature1) ? feature1.Contains('"') ? feature1.Replace('"', ' ') : feature1 : string.Empty),
+                                              string.Format(@"""{0}""", !string.IsNullOrEmpty(feature2) ? feature2.Contains('"') ? feature2.Replace('"', ' ') : feature2 : string.Empty),
+                                              string.Format(@"""{0}""", !string.IsNullOrEmpty(feature3) ? feature3.Contains('"') ? feature3.Replace('"', ' ') : feature3 : string.Empty),
+                                              string.Format(@"""{0}""", !string.IsNullOrEmpty(feature4) ? feature4.Contains('"') ? feature4.Replace('"', ' ') : feature4 : string.Empty),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", d.LargeImageURL),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", ""),
+                                              string.Format(@"""{0}""", "")));
+                                d.FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_Not_Prime_Toys_" + fcountToys;
+
+                                d.ExportDate = DateTime.Now;
+                                if (shortcode == ConstantData.ED)
+                                {
+                                    d.Account1_Status = 1;
+                                    d.Account1_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Toys_" + fcountToys;
                                 }
                                 else
                                 {
-                                    manufacturer = d.Manufacturer;
-                                }
-
-                                if (d.Brand == null)
-                                {
-                                    brand = d.Manufacturer;
-                                }
-                                else
-                                {
-                                    brand = d.Brand;
-                                }
-
-                            }
-                            string feature1, feature2, feature3, feature4;
-                            if (d.Features1 != null)
-                            {
-                                feature1 = new string(d.Features1.Take(500).ToArray());
-
-                            }
-                            else
-                                feature1 = d.Features1;
-                            if (d.Features2 != null)
-                            {
-                                feature2 = new string(d.Features2.Take(500).ToArray());
-                            }
-                            else
-                                feature2 = d.Features2;
-                            if (d.Features3 != null)
-                            {
-                                feature3 = new string(d.Features3.Take(500).ToArray());
-                            }
-                            else
-                                feature3 = d.Features3;
-                            if (d.Features4 != null)
-                            {
-                                feature4 = new string(d.Features4.Take(500).ToArray());
-                            }
-                            else
-                                feature4 = d.Features4;
-
-                            sb.AppendLine(string.Join("\t",
-                                          string.Format(@"""{0}""", "NP-" + d.ASIN.Trim()),
-                                          string.Format(@"""{0}""", ItemName),
-                                          string.Format(@"""{0}""", UPC),
-                                          string.Format(@"""{0}""", "UPC"),
-                                          string.Format(@"""{0}""", "ToysAndGames"),
-                                          string.Format(@"""{0}""", brand),
-                                          string.Format(@"""{0}""", manufacturer),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", description),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", d.Qty),
-                                          string.Format(@"""{0}""", String.Format("{0:0.00}", finalprice)),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", "10"),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", feature1),
-                                          string.Format(@"""{0}""", feature2),
-                                          string.Format(@"""{0}""", feature3),
-                                          string.Format(@"""{0}""", feature4),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", d.LargeImageURL),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", ""),
-                                          string.Format(@"""{0}""", "")));
-
-                            d.FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_Not_Prime_Toys_" + fcountToys;
-
-                            d.ExportDate = DateTime.Now;
-                            if (shortcode == ConstantData.ED)
-                            {
-                                d.Account1_Status = 1;
-                                d.Account1_ExportDate = DateTime.Now;
-                                Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Toys_" + fcountToys;
-                            }
-                            else
-                            {
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Toys_" + fcountToys;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
+                                    if (shortcode == ConstantData.EM)
+                                    {
+                                        d.Account2_Status = 1;
+                                        d.Account2_ExportDate = DateTime.Now;
+                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Toys_" + fcountToys;
+                                    }
+                                    else if (shortcode == ConstantData.DC)
                                     {
                                         d.Account3_Status = 1;
                                         d.Account3_ExportDate = DateTime.Now;
                                         Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Toys_" + fcountToys;
                                     }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
-                                        }
+                                    else if (shortcode == ConstantData.DI)
+                                    {
+                                        d.Account4_Status = 1;
+                                        d.Account4_ExportDate = DateTime.Now;
+                                        Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
+                                    }
+                                }
+                                d.Instock = 1;
+                                d.Status = 1;
+
                             }
-                            d.Instock = 1;
-                            d.Status = 1;
-
                         }
+                        ukdb.ObjectContext().SaveChanges(SaveOptions.DetectChangesBeforeSave);
+                        //  ukdb.SaveChanges();
+
+                        fcountToys++;
+                        Response.ClearContent();
+                        Response.AddHeader("content-disposition", "attachment;filename=" + Exportpath + ".txt");
+                        //Response.AddHeader("content-disposition", "attachment;filename="+name +"_"+ DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+                        Response.ContentType = "application/text";
+                        Response.ContentEncoding = Encoding.GetEncoding(1252);
+                        Response.Write(sb.ToString());
+                        Response.End();
+
                     }
-                    ukdb.ObjectContext().SaveChanges(SaveOptions.DetectChangesBeforeSave);
-                    //  ukdb.SaveChanges();
 
-                    fcountToys++;
-                    Response.ClearContent();
-                    Response.AddHeader("content-disposition", "attachment;filename=" + Exportpath + ".txt");
-                    //Response.AddHeader("content-disposition", "attachment;filename="+name +"_"+ DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
-                    Response.ContentType = "application/text";
-                    Response.ContentEncoding = Encoding.GetEncoding(1252);
-                    Response.Write(sb.ToString());
-                    Response.End();
-
+                    transaction.Complete();
+                    ukdb.ObjectContext().AcceptAllChanges();
                 }
 
-                transaction.Complete();
-                ukdb.ObjectContext().AcceptAllChanges();
+                //throw new NotImplementedException();
             }
-
-            //throw new NotImplementedException();
         }
 
         private void ExportSportsCanadaNotPrime(decimal? nullable, string shortcode, double PriceValue, IEnumerable<tbl_SportsNotPrime> data)
@@ -2501,96 +2532,78 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
-                                else
-                                    if (price > 19.99 && price <= 29.99)
-                                    {
-                                        pricemin = 120.99;
-                                    }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
 
 
 
@@ -2772,13 +2785,12 @@ namespace OmnimarkAmazonWeb.Controllers
                                         d.Account2_ExportDate = DateTime.Now;
                                         Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Canada_Sports_" + canadaSport;
                                     }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Canada_Sports_" + canadaSport;
-                                        }
+                                    else if (shortcode == ConstantData.DC)
+                                    {
+                                        d.Account3_Status = 1;
+                                        d.Account3_ExportDate = DateTime.Now;
+                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Canada_Sports_" + canadaSport;
+                                    }
                                 }
                                 d.Status = 1;
                                 d.Instock = 1;
@@ -2851,11 +2863,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
 
@@ -2869,96 +2880,79 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
                                 else
-                                    if (price > 19.99 && price <= 29.99)
+                                    if (price > 99.99 && price <= 109.99)
                                     {
-                                        pricemin = 120.99;
+                                        pricemin = 327.99;
                                     }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                    else if (price > 109.99 && price <= 119.99)
+                                    {
+                                        pricemin = 356.99;
+                                    }
+                                    else if (price > 119.99 && price <= 129.99)
+                                    {
+                                        pricemin = 385.99;
+                                    }
+                                    else if (price > 129.99 && price <= 139.99)
+                                    {
+                                        pricemin = 420.99;
+                                    }
+                                    else if (price > 139.99 && price <= 149.99)
+                                    {
+                                        pricemin = 442.99;
+                                    }
+                                    else if (price > 149.99 && price <= 159.99)
+                                    {
+                                        pricemin = 463.99;
+                                    }
+                                    else if (price > 159.99 && price <= 169.99)
+                                    {
+                                        pricemin = 485.99;
+                                    }
+                                    else if (price > 169.99 && price <= 179.99)
+                                    {
+                                        pricemin = 513.99;
+                                    }
+                                    else if (price > 179.99 && price <= 189.99)
+                                    {
+                                        pricemin = 542.99;
+                                    }
+                                    else if (price > 189.99 && price <= 199.99)
+                                    {
+                                        pricemin = 569.99;
+                                    }
 
                                 pricecal = price * PriceValue;
                                 if (pricemin >= pricecal)
@@ -3136,20 +3130,18 @@ namespace OmnimarkAmazonWeb.Controllers
                                     d.Account1_ExportDate = DateTime.Now;
                                     Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Canada_Beauty_" + canadabeauty;
                                 }
-                                else
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Canada_Beauty_" + canadabeauty;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Canada_Beauty_" + canadabeauty;
-                                        }
+                                else if (shortcode == ConstantData.EM)
+                                {
+                                    d.Account2_Status = 1;
+                                    d.Account2_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Canada_Beauty_" + canadabeauty;
+                                }
+                                else if (shortcode == ConstantData.DC)
+                                {
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Canada_Beauty_" + canadabeauty;
+                                }
                                 d.Status = 1;
 
 
@@ -3424,27 +3416,24 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Jewelry_" + fcountJewelry;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Jewelry_" + fcountJewelry;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Jewelry_" + fcountJewelry;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Jewelry_" + fcountJewelry;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Jewelry_" + fcountJewelry;
+                            }
+                            else if (shortcode == ConstantData.DC)
+                            {
+                                d.Account3_Status = 1;
+                                d.Account3_ExportDate = DateTime.Now;
+                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Jewelry_" + fcountJewelry;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Jewelry_" + fcountJewelry;
+                            }
                             d.Status = 1;
 
 
@@ -3702,27 +3691,24 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Watches_" + fcountWatches;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Watches_" + fcountWatches;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Watches_" + fcountWatches;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Watches_" + fcountWatches;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Watches_" + fcountWatches;
+                            }
+                            else if (shortcode == ConstantData.DC)
+                            {
+                                d.Account3_Status = 1;
+                                d.Account3_ExportDate = DateTime.Now;
+                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Watches_" + fcountWatches;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Watches_" + fcountWatches;
+                            }
                             d.Status = 1;
 
 
@@ -4010,27 +3996,24 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Baby_" + fcountBaby;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Baby_" + fcountBaby;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Baby_" + fcountBaby;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Baby_" + fcountBaby;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Baby_" + fcountBaby;
+                            }
+                            else if (shortcode == ConstantData.DC)
+                            {
+                                d.Account3_Status = 1;
+                                d.Account3_ExportDate = DateTime.Now;
+                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Baby_" + fcountBaby;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Baby_" + fcountBaby;
+                            }
                             d.Status = 1;
 
 
@@ -4343,20 +4326,18 @@ namespace OmnimarkAmazonWeb.Controllers
                                     d.Account2_ExportDate = DateTime.Now;
                                     Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Sports_" + fcountSport;
                                 }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Sports_" + fcountSport;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Sports_" + fcountSport;
-                                        }
+                                else if (shortcode == ConstantData.DC)
+                                {
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Sports_" + fcountSport;
+                                }
+                                else if (shortcode == ConstantData.DI)
+                                {
+                                    d.Account4_Status = 1;
+                                    d.Account4_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Sports_" + fcountSport;
+                                }
 
                             }
                             d.Status = 1;
@@ -4654,20 +4635,18 @@ namespace OmnimarkAmazonWeb.Controllers
                                     d.Account2_ExportDate = DateTime.Now;
                                     Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Toys_" + fcountToys;
                                 }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Toys_" + fcountToys;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
-                                        }
+                                else if (shortcode == ConstantData.DC)
+                                {
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Toys_" + fcountToys;
+                                }
+                                else if (shortcode == ConstantData.DI)
+                                {
+                                    d.Account4_Status = 1;
+                                    d.Account4_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
+                                }
                             }
                             d.Instock = 1;
                             d.Status = 1;
@@ -4936,27 +4915,24 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Beauty_" + fcountBeauty;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Beauty_" + fcountBeauty;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Beauty_" + fcountBeauty;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Beauty_" + fcountBeauty;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Beauty_" + fcountBeauty;
+                            }
+                            else if (shortcode == ConstantData.DC)
+                            {
+                                d.Account3_Status = 1;
+                                d.Account3_ExportDate = DateTime.Now;
+                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Beauty_" + fcountBeauty;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Beauty_" + fcountBeauty;
+                            }
                             d.Status = 1;
 
 
@@ -5477,11 +5453,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
 
                         if (price != 0)
                         {
@@ -5496,96 +5471,78 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
-                                else
-                                    if (price > 19.99 && price <= 29.99)
-                                    {
-                                        pricemin = 120.99;
-                                    }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
 
 
 
@@ -6155,11 +6112,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
 
                         if (price != 0)
                         {
@@ -6173,96 +6129,78 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
-                                else
-                                    if (price > 19.99 && price <= 29.99)
-                                    {
-                                        pricemin = 120.99;
-                                    }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
 
 
                                 pricecal = price * PriceValue;
@@ -6835,11 +6773,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
 
@@ -6853,96 +6790,78 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
-                                else
-                                    if (price > 19.99 && price <= 29.99)
-                                    {
-                                        pricemin = 120.99;
-                                    }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
 
                                 pricecal = price * PriceValue;
                                 if (pricemin >= pricecal)
@@ -7179,6 +7098,7 @@ namespace OmnimarkAmazonWeb.Controllers
                 {
                     foreach (var d in data)
                     {
+                       
                         double price = 0;
                         double pricecal;
                         double pricemin = 0.00;
@@ -7505,11 +7425,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
                             double minval = 49.99;
@@ -7519,96 +7438,78 @@ namespace OmnimarkAmazonWeb.Controllers
                             {
                                 pricemin = 92.99;
                             }
-                            else
-                                if (price > 19.99 && price <= 29.99)
-                                {
-                                    pricemin = 120.99;
-                                }
-                                else
-                                    if (price > 29.99 && price <= 39.99)
-                                    {
-                                        pricemin = 142.99;
-                                    }
-                                    else
-                                        if (price > 39.99 && price <= 49.99)
-                                        {
-                                            pricemin = 168.99;
-                                        }
-                                        else
-                                            if (price > 49.99 && price <= 59.99)
-                                            {
-                                                pricemin = 192.99;
-                                            }
-                                            else
-                                                if (price > 59.99 && price <= 69.99)
-                                                {
-                                                    pricemin = 222.99;
-                                                }
-                                                else
-                                                    if (price > 69.99 && price <= 79.99)
-                                                    {
-                                                        pricemin = 255.99;
-                                                    }
-                                                    else
-                                                        if (price > 79.99 && price <= 89.99)
-                                                        {
-                                                            pricemin = 285.99;
-                                                        }
-                                                        else
-                                                            if (price > 89.99 && price <= 99.99)
-                                                            {
-                                                                pricemin = 313.99;
-                                                            }
-                                                            else
-                                                                if (price > 99.99 && price <= 109.99)
-                                                                {
-                                                                    pricemin = 327.99;
-                                                                }
-                                                                else
-                                                                    if (price > 109.99 && price <= 119.99)
-                                                                    {
-                                                                        pricemin = 356.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 119.99 && price <= 129.99)
-                                                                        {
-                                                                            pricemin = 385.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 129.99 && price <= 139.99)
-                                                                            {
-                                                                                pricemin = 420.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 139.99 && price <= 149.99)
-                                                                                {
-                                                                                    pricemin = 442.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 149.99 && price <= 159.99)
-                                                                                    {
-                                                                                        pricemin = 463.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 159.99 && price <= 169.99)
-                                                                                        {
-                                                                                            pricemin = 485.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 169.99 && price <= 179.99)
-                                                                                            {
-                                                                                                pricemin = 513.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 179.99 && price <= 189.99)
-                                                                                                {
-                                                                                                    pricemin = 542.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 189.99 && price <= 199.99)
-                                                                                                    {
-                                                                                                        pricemin = 569.99;
-                                                                                                    }
+                            else if (price > 19.99 && price <= 29.99)
+                            {
+                                pricemin = 120.99;
+                            }
+                            else if (price > 29.99 && price <= 39.99)
+                            {
+                                pricemin = 142.99;
+                            }
+                            else if (price > 39.99 && price <= 49.99)
+                            {
+                                pricemin = 168.99;
+                            }
+                            else if (price > 49.99 && price <= 59.99)
+                            {
+                                pricemin = 192.99;
+                            }
+                            else if (price > 59.99 && price <= 69.99)
+                            {
+                                pricemin = 222.99;
+                            }
+                            else if (price > 69.99 && price <= 79.99)
+                            {
+                                pricemin = 255.99;
+                            }
+                            else if (price > 79.99 && price <= 89.99)
+                            {
+                                pricemin = 285.99;
+                            }
+                            else if (price > 89.99 && price <= 99.99)
+                            {
+                                pricemin = 313.99;
+                            }
+                            else if (price > 99.99 && price <= 109.99)
+                            {
+                                pricemin = 327.99;
+                            }
+                            else if (price > 109.99 && price <= 119.99)
+                            {
+                                pricemin = 356.99;
+                            }
+                            else if (price > 119.99 && price <= 129.99)
+                            {
+                                pricemin = 385.99;
+                            }
+                            else if (price > 129.99 && price <= 139.99)
+                            {
+                                pricemin = 420.99;
+                            }
+                            else if (price > 139.99 && price <= 149.99)
+                            {
+                                pricemin = 442.99;
+                            }
+                            else if (price > 149.99 && price <= 159.99)
+                            {
+                                pricemin = 463.99;
+                            }
+                            else if (price > 159.99 && price <= 169.99)
+                            {
+                                pricemin = 485.99;
+                            }
+                            else if (price > 169.99 && price <= 179.99)
+                            {
+                                pricemin = 513.99;
+                            }
+                            else if (price > 179.99 && price <= 189.99)
+                            {
+                                pricemin = 542.99;
+                            }
+                            else if (price > 189.99 && price <= 199.99)
+                            {
+                                pricemin = 569.99;
+                            }
                             pricecal = price * PriceValue;
                             if (pricemin >= pricecal)
                             {
@@ -8165,11 +8066,10 @@ namespace OmnimarkAmazonWeb.Controllers
                         {
                             price = double.Parse(d.UpdatedSalesPrice);
                         }
-                        else
-                            if (d.SalesPrice != null)
-                            {
-                                price = double.Parse(d.SalesPrice);
-                            }
+                        else if (d.SalesPrice != null)
+                        {
+                            price = double.Parse(d.SalesPrice);
+                        }
                         if (price != 0)
                         {
 
@@ -8183,96 +8083,78 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
-                                else
-                                    if (price > 19.99 && price <= 29.99)
-                                    {
-                                        pricemin = 120.99;
-                                    }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
                                 pricecal = price * PriceValue;
                                 if (pricemin >= pricecal)
                                 {
@@ -8844,96 +8726,78 @@ namespace OmnimarkAmazonWeb.Controllers
                                 {
                                     pricemin = 92.99;
                                 }
-                                else
-                                    if (price > 19.99 && price <= 29.99)
-                                    {
-                                        pricemin = 120.99;
-                                    }
-                                    else
-                                        if (price > 29.99 && price <= 39.99)
-                                        {
-                                            pricemin = 142.99;
-                                        }
-                                        else
-                                            if (price > 39.99 && price <= 49.99)
-                                            {
-                                                pricemin = 168.99;
-                                            }
-                                            else
-                                                if (price > 49.99 && price <= 59.99)
-                                                {
-                                                    pricemin = 192.99;
-                                                }
-                                                else
-                                                    if (price > 59.99 && price <= 69.99)
-                                                    {
-                                                        pricemin = 222.99;
-                                                    }
-                                                    else
-                                                        if (price > 69.99 && price <= 79.99)
-                                                        {
-                                                            pricemin = 255.99;
-                                                        }
-                                                        else
-                                                            if (price > 79.99 && price <= 89.99)
-                                                            {
-                                                                pricemin = 285.99;
-                                                            }
-                                                            else
-                                                                if (price > 89.99 && price <= 99.99)
-                                                                {
-                                                                    pricemin = 313.99;
-                                                                }
-                                                                else
-                                                                    if (price > 99.99 && price <= 109.99)
-                                                                    {
-                                                                        pricemin = 327.99;
-                                                                    }
-                                                                    else
-                                                                        if (price > 109.99 && price <= 119.99)
-                                                                        {
-                                                                            pricemin = 356.99;
-                                                                        }
-                                                                        else
-                                                                            if (price > 119.99 && price <= 129.99)
-                                                                            {
-                                                                                pricemin = 385.99;
-                                                                            }
-                                                                            else
-                                                                                if (price > 129.99 && price <= 139.99)
-                                                                                {
-                                                                                    pricemin = 420.99;
-                                                                                }
-                                                                                else
-                                                                                    if (price > 139.99 && price <= 149.99)
-                                                                                    {
-                                                                                        pricemin = 442.99;
-                                                                                    }
-                                                                                    else
-                                                                                        if (price > 149.99 && price <= 159.99)
-                                                                                        {
-                                                                                            pricemin = 463.99;
-                                                                                        }
-                                                                                        else
-                                                                                            if (price > 159.99 && price <= 169.99)
-                                                                                            {
-                                                                                                pricemin = 485.99;
-                                                                                            }
-                                                                                            else
-                                                                                                if (price > 169.99 && price <= 179.99)
-                                                                                                {
-                                                                                                    pricemin = 513.99;
-                                                                                                }
-                                                                                                else
-                                                                                                    if (price > 179.99 && price <= 189.99)
-                                                                                                    {
-                                                                                                        pricemin = 542.99;
-                                                                                                    }
-                                                                                                    else
-                                                                                                        if (price > 189.99 && price <= 199.99)
-                                                                                                        {
-                                                                                                            pricemin = 569.99;
-                                                                                                        }
+                                else if (price > 19.99 && price <= 29.99)
+                                {
+                                    pricemin = 120.99;
+                                }
+                                else if (price > 29.99 && price <= 39.99)
+                                {
+                                    pricemin = 142.99;
+                                }
+                                else if (price > 39.99 && price <= 49.99)
+                                {
+                                    pricemin = 168.99;
+                                }
+                                else if (price > 49.99 && price <= 59.99)
+                                {
+                                    pricemin = 192.99;
+                                }
+                                else if (price > 59.99 && price <= 69.99)
+                                {
+                                    pricemin = 222.99;
+                                }
+                                else if (price > 69.99 && price <= 79.99)
+                                {
+                                    pricemin = 255.99;
+                                }
+                                else if (price > 79.99 && price <= 89.99)
+                                {
+                                    pricemin = 285.99;
+                                }
+                                else if (price > 89.99 && price <= 99.99)
+                                {
+                                    pricemin = 313.99;
+                                }
+                                else if (price > 99.99 && price <= 109.99)
+                                {
+                                    pricemin = 327.99;
+                                }
+                                else if (price > 109.99 && price <= 119.99)
+                                {
+                                    pricemin = 356.99;
+                                }
+                                else if (price > 119.99 && price <= 129.99)
+                                {
+                                    pricemin = 385.99;
+                                }
+                                else if (price > 129.99 && price <= 139.99)
+                                {
+                                    pricemin = 420.99;
+                                }
+                                else if (price > 139.99 && price <= 149.99)
+                                {
+                                    pricemin = 442.99;
+                                }
+                                else if (price > 149.99 && price <= 159.99)
+                                {
+                                    pricemin = 463.99;
+                                }
+                                else if (price > 159.99 && price <= 169.99)
+                                {
+                                    pricemin = 485.99;
+                                }
+                                else if (price > 169.99 && price <= 179.99)
+                                {
+                                    pricemin = 513.99;
+                                }
+                                else if (price > 179.99 && price <= 189.99)
+                                {
+                                    pricemin = 542.99;
+                                }
+                                else if (price > 189.99 && price <= 199.99)
+                                {
+                                    pricemin = 569.99;
+                                }
                                 pricecal = price * PriceValue;
                                 if (pricemin >= pricecal)
                                 {
