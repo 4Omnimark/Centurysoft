@@ -798,7 +798,6 @@ namespace OmnimarkAmazonWeb.Controllers
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
                             IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
-                            //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Baby)
