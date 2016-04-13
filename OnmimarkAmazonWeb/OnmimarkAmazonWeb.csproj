@@ -185,6 +185,7 @@
     <Compile Include="Models\AddKeywords.cs" />
     <Compile Include="Models\AllowStores.cs" />
     <Compile Include="Models\AutomaticPriceChangeWeb.cs" />
+    <Compile Include="Models\ConstantData.cs" />
     <Compile Include="Models\DeductFBAShipment.cs" />
     <Compile Include="Models\DeductInward.cs" />
     <Compile Include="Models\ExportByAccount.cs" />
@@ -618,6 +619,7 @@
     <Content Include="Views\ItemManagement\AllowStores.cshtml" />
     <Content Include="Views\ItemManagement\ServiceStatus.cshtml" />
     <Content Include="Views\ItemManagement\AddKeywords.cshtml" />
+    <Content Include="Views\ItemManagement\ExportByAccountNotPrime.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

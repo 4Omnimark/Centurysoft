@@ -100,7 +100,15 @@
                     <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
                     <li>@Html.ActionLink("EBAY", "Products", "eBay")</li>
                     <li>@Html.ActionLink("Export CSV", "Index", "ItemManagement")</li>
-                    <li>@Html.ActionLink("ExportByAccount", "ExportByAccount", "ItemManagement")</li>
+                    <li>
+                        @*@Html.ActionLink("ExportByAccount", "ExportByAccount", "ItemManagement")*@
+                        <a href="#">ExportByAccount</a>
+                        <ul>
+                            <li>@Html.ActionLink("Prime Records", "ExportByAccount", "ItemManagement")</li>
+                            <li>@Html.ActionLink("Not Prime Records", "ExportByAccountNotPrime", "ItemManagement")</li>
+                        </ul>
+
+                    </li>
                     <li>
                         <a href="#">ADD Keywords</a>
                         <ul>
