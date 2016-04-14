@@ -238,8 +238,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_Toys");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed==1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
-                        //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.ASIN == "B000UCPKYE").Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportToys(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else
@@ -251,7 +250,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_Beauty");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeauty(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else
@@ -262,7 +261,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                     UkProhibitionTbl("tbl_Sports");
                                 }
                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                 ExportForUK(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                             }
                             else
@@ -273,7 +272,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         UkProhibitionTbl("tbl_Baby");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     ExportBaby(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
                                 else
@@ -284,7 +283,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             UkProhibitionTbl("tbl_Watches");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportWatches(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -295,7 +294,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_Jewelry");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.TimeStamp < dt && x.Account1_Status != 1 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportJewelry(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
                                         else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -322,7 +321,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_Sports");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             //IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportForUK(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
@@ -335,7 +334,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                     UkProhibitionTbl("tbl_Beauty");
                                 }
                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                 ExportBeauty(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                             }
                             else
@@ -346,7 +345,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         UkProhibitionTbl("tbl_Toys");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                     ExportToys(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
@@ -358,7 +357,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             UkProhibitionTbl("tbl_Baby");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportBaby(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -369,7 +368,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_Watches");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportWatches(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
                                         else
@@ -380,7 +379,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                     UkProhibitionTbl("tbl_Jewelry");
                                                 }
                                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                 ExportJewelry(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                             }
                                             else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -488,7 +487,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                         UkProhibitionTbl("tbl_Sports");
                                     }
                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                    IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                    IEnumerable<tbl_Sports> data = ukdb.tbl_Sports.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
 
                                     ExportForUK(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                 }
@@ -501,7 +500,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                             UkProhibitionTbl("tbl_Beauty");
                                         }
                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                        IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                        IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                         ExportBeauty(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                     }
                                     else
@@ -512,7 +511,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                 UkProhibitionTbl("tbl_Toys");
                                             }
                                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                                            IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                            IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                             ExportToys(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                         }
@@ -524,7 +523,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                     UkProhibitionTbl("tbl_Baby");
                                                 }
                                                 DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                IEnumerable<tbl_Baby> data = ukdb.tbl_Baby.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                 ExportBaby(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                             }
                                             else
@@ -535,7 +534,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                         UkProhibitionTbl("tbl_Watches");
                                                     }
                                                     DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                    IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                    IEnumerable<tbl_Watches> data = ukdb.tbl_Watches.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                     ExportWatches(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                 }
                                                 else
@@ -546,7 +545,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                                             UkProhibitionTbl("tbl_Jewelry");
                                                         }
                                                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                                                        IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                                                        IEnumerable<tbl_Jewellery> data = ukdb.tbl_Jewellery.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.TimeStamp < dt && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                                                         ExportJewelry(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                                                     }
                                                     else if (ea.Cat == ConstantData.HomeandKitchen)
@@ -709,7 +708,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_ToysNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Beauty)
@@ -719,7 +718,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_BeautyNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportBeautyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.SportingGoods)
@@ -729,7 +728,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_SportsNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportForUKNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Baby)
@@ -739,7 +738,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_BabyNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportBabyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Watches)
@@ -749,7 +748,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_WatchesNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportWatchesNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
                     else if (ea.Cat == ConstantData.Jewelry)
@@ -759,7 +758,7 @@ namespace OmnimarkAmazonWeb.Controllers
                             UkProhibitionTbl("tbl_JewelleryNotPrime");
                         }
                         DateTime dt = DateTime.Now.AddHours(-24.00);
-                        IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                        IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Account2_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account1_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                         ExportJewelryNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                     }
 
@@ -776,7 +775,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_SportsNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportForUKNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Beauty)
@@ -786,7 +785,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BeautyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeautyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Toys)
@@ -796,7 +795,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_ToysNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Baby)
@@ -806,7 +805,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BabyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBabyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Watches)
@@ -816,7 +815,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_WatchesNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportWatchesNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Jewelry)
@@ -826,7 +825,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_JewelleryNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account4_AmazonActive == 0 && x.Reviewed == 1 && x.Account2_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportJewelryNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
 
@@ -907,7 +906,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_SportsNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_SportsNotPrime> data = ukdb.tbl_SportsNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
 
                             ExportForUKNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
@@ -918,7 +917,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BeautyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BeautyNotPrime> data = ukdb.tbl_BeautyNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBeautyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Toys)
@@ -928,7 +927,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_ToysNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_ToysNotPrime> data = ukdb.tbl_ToysNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             //IEnumerable<tbl_Toys> data = ukdb.tbl_Toys.Where(x => x.UPC != "null" && (x.Account2_Status == 1 || x.Account2_Status == null) && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportToysNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
@@ -939,7 +938,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_BabyNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_BabyNotPrime> data = ukdb.tbl_BabyNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportBabyNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Watches)
@@ -949,7 +948,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_WatchesNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_WatchesNotPrime> data = ukdb.tbl_WatchesNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportWatchesNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
                         else if (ea.Cat == ConstantData.Jewelry)
@@ -959,7 +958,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                 UkProhibitionTbl("tbl_JewelleryNotPrime");
                             }
                             DateTime dt = DateTime.Now.AddHours(-24.00);
-                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
+                            IEnumerable<tbl_JewelleryNotPrime> data = ukdb.tbl_JewelleryNotPrime.Where(x => x.Account1_AmazonActive == 0 && x.Account2_AmazonActive == 0 && x.Reviewed == 1 && x.Account4_Status != 1 && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000 && x.Offers_New > 1).Take(int.Parse(ea.rownumber.ToString())).ToList();
                             ExportJewelryNotPrime(ea.rownumber, ea.PriceValue, ea.marketplace, data);
                         }
 
@@ -1316,26 +1315,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                                 d.ExportDate = DateTime.Now;
                                 d.Instock = 1;
-                                if (shortcode == ConstantData.ED)
+
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Jewelry_Canada_" + fcountJewelry;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Jewelry_Canada_" + fcountJewelry;
                                 }
-                                else
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Jewelry_Canada_" + fcountJewelry;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Jewelry_Canada_" + fcountJewelry;
-                                        }
                                 d.Status = 1;
 
 
@@ -1362,7 +1348,6 @@ namespace OmnimarkAmazonWeb.Controllers
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-
 
 
                 string Exportpath = "";
@@ -1668,26 +1653,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                                 d.ExportDate = DateTime.Now;
                                 d.Instock = 1;
-                                if (shortcode == ConstantData.ED)
+
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Watches_Canada_" + fcountWatches;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Watches_Canada_" + fcountWatches;
                                 }
-                                else
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Watches_Canada_" + fcountWatches;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Watches_Canada_" + fcountWatches;
-                                        }
                                 d.Status = 1;
 
 
@@ -2036,26 +2008,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                             d.ExportDate = DateTime.Now;
                             d.Instock = 1;
-                            if (shortcode == ConstantData.ED)
+
+                            if (shortcode == ConstantData.DC)
                             {
-                                d.Account1_Status = 1;
-                                d.Account1_ExportDate = DateTime.Now;
-                                Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Baby_Canada_" + fcountBaby;
+                                d.Account3_Status = 1;
+                                d.Account3_ExportDate = DateTime.Now;
+                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Baby_Canada_" + fcountBaby;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Baby_Canada_" + fcountBaby;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Baby_Canada_" + fcountBaby;
-                                    }
                             d.Status = 1;
 
 
@@ -2305,7 +2264,7 @@ namespace OmnimarkAmazonWeb.Controllers
                                     feature4 = d.Features4;
 
                                 sb.AppendLine(string.Join("\t",
-                                              string.Format(@"""{0}""", "NP-"+d.ASIN.Trim()),
+                                              string.Format(@"""{0}""", "NP-" + d.ASIN.Trim()),
                                               string.Format(@"""{0}""", UPC),
                                               string.Format(@"""{0}""", "UPC"),
                                               string.Format(@"""{0}""", "ToysAndGames"),
@@ -2414,33 +2373,13 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_Not_Prime_Toys_" + fcountToys;
 
                                 d.ExportDate = DateTime.Now;
-                                if (shortcode == ConstantData.ED)
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Toys_" + fcountToys;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Toys_" + fcountToys;
                                 }
-                                else
-                                {
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Toys_" + fcountToys;
-                                    }
-                                    else if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Toys_" + fcountToys;
-                                    }
-                                    else if (shortcode == ConstantData.DI)
-                                    {
-                                        d.Account4_Status = 1;
-                                        d.Account4_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
-                                    }
-                                }
+
                                 d.Instock = 1;
                                 d.Status = 1;
 
@@ -2771,27 +2710,14 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_Not_Prime_Canada_Sports_" + canadaSport;
 
                                 d.ExportDate = DateTime.Now;
-                                if (shortcode == ConstantData.ED)
+
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Canada_Sports_" + canadaSport;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Canada_Sports_" + canadaSport;
                                 }
-                                else
-                                {
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Canada_Sports_" + canadaSport;
-                                    }
-                                    else if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Canada_Sports_" + canadaSport;
-                                    }
-                                }
+
                                 d.Status = 1;
                                 d.Instock = 1;
 
@@ -3124,19 +3050,8 @@ namespace OmnimarkAmazonWeb.Controllers
 
                                 d.ExportDate = DateTime.Now;
                                 d.Instock = 1;
-                                if (shortcode == ConstantData.ED)
-                                {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Canada_Beauty_" + canadabeauty;
-                                }
-                                else if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Canada_Beauty_" + canadabeauty;
-                                }
-                                else if (shortcode == ConstantData.DC)
+
+                                if (shortcode == ConstantData.DC)
                                 {
                                     d.Account3_Status = 1;
                                     d.Account3_ExportDate = DateTime.Now;
@@ -3413,24 +3328,22 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Jewelry_" + fcountJewelry;
                             }
                             else if (shortcode == ConstantData.EM)
                             {
                                 d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
                                 d.Account2_ExportDate = DateTime.Now;
                                 Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Jewelry_" + fcountJewelry;
                             }
-                            else if (shortcode == ConstantData.DC)
-                            {
-                                d.Account3_Status = 1;
-                                d.Account3_ExportDate = DateTime.Now;
-                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Jewelry_" + fcountJewelry;
-                            }
+
                             else if (shortcode == ConstantData.DI)
                             {
                                 d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
                                 d.Account4_ExportDate = DateTime.Now;
                                 Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Jewelry_" + fcountJewelry;
                             }
@@ -3688,24 +3601,22 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Watches_" + fcountWatches;
                             }
                             else if (shortcode == ConstantData.EM)
                             {
                                 d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
                                 d.Account2_ExportDate = DateTime.Now;
                                 Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Watches_" + fcountWatches;
                             }
-                            else if (shortcode == ConstantData.DC)
-                            {
-                                d.Account3_Status = 1;
-                                d.Account3_ExportDate = DateTime.Now;
-                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Watches_" + fcountWatches;
-                            }
+
                             else if (shortcode == ConstantData.DI)
                             {
                                 d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
                                 d.Account4_ExportDate = DateTime.Now;
                                 Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Watches_" + fcountWatches;
                             }
@@ -3993,24 +3904,22 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Baby_" + fcountBaby;
                             }
                             else if (shortcode == ConstantData.EM)
                             {
                                 d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
                                 d.Account2_ExportDate = DateTime.Now;
                                 Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Baby_" + fcountBaby;
                             }
-                            else if (shortcode == ConstantData.DC)
-                            {
-                                d.Account3_Status = 1;
-                                d.Account3_ExportDate = DateTime.Now;
-                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Baby_" + fcountBaby;
-                            }
+
                             else if (shortcode == ConstantData.DI)
                             {
                                 d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
                                 d.Account4_ExportDate = DateTime.Now;
                                 Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Baby_" + fcountBaby;
                             }
@@ -4315,31 +4224,27 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Sports_" + fcountSport;
                             }
-                            else
+                            else if (shortcode == ConstantData.EM)
                             {
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Sports_" + fcountSport;
-                                }
-                                else if (shortcode == ConstantData.DC)
-                                {
-                                    d.Account3_Status = 1;
-                                    d.Account3_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Sports_" + fcountSport;
-                                }
-                                else if (shortcode == ConstantData.DI)
-                                {
-                                    d.Account4_Status = 1;
-                                    d.Account4_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Sports_" + fcountSport;
-                                }
-
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Sports_" + fcountSport;
                             }
+
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Sports_" + fcountSport;
+                            }
+
+
                             d.Status = 1;
                             d.Instock = 1;
 
@@ -4624,30 +4529,25 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Toys_" + fcountToys;
                             }
-                            else
+                            else if (shortcode == ConstantData.EM)
                             {
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Toys_" + fcountToys;
-                                }
-                                else if (shortcode == ConstantData.DC)
-                                {
-                                    d.Account3_Status = 1;
-                                    d.Account3_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Toys_" + fcountToys;
-                                }
-                                else if (shortcode == ConstantData.DI)
-                                {
-                                    d.Account4_Status = 1;
-                                    d.Account4_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
-                                }
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Toys_" + fcountToys;
                             }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Toys_" + fcountToys;
+                            }
+
                             d.Instock = 1;
                             d.Status = 1;
 
@@ -4912,24 +4812,21 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Not_Prime_Beauty_" + fcountBeauty;
                             }
                             else if (shortcode == ConstantData.EM)
                             {
                                 d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
                                 d.Account2_ExportDate = DateTime.Now;
                                 Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Not_Prime_Beauty_" + fcountBeauty;
-                            }
-                            else if (shortcode == ConstantData.DC)
-                            {
-                                d.Account3_Status = 1;
-                                d.Account3_ExportDate = DateTime.Now;
-                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Not_Prime_Beauty_" + fcountBeauty;
                             }
                             else if (shortcode == ConstantData.DI)
                             {
                                 d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
                                 d.Account4_ExportDate = DateTime.Now;
                                 Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Not_Prime_Beauty_" + fcountBeauty;
                             }
@@ -5352,33 +5249,26 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Sports_" + fcountSport;
                             }
-                            else
+                            else if (shortcode == ConstantData.EM)
                             {
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Sports_" + fcountSport;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Sports_" + fcountSport;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Sports_" + fcountSport;
-                                        }
-
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Sports_" + fcountSport;
                             }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Sports_" + fcountSport;
+                            }
+
+
                             d.Status = 1;
                             d.Instock = 1;
 
@@ -5710,28 +5600,13 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_Prime_Canada_Sports_" + canadaSport;
 
                                 d.ExportDate = DateTime.Now;
-                                if (shortcode == ConstantData.ED)
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Canada_Sports_" + canadaSport;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Canada_Sports_" + canadaSport;
                                 }
-                                else
-                                {
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Canada_Sports_" + canadaSport;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Canada_Sports_" + canadaSport;
-                                        }
-                                }
+
                                 d.Status = 1;
                                 d.Instock = 1;
 
@@ -6016,32 +5891,25 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Toys_" + fcountToys;
                             }
-                            else
+                            else if (shortcode == ConstantData.EM)
                             {
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Toys_" + fcountToys;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Toys_" + fcountToys;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Toys_" + fcountToys;
-                                        }
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Toys_" + fcountToys;
                             }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Toys_" + fcountToys;
+                            }
+
                             d.Instock = 1;
                             d.Status = 1;
 
@@ -6402,28 +6270,13 @@ namespace OmnimarkAmazonWeb.Controllers
                                 d.FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_Prime_Canada_Toys_" + canadatoys;
 
                                 d.ExportDate = DateTime.Now;
-                                if (shortcode == ConstantData.ED)
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Canada_Toys_" + canadatoys;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Canada_Toys_" + canadatoys;
                                 }
-                                else
-                                {
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Canada_Toys_" + canadatoys;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Canada_Toys_" + canadatoys;
-                                        }
-                                }
+
                                 d.Instock = 1;
                                 d.Status = 1;
 
@@ -6686,30 +6539,24 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Beauty_" + fcountBeauty;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Beauty_" + fcountBeauty;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Beauty_" + fcountBeauty;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Beauty_" + fcountBeauty;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Beauty_" + fcountBeauty;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Beauty_" + fcountBeauty;
+                            }
                             d.Status = 1;
 
 
@@ -7033,26 +6880,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                                 d.ExportDate = DateTime.Now;
                                 d.Instock = 1;
-                                if (shortcode == ConstantData.ED)
+
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Canada_Beauty_" + canadabeauty;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Canada_Beauty_" + canadabeauty;
                                 }
-                                else
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Canada_Beauty_" + canadabeauty;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Canada_Beauty_" + canadabeauty;
-                                        }
                                 d.Status = 1;
 
 
@@ -7098,7 +6932,7 @@ namespace OmnimarkAmazonWeb.Controllers
                 {
                     foreach (var d in data)
                     {
-                       
+
                         double price = 0;
                         double pricecal;
                         double pricemin = 0.00;
@@ -7155,8 +6989,6 @@ namespace OmnimarkAmazonWeb.Controllers
                             {
                                 finalprice = pricecal;
                             }
-
-
 
                             string ItemName;
                             if (d.Title != null)
@@ -7337,30 +7169,24 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Baby_" + fcountBaby;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Baby_" + fcountBaby;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Baby_" + fcountBaby;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Baby_" + fcountBaby;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Baby_" + fcountBaby;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Baby_" + fcountBaby;
+                            }
                             d.Status = 1;
 
 
@@ -7706,26 +7532,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                             d.ExportDate = DateTime.Now;
                             d.Instock = 1;
-                            if (shortcode == ConstantData.ED)
+
+                            if (shortcode == ConstantData.DC)
                             {
-                                d.Account1_Status = 1;
-                                d.Account1_ExportDate = DateTime.Now;
-                                Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Baby_Canada_" + fcountBaby;
+                                d.Account3_Status = 1;
+                                d.Account3_ExportDate = DateTime.Now;
+                                Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Baby_Canada_" + fcountBaby;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Baby_Canada_" + fcountBaby;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Baby_Canada_" + fcountBaby;
-                                    }
                             d.Status = 1;
 
 
@@ -7977,30 +7790,24 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Watches_" + fcountWatches;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Watches_" + fcountWatches;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Watches_" + fcountWatches;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Watches_" + fcountWatches;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Watches_" + fcountWatches;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Watches_" + fcountWatches;
+                            }
                             d.Status = 1;
 
 
@@ -8330,26 +8137,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                                 d.ExportDate = DateTime.Now;
                                 d.Instock = 1;
-                                if (shortcode == ConstantData.ED)
+
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Watches_Canada_" + fcountWatches;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Watches_Canada_" + fcountWatches;
                                 }
-                                else
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Watches_Canada_" + fcountWatches;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Watches_Canada_" + fcountWatches;
-                                        }
                                 d.Status = 1;
 
 
@@ -8620,30 +8414,24 @@ namespace OmnimarkAmazonWeb.Controllers
                             if (shortcode == ConstantData.ED)
                             {
                                 d.Account1_Status = 1;
+                                d.Account1_AmazonActive = 1;
                                 d.Account1_ExportDate = DateTime.Now;
                                 Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Jewelry_" + fcountJewelry;
                             }
-                            else
-                                if (shortcode == ConstantData.EM)
-                                {
-                                    d.Account2_Status = 1;
-                                    d.Account2_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Jewelry_" + fcountJewelry;
-                                }
-                                else
-                                    if (shortcode == ConstantData.DC)
-                                    {
-                                        d.Account3_Status = 1;
-                                        d.Account3_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Jewelry_" + fcountJewelry;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DI)
-                                        {
-                                            d.Account4_Status = 1;
-                                            d.Account4_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Jewelry_" + fcountJewelry;
-                                        }
+                            else if (shortcode == ConstantData.EM)
+                            {
+                                d.Account2_Status = 1;
+                                d.Account2_AmazonActive = 1;
+                                d.Account2_ExportDate = DateTime.Now;
+                                Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Jewelry_" + fcountJewelry;
+                            }
+                            else if (shortcode == ConstantData.DI)
+                            {
+                                d.Account4_Status = 1;
+                                d.Account4_AmazonActive = 1;
+                                d.Account4_ExportDate = DateTime.Now;
+                                Exportpath = d.Account4_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DI_Prime_Jewelry_" + fcountJewelry;
+                            }
                             d.Status = 1;
 
 
@@ -9002,26 +8790,13 @@ namespace OmnimarkAmazonWeb.Controllers
 
                                 d.ExportDate = DateTime.Now;
                                 d.Instock = 1;
-                                if (shortcode == ConstantData.ED)
+
+                                if (shortcode == ConstantData.DC)
                                 {
-                                    d.Account1_Status = 1;
-                                    d.Account1_ExportDate = DateTime.Now;
-                                    Exportpath = d.Account1_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_ED_Prime_Jewelry_Canada_" + fcountJewelry;
+                                    d.Account3_Status = 1;
+                                    d.Account3_ExportDate = DateTime.Now;
+                                    Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Jewelry_Canada_" + fcountJewelry;
                                 }
-                                else
-                                    if (shortcode == ConstantData.EM)
-                                    {
-                                        d.Account2_Status = 1;
-                                        d.Account2_ExportDate = DateTime.Now;
-                                        Exportpath = d.Account2_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_EM_Prime_Jewelry_Canada_" + fcountJewelry;
-                                    }
-                                    else
-                                        if (shortcode == ConstantData.DC)
-                                        {
-                                            d.Account3_Status = 1;
-                                            d.Account3_ExportDate = DateTime.Now;
-                                            Exportpath = d.Account3_FileName = DateTime.Now.ToString("yyyy-MM-dd") + "_DC_Prime_Jewelry_Canada_" + fcountJewelry;
-                                        }
                                 d.Status = 1;
 
 

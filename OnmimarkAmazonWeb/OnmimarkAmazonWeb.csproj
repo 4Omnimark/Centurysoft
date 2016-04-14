@@ -152,7 +152,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="UkListing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\salman\TestinOmnimark_Running\decompile code\UkListing\UkListing\bin\Debug\UkListing.dll</HintPath>
+      <HintPath>..\..\UkListing\UkListing\bin\Debug\UkListing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
