@@ -1159,7 +1159,7 @@
             <PropertyRef Name="Upc" />
           </Key>
           <Property Name="Upc" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Processed" Type="char" MaxLength="15" />
+          <Property Name="AssignedTo" Type="char" MaxLength="15" />
         </EntityType>
         <EntityType Name="VariousAsins">
           <Key>
@@ -2397,7 +2397,7 @@
             <PropertyRef Name="Upc" />
           </Key>
           <Property Name="Upc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Processed" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="AssignedTo" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3591,7 +3591,7 @@
           <EntitySetMapping Name="upc_codes">
             <EntityTypeMapping TypeName="UKOmnimarkModel.upc_codes">
               <MappingFragment StoreEntitySet="upc_codes">
-                <ScalarProperty Name="Processed" ColumnName="Processed" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
                 <ScalarProperty Name="Upc" ColumnName="Upc" />
               </MappingFragment>
             </EntityTypeMapping>

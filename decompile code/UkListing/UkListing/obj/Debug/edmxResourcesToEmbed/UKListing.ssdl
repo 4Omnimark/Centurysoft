@@ -1154,7 +1154,7 @@
       <PropertyRef Name="Upc" />
     </Key>
     <Property Name="Upc" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Processed" Type="char" MaxLength="15" />
+    <Property Name="AssignedTo" Type="char" MaxLength="15" />
   </EntityType>
   <EntityType Name="VariousAsins">
     <Key>

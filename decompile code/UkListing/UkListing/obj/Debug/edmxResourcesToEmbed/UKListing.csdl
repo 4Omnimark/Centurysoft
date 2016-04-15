@@ -1193,6 +1193,6 @@
       <PropertyRef Name="Upc" />
     </Key>
     <Property Name="Upc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Processed" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="AssignedTo" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
   </EntityType>
 </Schema>

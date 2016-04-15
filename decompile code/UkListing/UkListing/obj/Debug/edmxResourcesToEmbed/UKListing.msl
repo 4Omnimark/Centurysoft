@@ -1187,7 +1187,7 @@
     <EntitySetMapping Name="upc_codes">
       <EntityTypeMapping TypeName="UKOmnimarkModel.upc_codes">
         <MappingFragment StoreEntitySet="upc_codes">
-          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
           <ScalarProperty Name="Upc" ColumnName="Upc" />
         </MappingFragment>
       </EntityTypeMapping>
