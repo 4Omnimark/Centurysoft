@@ -8471,7 +8471,7 @@ namespace OmnimarkAmazonWeb.Controllers
                 sb.AppendLine(header1);
                 sb.AppendLine(header2);
                 sb.AppendLine(header3);
-                //IEnumerable<tbl_Beauty> data = ukdb.tbl_Beauty.Where(x => x.UPC != "null" && x.Status == 0 && x.Prime == "1" && x.SalesPrice != "Too low to display" && x.WeightUnits < 501 && x.UK_Prohibited != 1 && x.HeightUnits < 3000 && x.WidthUnits < 3000 && x.LengthUnits < 3000).Take(int.Parse(count.ToString())).ToList();
+               
                 if (data != null)
                 {
                     foreach (var d in data)
