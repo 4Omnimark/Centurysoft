@@ -1007,9 +1007,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -1374,9 +1374,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -1713,9 +1713,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -2071,9 +2071,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -2439,9 +2439,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -2776,9 +2776,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -3109,9 +3109,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -3401,9 +3401,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -3673,9 +3673,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -3975,9 +3975,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -4305,9 +4305,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -4602,9 +4602,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = "NP" + d.ASIN;
+                            uc.AssignedTo = "NP" + d.ASIN;
 
                         }
                         else
@@ -5000,9 +5000,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -5330,9 +5330,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -5666,9 +5666,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -5967,9 +5967,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -6329,9 +6329,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -6607,9 +6607,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -6940,9 +6940,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -7238,9 +7238,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -7590,9 +7590,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -7860,9 +7860,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -8195,9 +8195,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
@@ -8483,9 +8483,9 @@ namespace OmnimarkAmazonWeb.Controllers
                         string UPC;
                         if (d.UPC == null)
                         {
-                            upc_codes uc = ukdb.upc_codes.Where(x => x.Processed == null).FirstOrDefault();
+                            upc_codes uc = ukdb.upc_codes.Where(x => x.AssignedTo == null).FirstOrDefault();
                             UPC = uc.Upc;
-                            uc.Processed = d.ASIN;
+                            uc.AssignedTo = d.ASIN;
 
                         }
                         else
