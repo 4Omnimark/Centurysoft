@@ -52,6 +52,7 @@ namespace UkListing
         public DbSet<VariousAsin> VariousAsins { get; set; }
         public DbSet<tbl_HomeandKitchen> tbl_HomeandKitchen { get; set; }
         public DbSet<tbl_HomeandKitchenNotPrime> tbl_HomeandKitchenNotPrime { get; set; }
+        public DbSet<upc_codes> upc_codes { get; set; }
     
         public virtual int Update_UK_Prohibited(Nullable<int> flag)
         {

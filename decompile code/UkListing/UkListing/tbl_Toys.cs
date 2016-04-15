@@ -77,5 +77,10 @@ namespace UkListing
         public Nullable<System.DateTime> Account4_ExportDate { get; set; }
         public Nullable<int> Account4_ReExport { get; set; }
         public string Account4_FileName { get; set; }
+        public Nullable<byte> Reviewed { get; set; }
+        public byte Account1_AmazonActive { get; set; }
+        public byte Account2_AmazonActive { get; set; }
+        public byte Account3_AmazonActive { get; set; }
+        public byte Account4_AmazonActive { get; set; }
     }
 }

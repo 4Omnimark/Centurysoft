@@ -23,3 +23,9 @@ D:\salman\TestinOmnimark_Running\decompile code\UkListing\UkListing\bin\Debug\Uk
 D:\salman\TestinOmnimark_Running\decompile code\UkListing\UkListing\obj\Debug\UkListing.dll
 D:\salman\TestinOmnimark_Running\decompile code\UkListing\UkListing\obj\Debug\UkListing.pdb
 D:\salman\TestinOmnimark_Running\decompile code\UkListing\UkListing\obj\Debug\UkListing.csprojResolveAssemblyReference.cache
+D:\OmnimarkGit\decompile code\UkListing\UkListing\bin\Debug\UkListing.dll.config
+D:\OmnimarkGit\decompile code\UkListing\UkListing\bin\Debug\UkListing.dll
+D:\OmnimarkGit\decompile code\UkListing\UkListing\bin\Debug\UkListing.pdb
+D:\OmnimarkGit\decompile code\UkListing\UkListing\obj\Debug\UkListing.csprojResolveAssemblyReference.cache
+D:\OmnimarkGit\decompile code\UkListing\UkListing\obj\Debug\UkListing.dll
+D:\OmnimarkGit\decompile code\UkListing\UkListing\obj\Debug\UkListing.pdb

@@ -76,5 +76,10 @@ namespace UkListing
         public string ReExportFileName { get; set; }
         public short CanadaProhibited { get; set; }
         public short ForceExport { get; set; }
+        public Nullable<byte> Reviewed { get; set; }
+        public byte Account4_AmazonActive { get; set; }
+        public byte Account3_AmazonActive { get; set; }
+        public byte Account2_AmazonActive { get; set; }
+        public byte Account1_AmazonActive { get; set; }
     }
 }

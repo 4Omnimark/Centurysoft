@@ -15,6 +15,11 @@
     <EntitySetMapping Name="tbl_Sports">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Sports">
         <MappingFragment StoreEntitySet="tbl_Sports">
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
           <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
@@ -83,6 +88,11 @@
     <EntitySetMapping Name="tbl_SportsNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_SportsNotPrime">
         <MappingFragment StoreEntitySet="tbl_SportsNotPrime">
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
           <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
           <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
@@ -153,6 +163,11 @@
     <EntitySetMapping Name="tbl_Toys">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Toys">
         <MappingFragment StoreEntitySet="tbl_Toys">
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
           <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
@@ -222,6 +237,11 @@
     <EntitySetMapping Name="tbl_ToysNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_ToysNotPrime">
         <MappingFragment StoreEntitySet="tbl_ToysNotPrime">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
           <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
           <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
@@ -292,6 +312,11 @@
     <EntitySetMapping Name="tbl_Beauty">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Beauty">
         <MappingFragment StoreEntitySet="tbl_Beauty">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
           <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
@@ -360,6 +385,10 @@
     <EntitySetMapping Name="tbl_BeautyNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_BeautyNotPrime">
         <MappingFragment StoreEntitySet="tbl_BeautyNotPrime">
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="ReExportStatus" ColumnName="ReExportStatus" />
           <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
           <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
@@ -438,6 +467,11 @@
     <EntitySetMapping Name="tbl_Baby">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Baby">
         <MappingFragment StoreEntitySet="tbl_Baby">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
           <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
@@ -506,6 +540,11 @@
     <EntitySetMapping Name="tbl_BabyNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_BabyNotPrime">
         <MappingFragment StoreEntitySet="tbl_BabyNotPrime">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
           <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
           <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
@@ -574,6 +613,11 @@
     <EntitySetMapping Name="tbl_Jewellery">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Jewellery">
         <MappingFragment StoreEntitySet="tbl_Jewellery">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
           <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
@@ -642,6 +686,11 @@
     <EntitySetMapping Name="tbl_JewelleryNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_JewelleryNotPrime">
         <MappingFragment StoreEntitySet="tbl_JewelleryNotPrime">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
           <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
           <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
@@ -710,6 +759,11 @@
     <EntitySetMapping Name="tbl_Watches">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_Watches">
         <MappingFragment StoreEntitySet="tbl_Watches">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
           <ScalarProperty Name="Account4_ExportDate" ColumnName="Account4_ExportDate" />
@@ -778,6 +832,11 @@
     <EntitySetMapping Name="tbl_WatchesNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_WatchesNotPrime">
         <MappingFragment StoreEntitySet="tbl_WatchesNotPrime">
+          <ScalarProperty Name="Account1_AmazonActive" ColumnName="Account1_AmazonActive" />
+          <ScalarProperty Name="Account2_AmazonActive" ColumnName="Account2_AmazonActive" />
+          <ScalarProperty Name="Account3_AmazonActive" ColumnName="Account3_AmazonActive" />
+          <ScalarProperty Name="Account4_AmazonActive" ColumnName="Account4_AmazonActive" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="ForceExport" ColumnName="ForceExport" />
           <ScalarProperty Name="CanadaProhibited" ColumnName="CanadaProhibited" />
           <ScalarProperty Name="ReExportFileName" ColumnName="ReExportFileName" />
@@ -991,6 +1050,7 @@
     <EntitySetMapping Name="tbl_HomeandKitchen">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_HomeandKitchen">
         <MappingFragment StoreEntitySet="tbl_HomeandKitchen">
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="FakeUPC" ColumnName="FakeUPC" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
@@ -1059,6 +1119,7 @@
     <EntitySetMapping Name="tbl_HomeandKitchenNotPrime">
       <EntityTypeMapping TypeName="UKOmnimarkModel.tbl_HomeandKitchenNotPrime">
         <MappingFragment StoreEntitySet="tbl_HomeandKitchenNotPrime">
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
           <ScalarProperty Name="FakeUPC" ColumnName="FakeUPC" />
           <ScalarProperty Name="Account4_FileName" ColumnName="Account4_FileName" />
           <ScalarProperty Name="Account4_ReExport" ColumnName="Account4_ReExport" />
@@ -1120,6 +1181,14 @@
           <ScalarProperty Name="ASIN" ColumnName="ASIN" />
           <ScalarProperty Name="UPC" ColumnName="UPC" />
           <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="upc_codes">
+      <EntityTypeMapping TypeName="UKOmnimarkModel.upc_codes">
+        <MappingFragment StoreEntitySet="upc_codes">
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Upc" ColumnName="Upc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

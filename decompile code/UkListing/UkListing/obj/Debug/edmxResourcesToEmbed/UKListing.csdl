@@ -28,6 +28,7 @@
     <EntitySet Name="VariousAsins" EntityType="UKOmnimarkModel.VariousAsin" />
     <EntitySet Name="tbl_HomeandKitchen" EntityType="UKOmnimarkModel.tbl_HomeandKitchen" />
     <EntitySet Name="tbl_HomeandKitchenNotPrime" EntityType="UKOmnimarkModel.tbl_HomeandKitchenNotPrime" />
+    <EntitySet Name="upc_codes" EntityType="UKOmnimarkModel.upc_codes" />
   </EntityContainer>
   <EntityType Name="tbl_Category">
     <Key>
@@ -105,6 +106,11 @@
     <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_SportsNotPrime">
     <Key>
@@ -174,6 +180,11 @@
     <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
     <Property Name="ForceExport" Type="Int16" Nullable="false" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Toys">
     <Key>
@@ -242,6 +253,11 @@
     <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_ToysNotPrime">
     <Key>
@@ -311,6 +327,11 @@
     <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
     <Property Name="ReExportStatus" Type="Int16" Nullable="false" />
     <Property Name="ForceExport" Type="Int16" Nullable="false" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Beauty">
     <Key>
@@ -378,6 +399,11 @@
     <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_BeautyNotPrime">
     <Key>
@@ -445,6 +471,10 @@
     <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
     <Property Name="ForceExport" Type="Int32" Nullable="false" />
     <Property Name="ReExportStatus" Type="Int32" Nullable="false" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Prohibited_Keywords">
     <Key>
@@ -520,6 +550,11 @@
     <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_BabyNotPrime">
     <Key>
@@ -587,6 +622,11 @@
     <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
     <Property Name="ForceExport" Type="Int32" Nullable="false" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Jewellery">
     <Key>
@@ -654,6 +694,11 @@
     <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_JewelleryNotPrime">
     <Key>
@@ -721,6 +766,11 @@
     <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
     <Property Name="ForceExport" Type="Int16" Nullable="false" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Watches">
     <Key>
@@ -788,6 +838,11 @@
     <Property Name="Account4_ExportDate" Type="DateTime" Precision="3" />
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_WatchesNotPrime">
     <Key>
@@ -857,6 +912,11 @@
     <Property Name="ReExportFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CanadaProhibited" Type="Int16" Nullable="false" />
     <Property Name="ForceExport" Type="Int16" Nullable="false" />
+    <Property Name="Reviewed" Type="Byte" />
+    <Property Name="Account4_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account3_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account2_AmazonActive" Type="Byte" Nullable="false" />
+    <Property Name="Account1_AmazonActive" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="SellingPlace">
     <Key>
@@ -1059,6 +1119,7 @@
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FakeUPC" Type="Int16" />
+    <Property Name="Reviewed" Type="Byte" />
   </EntityType>
   <EntityType Name="tbl_HomeandKitchenNotPrime">
     <Key>
@@ -1125,5 +1186,13 @@
     <Property Name="Account4_ReExport" Type="Int32" />
     <Property Name="Account4_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FakeUPC" Type="Int16" />
+    <Property Name="Reviewed" Type="Byte" />
+  </EntityType>
+  <EntityType Name="upc_codes">
+    <Key>
+      <PropertyRef Name="Upc" />
+    </Key>
+    <Property Name="Upc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Processed" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
   </EntityType>
 </Schema>

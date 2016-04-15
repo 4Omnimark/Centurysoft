@@ -75,5 +75,6 @@ namespace UkListing
         public Nullable<int> Account4_ReExport { get; set; }
         public string Account4_FileName { get; set; }
         public Nullable<short> FakeUPC { get; set; }
+        public Nullable<byte> Reviewed { get; set; }
     }
 }

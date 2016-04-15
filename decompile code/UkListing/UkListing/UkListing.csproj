@@ -134,6 +134,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKListing.edmx</DependentUpon>
     </Compile>
+    <Compile Include="upc_codes.cs">
+      <DependentUpon>UKListing.tt</DependentUpon>
+    </Compile>
     <Compile Include="VariousAsin.cs">
       <DependentUpon>UKListing.tt</DependentUpon>
     </Compile>
