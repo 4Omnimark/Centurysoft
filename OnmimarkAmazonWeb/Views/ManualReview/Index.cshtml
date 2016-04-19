@@ -1,0 +1,94 @@
+﻿@model List<Dictionary<String, String>>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/Scripts.js">
+
+</script>
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+@*<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">*@
+<h2>Choose product category</h2>
+
+<div>
+    @Html.DropDownList("categories", ViewData["categories"] as SelectList, new { @class = "category_box" })
+</div>
+
+<div class="col-md-8 col-md-offset-2">
+    <table class="table" style="width: 100%;">
+        <thead>
+        <th>Image</th>
+        <th>ASIN</th>
+        <th>Title</th>
+        <th>Actions</th>
+        <th></th>
+        </thead>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@product["ImageUrl"]" width="96px" height="96px" />
+                </td>
+                <td>
+                    <a href="http://www.amazon.com/dp/@product["ASIN"]" target="_blank">@product["ASIN"]</a>
+                </td>
+                <td>
+                    @product["Title"]
+                </td>
+
+                <td>
+                    <button onclick="apply('@ViewData["table"]', '@product["ASIN"]', 1)" class="button btn-success" style="margin: 8px 3px;padding: 10px 15px;background-color: green; color: white;">
+                        Approve
+                    </button>
+                </td>
+
+                <td>
+                    <button onclick="apply('@ViewData["table"]', '@product["ASIN"]', 0)" class="button btn-danger" style="margin: 8px 3px;padding: 10px 15px;background-color: red; color: white;">Prohibit</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="pagination">
+    @if (int.Parse(ViewData["page"].ToString()) > 1)
+    {
+        <a href="/ManualReview/
+           s?page=@ViewData["prevPage"] &table=@ViewData["table"]">&lt;</a>
+    }
+    &nbsp;
+    Page &nbsp;
+    <input id="pagenum" value="@(ViewData["page"])" type="text" style="width: 50px;" />
+    &nbsp; of @ViewData["pageCnt"] &nbsp;
+    @if (int.Parse(ViewData["page"].ToString()) < int.Parse(ViewData["pageCnt"].ToString()))
+    {
+        <a href="/ManualReview/tables?page=@ViewData["nextPage"]&table=@ViewData["table"]">&gt;</a>
+    }
+</div>
+
+@*@section scripts{
+        <script>
+        totalpage = @viewdata["pagecnt"]
+        curpage = @viewdata["page"]
+        </script>
+    }*@
+
+<style>
+    .button btn-success {
+        margin: 8px 3px;
+        width: 80%;
+        height: 80%;
+        background-color: green;
+        color: white;
+    }
+
+    .button btn-danger {
+        margin: 8px 3px;
+        width: 80%;
+        height: 80%;
+        background-color: red;
+        color: white;
+    }
+</style>
