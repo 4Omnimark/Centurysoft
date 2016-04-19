@@ -8,6 +8,7 @@ using UkListing;
 using PagedList;
 namespace OmnimarkAmazonWeb.Controllers
 {
+    [Authorize]
     public class ManualReviewController : Controller
     {
         //

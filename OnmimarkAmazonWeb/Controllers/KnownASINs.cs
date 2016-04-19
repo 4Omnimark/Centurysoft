@@ -47,7 +47,7 @@ namespace OmnimarkAmazonWeb.Controllers
             {
                 NewRec.TimeStamp = DateTime.Now;
                 
-                db.KnownASINs.AddObject(NewRec);
+                db.KnownASINs.Add(NewRec);
 
                 db.SaveChanges();
 
@@ -84,7 +84,7 @@ namespace OmnimarkAmazonWeb.Controllers
         [HttpPost]
         public ActionResult Delete(string ASIN, object x)
         {
-            db.KnownASINs.DeleteObject(db.KnownASINs.Single(ka => ka.ASIN == ASIN));
+            db.KnownASINs.Remove(db.KnownASINs.Single(ka => ka.ASIN == ASIN));
             db.SaveChanges();
 
             return RedirectToAction("Index");

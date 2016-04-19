@@ -2,15 +2,17 @@
     ViewBag.Title = "Menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/Scripts.js">
 
+</script>
 
 <h2>Choose product category</h2>
 <div>
     @Html.DropDownList("categories", ViewData["categories"] as SelectList, new { @class = "category_box" })
 </div>
 
-@section Scripts{
+@*@section Scripts{
 
 
 
-}
+}*@
