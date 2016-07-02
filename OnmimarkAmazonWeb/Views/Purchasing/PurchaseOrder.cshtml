@@ -26,29 +26,48 @@
             foreach (var pol in ViewBag.PurchaseOrderLines)
             {
                 <text>
-                $("#ProductSearch@(x)").autocomplete({
-                    source: "/AmazonInventory/ProductLookupWithCost",
-                    select: function (event, ui) {
-                        $("#ProductSearch@(x)").val(ui.item.label);
+        $("#ProductSearch@(x)").autocomplete({
+            source: "/AmazonInventory/ProductLookupWithCost",
+            select: function (event, ui) {
+                $("#ProductSearch@(x)").val(ui.item.label);
 
-                        var a = ui.item.value.split(",");
+                var a = ui.item.value.split(",");
 
-                        $("#ProductID@(x)").val(a[0]);
-                        $("#LineItemCost@(x)").val(a[1]);
-                        $("#LineItemActualCost@(x)").val(a[2]);
+                $("#ProductID@(x)").val(a[0]);
+                $("#LineItemCost@(x)").val(a[1]);
+                $("#LineItemActualCost@(x)").val(a[2]);
 
-                        return false;
-                    },
-                    change: function (event, ui) {
-                        if (ui.item == null) {
-                            $("#ProductSearch@(x)").val('');
-                            $("#ProductID@(x)").val('');
-                            $("#LineItemQty@(x)").val('');
-                            $("#LineItemCost@(x)").val('');
-                            $("#LineItemActualCost@(x)").val('');
-                        }
-                    }
+                return false;
+            },
+            change: function (event, ui) {
+                if (ui.item == null) {
+                    $("#ProductSearch@(x)").val('');
+                    $("#ProductID@(x)").val('');
+                    $("#LineItemQty@(x)").val('');
+                    $("#LineItemCost@(x)").val('');
+                    $("#LineItemActualCost@(x)").val('');
+                }
+            }
+
+        });
+                    $('input.add-lines').click(function () {
+                       
+                            
+                            for (var i = 0; i < 5; i++) {
+
+                                var newRow = jQuery("<tr><td text-align:right;><input name='LineItemQty@(x)' id='LineItemQty@(x)' value='' style='width:50px; text-align:right;' /> </td >" +
+                                        "<td text-align:right; ><input name='ProductSearch@(x)' id='ProductSearch@(x)' value='@(IsPost ? Request.Form["ProductSearch" + x.ToString()] : (pol.Product == null ? "" : pol.Product.Name))' style='width:500px;' /></td>" +
+                                        "<td text-align:right; ><input class='Cost' name='LineItemCost@(x)' id='LineItemCost@(x)' value='@(IsPost ? Request.Form["LineItemCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.Cost).ToString("######0.00")))' style='width:50px; text-align:right;' /></td>" +
+                                       "<td  text-align:right; > <input name='LineItemActualCost@(x)' id='LineItemActualCost@(x)' value='@(IsPost ? Request.Form["LineItemActualCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.ActualCost).ToString("######0.00")))' style='width:50px; text-align:right;' /></td>" +
+                                      "<td text-align:right; > <input name='LineItemReceiptNumber@(x)' id='LineItemReceiptNumber@(x)' value='@(IsPost ? Request.Form["LineItemReceiptNumber" + x.ToString()] : (pol.ReceivedProductID == null ? "" : pol.ReceivedProduct.Number))' style='width:150px; text-align:right;' /></td></tr>");
+                                jQuery('table.authors-list').append(newRow);
+
+                            }
+                      
+                   
+
                 });
+     
                 </text>
 
                 x++;
@@ -63,6 +82,7 @@
         });
 
     });
+
 
     function VendorSelected()
     {
@@ -111,11 +131,12 @@
                 Comfirmation Status
             </div>
             <div class="editor-field">
-                @Html.DropDownList("CStatus", (SelectList)ViewBag.CStatus)
+                @Html.DropDownList("CStatus", (SelectList)ViewBag.CStatuses)
                 @Html.ValidationMessageFor(model => model.CStatus)
             </div>
 
         </div>
+
         @if (ViewBag.HideButton == null)
         {
         <p style="float:left; padding-left:60px; margin-top:32px;">
@@ -171,51 +192,51 @@
 
         <hr style="margin-top:20px; margin-bottom:20px; color:Black;" />
 
-        <table>
-        <tr>
-            <th>Qty</th>
-            <th>Product</th>
-            <th>Cost</th>
-            <th>Actual Cost</th>
-            <th>Receipt Number</th>
-        </tr>
-        @{
+        <table class="authors-list">
+            <tr>
+                <th>Qty</th>
+                <th>Product</th>
+                <th>Cost</th>
+                <th>Actual Cost</th>
+                <th>Receipt Number</th>
+            </tr>
+            @{
         x = 0;
 
         foreach (var pol in ViewBag.PurchaseOrderLines)
         {
             if (ViewBag.ActionType == Startbutton.Web._BaseController.ActionType.Edit)
             {
-                    <input type="hidden" name="LineItemID@(x)" id="LineItemID@(x)" value="@(IsPost ? Request.Form["LineItemID" + x.ToString()] : pol.ID)" />
+                <input type="hidden" name="LineItemID@(x)" id="LineItemID@(x)" value="@(IsPost ? Request.Form["LineItemID" + x.ToString()] : pol.ID)" />
             }
-            
-                <tr>
-                    <td>    
-                        <input name='LineItemQty@(x)' id='LineItemQty@(x)' value='@(IsPost ? Request.Form["LineItemQty" + x.ToString()] : (pol.Qty == 0 ? "" : ((decimal)pol.Qty).ToString("#####0.####")))' style='width:50px; text-align:right;' />
-                        @Html.ValidationMessage("LineItemQty" + x.ToString())
-                    </td>
-                    <td>
-                        @Html.ValidationMessage("ProductSearch" + x.ToString())
-                        <input name='ProductSearch@(x)' id='ProductSearch@(x)' value='@(IsPost ? Request.Form["ProductSearch" + x.ToString()] : (pol.Product == null ? "" : pol.Product.Name))' style='width:500px;' />
-                        <input type='hidden' name='ProductID@(x)' id='ProductID@(x)' value='@(IsPost ? Request.Form["ProductID" + x.ToString()] : (pol.ProductID == null ? "" : pol.ProductID))' />
-                    </td>
-                    <td>
-                        <input class='Cost' name='LineItemCost@(x)' id='LineItemCost@(x)' value='@(IsPost ? Request.Form["LineItemCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.Cost).ToString("######0.00")))' style='width:50px; text-align:right;' />
-                        @Html.ValidationMessage("LineItemCost" + x.ToString())
-                    </td>
-                    <td>
-                        <input name='LineItemActualCost@(x)' id='LineItemActualCost@(x)' value='@(IsPost ? Request.Form["LineItemActualCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.ActualCost).ToString("######0.00")))' style='width:50px; text-align:right;' />
-                        @Html.ValidationMessage("LineItemActualCost" + x.ToString())
-                    </td>
-                    <td>
-                        <input name='LineItemReceiptNumber@(x)' id='LineItemReceiptNumber@(x)' value='@(IsPost ? Request.Form["LineItemReceiptNumber" + x.ToString()] : (pol.ReceivedProductID == null ? "" : pol.ReceivedProduct.Number))' style='width:150px; text-align:right;' />
-                        @Html.ValidationMessage("LineItemReceiptNumber" + x.ToString())
-                    </td>
-                </tr>
-            
+
+            <tr>
+                <td>
+                    <input name='LineItemQty@(x)' id='LineItemQty@(x)' value='@(IsPost ? Request.Form["LineItemQty" + x.ToString()] : (pol.Qty == 0 ? "" : ((decimal)pol.Qty).ToString("#####0.####")))' style='width:50px; text-align:right;' />
+                    @Html.ValidationMessage("LineItemQty" + x.ToString())
+                </td>
+                <td>
+                    @Html.ValidationMessage("ProductSearch" + x.ToString())
+                    <input name='ProductSearch@(x)' id='ProductSearch@(x)' value='@(IsPost ? Request.Form["ProductSearch" + x.ToString()] : (pol.Product == null ? "" : pol.Product.Name))' style='width:500px;' />
+                    <input type='hidden' name='ProductID@(x)' id='ProductID@(x)' value='@(IsPost ? Request.Form["ProductID" + x.ToString()] : (pol.ProductID == null ? "" : pol.ProductID))' />
+                </td>
+                <td>
+                    <input class='Cost' name='LineItemCost@(x)' id='LineItemCost@(x)' value='@(IsPost ? Request.Form["LineItemCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.Cost).ToString("######0.00")))' style='width:50px; text-align:right;' />
+                    @Html.ValidationMessage("LineItemCost" + x.ToString())
+                </td>
+                <td>
+                    <input name='LineItemActualCost@(x)' id='LineItemActualCost@(x)' value='@(IsPost ? Request.Form["LineItemActualCost" + x.ToString()] : (pol.Cost == 0 ? "" : ((decimal)pol.ActualCost).ToString("######0.00")))' style='width:50px; text-align:right;' />
+                    @Html.ValidationMessage("LineItemActualCost" + x.ToString())
+                </td>
+                <td>
+                    <input name='LineItemReceiptNumber@(x)' id='LineItemReceiptNumber@(x)' value='@(IsPost ? Request.Form["LineItemReceiptNumber" + x.ToString()] : (pol.ReceivedProductID == null ? "" : pol.ReceivedProduct.Number))' style='width:150px; text-align:right;' />
+                    @Html.ValidationMessage("LineItemReceiptNumber" + x.ToString())
+                </td>
+            </tr>
+
             x++;
         }
-        }
+            }
         </table>
 
     </fieldset>
@@ -223,4 +244,5 @@
 
 <div>
     @Html.ActionLink("Back to List", "PurchaseOrders")
+    
 </div>

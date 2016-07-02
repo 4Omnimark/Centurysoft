@@ -21,6 +21,7 @@ namespace OmnimarkAmazon.BLL
 
         public static bool Send(string ViewPath, object Model, ControllerContext Context, string Subject, string Email, User User, bool SendAsync, ref Exception Ex)
         {
+            SmtpClient SmtpServer = new SmtpClient("dedrelay.secureserver.net");
 
             bool rtn = false;
 
@@ -29,11 +30,11 @@ namespace OmnimarkAmazon.BLL
             MailMessage msg = null;
 
             if (User != null)
-                msg = new MailMessage(new MailAddress("automailer@amazon.revupcommerce.com", "RevUpCommerce Automailer"), new MailAddress(Email, User.NameFirst + " " + User.NameLast));
+                msg = new MailMessage(new MailAddress("systememail@revupcommerce.com", "RevUpCommerce Automailer"), new MailAddress(Email, User.NameFirst + " " + User.NameLast));
             else
             {
                 msg = new MailMessage();
-                msg.From = new MailAddress("automailer@amazon.revupcommerce.com", "RevUpCommerce Automailer");
+                msg.From = new MailAddress("systememail@revupcommerce.com", "RevUpCommerce Automailer");
 
                 string[] a = Email.Split(';');
 
@@ -50,8 +51,11 @@ namespace OmnimarkAmazon.BLL
 
             if (Ex == null)
                 Ex = new Exception();
-
-            rtn = Startbutton.Library.SendMail(msg, ref Ex, SendAsync);
+            //SmtpServer.Port = 25;
+            //SmtpServer.Credentials = new System.Net.NetworkCredential("systememail@revupcommerce.com", "D8e#37!");
+            //SmtpServer.EnableSsl = false;
+            //SmtpServer.Send(msg);
+           rtn = Startbutton.Library.SendMail(msg, ref Ex, SendAsync);
 
             return rtn;
 

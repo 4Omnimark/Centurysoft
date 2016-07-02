@@ -134,7 +134,8 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\user\Desktop\ManualReview\ManualReview\bin\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -205,16 +206,20 @@
     <Compile Include="Models\AllowStores.cs" />
     <Compile Include="Models\AutomaticPriceChangeWeb.cs" />
     <Compile Include="Models\ConstantData.cs" />
+    <Compile Include="Models\Converter.cs" />
     <Compile Include="Models\DeductFBAShipment.cs" />
     <Compile Include="Models\DeductInward.cs" />
     <Compile Include="Models\ExportByAccount.cs" />
     <Compile Include="Models\ExportStatusModel.cs" />
     <Compile Include="Models\FeedSubmissionScheduleRecWeb.cs" />
+    <Compile Include="Models\LogEvent.cs" />
     <Compile Include="Models\MessageFields\PriceWeb.cs" />
+    <Compile Include="Models\MSSqlMng.cs" />
     <Compile Include="Models\OnmimarkAmazonWebContext.cs" />
     <Compile Include="Models\ServiceStatus.cs" />
     <Compile Include="Models\UKListingModel.cs" />
     <Compile Include="Models\UkProhibitedKeywords.cs" />
+    <Compile Include="Models\UKProhibition.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\GetSettlementData.aspx.cs">
