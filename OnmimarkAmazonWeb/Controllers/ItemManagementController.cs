@@ -34,7 +34,7 @@ namespace OmnimarkAmazonWeb.Controllers
     {
         UKOmnimarkEntities ukdb = new UKOmnimarkEntities();
 
-        string Quantity = ConfigurationManager.AppSettings["ProductQty"];
+        string Quantity = ConfigurationManager.AppSettings["ProductQty"]; 
         string FulfillmentLatency = ConfigurationManager.AppSettings["FulfillmentLatency"];
         public static int fcountSport = 1, fcountToys = 1, fcountBeauty = 1, fcountAllExport = 1, fcountBaby = 1, fcountWatches = 1, fcountJewelry = 1, canadaSport = 1, canadatoys = 1, canadabeauty = 1, fcountHomeandKitchen = 1;
         public ActionResult Index()
